@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  SITE_URL: https://pengcong2020520.github.io/chongliang-ai-site
+
 concurrency:
   group: "pages"
   cancel-in-progress: false

@@ -101,27 +101,34 @@ http://localhost:4173
 
 ## GitHub Pages 部署
 
+当前仓库已经配置好 GitHub Actions。以后每次 push 到 `main` 分支，会自动部署到：
+
+```text
+https://pengcong2020520.github.io/chongliang-ai-site/
+```
+
+如果你换仓库重新部署：
+
 1. 在 GitHub 新建仓库，例如 `chongliang-ai-site`。
 2. 把本目录所有文件上传到仓库根目录。
-3. 进入仓库 `Settings → Pages`。
-4. Source 选择 `GitHub Actions`。
-5. 在 GitHub 网页里新建 `.github/workflows/deploy.yml`，内容复制根目录的 `deploy-workflow-template.yml`。
-6. 以后每次 push 到 `main` 分支，会自动部署。
-
-如果你的 GitHub token 有 `workflow` 权限，也可以直接把 `deploy-workflow-template.yml` 移到 `.github/workflows/deploy.yml` 后提交。
+3. 保留 `.github/workflows/deploy.yml`。
+4. 进入仓库 `Settings → Pages`。
+5. Source 选择 `GitHub Actions`。
+6. 把 `.github/workflows/deploy.yml` 里的 `SITE_URL` 改成新仓库的 Pages 地址或正式域名。
 
 ## 绑定域名
 
 等你域名确定后，需要做三件事：
 
 1. 在 `content/site.json` 里把 `siteUrl` 改成正式域名。
-2. 在仓库根目录增加 `CNAME` 文件，内容就是你的域名，例如：
+2. 在 `.github/workflows/deploy.yml` 里把 `SITE_URL` 改成正式域名。
+3. 在仓库根目录增加 `CNAME` 文件，内容就是你的域名，例如：
 
 ```text
 chongliang.ai
 ```
 
-3. 运行或等待 GitHub Actions 自动重新部署。
+4. 运行或等待 GitHub Actions 自动重新部署。
 
 ## 你不用手改的东西
 

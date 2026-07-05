@@ -61,14 +61,19 @@ npm run build
 
 ## 部署
 
-GitHub Pages 部署时，把本目录内容作为仓库根目录发布即可。
+当前仓库已经配置好 GitHub Actions，push 到 `main` 后会自动生成并发布 `_site`。
 
 仓库设置：
 
 1. 进入 GitHub 仓库 `Settings → Pages`。
 2. Source 选择 `GitHub Actions`。
-3. 在 GitHub 网页里新建 `.github/workflows/deploy.yml`，内容复制根目录的 `deploy-workflow-template.yml`。
-4. push 到 `main` 分支后，GitHub Actions 会自动生成并发布 `_site`。
+3. push 到 `main` 分支后，GitHub Actions 会自动生成并发布 `_site`。
+
+当前临时线上地址：
+
+```text
+https://pengcong2020520.github.io/chongliang-ai-site/
+```
 
 本地打包检查：
 
@@ -76,7 +81,12 @@ GitHub Pages 部署时，把本目录内容作为仓库根目录发布即可。
 npm run build:deploy
 ```
 
-如果绑定正式域名，请在 `content/site.json` 中把 `siteUrl` 改成最终域名，然后重新运行：
+如果绑定正式域名，请同步修改两处：
+
+1. 在 `content/site.json` 中把 `siteUrl` 改成最终域名。
+2. 在 `.github/workflows/deploy.yml` 中把 `SITE_URL` 改成最终域名。
+
+然后重新运行或等待 GitHub Actions 自动运行：
 
 ```bash
 npm run build
