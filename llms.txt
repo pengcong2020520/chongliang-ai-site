@@ -15,11 +15,13 @@
 ## Article Pages
 
 - AI 从业者如何搭建自己的公开知识库: https://chongliang.ai/articles/ai-public-knowledge-system/
+- AI Agent 的反馈循环：Loop Engineering 入门: https://chongliang.ai/articles/loop-engineering-ai-agent-feedback-loops/
 
 ## Concept Pages
 
 - DSL: https://chongliang.ai/knowledge/dsl/
 - Harness Engineer: https://chongliang.ai/knowledge/harness-engineer/
+- Loop Engineering: https://chongliang.ai/knowledge/loop-engineering/
 - Prompt Engineer: https://chongliang.ai/knowledge/prompt-engineer/
 - GEO: https://chongliang.ai/knowledge/geo/
 - LLM Wiki: https://chongliang.ai/knowledge/llm-wiki/

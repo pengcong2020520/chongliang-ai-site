@@ -22,6 +22,28 @@
       "text": "核心结论 个人网站不应该只是作品集。对 AI 从业者来说，更重要的是把文章、项目和原子概念组织成一个可被搜索引擎理解、可被 AI 引用、也可被人持续追踪的知识系统。 为什么个人网站不应该只是作品集 作品集解决的是展示问题，但知识库解决的是长期可信度问题。访客不仅要知道你做过什么，还要能沿着概念、文章和项目找到你的思考脉络。 如果一个网站只有文章列表，读者很难知道哪些内容是你的长期判断，哪些只是一次性的表达。把知识点拆出来，能让每篇文章都沉淀成更稳定的概念资产。 文章、概念和项目的关系 文章负责叙事，概念负责沉淀，项目负责证明。 文章可以解释一个问题的背景和推理过程；概念页负责给出清晰定义、适用边界和相关概念；项目页则证明这些判断是否真正进入实践。 这三者互相引用之后，网站就不再只是内容仓库，而是一个可导航的个人知识图谱。 GEO 优化的关键不是堆关键词 GEO 的关键不是让页面看起来像 AI 写的，而是让页面更容易被 AI 正确引用。 一个好的概念页应该有一句话定义、适用场景、常见误区、关联文章和可引用摘要。这样，当生成式搜索回答问题时，它更容易识别页面里的稳定知识单元。 后续如何维护 短期可以使用 Markdown 和静态生成器维护。你只需要把文章放进 content/articles/ ，把概念放进 content/concepts/ ，然后运行生成脚本。 长期当内容规模变大，再考虑接入数据库、向量索引和个人服务器。这个阶段的重点是先把内容结构设计对，而不是一开始就追求复杂系统。"
     },
     {
+      "type": "article",
+      "title": "AI Agent 的反馈循环：Loop Engineering 入门",
+      "url": "/articles/loop-engineering-ai-agent-feedback-loops/",
+      "description": "Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。",
+      "date": "2026-07-05",
+      "tags": [
+        "AI 工程化",
+        "Agent",
+        "反馈循环",
+        "工作流"
+      ],
+      "concepts": [
+        "loop-engineering",
+        "prompt-engineer",
+        "harness-engineer",
+        "dsl",
+        "geo",
+        "llm-wiki"
+      ],
+      "text": "核心结论 Loop Engineering 的重点不是让模型“回答得更好”，而是让系统“把工作推进到可验证结果”。它将人的手动提示转化为一套可运行、可检查、可恢复、可停止的工作流。一个好的 loop 应满足：目标清晰、上下文可控、行动可逆、验证可靠、停止明确、角色分离、成本可控、权限最小、状态持久。 背景问题 在传统 Prompt Engineering 中，人负责每一轮：写提示词 → 看输出 → 补上下文 → 粘贴错误 → 再提示。这种方式在面对复杂、多步骤任务时效率低下，且难以复用和规模化。随着 AI Agent 的兴起，需要一种系统化的方法来设计 Agent 的行为循环，使其能在最少人工干预下自主推进任务。 方法或框架 一个基础 Loop 的结构 1. 目标：要完成什么，成功标准是什么。 2. 上下文：当前任务需要哪些代码、文档、历史状态、约束和外部信号。 3. 行动：Agent 可以编辑文件、调用工具、搜索资料、运行测试、打开 PR。 4. 观察：系统读取测试结果、构建日志、diff、链接检查、review comment、用户反馈。 5. 调整：根据观察结果修改计划或下一步动作。 6. 验证：用测试、lint、人工审核、评测集或业务指标判断是否达到标准。 7. 停止：达到成功标准、撞到明确阻塞、超过成本预算、触发风险规则时停止。 8. 记忆：把状态写到文件、issue、Linear、PR、数据库或其他持久层，避免每次从零开始。 Addy Osmani 的五个构件 Automations ：按计划或事件触发发现、分诊和执行。 Worktrees ：隔离并行任务，避免多个 agent 互相踩代码。 Skills ：把项目知识写成可调用能力。 Plugins / Connectors ：接入已有工具和数据源。 Sub agents ：让不同 agent 承担不同角色。 Memory ：持久化进展和状态。 冲量 AI 网站中的 Loop Engineering 示例 当前个人网站的内容自动化就是一个轻量 Loop Engineering 样例： 关键控制点包括固定的输入入口、规则、输出契约、验证、审核和记忆。 与知识点的关系 Prompt Engineering ：Loop Engineering 中 Prompt 仍是核心部件，但关注从单轮设计扩展到多轮系统。 Harness Engineering ：提供运行环境，Loop Engineering 在此基础上设计反馈与控制。 DSL ：可用于描述 loop 的规则和流程，实现可配置的自动化。 GEO ：指导生成的内容结构，使其适合搜索引擎和 AI 引用。 LLM Wiki ：提供知识拆解和上下文组织的方法，辅助 loop 中的上下文供给。"
+    },
+    {
       "type": "concept",
       "title": "DSL 为什么在 AI 时代重要",
       "term": "DSL",
@@ -56,6 +78,27 @@
         "llm-wiki"
       ],
       "text": "Harness Engineer 负责围绕模型和 AI 应用构建评测、工具、数据、流程与反馈回路，使模型能力能够稳定进入真实系统。 它不只是写测试脚本，也不等同于传统 QA；它更关注 AI 系统的可复现、可观测和可迭代。 模型评测 Agent 工具调用链路 实验记录 数据集版本管理 输出质量回归测试 认为模型效果只能靠人工主观判断 只做 demo 不做评测 忽略日志和样例沉淀 更完整的解释 AI 应用很容易停留在演示阶段。真正进入业务流程后，它需要稳定的评测集、可追踪的日志、可回放的失败案例，以及能比较不同版本效果的实验基座。 Harness Engineer 关注的就是这套“让 AI 能被持续验证”的工程系统。 例子 当一个 Agent 需要调用多个工具完成任务时，Harness Engineer 会关心每一步工具调用是否可观测、失败是否能复现、不同模型版本是否有质量回归。"
+    },
+    {
+      "type": "concept",
+      "title": "Loop Engineering 是什么",
+      "term": "Loop Engineering",
+      "url": "/knowledge/loop-engineering/",
+      "description": "Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。",
+      "tags": [
+        "AI 工程化",
+        "Agent",
+        "反馈循环",
+        "工作流"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "harness-engineer",
+        "dsl",
+        "geo",
+        "llm-wiki"
+      ],
+      "text": "Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。 不等于简单自动化，不等于 Prompt Engineering，不等于让 Agent 无限自治。 AI 编程 agent 的 bug 修复、测试修复、依赖升级、PR comment 处理 内容管线：从原始资料到文章、知识点、互链和 SEO/GEO 索引 产品原型：根据 spec、eval、用户反馈持续迭代 数据质量：发现异常、生成修复建议、验证结果并创建审查任务 知识库维护：周期性发现重复概念、失效链接、缺失引用、结构漂移 无界循环：Agent 在同一错误上反复重试，消耗 token 和时间 验证虚假：测试不覆盖真实问题，Agent 以为完成了 过度自治：Agent 在没有审批的情况下改动敏感逻辑 成本失控：多个 sub-agent、长上下文和重复验证导致费用快速上升 上下文漂移：循环过程中目标被错误观察或无关信息带偏 过拟合测试：Agent 只修到测试通过，却破坏真实用户体验 责任不清：系统自动做了很多动作，但缺少审计记录和人工责任边界 更完整的解释 Loop Engineering 的重点不是让模型“回答得更好”，而是让系统“把工作推进到可验证结果”。它把人的手动提示动作，转化为一套可运行、可检查、可恢复、可停止的工作流。 在传统 Prompt Engineering 中，人负责每一轮：写提示词 → 看输出 → 补上下文 → 粘贴错误 → 再提示。 在 Loop Engineering 中，系统负责大部分循环：定义目标 → 收集上下文 → 执行动作 → 观察结果 → 修正策略 → 验证完成或升级给人。人的角色从“逐轮操作者”变成“目标、边界、验证规则和审批策略的设计者”。 这个词在 2026 年 6 月后开始在 AI coding agent 圈子里密集出现。Addy Osmani 在 2026 06 07 的文章中把 Loop Engineering 描述为：不再由人亲自提示 agent，而是设计一个系统去提示 agent，并让 AI 围绕目标迭代到完成。 使用边界 适用场景 AI 编程 agent 的 bug 修复、测试修复、依赖升级、PR comment 处理 内容管线：从原始资料到文章、知识点、互链和 SEO/GEO 索引 产品原型：根据 spec、eval、用户反馈持续迭代 数据质量：发现异常、生成修复建议、验证结果并创建审查任务 知识库维护：周期性发现重复概念、失效链接、缺失引用、结构漂移 不适合的场景 一次性问答 成功标准无法描述的开放创意探索 高风险且没有可靠验证器的操作 没有权限边界、日志和人工审核的生产系统 常见风险 无界循环：Agent 在同一错误上反复重试 验证虚假：测试不覆盖真实问题 过度自治：无审批的敏感操作 成本失控：长上下文和多重试 上下文漂移：目标被无关信息带偏 过拟合测试：只修到测试通过 责任不清：缺少审计记录 例子 冲量 AI 网站的内容自动化是一个轻量 Loop Engineering 样例： 这个 loop 的关键控制点： 输入入口固定： content/inbox/ 规则固定：Pipeline DSL 输出契约固定：文章和知识点 frontmatter 验证固定：静态构建、SEO/GEO 文件生成 审核固定：先开 PR，不自动合并 记忆固定：processed manifest、git commit、PR 记录 与其他概念的关系 Prompt Engineering Prompt Engineering 解决“这一轮该怎么说”。Loop Engineering 解决“整个系统如何反复行动、观察、修正并停止”。Prompt 仍然是 loop 里的一个部件。 Context Engineering Context Engineering 解决“模型应该看到什么上下文”。Loop Engineering 会利用 Context Engineering，但更强调上下文如何随着每次行动和观察而更新。 Harness Engineering Harness Engineering 为单个 Agent 搭建运行环境：工具、权限、沙箱等。Loop Engineering 在 Harness 之上，关心这些能力如何被周期性调用、如何组合成长期任务、如何记录状态、如何升级给人。 DSL DSL 可以用于定义 Loop Engineering 中的规则和流程，使得系统行为和约束可配置、可复用。 LLM Wiki LLM Wiki 的方法论可为 Loop Engineering 中的知识管理和上下文组织提供基础。 GEO GEO 可指导 Loop Engineering 生成的内容如何被搜索引擎和 AI 回答系统更好地索引和引用。"
     },
     {
       "type": "concept",

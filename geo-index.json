@@ -23,7 +23,8 @@
         "llm-wiki"
       ],
       "relatedArticles": [
-        "ai-public-knowledge-system"
+        "ai-public-knowledge-system",
+        "loop-engineering-ai-agent-feedback-loops"
       ]
     },
     {
@@ -43,7 +44,26 @@
         "llm-wiki"
       ],
       "relatedArticles": [
-        "ai-public-knowledge-system"
+        "ai-public-knowledge-system",
+        "loop-engineering-ai-agent-feedback-loops"
+      ]
+    },
+    {
+      "term": "Loop Engineering",
+      "title": "Loop Engineering 是什么",
+      "url": "https://chongliang.ai/knowledge/loop-engineering/",
+      "definition": "Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。",
+      "citation": "Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，它通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。",
+      "aliases": [],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "harness-engineer",
+        "dsl",
+        "geo",
+        "llm-wiki"
+      ],
+      "relatedArticles": [
+        "loop-engineering-ai-agent-feedback-loops"
       ]
     },
     {
@@ -63,7 +83,8 @@
         "llm-wiki"
       ],
       "relatedArticles": [
-        "ai-public-knowledge-system"
+        "ai-public-knowledge-system",
+        "loop-engineering-ai-agent-feedback-loops"
       ]
     },
     {
@@ -82,7 +103,8 @@
         "prompt-engineer"
       ],
       "relatedArticles": [
-        "ai-public-knowledge-system"
+        "ai-public-knowledge-system",
+        "loop-engineering-ai-agent-feedback-loops"
       ]
     },
     {
@@ -102,7 +124,8 @@
         "geo"
       ],
       "relatedArticles": [
-        "ai-public-knowledge-system"
+        "ai-public-knowledge-system",
+        "loop-engineering-ai-agent-feedback-loops"
       ]
     }
   ],
@@ -123,6 +146,26 @@
         "知识库",
         "GEO",
         "个人网站"
+      ]
+    },
+    {
+      "title": "AI Agent 的反馈循环：Loop Engineering 入门",
+      "url": "https://chongliang.ai/articles/loop-engineering-ai-agent-feedback-loops/",
+      "description": "Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。",
+      "date": "2026-07-05",
+      "concepts": [
+        "loop-engineering",
+        "prompt-engineer",
+        "harness-engineer",
+        "dsl",
+        "geo",
+        "llm-wiki"
+      ],
+      "tags": [
+        "AI 工程化",
+        "Agent",
+        "反馈循环",
+        "工作流"
       ]
     }
   ],
