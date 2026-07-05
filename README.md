@@ -43,7 +43,7 @@ content/inbox/
 - Secret 名称：`DEEPSEEK_API_KEY`
 - `Settings → Secrets and variables → Actions → Variables → New repository variable`
 - 变量 `AI_PROVIDER` 填 `deepseek`
-- 可选变量 `DEEPSEEK_MODEL`，默认使用 `deepseek-v4-flash`
+- 可选变量 `DEEPSEEK_MODEL`，默认使用 `deepseek-v4-flash`；如果要用 DeepSeek V4 Pro，推荐填 API 模型 ID：`deepseek-v4-pro`
 
 注意：上传到 `content/inbox/` 的内容会发送给你配置的模型 API 处理。不要上传密码、客户隐私、API Key 或不适合公开处理的资料。
 

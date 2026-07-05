@@ -67,7 +67,7 @@ AI Inbox Draft PR
 3. 名称填 `DEEPSEEK_API_KEY`。
 4. Value 填你的 DeepSeek API Key。
 5. 切到 `Variables`，新增 `AI_PROVIDER`，值填 `deepseek`。
-6. 可选：新增 `DEEPSEEK_MODEL`，不填则默认 `deepseek-v4-flash`。
+6. 可选：新增 `DEEPSEEK_MODEL`，不填则默认 `deepseek-v4-flash`。如果要用 DeepSeek V4 Pro，推荐填 API 模型 ID：`deepseek-v4-pro`。
 
 这个流程会把 inbox 里的原始内容发送给你配置的模型 API，所以不要上传敏感资料。
 

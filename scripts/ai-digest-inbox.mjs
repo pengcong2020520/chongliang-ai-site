@@ -37,7 +37,22 @@ if (!providerConfig[provider]) {
 
 const activeProvider = providerConfig[provider];
 const apiKey = activeProvider.apiKey;
-const model = activeProvider.model;
+const model = normalizeModelName(provider, activeProvider.model);
+
+function normalizeModelName(modelProvider, value) {
+  const raw = String(value || "").trim();
+  if (modelProvider !== "deepseek") return raw;
+
+  const compact = raw.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const aliases = {
+    deepseekv4pro: "deepseek-v4-pro",
+    v4pro: "deepseek-v4-pro",
+    deepseekv4flash: "deepseek-v4-flash",
+    v4flash: "deepseek-v4-flash"
+  };
+
+  return aliases[compact] || raw.toLowerCase().replace(/[\s_]+/g, "-");
+}
 
 async function readJson(filePath, fallback) {
   try {
