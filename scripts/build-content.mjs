@@ -368,7 +368,7 @@ function conceptLinks(slugs, root = "../../") {
   return slugs
     .map((slug) => conceptBySlug.get(slug))
     .filter(Boolean)
-    .map((concept) => `<a class="concept-card" href="${root}knowledge/${concept.slug}/index.html">
+    .map((concept) => `<a class="related-concept-card" href="${root}knowledge/${concept.slug}/index.html">
       <p class="card-meta">RELATED CONCEPT</p>
       <h3>${escapeHtml(concept.term || concept.title)}</h3>
       <p>${escapeHtml(concept.summary || concept.definition || "")}</p>

@@ -89,8 +89,8 @@
       "term": "LLM Wiki",
       "title": "LLM Wiki 是什么",
       "url": "https://chongliang.ai/knowledge/llm-wiki/",
-      "definition": "LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要和知识路径。",
-      "citation": "LLM Wiki 的核心是用 AI 辅助拆解个人知识库，但公开发布前仍要经过人工审核和结构化整理。",
+      "definition": "LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要、来源反链和知识路径，让个人知识库既能被人阅读，也能被 AI 检索系统正确理解。",
+      "citation": "LLM Wiki 的核心是用 AI 辅助拆解个人知识库，将文章、笔记和项目经验沉淀为可阅读、可检索、可引用的原子概念网络。",
       "aliases": [
         "AI Wiki",
         "个人知识库拆解",

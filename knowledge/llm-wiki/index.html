@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LLM Wiki 是什么 | 冲量 AI</title>
-    <meta name="description" content="LLM Wiki 是把个人知识库拆成原子概念、概念关系和可引用页面的方法。">
+    <meta name="description" content="LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。">
     <link rel="canonical" href="https://chongliang.ai/knowledge/llm-wiki/">
     
     <meta property="og:type" content="article">
     <meta property="og:title" content="LLM Wiki 是什么 | 冲量 AI">
-    <meta property="og:description" content="LLM Wiki 是把个人知识库拆成原子概念、概念关系和可引用页面的方法。">
+    <meta property="og:description" content="LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。">
     <meta property="og:image" content="https://chongliang.ai/assets/og-image.svg">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../../assets/styles.css">
@@ -26,7 +26,7 @@
         "个人知识库拆解",
         "原子知识库"
       ],
-      "description": "LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要和知识路径。",
+      "description": "LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要、来源反链和知识路径，让个人知识库既能被人阅读，也能被 AI 检索系统正确理解。",
       "inDefinedTermSet": {
         "@type": "DefinedTermSet",
         "name": "冲量 AI 个人知识库",
@@ -84,7 +84,7 @@
           <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">知识库</a><span>/</span><span>LLM Wiki</span></nav>
           <p class="eyebrow">DEFINED TERM</p>
           <h1 class="page-title">LLM Wiki 是什么</h1>
-          <p class="page-lede">LLM Wiki 是把个人知识库拆成原子概念、概念关系和可引用页面的方法。</p>
+          <p class="page-lede">LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。</p>
           <p class="content-meta">更新于 2026-07-05 · AI Wiki / 个人知识库拆解 / 原子知识库</p>
         </div>
       </section>
@@ -112,29 +112,62 @@
       </div>
   </aside>
         <article class="article-body reader-main">
-          <div class="definition-box"><p><strong>定义：</strong>LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要和知识路径。</p></div>
+          <div class="definition-box"><p><strong>定义：</strong>LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要、来源反链和知识路径，让个人知识库既能被人阅读，也能被 AI 检索系统正确理解。</p></div>
           <h2>适用场景</h2>
-          <ul><li>个人知识库公开化</li><li>概念卡片生成</li><li>文章到知识点互链</li><li>AI 检索引用</li><li>GEO 优化</li></ul>
+          <ul><li>个人知识库公开化</li><li>概念卡片生成</li><li>文章到知识点互链</li><li>AI 检索引用</li><li>GEO 优化</li><li>公众号文章再沉淀</li><li>长文拆解</li></ul>
           <h2>它不是什么</h2>
-          <p>它不是把所有笔记直接扔给 AI，也不是只做一个聊天框。</p>
+          <p>它不是把所有笔记直接扔给 AI，也不是只做一个聊天框；它更像一套“内容拆解、人工校验、结构发布、持续互链”的知识生产流程。</p>
           <h2>常见误区</h2>
-          <ul><li>认为知识库只需要全文搜索</li><li>忽略人工审核</li><li>让 AI 直接发布未校验概念</li></ul>
-          <h2 id="section-1">更完整的解释</h2>
-<p>个人知识库通常包含大量文章、笔记、链接和想法。直接全文公开会让读者很难找到入口，也不利于 AI 检索系统引用。</p>
-<p>LLM Wiki 的思路是先把内容拆成原子概念，再把概念与文章、项目和引用摘要连接起来。</p>
-<h2 id="section-2">例子</h2>
-<p>一篇关于 AI 工作流的文章可以拆出 Prompt Engineer、Harness Engineer、Evaluation Harness 等概念。每个概念独立成页，再反向链接回原文。</p>
+          <ul><li>认为知识库只需要全文搜索</li><li>忽略人工审核</li><li>让 AI 直接发布未校验概念</li><li>把概念拆得过细导致不可读</li><li>只做页面不做互链</li></ul>
+          <h2 id="section-1">核心判断</h2>
+<p>个人知识库如果只停留在文件夹、笔记软件或全文搜索里，很难变成公开资产。读者进入之后通常不知道从哪里开始，AI 检索系统也很难判断哪些内容是定义、哪些内容是观点、哪些内容只是一次性的表达。</p>
+<p>LLM Wiki 的目标不是把所有内容变成百科词条，而是把个人长期写作和项目经验里的稳定概念抽出来，形成可以持续维护的知识原点。</p>
+<h2 id="section-2">为什么需要原子概念</h2>
+<p>文章适合表达完整推理，但文章不是最适合查询的单位。一个读者可能只想知道“Prompt Engineer 是什么”，不一定想先读完一篇长文。</p>
+<p>原子概念解决的是入口问题。每个概念页都回答一个相对稳定的问题：它是什么、解决什么问题、不是什么、有哪些使用场景、和其他概念是什么关系。</p>
+<p>当概念页足够稳定，文章就可以负责叙事，概念负责沉淀，项目负责验证。</p>
+<h2 id="section-3">拆解流程</h2>
+<ul>
+<li>先收集原始材料：公众号文章、本地 Markdown、项目 README、会议笔记、方法论草稿。</li>
+<li>再让 AI 提取候选概念：概念名、别名、定义、相关概念、可能归属的父节点。</li>
+<li>然后人工筛选：删除重复概念、合并过细概念、修正定义边界。</li>
+<li>接着生成概念页：补充定义、适用场景、常见误区、相关文章和可引用摘要。</li>
+<li>最后建立互链：文章链接到概念，概念反链到文章，项目再链接到对应能力。</li>
+</ul>
+<h2 id="section-4">原子概念的判断标准</h2>
+<p>一个概念是否值得单独成页，可以用四个问题判断。</p>
+<ul>
+<li>它是否能被一句话定义。</li>
+<li>它是否能反复出现在多篇文章或多个项目中。</li>
+<li>它是否有明确边界，能说清楚“不是什么”。</li>
+<li>它是否能帮助读者继续找到相关概念或文章。</li>
+</ul>
+<p>如果一个内容只是临时想法，它更适合留在文章里；如果它会反复出现，就应该被拆成知识点。</p>
+<h2 id="section-5">AI 在里面做什么</h2>
+<p>AI 不应该直接决定最终知识结构。它更适合承担三类工作：从长文中提取候选概念，发现概念之间的潜在关系，把已有内容改写成统一模板。</p>
+<p>最终发布前仍然需要人工判断。因为个人知识库最重要的不是“内容很多”，而是概念边界和判断口径稳定。</p>
+<h2 id="section-6">与 SEO 和 GEO 的关系</h2>
+<p>SEO 需要页面能被搜索引擎抓取和理解，GEO 需要页面能被生成式搜索正确引用。LLM Wiki 正好把内容整理成更适合这两类系统理解的结构。</p>
+<p>对 SEO 来说，概念页提供稳定标题、描述、内链和结构化数据。对 GEO 来说，概念页提供定义、可引用摘要、关联概念和来源文章。</p>
+<h2 id="section-7">在冲量 AI 里的呈现方式</h2>
+<p>在这个网站里，LLM Wiki 会被拆成三个层次。</p>
+<ul>
+<li>首页展示核心知识体系，让新访客快速知道冲量 AI 在沉淀什么。</li>
+<li>知识库索引展示“知识原点”树，方便按主题进入。</li>
+<li>单个概念页负责深度解释，并反向链接到文章和项目。</li>
+</ul>
+<p>后续你把个人知识库导入后，我会优先做结构清洗，再决定哪些内容变成文章、哪些内容变成概念、哪些内容只作为概念页里的段落或例子。</p>
           <section class="link-section" aria-labelledby="concept-related">
             <h2 id="concept-related">相关概念</h2>
-            <div class="related-grid"><a class="concept-card" href="../../knowledge/prompt-engineer/index.html">
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
       <p class="card-meta">RELATED CONCEPT</p>
       <h3>Prompt Engineer</h3>
       <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
-    </a><a class="concept-card" href="../../knowledge/harness-engineer/index.html">
+    </a><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
       <p class="card-meta">RELATED CONCEPT</p>
       <h3>Harness Engineer</h3>
       <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
-    </a><a class="concept-card" href="../../knowledge/geo/index.html">
+    </a><a class="related-concept-card" href="../../knowledge/geo/index.html">
       <p class="card-meta">RELATED CONCEPT</p>
       <h3>GEO</h3>
       <p>GEO 是面向生成式搜索和 AI 回答系统的内容结构优化方法，目标是让内容更容易被理解、引用和追溯。</p>
@@ -158,7 +191,7 @@
           </section>
           <section class="citation-box" aria-labelledby="citation-title">
             <h2 id="citation-title">可引用摘要</h2>
-            <p>LLM Wiki 的核心是用 AI 辅助拆解个人知识库，但公开发布前仍要经过人工审核和结构化整理。</p>
+            <p>LLM Wiki 的核心是用 AI 辅助拆解个人知识库，将文章、笔记和项目经验沉淀为可阅读、可检索、可引用的原子概念网络。</p>
           </section>
         </article>
         <aside class="reader-aside toc-panel">

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chongliang AI | Structure From Noise</title>
-    <meta name="description" content="Chongliang AI is a personal knowledge asset site for articles, selected projects, and atomic AI concepts.">
+    <meta name="description" content="Chongliang AI is a personal knowledge asset site for AI-era writing, projects, knowledge systems, and atomic concepts.">
     <link rel="canonical" href="https://chongliang.ai/en/">
     <link rel="alternate" hreflang="zh-CN" href="https://chongliang.ai/">
     <link rel="alternate" hreflang="en" href="https://chongliang.ai/en/">
@@ -21,7 +21,7 @@
         "@type": "Person",
         "name": "Chongliang AI",
         "url": "https://chongliang.ai/en/",
-        "description": "A personal knowledge asset site for AI-era writing, projects, and atomic concepts.",
+        "description": "A personal knowledge asset site for AI-era writing, projects, knowledge systems, and atomic concepts.",
         "knowsAbout": ["AI", "Agent", "Prompt Engineering", "Harness Engineering", "Knowledge Management"]
       }
     </script>
@@ -52,20 +52,30 @@
     <main id="main">
       <section class="hero">
         <div class="container">
-          <div class="hero-grid">
-            <div>
+          <div class="home-hero-grid">
+            <div class="hero-copy">
               <p class="eyebrow">PERSONAL KNOWLEDGE SYSTEM</p>
               <h1>Chongliang AI</h1>
               <p class="hero-statement">Extract structure from noise, and turn structure into judgement.</p>
+              <p class="hero-note">This site collects my AI-era writing, project practice, and personal knowledge base. Articles preserve reasoning, the knowledge base turns ideas into atomic concepts, and projects test whether those ideas can work in real systems.</p>
               <div class="hero-actions">
                 <a class="button button-primary" href="knowledge/index.html">Browse knowledge</a>
                 <a class="button" href="articles/index.html">Read articles</a>
               </div>
             </div>
-            <figure class="asset-frame" aria-label="Chongliang AI content index map">
-              <img src="../assets/knowledge-index.svg" alt="Articles, projects, and knowledge cards forming the Chongliang AI index">
-              <figcaption class="asset-caption">Articles / Projects / Knowledge as one personal index.</figcaption>
-            </figure>
+            <aside class="home-snapshot" aria-label="Chongliang AI current content index">
+              <p class="section-kicker">CURRENT INDEX</p>
+              <div class="snapshot-stat-grid">
+                <div><strong>1</strong><span>Article online</span></div>
+                <div><strong>5</strong><span>Knowledge nodes</span></div>
+                <div><strong>3</strong><span>Project slots</span></div>
+              </div>
+              <div class="snapshot-list">
+                <a href="../articles/ai-public-knowledge-system/index.html"><span>Latest article</span><strong>Building a public knowledge base as an AI practitioner</strong></a>
+                <a href="../knowledge/llm-wiki/index.html"><span>Core concept</span><strong>What is LLM Wiki?</strong></a>
+                <a href="../knowledge/geo/index.html"><span>Growth layer</span><strong>What is GEO?</strong></a>
+              </div>
+            </aside>
           </div>
 
           <div class="index-rail" aria-label="Main content entries">
@@ -89,35 +99,26 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="section-kicker">WRITING</p>
-              <h2>Articles are slices of judgement.</h2>
+              <p class="section-kicker">WHAT I AM BUILDING</p>
+              <h2>Chongliang AI does three things.</h2>
             </div>
-            <p>When your Markdown files are added, this area will collect local notes, WeChat posts, and externally published articles.</p>
+            <p>It is not just a portfolio. It connects public writing, knowledge nodes, and project practice into one searchable personal knowledge system.</p>
           </div>
-          <div class="article-list">
-            <a class="article-card" href="articles/index.html">
-              <div class="article-source">LOCAL MD</div>
-              <div>
-                <p class="card-meta">Pending import</p>
-                <h3>Local Markdown articles</h3>
-                <p>Long-form essays, knowledge notes, methods, and unpublished thinking.</p>
-              </div>
+          <div class="pillar-grid">
+            <a class="pillar-card" href="articles/index.html">
+              <p class="card-meta">01 / ARTICLES</p>
+              <h3>Turn judgement into articles</h3>
+              <p>Articles keep the reasoning process intact and give each concept a source context.</p>
             </a>
-            <a class="article-card" href="articles/index.html">
-              <div class="article-source">WECHAT</div>
-              <div>
-                <p class="card-meta">Pending sync</p>
-                <h3>WeChat articles</h3>
-                <p>External originals can be linked while the site keeps a structured archive.</p>
-              </div>
+            <a class="pillar-card" href="knowledge/index.html">
+              <p class="card-meta">02 / KNOWLEDGE</p>
+              <h3>Split knowledge into atomic concepts</h3>
+              <p>Each concept has its own definition, boundary, misconceptions, use cases, and citation summary.</p>
             </a>
-            <a class="article-card" href="articles/index.html">
-              <div class="article-source">WOSHIPM</div>
-              <div>
-                <p class="card-meta">Pending curation</p>
-                <h3>External platform articles</h3>
-                <p>Published writing becomes searchable, connected, and reusable knowledge.</p>
-              </div>
+            <a class="pillar-card" href="projects/index.html">
+              <p class="card-meta">03 / PROJECTS</p>
+              <h3>Validate methods through projects</h3>
+              <p>Selected GitHub projects will later show tools, experiments, and engineering practice.</p>
             </a>
           </div>
         </div>
@@ -127,39 +128,28 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="section-kicker">CONCEPTS</p>
-              <h2>The knowledge base is split into atomic concepts.</h2>
+              <p class="section-kicker">WRITING</p>
+              <h2>Current article.</h2>
             </div>
-            <p>Each concept gets its own page with a definition, why it matters, boundaries, related concepts, and linked reading.</p>
+            <p>Articles are the entry point of the system. More Markdown files will automatically become latest, hot, and featured content later.</p>
           </div>
-          <div class="card-grid">
-            <a class="concept-card" href="knowledge/prompt-engineer/index.html">
-              <p class="card-meta">AI CONCEPT</p>
-              <h3>What is a Prompt Engineer?</h3>
-              <p>Moving from prompt writing into task modeling, context design, and output constraints.</p>
-              <div class="card-footer">
-                <span class="tag tag-concept">Prompt</span>
-                <span class="tag">LLM</span>
+          <div class="article-list">
+            <a class="article-card" href="../articles/ai-public-knowledge-system/index.html">
+              <div class="article-source">LOCAL MD</div>
+              <div>
+                <p class="card-meta">2026-07-05 · AI / Knowledge / GEO</p>
+                <h3>Building a public knowledge base as an AI practitioner</h3>
+                <p>How articles, projects, and knowledge concepts can become a readable, searchable, and citable public system.</p>
+                <div class="card-footer">
+                  <span class="tag">Knowledge</span>
+                  <span class="tag">Personal Site</span>
+                  <span class="tag">GEO</span>
+                </div>
               </div>
             </a>
-            <a class="concept-card" href="knowledge/harness-engineer/index.html">
-              <p class="card-meta">AI CONCEPT</p>
-              <h3>What is a Harness Engineer?</h3>
-              <p>A person who builds evaluation, tools, data, workflows, and feedback loops around models.</p>
-              <div class="card-footer">
-                <span class="tag tag-concept">Harness</span>
-                <span class="tag">Eval</span>
-              </div>
-            </a>
-            <a class="concept-card" href="knowledge/dsl/index.html">
-              <p class="card-meta">AI CONCEPT</p>
-              <h3>Why DSL matters in the AI era</h3>
-              <p>Domain language compresses complexity and stabilizes collaboration between people, models, and systems.</p>
-              <div class="card-footer">
-                <span class="tag tag-concept">DSL</span>
-                <span class="tag">System</span>
-              </div>
-            </a>
+          </div>
+          <div class="section-actions">
+            <a class="text-link" href="articles/index.html">View all articles</a>
           </div>
         </div>
       </section>
@@ -168,10 +158,63 @@
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="section-kicker">PROJECTS</p>
-              <h2>Projects validate ideas.</h2>
+              <p class="section-kicker">KNOWLEDGE SYSTEM</p>
+              <h2>Knowledge system entry.</h2>
             </div>
-            <p>This area remains a GitHub placeholder until you provide the repositories to feature.</p>
+            <p>The knowledge base turns long-form writing, notes, and project experience into knowledge nodes that can be queried and cited.</p>
+          </div>
+          <div class="card-grid compact-card-grid">
+            <a class="concept-card" href="../knowledge/llm-wiki/index.html">
+              <p class="card-meta">Knowledge Management</p>
+              <h3>What is LLM Wiki?</h3>
+              <p>A method for splitting a personal knowledge base into atomic concepts, relationships, and citable pages.</p>
+              <div class="card-footer">
+                <span class="tag tag-concept">Knowledge</span>
+                <span class="tag">LLM</span>
+              </div>
+            </a>
+            <a class="concept-card" href="../knowledge/geo/index.html">
+              <p class="card-meta">Content Growth</p>
+              <h3>What is GEO?</h3>
+              <p>Content structure optimization for generative search and AI answer systems.</p>
+              <div class="card-footer">
+                <span class="tag tag-concept">GEO</span>
+                <span class="tag">SEO</span>
+              </div>
+            </a>
+            <a class="concept-card" href="../knowledge/prompt-engineer/index.html">
+              <p class="card-meta">AI Engineering</p>
+              <h3>What is a Prompt Engineer?</h3>
+              <p>Moving from prompt writing into task modeling, context design, and output constraints.</p>
+              <div class="card-footer">
+                <span class="tag tag-concept">Prompt</span>
+                <span class="tag">LLM</span>
+              </div>
+            </a>
+            <a class="concept-card" href="../knowledge/harness-engineer/index.html">
+              <p class="card-meta">AI Engineering</p>
+              <h3>What is a Harness Engineer?</h3>
+              <p>A person who builds evaluation, tools, data, workflows, and feedback loops around models.</p>
+              <div class="card-footer">
+                <span class="tag tag-concept">Harness</span>
+                <span class="tag">Eval</span>
+              </div>
+            </a>
+          </div>
+          <div class="section-actions">
+            <a class="text-link" href="knowledge/index.html">Open knowledge base</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-reveal>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">PROJECTS</p>
+              <h2>Projects are the validation layer.</h2>
+            </div>
+            <p>This area remains a placeholder until you provide the repositories to feature.</p>
           </div>
           <div class="card-grid two">
             <article class="project-card is-placeholder">
