@@ -71,6 +71,16 @@ AI Inbox Draft PR
 
 这个流程会把 inbox 里的原始内容发送给你配置的模型 API，所以不要上传敏感资料。
 
+还需要确认 GitHub Actions 允许自动创建 PR：
+
+1. 进入 GitHub 仓库 `Settings → Actions → General`。
+2. 找到 `Workflow permissions`。
+3. 选择 `Read and write permissions`。
+4. 勾选 `Allow GitHub Actions to create and approve pull requests`。
+5. 点击 `Save`。
+
+如果没有打开第 4 项，AI 能生成内容并推送 `ai/inbox-*` 分支，但最后一步自动开 PR 会失败。
+
 ### 1. 上传文章
 
 在 GitHub 仓库里进入：

@@ -47,6 +47,8 @@ content/inbox/
 
 注意：上传到 `content/inbox/` 的内容会发送给你配置的模型 API 处理。不要上传密码、客户隐私、API Key 或不适合公开处理的资料。
 
+自动开 PR 还依赖一个仓库开关：`Settings → Actions → General → Workflow permissions` 里需要选择 `Read and write permissions`，并勾选 `Allow GitHub Actions to create and approve pull requests`。
+
 新增文章：
 
 1. 复制 `content/articles/template.md`。
