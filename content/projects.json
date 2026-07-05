@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "featured-github-placeholder",
+    "name": "精选 GitHub 项目占位",
+    "status": "placeholder",
+    "url": "",
+    "description": "用于展示最能代表你判断力和执行力的 GitHub 项目。待补充仓库链接、项目背景、核心能力、技术栈和你的贡献。",
+    "tags": ["GitHub", "Featured"],
+    "relatedConcepts": ["harness-engineer", "llm-wiki"],
+    "relatedArticles": ["ai-public-knowledge-system"],
+    "featured": true
+  },
+  {
+    "slug": "ai-tool-placeholder",
+    "name": "AI 工具项目占位",
+    "status": "placeholder",
+    "url": "",
+    "description": "适合展示知识库处理、Agent 工具链、评估系统、自动化流程等方向的项目。",
+    "tags": ["AI Tool", "Workflow"],
+    "relatedConcepts": ["prompt-engineer", "harness-engineer"],
+    "relatedArticles": [],
+    "featured": false
+  },
+  {
+    "slug": "experiment-placeholder",
+    "name": "实验项目占位",
+    "status": "placeholder",
+    "url": "",
+    "description": "适合放还在探索中的原型和实验，保留问题意识、实验结论和下一步。",
+    "tags": ["Experiment", "Prototype"],
+    "relatedConcepts": ["dsl"],
+    "relatedArticles": [],
+    "featured": false
+  }
+]

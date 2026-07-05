@@ -1,0 +1,89 @@
+# Chongliang AI Static Site
+
+这是“冲量 AI”的静态个人知识资产网站。当前已经具备：
+
+- 文章 Markdown 模板与自动生成。
+- 知识点 Markdown 模板与自动生成。
+- 文章、知识点、项目之间的自动互链。
+- SEO 基础文件：`sitemap.xml`、`robots.txt`、`feed.xml`、canonical、结构化数据。
+- GEO 辅助文件：`llms.txt`、`llms-full.txt`、`geo-index.json`、`search-index.json`。
+
+## 日常维护
+
+最推荐的方式是：你只改 `content/`，GitHub Actions 自动运行生成器并部署。
+
+新增文章：
+
+1. 复制 `content/articles/template.md`。
+2. 改成你的文章文件，例如 `content/articles/my-new-article.md`。
+3. 填 frontmatter，尤其是 `title`、`slug`、`date`、`description`、`tags`、`concepts`。
+4. 写正文 Markdown。
+5. 本地预览时运行：
+
+```bash
+npm run build
+```
+
+如果是在 GitHub 网页上直接新增文章，提交后会自动部署，不需要你手动运行命令。
+
+新增知识点：
+
+1. 复制 `content/concepts/template.md`。
+2. 改成一个概念文件，例如 `content/concepts/evaluation-harness.md`。
+3. 填 `term`、`definition`、`summary`、`citation`、`relatedConcepts`、`relatedArticles`。
+4. 本地预览时运行 `npm run build`；GitHub 提交后会自动部署。
+
+维护项目：
+
+1. 编辑 `content/projects.json`。
+2. 填项目名、GitHub URL、描述、标签、关联知识点、关联文章。
+3. 本地预览时运行 `npm run build`；GitHub 提交后会自动部署。
+
+## SEO/GEO 内容模型
+
+文章页负责叙事和方法论，知识点页负责定义和边界，项目页负责证明。生成器会根据 frontmatter 自动建立互链：
+
+- 文章声明 `concepts` 后，文章页底部会出现关联知识点。
+- 知识点会反向显示引用它的文章。
+- 项目声明 `relatedConcepts` 后，会出现在对应知识点页。
+- `sitemap.xml` 和 `llms.txt` 会自动更新。
+
+## 文件结构
+
+- `content/articles/`: 文章 Markdown。
+- `content/concepts/`: 原子知识点 Markdown。
+- `content/projects.json`: 项目数据。
+- `content/site.json`: 站点基础信息。
+- `scripts/build-content.mjs`: 无依赖静态生成器。
+- `articles/`: 生成后的文章页面。
+- `knowledge/`: 生成后的知识库页面。
+- `projects/`: 生成后的项目页面。
+
+## 部署
+
+GitHub Pages 部署时，把本目录内容作为仓库根目录发布即可。
+
+仓库设置：
+
+1. 进入 GitHub 仓库 `Settings → Pages`。
+2. Source 选择 `GitHub Actions`。
+3. 在 GitHub 网页里新建 `.github/workflows/deploy.yml`，内容复制根目录的 `deploy-workflow-template.yml`。
+4. push 到 `main` 分支后，GitHub Actions 会自动生成并发布 `_site`。
+
+本地打包检查：
+
+```bash
+npm run build:deploy
+```
+
+如果绑定正式域名，请在 `content/site.json` 中把 `siteUrl` 改成最终域名，然后重新运行：
+
+```bash
+npm run build
+```
+
+更详细的使用说明见 `USAGE.md`。
+
+## 重要原则
+
+`content/` 是源数据，`articles/`、`knowledge/`、`projects/`、`sitemap.xml`、`llms.txt` 等是生成结果。以后优先改 `content/`，再运行生成器。

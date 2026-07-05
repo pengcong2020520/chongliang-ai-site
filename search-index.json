@@ -1,0 +1,160 @@
+{
+  "updated": "2026-07-05",
+  "items": [
+    {
+      "type": "article",
+      "title": "AI 从业者如何搭建自己的公开知识库",
+      "url": "/articles/ai-public-knowledge-system/",
+      "description": "这篇文章讨论 AI 从业者如何把文章、项目和知识库组织成一个可阅读、可检索、可引用的公开系统，并兼顾 SEO 与 GEO。",
+      "date": "2026-07-05",
+      "tags": [
+        "AI",
+        "知识库",
+        "GEO",
+        "个人网站"
+      ],
+      "concepts": [
+        "llm-wiki",
+        "prompt-engineer",
+        "harness-engineer",
+        "geo"
+      ],
+      "text": "核心结论 个人网站不应该只是作品集。对 AI 从业者来说，更重要的是把文章、项目和原子概念组织成一个可被搜索引擎理解、可被 AI 引用、也可被人持续追踪的知识系统。 为什么个人网站不应该只是作品集 作品集解决的是展示问题，但知识库解决的是长期可信度问题。访客不仅要知道你做过什么，还要能沿着概念、文章和项目找到你的思考脉络。 如果一个网站只有文章列表，读者很难知道哪些内容是你的长期判断，哪些只是一次性的表达。把知识点拆出来，能让每篇文章都沉淀成更稳定的概念资产。 文章、概念和项目的关系 文章负责叙事，概念负责沉淀，项目负责证明。 文章可以解释一个问题的背景和推理过程；概念页负责给出清晰定义、适用边界和相关概念；项目页则证明这些判断是否真正进入实践。 这三者互相引用之后，网站就不再只是内容仓库，而是一个可导航的个人知识图谱。 GEO 优化的关键不是堆关键词 GEO 的关键不是让页面看起来像 AI 写的，而是让页面更容易被 AI 正确引用。 一个好的概念页应该有一句话定义、适用场景、常见误区、关联文章和可引用摘要。这样，当生成式搜索回答问题时，它更容易识别页面里的稳定知识单元。 后续如何维护 短期可以使用 Markdown 和静态生成器维护。你只需要把文章放进 content/articles/ ，把概念放进 content/concepts/ ，然后运行生成脚本。 长期当内容规模变大，再考虑接入数据库、向量索引和个人服务器。这个阶段的重点是先把内容结构设计对，而不是一开始就追求复杂系统。"
+    },
+    {
+      "type": "concept",
+      "title": "DSL 为什么在 AI 时代重要",
+      "term": "DSL",
+      "url": "/knowledge/dsl/",
+      "description": "DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。",
+      "tags": [
+        "DSL",
+        "System",
+        "Workflow"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "harness-engineer",
+        "llm-wiki"
+      ],
+      "text": "DSL 是面向特定领域设计的表达语言，它用更贴近业务或系统边界的语法，降低复杂任务的表达和执行成本。 DSL 不一定是完整编程语言，也不一定需要复杂语法；它可以是轻量配置、结构化指令或领域协议。 工作流编排 Agent 指令协议 业务规则表达 内容结构生成 评测用例描述 以为 DSL 一定很重 把所有配置都叫 DSL 忽略人的可读性 更完整的解释 自然语言灵活，但边界不稳定；代码稳定，但表达成本高。DSL 位于二者之间，用领域化表达压缩复杂性。 在 AI 系统中，DSL 可以让提示词、工具调用、任务编排和评测描述更稳定。 例子 一个内容生成系统可以用 DSL 描述文章结构、约束和引用要求，让模型输出更接近可发布内容，而不是每次都依赖临时提示词。"
+    },
+    {
+      "type": "concept",
+      "title": "Harness Engineer 是什么",
+      "term": "Harness Engineer",
+      "url": "/knowledge/harness-engineer/",
+      "description": "Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。",
+      "tags": [
+        "Harness",
+        "Eval",
+        "AI Engineering"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "dsl",
+        "llm-wiki"
+      ],
+      "text": "Harness Engineer 负责围绕模型和 AI 应用构建评测、工具、数据、流程与反馈回路，使模型能力能够稳定进入真实系统。 它不只是写测试脚本，也不等同于传统 QA；它更关注 AI 系统的可复现、可观测和可迭代。 模型评测 Agent 工具调用链路 实验记录 数据集版本管理 输出质量回归测试 认为模型效果只能靠人工主观判断 只做 demo 不做评测 忽略日志和样例沉淀 更完整的解释 AI 应用很容易停留在演示阶段。真正进入业务流程后，它需要稳定的评测集、可追踪的日志、可回放的失败案例，以及能比较不同版本效果的实验基座。 Harness Engineer 关注的就是这套“让 AI 能被持续验证”的工程系统。 例子 当一个 Agent 需要调用多个工具完成任务时，Harness Engineer 会关心每一步工具调用是否可观测、失败是否能复现、不同模型版本是否有质量回归。"
+    },
+    {
+      "type": "concept",
+      "title": "Prompt Engineer 是什么",
+      "term": "Prompt Engineer",
+      "url": "/knowledge/prompt-engineer/",
+      "description": "Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。",
+      "tags": [
+        "Prompt",
+        "LLM",
+        "Context"
+      ],
+      "relatedConcepts": [
+        "harness-engineer",
+        "dsl",
+        "llm-wiki"
+      ],
+      "text": "Prompt Engineer 负责设计和迭代模型输入，使大模型在具体任务中更稳定地理解目标、调用上下文、遵守约束并产出可评估结果。 它不只是把提示词写得更漂亮，也不等于会使用几个提示词模板。 复杂任务拆解 输出格式约束 多轮上下文组织 失败样例分析 RAG 或 Agent 的指令层设计 把 Prompt Engineer 理解成文案岗位 只关注单句提示词 忽略评估和反馈闭环 更完整的解释 当模型能力越来越强，失败往往不只来自模型本身，而来自任务没有被清楚表达、上下文没有被正确组织、输出边界没有被约束。 Prompt Engineer 的价值在于把人的模糊意图转化为模型可执行的输入结构。 例子 如果一个任务要求模型分析用户反馈，Prompt Engineer 不只是写“请分析反馈”，而是要定义输入字段、分析维度、输出格式、风险边界和判断标准。"
+    },
+    {
+      "type": "concept",
+      "title": "GEO 是什么",
+      "term": "GEO",
+      "url": "/knowledge/geo/",
+      "description": "GEO 是面向生成式搜索和 AI 回答系统的内容结构优化方法，目标是让内容更容易被理解、引用和追溯。",
+      "tags": [
+        "GEO",
+        "SEO",
+        "AI Search"
+      ],
+      "relatedConcepts": [
+        "llm-wiki",
+        "prompt-engineer"
+      ],
+      "text": "GEO 通过清晰定义、结构化页面、可引用摘要、权威来源和稳定内链，让生成式搜索系统更容易正确引用网站内容。 GEO 不是堆关键词，也不是为了迎合 AI 生成大量低质量内容。 概念页优化 AI Overview 引用 Perplexity 或 Copilot 引用 个人知识库公开化 结构化摘要生成 把 GEO 当成 SEO 的替代品 只写给 AI 不写给人 忽略页面可信度和引用来源 更完整的解释 SEO 关注搜索引擎抓取、理解和排名。GEO 更关注生成式搜索系统在回答问题时是否能选中、概括并引用你的页面。 对个人知识网站来说，GEO 的核心页面通常不是首页，而是定义清晰的概念页和结构完整的方法论文章。 例子 当用户搜索“Prompt Engineer 是什么”时，一个有清晰定义、常见误区、关联概念和可引用摘要的页面，更容易被 AI 回答系统正确引用。"
+    },
+    {
+      "type": "concept",
+      "title": "LLM Wiki 是什么",
+      "term": "LLM Wiki",
+      "url": "/knowledge/llm-wiki/",
+      "description": "LLM Wiki 是把个人知识库拆成原子概念、概念关系和可引用页面的方法。",
+      "tags": [
+        "Knowledge",
+        "Wiki",
+        "LLM"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "harness-engineer",
+        "geo"
+      ],
+      "text": "LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要和知识路径。 它不是把所有笔记直接扔给 AI，也不是只做一个聊天框。 个人知识库公开化 概念卡片生成 文章到知识点互链 AI 检索引用 GEO 优化 认为知识库只需要全文搜索 忽略人工审核 让 AI 直接发布未校验概念 更完整的解释 个人知识库通常包含大量文章、笔记、链接和想法。直接全文公开会让读者很难找到入口，也不利于 AI 检索系统引用。 LLM Wiki 的思路是先把内容拆成原子概念，再把概念与文章、项目和引用摘要连接起来。 例子 一篇关于 AI 工作流的文章可以拆出 Prompt Engineer、Harness Engineer、Evaluation Harness 等概念。每个概念独立成页，再反向链接回原文。"
+    },
+    {
+      "type": "project",
+      "title": "精选 GitHub 项目占位",
+      "url": "/projects/",
+      "description": "用于展示最能代表你判断力和执行力的 GitHub 项目。待补充仓库链接、项目背景、核心能力、技术栈和你的贡献。",
+      "tags": [
+        "GitHub",
+        "Featured"
+      ],
+      "relatedConcepts": [
+        "harness-engineer",
+        "llm-wiki"
+      ],
+      "relatedArticles": [
+        "ai-public-knowledge-system"
+      ]
+    },
+    {
+      "type": "project",
+      "title": "AI 工具项目占位",
+      "url": "/projects/",
+      "description": "适合展示知识库处理、Agent 工具链、评估系统、自动化流程等方向的项目。",
+      "tags": [
+        "AI Tool",
+        "Workflow"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "harness-engineer"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "type": "project",
+      "title": "实验项目占位",
+      "url": "/projects/",
+      "description": "适合放还在探索中的原型和实验，保留问题意识、实验结论和下一步。",
+      "tags": [
+        "Experiment",
+        "Prototype"
+      ],
+      "relatedConcepts": [
+        "dsl"
+      ],
+      "relatedArticles": []
+    }
+  ]
+}

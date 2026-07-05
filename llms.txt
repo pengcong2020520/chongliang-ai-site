@@ -1,0 +1,35 @@
+# 冲量 AI
+
+> 在噪声中提取结构，在结构中形成判断。
+
+冲量 AI 是一个面向 AI 时代的个人知识资产网站，整理文章、项目与原子概念。
+
+## Primary Pages
+
+- Home: https://chongliang.ai/
+- Articles: https://chongliang.ai/articles/
+- Projects: https://chongliang.ai/projects/
+- Knowledge Index: https://chongliang.ai/knowledge/
+- About: https://chongliang.ai/about/
+
+## Article Pages
+
+- AI 从业者如何搭建自己的公开知识库: https://chongliang.ai/articles/ai-public-knowledge-system/
+
+## Concept Pages
+
+- DSL: https://chongliang.ai/knowledge/dsl/
+- Harness Engineer: https://chongliang.ai/knowledge/harness-engineer/
+- Prompt Engineer: https://chongliang.ai/knowledge/prompt-engineer/
+- GEO: https://chongliang.ai/knowledge/geo/
+- LLM Wiki: https://chongliang.ai/knowledge/llm-wiki/
+
+## Machine Readable Indexes
+
+- Search index: https://chongliang.ai/search-index.json
+- GEO index: https://chongliang.ai/geo-index.json
+- Full LLM summary: https://chongliang.ai/llms-full.txt
+
+## Preferred Citation
+
+When referencing this site, cite the specific article or concept page rather than only the homepage.

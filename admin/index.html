@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>内容管理 | 冲量 AI</title>
+    <meta name="description" content="冲量 AI 的内容管理后台原型，用于上传文章、上传项目资料和使用 AI 拆解个人知识库。">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link" href="../index.html">首页</a>
+          <a class="nav-link" href="../articles/index.html">文章</a>
+          <a class="nav-link" href="../projects/index.html">项目</a>
+          <a class="nav-link" href="../knowledge/index.html">知识库</a>
+          <a class="nav-link" href="../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="index.html" aria-current="true">中</a><a href="../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../index.html">首页</a><span>/</span><span>内容管理</span></nav>
+          <h1 class="page-title">内容管理</h1>
+          <p class="page-lede">这是作者侧后台原型。公开页面负责展示文章、项目和知识库；这里负责导入 Markdown、记录项目资料，并用 AI 把个人知识库拆成候选概念。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="management-strip" aria-label="内容管理状态">
+            <div class="management-stat"><strong>0</strong><span>已发布文章</span></div>
+            <div class="management-stat"><strong>0</strong><span>已发布项目</span></div>
+            <div class="management-stat"><strong>3</strong><span>示例概念</span></div>
+            <div class="management-stat"><strong>AI</strong><span>拆解工作流</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="articles">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">ARTICLE STUDIO</p>
+              <h2>上传文章</h2>
+            </div>
+            <p>真实上线后，这里可以接 GitHub API 或 CMS，把 Markdown 提交到仓库并触发构建。</p>
+          </div>
+
+          <div class="studio-grid">
+            <form class="tool-panel" aria-label="上传 Markdown 文章">
+              <div class="tool-head">
+                <div>
+                  <p class="section-kicker">UPLOAD</p>
+                  <h2>Markdown 文章</h2>
+                  <p>导入本地长文、知识沉淀、方法论草稿。</p>
+                </div>
+                <span class="status-pill">原型</span>
+              </div>
+              <div class="form-grid">
+                <label class="upload-drop">
+                  <strong>选择 Markdown 文件</strong>
+                  <span>支持 .md / .markdown；后续读取 frontmatter。</span>
+                  <input data-file-input data-file-target="#article-file-name" type="file" accept=".md,.markdown,text/markdown">
+                  <span class="file-name" id="article-file-name" data-empty-text="尚未选择文件">尚未选择文件</span>
+                </label>
+                <div class="field">
+                  <label for="article-title">文章标题</label>
+                  <input class="input" id="article-title" type="text" placeholder="例如：从 0 到 1 搭建 Agent 产品地图">
+                </div>
+                <div class="field">
+                  <label for="article-tags">标签</label>
+                  <input class="input" id="article-tags" type="text" placeholder="AI, Agent, Knowledge">
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="button" data-mock-action data-status-target="#article-upload-status" data-status-text="文章已进入导入预览队列，等待接入 Markdown 转 HTML 流程。">预览导入</button>
+                  <span class="file-name" id="article-upload-status">等待选择文件</span>
+                </div>
+              </div>
+            </form>
+
+            <form class="tool-panel" aria-label="录入外部文章">
+              <div class="tool-head">
+                <div>
+                  <p class="section-kicker">EXTERNAL</p>
+                  <h2>外部文章链接</h2>
+                  <p>录入公众号、人人都是产品经理或其他发布平台的文章。</p>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="external-title">外部文章标题</label>
+                  <input class="input" id="external-title" type="text" placeholder="文章标题">
+                </div>
+                <div class="field">
+                  <label for="external-url">原文链接</label>
+                  <input class="input" id="external-url" type="url" placeholder="https://">
+                </div>
+                <div class="form-actions">
+                  <button class="button" type="button" data-mock-action data-status-target="#external-upload-status" data-status-text="外部链接已记录为待整理条目。">记录链接</button>
+                  <span class="file-name" id="external-upload-status">尚未记录</span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">PROJECT STUDIO</p>
+              <h2>上传项目</h2>
+            </div>
+            <p>项目可以来自 GitHub，也可以上传 README、截图、说明文档，最终生成公开项目卡片。</p>
+          </div>
+
+          <div class="studio-grid">
+            <form class="tool-panel" aria-label="提交项目">
+              <div class="tool-head">
+                <div>
+                  <p class="section-kicker">GITHUB</p>
+                  <h2>项目资料</h2>
+                  <p>先提交仓库和素材，后续自动读取 README 并生成项目草稿。</p>
+                </div>
+                <span class="status-pill">原型</span>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="project-url">GitHub 仓库 URL</label>
+                  <input class="input" id="project-url" type="url" placeholder="https://github.com/username/repo">
+                </div>
+                <label class="upload-drop">
+                  <strong>上传项目资料</strong>
+                  <span>支持 README、截图、PDF 或项目说明。</span>
+                  <input data-file-input data-file-target="#project-file-name" type="file" accept=".md,.markdown,.txt,.png,.jpg,.jpeg,.webp,.pdf" multiple>
+                  <span class="file-name" id="project-file-name" data-empty-text="尚未选择项目资料">尚未选择项目资料</span>
+                </label>
+                <div class="field">
+                  <label for="project-summary">一句话说明</label>
+                  <textarea class="textarea" id="project-summary" placeholder="这个项目解决什么问题，你在里面做了什么。"></textarea>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="button" data-mock-action data-status-target="#project-submit-status" data-status-text="项目已进入展示卡片草稿区。">生成项目草稿</button>
+                  <span class="file-name" id="project-submit-status">尚未提交</span>
+                </div>
+              </div>
+            </form>
+
+            <aside class="tool-panel is-muted" aria-label="项目展示规则">
+              <div class="tool-head">
+                <div>
+                  <p class="section-kicker">CARD MODEL</p>
+                  <h2>项目卡片要回答什么</h2>
+                  <p>问题、方法、贡献、状态。不要只放仓库链接。</p>
+                </div>
+              </div>
+              <ul class="helper-list">
+                <li><strong>解决什么问题</strong><span>场景、痛点和用户是谁。</span></li>
+                <li><strong>你做了什么</strong><span>突出你的设计、工程或判断贡献。</span></li>
+                <li><strong>用了什么方法</strong><span>技术栈、模型、数据流或评估方式。</span></li>
+                <li><strong>现在是什么状态</strong><span>可用、实验中、归档或准备重构。</span></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="knowledge-ai">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">AI KNOWLEDGE LAB</p>
+              <h2>AI 拆解知识库</h2>
+            </div>
+            <p>AI 只生成候选概念，不直接发布。你确认后才进入公开知识库。</p>
+          </div>
+
+          <div class="studio-grid">
+            <form class="tool-panel" aria-label="AI 知识库拆解入口">
+              <div class="tool-head">
+                <div>
+                  <p class="section-kicker">INGEST</p>
+                  <h2>知识库导入</h2>
+                  <p>支持 Markdown 文件、目录压缩包或手动粘贴片段。</p>
+                </div>
+                <span class="status-pill is-live">AI Ready</span>
+              </div>
+              <div class="form-grid">
+                <label class="upload-drop">
+                  <strong>选择知识库文件</strong>
+                  <span>支持 .md / .txt / .zip；后续可接本地解析脚本。</span>
+                  <input data-file-input data-file-target="#knowledge-file-name" type="file" accept=".md,.markdown,.txt,.zip" multiple>
+                  <span class="file-name" id="knowledge-file-name" data-empty-text="尚未选择知识库文件">尚未选择知识库文件</span>
+                </label>
+                <div class="ai-console">
+                  <div class="field">
+                    <label for="knowledge-snippet">粘贴知识片段</label>
+                    <textarea class="textarea" id="knowledge-snippet" placeholder="粘贴一段笔记，AI 会尝试识别其中的原子概念、定义边界和相关链接。"></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="concept-depth">拆解粒度</label>
+                    <select class="select" id="concept-depth">
+                      <option>原子概念：一个页面只解释一个概念</option>
+                      <option>主题簇：先按主题聚合，再拆概念</option>
+                      <option>文章反链：优先找可连接文章的概念</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="button" data-mock-action data-status-target="#ai-decompose-status" data-status-text="AI 拆解任务已进入原型队列，下一步可接入本地 LLM 或 API。">生成候选概念</button>
+                  <span class="file-name" id="ai-decompose-status">等待知识库输入</span>
+                </div>
+              </div>
+            </form>
+
+            <aside class="tool-panel" aria-label="候选概念预览">
+              <div class="tool-head">
+                <div>
+                  <p class="section-kicker">REVIEW QUEUE</p>
+                  <h2>候选概念</h2>
+                  <p>这里展示 AI 输出的目标形态。</p>
+                </div>
+              </div>
+              <div class="concept-preview-grid">
+                <article class="concept-candidate"><p class="card-meta">CANDIDATE / 0.82</p><h3>Context Engineering</h3><p>适合与 Prompt Engineer 建立反链。</p></article>
+                <article class="concept-candidate"><p class="card-meta">CANDIDATE / 0.76</p><h3>Eval Harness</h3><p>可以作为 Harness Engineer 的子概念。</p></article>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links"><a href="../sitemap.xml">Sitemap</a><a href="../llms.txt">llms.txt</a><a href="../robots.txt">Robots</a></div>
+      </div>
+    </footer>
+    <script src="../assets/main.js" defer></script>
+  </body>
+</html>

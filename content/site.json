@@ -1,0 +1,13 @@
+{
+  "siteUrl": "https://chongliang.ai",
+  "brand": "冲量 AI",
+  "language": "zh-CN",
+  "tagline": "在噪声中提取结构，在结构中形成判断。",
+  "description": "冲量 AI 是一个面向 AI 时代的个人知识资产网站，整理文章、项目与原子概念。",
+  "author": {
+    "name": "冲量 AI",
+    "@type": "Person",
+    "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+  },
+  "ogImage": "/assets/og-image.svg"
+}

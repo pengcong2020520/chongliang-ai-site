@@ -1,0 +1,12 @@
+{
+  "name": "chongliang-ai-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-content.mjs",
+    "pack": "node scripts/prepare-deploy.mjs",
+    "build:deploy": "npm run build && npm run pack",
+    "preview": "python3 -m http.server 4173"
+  }
+}
