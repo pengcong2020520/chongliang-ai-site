@@ -50,7 +50,9 @@ AI Inbox Draft PR
 
 然后它会自动开一个 Pull Request。你只需要检查 PR 里的内容，确认没问题后合并。合并后，网站会自动部署。
 
-第一次使用前，需要配置 OpenAI API Key：
+第一次使用前，需要配置一个模型服务。OpenAI 和 DeepSeek 二选一即可。
+
+如果使用 OpenAI：
 
 1. 进入 GitHub 仓库 `Settings → Secrets and variables → Actions`。
 2. 点击 `New repository secret`。
@@ -58,7 +60,16 @@ AI Inbox Draft PR
 4. Value 填你的 OpenAI API Key。
 5. 可选：在 `Variables` 里增加 `OPENAI_MODEL`，不填则默认 `gpt-4.1`。
 
-这个流程会把 inbox 里的原始内容发送给 OpenAI API，所以不要上传敏感资料。
+如果使用 DeepSeek：
+
+1. 进入 GitHub 仓库 `Settings → Secrets and variables → Actions`。
+2. 点击 `New repository secret`。
+3. 名称填 `DEEPSEEK_API_KEY`。
+4. Value 填你的 DeepSeek API Key。
+5. 切到 `Variables`，新增 `AI_PROVIDER`，值填 `deepseek`。
+6. 可选：新增 `DEEPSEEK_MODEL`，不填则默认 `deepseek-v4-flash`。
+
+这个流程会把 inbox 里的原始内容发送给你配置的模型 API，所以不要上传敏感资料。
 
 ### 1. 上传文章
 

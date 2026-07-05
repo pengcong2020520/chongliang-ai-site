@@ -29,13 +29,23 @@ content/inbox/
 上传原始内容 → AI 按 DSL 生成文章/知识点 → 自动开 PR → 你审核合并 → 自动部署
 ```
 
-启用这个流程前，需要在 GitHub 仓库里配置：
+启用这个流程前，需要在 GitHub 仓库里配置一个模型服务。OpenAI 和 DeepSeek 二选一即可。
+
+使用 OpenAI：
 
 - `Settings → Secrets and variables → Actions → New repository secret`
 - Secret 名称：`OPENAI_API_KEY`
 - 可选变量：`OPENAI_MODEL`，默认使用 `gpt-4.1`
 
-注意：上传到 `content/inbox/` 的内容会发送给 OpenAI API 处理。不要上传密码、客户隐私、API Key 或不适合公开处理的资料。
+使用 DeepSeek：
+
+- `Settings → Secrets and variables → Actions → New repository secret`
+- Secret 名称：`DEEPSEEK_API_KEY`
+- `Settings → Secrets and variables → Actions → Variables → New repository variable`
+- 变量 `AI_PROVIDER` 填 `deepseek`
+- 可选变量 `DEEPSEEK_MODEL`，默认使用 `deepseek-v4-flash`
+
+注意：上传到 `content/inbox/` 的内容会发送给你配置的模型 API 处理。不要上传密码、客户隐私、API Key 或不适合公开处理的资料。
 
 新增文章：
 

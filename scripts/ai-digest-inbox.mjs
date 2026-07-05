@@ -14,8 +14,30 @@ const PROCESSED_PATH = path.join(CONTENT, "inbox", ".processed.json");
 const NO_INDEX = new Set(["README.md", "template.md"]);
 const today = new Date().toISOString().slice(0, 10);
 
-const apiKey = process.env.OPENAI_API_KEY || "";
-const model = process.env.OPENAI_MODEL || "gpt-4.1";
+const requestedProvider = (process.env.AI_PROVIDER || "").toLowerCase();
+const provider = requestedProvider || (process.env.DEEPSEEK_API_KEY ? "deepseek" : "openai");
+const providerConfig = {
+  openai: {
+    apiKey: process.env.OPENAI_API_KEY || "",
+    apiKeyName: "OPENAI_API_KEY",
+    model: process.env.OPENAI_MODEL || process.env.AI_MODEL || "gpt-4.1",
+    baseUrl: (process.env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/+$/, "")
+  },
+  deepseek: {
+    apiKey: process.env.DEEPSEEK_API_KEY || "",
+    apiKeyName: "DEEPSEEK_API_KEY",
+    model: process.env.DEEPSEEK_MODEL || process.env.AI_MODEL || "deepseek-v4-flash",
+    baseUrl: (process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/+$/, "")
+  }
+};
+
+if (!providerConfig[provider]) {
+  throw new Error(`Unsupported AI_PROVIDER "${provider}". Use "openai" or "deepseek".`);
+}
+
+const activeProvider = providerConfig[provider];
+const apiKey = activeProvider.apiKey;
+const model = activeProvider.model;
 
 async function readJson(filePath, fallback) {
   try {
@@ -275,7 +297,13 @@ function extractOutputText(data) {
   return chunks.join("\n").trim();
 }
 
-async function callOpenAI({ dsl, context, source }) {
+function extractJsonText(text = "") {
+  const trimmed = text.trim();
+  if (!trimmed.startsWith("```")) return trimmed;
+  return trimmed.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+}
+
+function createDigestPrompt({ dsl, context, source }) {
   const maxConcepts = dsl.outputContracts?.concept?.maxItemsPerSource || 8;
   const maxArticles = dsl.outputContracts?.article?.maxItemsPerSource || 2;
   const instructions = [
@@ -311,7 +339,12 @@ async function callOpenAI({ dsl, context, source }) {
     "- 不确定的内容写进 notes，不要硬写成事实。"
   ].join("\n");
 
-  const response = await fetch("https://api.openai.com/v1/responses", {
+  return { instructions, input };
+}
+
+async function callOpenAI({ dsl, context, source }) {
+  const { instructions, input } = createDigestPrompt({ dsl, context, source });
+  const response = await fetch(`${activeProvider.baseUrl}/responses`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -341,7 +374,54 @@ async function callOpenAI({ dsl, context, source }) {
   const data = await response.json();
   const text = extractOutputText(data);
   if (!text) throw new Error("OpenAI response did not include output_text content.");
-  return JSON.parse(text);
+  return JSON.parse(extractJsonText(text));
+}
+
+async function callDeepSeek({ dsl, context, source }) {
+  const { instructions, input } = createDigestPrompt({ dsl, context, source });
+  const response = await fetch(`${activeProvider.baseUrl}/chat/completions`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model,
+      messages: [
+        {
+          role: "system",
+          content: `${instructions}\n你必须输出一个完整 JSON 对象，字段必须符合用户消息里的 JSON Schema。`
+        },
+        {
+          role: "user",
+          content: [
+            input,
+            "",
+            "## Required JSON Schema",
+            JSON.stringify(digestSchema, null, 2)
+          ].join("\n")
+        }
+      ],
+      response_format: { type: "json_object" },
+      max_tokens: 12000,
+      stream: false
+    })
+  });
+
+  if (!response.ok) {
+    const message = await response.text();
+    throw new Error(`DeepSeek API request failed (${response.status}): ${message}`);
+  }
+
+  const data = await response.json();
+  const text = data.choices?.[0]?.message?.content || "";
+  if (!text.trim()) throw new Error("DeepSeek response did not include choices[0].message.content.");
+  return JSON.parse(extractJsonText(text));
+}
+
+async function callModel(args) {
+  if (provider === "deepseek") return callDeepSeek(args);
+  return callOpenAI(args);
 }
 
 function writeConceptMarkdown(concept, slug) {
@@ -402,6 +482,7 @@ function summaryMarkdown({ pending, generated, notes, dsl }) {
     "# AI Inbox Digest",
     "",
     `Mode: ${dsl.mode || "review_pr"}`,
+    `Provider: ${provider}`,
     `Model: ${model}`,
     `Date: ${today}`,
     "",
@@ -466,13 +547,13 @@ async function main() {
   }
 
   if (!pending.length) {
-    await writeFile(SUMMARY_PATH, "# AI Inbox Digest\n\nNo new inbox files to process.\n", "utf8");
+    await writeFile(SUMMARY_PATH, `# AI Inbox Digest\n\nProvider: ${provider}\nModel: ${model}\n\nNo new inbox files to process.\n`, "utf8");
     console.log("No new inbox files to process.");
     return;
   }
 
   if (!apiKey) {
-    throw new Error("OPENAI_API_KEY is required when content/inbox contains new files to process.");
+    throw new Error(`${activeProvider.apiKeyName} is required when content/inbox contains new files to process with AI_PROVIDER=${provider}.`);
   }
 
   const limitedPending = pending.slice(0, maxFiles);
@@ -491,7 +572,7 @@ async function main() {
   await ensureDir(path.join(CONTENT, "articles"));
 
   for (const source of limitedPending) {
-    const digest = await callOpenAI({ dsl, context, source });
+    const digest = await callModel({ dsl, context, source });
     notes.push(...cleanArray(digest.notes).map((note) => `${source.relativePath}: ${note}`));
 
     const sourceGenerated = { concepts: [], articles: [] };

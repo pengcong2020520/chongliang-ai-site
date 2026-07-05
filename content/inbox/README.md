@@ -23,3 +23,8 @@ AI 会根据 `content/pipeline/chongliang-ai.pipeline.json` 里的 DSL 输出：
 - 生成后的 HTML、SEO、GEO 索引文件
 
 前期策略是“自动开 PR，但不自动合并”。你看完 PR 后再合并，合并后网站会自动部署。
+
+模型服务可以使用 OpenAI 或 DeepSeek：
+
+- OpenAI：配置 `OPENAI_API_KEY`。
+- DeepSeek：配置 `DEEPSEEK_API_KEY`，并把仓库变量 `AI_PROVIDER` 设为 `deepseek`。

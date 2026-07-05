@@ -5,6 +5,12 @@
   "language": "zh-CN",
   "mode": "review_pr",
   "intent": "把个人文章、知识库导出内容和项目笔记拆解为可被人阅读、搜索引擎索引、生成式搜索引用的稳定内容资产。",
+  "modelProvider": {
+    "selectionEnv": "AI_PROVIDER",
+    "supported": ["openai", "deepseek"],
+    "default": "openai",
+    "deepseekRule": "当 AI_PROVIDER=deepseek 时，使用 DEEPSEEK_API_KEY 和 DeepSeek Chat Completions。"
+  },
   "source": {
     "inbox": "content/inbox",
     "acceptedExtensions": [".md", ".markdown", ".txt"],
