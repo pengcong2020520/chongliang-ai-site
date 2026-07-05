@@ -10,7 +10,55 @@
 GitHub Pages 自动部署
 ```
 
+也可以使用更省事的 AI Inbox 流程：
+
+```text
+你上传原始 Markdown/TXT 到 content/inbox
+        ↓
+AI 读取 Pipeline DSL，拆文章和知识点
+        ↓
+自动创建 Pull Request
+        ↓
+你审核合并
+        ↓
+GitHub Pages 自动部署
+```
+
 ## 你日常只做三件事
+
+### 0. 最简单：上传到 Inbox，让 AI 先开 PR
+
+在 GitHub 仓库里进入：
+
+```text
+content/inbox/
+```
+
+上传 `.md`、`.markdown` 或 `.txt` 文件，然后提交到 `main`。GitHub Actions 会自动运行：
+
+```text
+AI Inbox Draft PR
+```
+
+它会按 `content/pipeline/chongliang-ai.pipeline.json` 这份 DSL 生成：
+
+- 新文章：`content/articles/*.md`
+- 新知识点：`content/concepts/*.md`
+- 自动互链字段
+- 生成后的 HTML
+- SEO/GEO 索引文件
+
+然后它会自动开一个 Pull Request。你只需要检查 PR 里的内容，确认没问题后合并。合并后，网站会自动部署。
+
+第一次使用前，需要配置 OpenAI API Key：
+
+1. 进入 GitHub 仓库 `Settings → Secrets and variables → Actions`。
+2. 点击 `New repository secret`。
+3. 名称填 `OPENAI_API_KEY`。
+4. Value 填你的 OpenAI API Key。
+5. 可选：在 `Variables` 里增加 `OPENAI_MODEL`，不填则默认 `gpt-4.1`。
+
+这个流程会把 inbox 里的原始内容发送给 OpenAI API，所以不要上传敏感资料。
 
 ### 1. 上传文章
 
@@ -154,3 +202,14 @@ chongliang.ai
 - UI/GUI：根据文章、知识点、项目数量调整首页、列表页、知识库布局。
 - SEO：优化标题、摘要、结构化数据、内链、sitemap、RSS。
 - GEO：优化概念定义、引用摘要、llms 文件、AI 检索索引和知识图谱结构。
+
+## 为什么要有 DSL
+
+`content/pipeline/chongliang-ai.pipeline.json` 是这条自动化链路的“规则文件”。它把 AI 处理过程拆成固定阶段，并约束输出结构。
+
+这样做的好处是：
+
+- 输出更稳定，不完全依赖一次性的提示词。
+- 文章和知识点的字段不会乱。
+- 以后从“自动开 PR”升级到“自动合并部署”时，链路更容易验证。
+- 你可以通过改 DSL 调整拆解粒度，而不是每次重写提示词。

@@ -1,0 +1,74 @@
+name: AI Inbox Draft PR
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "content/inbox/**"
+      - "content/pipeline/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ai-inbox-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Run AI inbox digest
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1' }}
+        run: npm run ai:inbox
+
+      - name: Build generated pages
+        run: npm run build
+
+      - name: Detect generated changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create review pull request
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="ai/inbox-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add content articles knowledge projects sitemap.xml feed.xml llms.txt llms-full.txt search-index.json geo-index.json
+          git commit -m "AI digest inbox content"
+          git push --force origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "AI digest inbox content" \
+            --body-file .ai-inbox-summary.md
+
+      - name: Print digest summary
+        if: always()
+        run: |
+          if [ -f .ai-inbox-summary.md ]; then
+            cat .ai-inbox-summary.md
+          fi

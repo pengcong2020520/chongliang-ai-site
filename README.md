@@ -7,10 +7,35 @@
 - 文章、知识点、项目之间的自动互链。
 - SEO 基础文件：`sitemap.xml`、`robots.txt`、`feed.xml`、canonical、结构化数据。
 - GEO 辅助文件：`llms.txt`、`llms-full.txt`、`geo-index.json`、`search-index.json`。
+- AI Inbox 工作流：上传内容后，AI 按 DSL 拆解文章和知识点，并自动开 Pull Request。
 
 ## 日常维护
 
 最推荐的方式是：你只改 `content/`，GitHub Actions 自动运行生成器并部署。
+
+### 最省事的方式：上传到 Inbox
+
+如果你不想手动写 frontmatter，可以直接把文章草稿、知识库导出片段或概念笔记上传到：
+
+```text
+content/inbox/
+```
+
+支持 `.md`、`.markdown`、`.txt`。提交到 `main` 后，`AI Inbox Draft PR` workflow 会读取 `content/pipeline/chongliang-ai.pipeline.json` 这份 DSL，自动拆解并创建 Pull Request。
+
+当前策略是：
+
+```text
+上传原始内容 → AI 按 DSL 生成文章/知识点 → 自动开 PR → 你审核合并 → 自动部署
+```
+
+启用这个流程前，需要在 GitHub 仓库里配置：
+
+- `Settings → Secrets and variables → Actions → New repository secret`
+- Secret 名称：`OPENAI_API_KEY`
+- 可选变量：`OPENAI_MODEL`，默认使用 `gpt-4.1`
+
+注意：上传到 `content/inbox/` 的内容会发送给 OpenAI API 处理。不要上传密码、客户隐私、API Key 或不适合公开处理的资料。
 
 新增文章：
 
@@ -54,7 +79,10 @@ npm run build
 - `content/concepts/`: 原子知识点 Markdown。
 - `content/projects.json`: 项目数据。
 - `content/site.json`: 站点基础信息。
+- `content/inbox/`: AI 自动拆解的上传入口。
+- `content/pipeline/`: AI 内容链路 DSL。
 - `scripts/build-content.mjs`: 无依赖静态生成器。
+- `scripts/ai-digest-inbox.mjs`: AI Inbox 拆解脚本。
 - `articles/`: 生成后的文章页面。
 - `knowledge/`: 生成后的知识库页面。
 - `projects/`: 生成后的项目页面。

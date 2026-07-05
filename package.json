@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-content.mjs",
+    "ai:inbox": "node scripts/ai-digest-inbox.mjs",
     "pack": "node scripts/prepare-deploy.mjs",
     "build:deploy": "npm run build && npm run pack",
     "preview": "python3 -m http.server 4173"

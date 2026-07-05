@@ -1,0 +1,142 @@
+{
+  "version": "0.1.0",
+  "name": "chongliang-ai-content-pipeline",
+  "brand": "冲量 AI",
+  "language": "zh-CN",
+  "mode": "review_pr",
+  "intent": "把个人文章、知识库导出内容和项目笔记拆解为可被人阅读、搜索引擎索引、生成式搜索引用的稳定内容资产。",
+  "source": {
+    "inbox": "content/inbox",
+    "acceptedExtensions": [".md", ".markdown", ".txt"],
+    "maxFilesPerRun": 5,
+    "maxCharactersPerFile": 60000,
+    "privacyRule": "只处理用户主动上传到 inbox 的内容，不推断或读取仓库外的私有资料。"
+  },
+  "stages": [
+    {
+      "id": "source_understanding",
+      "name": "理解原始内容",
+      "goal": "识别原始内容的主题、论点、适合保留的表达和可拆解的知识点。"
+    },
+    {
+      "id": "concept_extraction",
+      "name": "拆解原子概念",
+      "goal": "把稳定、可复用、可独立查询的概念拆成知识原点。",
+      "rules": [
+        "概念必须能单独回答“是什么、不是是什么、用于什么场景”。",
+        "概念不应该只是文章小标题或临时观点。",
+        "如果已有知识点可以承载，不要重复创建，只在文章互链里引用。"
+      ]
+    },
+    {
+      "id": "article_generation",
+      "name": "生成文章资产",
+      "goal": "把适合公开阅读的内容沉淀为文章，文章负责叙事、方法论和上下文。",
+      "rules": [
+        "文章正文必须有清晰的二级标题。",
+        "文章需要关联 concepts 字段，让内容进入知识网络。",
+        "不把碎片概念强行扩写成文章。"
+      ]
+    },
+    {
+      "id": "seo_geo_enrichment",
+      "name": "补全 SEO 与 GEO 字段",
+      "goal": "补齐标题、摘要、引用摘要、标签、互链与结构化字段。",
+      "rules": [
+        "description 面向搜索结果摘要，citation 面向 AI 可引用摘要。",
+        "summary 保持一句话，definition 保持正式定义。",
+        "relatedConcepts 和 relatedArticles 只填写真实相关项。"
+      ]
+    },
+    {
+      "id": "review_pr",
+      "name": "生成审核 PR",
+      "goal": "自动提交生成内容，但由用户审核合并。",
+      "rules": [
+        "前期只开 Pull Request，不直接推送到 main。",
+        "PR 摘要必须列出来源文件、生成内容、需要人工检查的点。"
+      ]
+    }
+  ],
+  "outputContracts": {
+    "concept": {
+      "directory": "content/concepts",
+      "maxItemsPerSource": 8,
+      "slugRule": "lowercase-ascii-kebab-case",
+      "requiredFrontmatter": [
+        "type",
+        "title",
+        "slug",
+        "term",
+        "aliases",
+        "category",
+        "parent",
+        "summary",
+        "definition",
+        "not",
+        "scenarios",
+        "misconceptions",
+        "tags",
+        "relatedConcepts",
+        "relatedArticles",
+        "projects",
+        "updated",
+        "language",
+        "citation"
+      ],
+      "bodyStructure": [
+        "## 更完整的解释",
+        "## 使用边界",
+        "## 例子",
+        "## 与其他概念的关系"
+      ]
+    },
+    "article": {
+      "directory": "content/articles",
+      "maxItemsPerSource": 2,
+      "slugRule": "lowercase-ascii-kebab-case",
+      "requiredFrontmatter": [
+        "type",
+        "title",
+        "slug",
+        "date",
+        "updated",
+        "description",
+        "source",
+        "sourceLabel",
+        "originalUrl",
+        "tags",
+        "concepts",
+        "projects",
+        "featured",
+        "hot",
+        "language"
+      ],
+      "bodyStructure": [
+        "## 核心结论",
+        "## 背景问题",
+        "## 方法或框架",
+        "## 与知识点的关系"
+      ]
+    }
+  },
+  "reviewPolicy": {
+    "defaultAction": "pull_request",
+    "autoMerge": false,
+    "futureAutoModeCondition": "当连续多次 PR 的人工修改很少，再考虑改为自动提交和部署。",
+    "humanChecklist": [
+      "概念是否拆得太碎或太泛",
+      "文章是否保留了原始观点",
+      "互链是否真实相关",
+      "是否包含不该公开的信息",
+      "标题、摘要、citation 是否适合公开引用"
+    ]
+  },
+  "qualityGate": {
+    "dedupeExistingSlugs": true,
+    "avoidPrivateData": true,
+    "preferConceptReuse": true,
+    "requireMarkdownHeadingLevel": "h2_or_h3_only",
+    "requireGeneratedSiteBuild": true
+  }
+}

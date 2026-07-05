@@ -7,6 +7,8 @@
 - `articles/`: 放文章 Markdown。
 - `concepts/`: 放知识点 Markdown。
 - `projects.json`: 放项目数据。
+- `inbox/`: 放待 AI 自动拆解的原始 Markdown/TXT。
+- `pipeline/`: 放 AI 内容处理 DSL。
 
 维护完成后，在站点根目录运行：
 
@@ -36,6 +38,16 @@ node scripts/build-content.mjs
 - `relatedArticles`: 知识点关联的文章。
 
 ## 推荐工作流
+
+### 半自动工作流
+
+1. 把原始内容上传到 `content/inbox/`。
+2. 提交到 GitHub。
+3. 等待 GitHub Actions 自动开 PR。
+4. 检查生成的文章、知识点、互链和摘要。
+5. 合并 PR，网站自动部署。
+
+### 手动精修工作流
 
 1. 先写文章。
 2. 从文章里拆出概念。
