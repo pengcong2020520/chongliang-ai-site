@@ -101,7 +101,7 @@ http://localhost:4173
 
 ## GitHub Pages 部署
 
-当前仓库已经配置好 GitHub Actions。以后每次 push 到 `main` 分支，会自动部署到：
+当前仓库已经配置好 GitHub Actions。以后每次 push 到 `main` 分支，会自动构建并发布到 `gh-pages` 分支：
 
 ```text
 https://pengcong2020520.github.io/chongliang-ai-site/
@@ -113,8 +113,9 @@ https://pengcong2020520.github.io/chongliang-ai-site/
 2. 把本目录所有文件上传到仓库根目录。
 3. 保留 `.github/workflows/deploy.yml`。
 4. 进入仓库 `Settings → Pages`。
-5. Source 选择 `GitHub Actions`。
-6. 把 `.github/workflows/deploy.yml` 里的 `SITE_URL` 改成新仓库的 Pages 地址或正式域名。
+5. Source 选择 `Deploy from a branch`。
+6. Branch 选择 `gh-pages`，目录选择 `/`。
+7. 把 `.github/workflows/deploy.yml` 里的 `SITE_URL` 改成新仓库的 Pages 地址或正式域名。
 
 ## 绑定域名
 

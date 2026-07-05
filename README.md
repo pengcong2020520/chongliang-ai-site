@@ -61,13 +61,14 @@ npm run build
 
 ## 部署
 
-当前仓库已经配置好 GitHub Actions，push 到 `main` 后会自动生成并发布 `_site`。
+当前仓库已经配置好 GitHub Actions，push 到 `main` 后会自动生成 `_site` 并发布到 `gh-pages` 分支。
 
 仓库设置：
 
 1. 进入 GitHub 仓库 `Settings → Pages`。
-2. Source 选择 `GitHub Actions`。
-3. push 到 `main` 分支后，GitHub Actions 会自动生成并发布 `_site`。
+2. Source 选择 `Deploy from a branch`。
+3. Branch 选择 `gh-pages`，目录选择 `/`。
+4. push 到 `main` 分支后，GitHub Actions 会自动生成并发布 `_site`。
 
 当前临时线上地址：
 
