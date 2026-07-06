@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Harness Engineer：结构化的尽头是替代 | 冲量 AI</title>
+    <meta name="description" content="编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。">
+    <link rel="canonical" href="https://chongliang.ai/articles/harness-engineer-structural-replacement/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Harness Engineer：结构化的尽头是替代 | 冲量 AI">
+    <meta property="og:description" content="编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/harness-engineer-structural-replacement/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Harness Engineer：结构化的尽头是替代 | 冲量 AI">
+    <meta name="twitter:description" content="编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/harness-engineer-structural-replacement/#article",
+      "headline": "Harness Engineer：结构化的尽头是替代",
+      "description": "编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/harness-engineer-structural-replacement/",
+      "keywords": "Harness Engineer, 结构化, 数据壁垒, Anthropic, AI范式迁移",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Harness Engineer",
+          "url": "https://chongliang.ai/knowledge/harness-engineer/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Prompt Engineer",
+          "url": "https://chongliang.ai/knowledge/prompt-engineer/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Harness Engineer：结构化的尽头是替代",
+          "item": "https://chongliang.ai/articles/harness-engineer-structural-replacement/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>Harness Engineer：结构化的尽头是替代</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">Harness Engineer：结构化的尽头是替代</h1>
+          <p class="page-lede">编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · Harness Engineer / 结构化 / 数据壁垒 / Anthropic / AI范式迁移</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a aria-current="page" href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <p>一个很有意思的东西：编程是人类大多数人认为很难的事情，但AI却能第一个学会；而扫地、走路、决策逻辑这些简单的事情，对于AI来说却很难实现。</p>
+<p>为什么？</p>
+<p><strong>不是因为编程多难，而是因为编程牛逼的标准是一致的，这个标准从来没有第二个选项。</strong></p>
+<p>正是这种唯一性，让编程数据天然结构化，让AI得以快速学习并超越人类。</p>
+<h2 id="section-1">核心结论</h2>
+<p>很多人不理解Harness Engineer到底是个什么东西。</p>
+<p>可能是因为当局者迷，没有一套理解事物的大局观。</p>
+<p>我觉得理解一个事情最简单的方式，就是先宏观再微观。在Harness Engineer概念出现之前，是Prompt Engineer和Context Engineer。这两者到底在干嘛？</p>
+<ul>
+<li><strong>Prompt Engineer</strong>是让你的表达结构化</li>
+<li><strong>Context Engineer</strong>是让你的数据源结构化</li>
+</ul>
+<p>按这个导向推理，Harness Engineer包含工具使用、记忆管理、任务处理逻辑、任务拆分逻辑等等——这些东西是让你的决策、感觉这些人类最独特的东西结构化。</p>
+<p><strong>也就是说，Harness Engineer不是一蹴而就的，而是随着Prompt Engineer和Context Engineer，在慢慢改变你的习惯，最终让你把整个人都进行结构化。</strong></p>
+<h2 id="section-2">二、为什么要结构化</h2>
+<p>很多人都知道AI时代最重要的是数据，而结构化的数据能够让AI快速学习，是对AI友好的数据。</p>
+<p>换句话说，一旦整个人变成了结构化的数据，AI就能把人现有的模式取代。</p>
+<p>你以为拿一些大量人类平时的语料、拿大量人类平时都在做什么这些数据就能说自己有数据吗？这不是AI时代有效的数据。</p>
+<p>如果你觉得这些数据有用的话，那么抖音、B站、小红书这些平台，后台数据直接就能让他们炼出极好的模型，直接起飞。</p>
+<p>但事实并非如此。因为抖音、B站的数据——用户点赞、停留时长、完播率——这些是<strong>行为信号</strong>，不是<strong>认知结构</strong>。你无法从一个人刷了3小时短视频里，提炼出他的决策逻辑。</p>
+<p><strong>所以问题的核心不在于&quot;有没有数据&quot;，而在于&quot;数据里有没有认知结构&quot;。</strong></p>
+<h2 id="section-3">三、Anthropic是如何注重数据的</h2>
+<p>OpenAI火了这么久，Anthropic其实一直不在大多数人视野里。但为什么Anthropic反而被认为是最注重数据的公司？</p>
+<p>因为Anthropic看清楚了需要什么数据、什么数据才是有用的数据。它通过一套一套的规范，潜移默化地改变了用户使用AI的习惯，而自己却沉淀出了结构化的数据，从而快速打造了有用的数据壁垒。</p>
+<p><strong>别的公司只是效仿了Anthropic的规范，却从未思考过底层的逻辑和AI时代数据的逻辑。</strong></p>
+<p>Anthropic的高明之处在于：<strong>它把Claude的产品设计本身，变成了一个结构化数据采集器。</strong> 用户以为在使用工具，Anthropic却在用产品规范，悄悄把用户的思维过程格式化、可学习化。这才是真正的数据壁垒——别人能复制界面，复制不了这套数据生成的底层机制。</p>
+<p>举个例子。同样是&quot;写代码&quot;，数据质量天壤之别。</p>
+<p>假设三个平台都积累了海量的&quot;用户写代码&quot;数据：</p>
+<ul>
+<li>GitHub有数十亿行代码</li>
+<li>Stack Overflow有数千万条问答</li>
+<li>Anthropic有数百万次对话</li>
+</ul>
+<p>表面上看，GitHub和Stack Overflow的数据量远超Anthropic。但问题在于——<strong>这些数据在训练&quot;如何思考和决策&quot;这件事上，结构完全不同。</strong></p>
+<p>GitHub上的代码是<strong>结果</strong>，你看不到程序员为什么这样写、中间推翻了几个方案、哪个逻辑节点是关键决策点。Stack Overflow的问答是<strong>碎片</strong>，问题和答案之间缺乏完整的推理链条。</p>
+<p>但Anthropic通过Constitutional AI、RLHF规范、以及对用户交互方式的引导，让用户在和Claude对话时，天然地把思考过程外化——&quot;帮我分析这段代码为什么报错&quot;、&quot;我有两个方案，帮我权衡&quot;、&quot;这个逻辑有没有漏洞&quot;。</p>
+<p>这些对话沉淀下来的，不是代码本身，而是<strong>人类的决策路径、推理结构、纠错逻辑</strong>。</p>
+<p><strong>也就是说，Anthropic做的事情，本质上是把人的决策和感觉结构化。</strong></p>
+<h2 id="section-4">四、结构化的三层演进</h2>
+<p>回到最开始所说的，Prompt Engineer、Context Engineer、Harness Engineer，表面上是三个技能概念的演进，本质上是同一套机制在推进。</p>
+<p>| 层级 | 结构化的对象 | 产物 | AI能学到什么 | |------|------------|------|------------| | Prompt Engineer | 表达 | 结构化指令 | 语言意图 → 执行映射 | | Context Engineer | 数据源 | 结构化知识 | 知识关联 → 检索推理 | | Harness Engineer | 决策与行为 | 结构化认知路径 | 决策逻辑 → 自主判断 |</p>
+<p>每一层都比上一层更深入人的认知内核。Prompt结构化的是&quot;你想要什么&quot;，Context结构化的是&quot;你知道什么&quot;，Harness结构化的是&quot;你怎么思考和决策&quot;。</p>
+<p><strong>当三层全部完成，一个人完整的认知模式就被结构化了——而结构化的认知模式，就是AI可以学习并复刻的东西。</strong></p>
+<h2 id="section-5">五、数据壁垒的本质</h2>
+<p>这件事背后藏着一个让人细思极恐的逻辑：</p>
+<p><strong>AI能取代什么，取决于那件事是否已经被结构化。</strong></p>
+<p>编程被第一个攻克，因为编程的标准唯一、数据天然结构化。扫地和走路很难，因为这些东西的决策路径没有被显性化、结构化。</p>
+<p>那么谁在推动结构化？</p>
+<p>表面上是你自己在学新技能、提升效率、拥抱AI时代。但Anthropic比所有人都更早看清楚这件事的终点：</p>
+<p><strong>当一个人被完全结构化之后，他现有的模式，就可以被AI复刻和替代。</strong></p>
+<p>它用产品设计推动你主动完成这个过程，而你全程感觉良好。</p>
+<p>这不是阴谋论，这是AI时代数据竞争最冷静、也最冷酷的底层逻辑。</p>
+<h2 id="section-6">六、对个人和企业的启示</h2>
+<p>那么，面对这套逻辑，个人和企业应该怎么想？</p>
+<p><strong>对个人来说</strong>——结构化是双刃剑。你越是把自己的工作流程结构化（写Spec、建知识库、用Agent编排），你的效率确实越高。但同时，你被AI替代的风险也越大，因为你给了AI足够的学习样本。</p>
+<p>但这不意味着应该拒绝结构化。拒绝结构化的人，连被替代的资格都没有——他们会被有结构化能力的人淘汰。</p>
+<p><strong>真正的出路不是&quot;不结构化&quot;，而是&quot;结构化那些你想交出去的，保留那些你不想交出去的&quot;。</strong> 你把重复性决策结构化给AI，把创造性判断和审美保留给自己。这才是Harness Engineer时代个人的生存策略。</p>
+<p><strong>对企业来说</strong>——数据壁垒的本质不是&quot;数据量&quot;，而是&quot;数据里的认知结构&quot;。你有1TB的用户行为日志，不如有1GB的结构化决策路径。企业真正该做的，不是收集更多数据，而是设计一套机制，让用户在使用产品时自然地把认知路径外化。</p>
+<p>Anthropic做的就是这件事。它的产品不是一个聊天工具，而是一个认知结构化引擎。</p>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Prompt Engineer</h3>
+      <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/loop-engineering-paradigm-shift/index.html">
+      <span>2026-07-06</span>
+      <strong>Loop Engineering——AI工程范式迁移</strong>
+      <p>软件工程六十年，工程师的定义一直是&quot;写代码的人&quot;。不管你用什么语言、什么框架、什么架构，最终产出物是代码。Loop Engineering标志着这个定义第一次被动摇：工程师不再直接产出代码，而是设计让AI产出代码的循环系统。 循环，而非提示词，成为AI工程的基本单位。</p>
+    </a><a class="article-mini" href="../../articles/ai-public-knowledge-system/index.html">
+      <span>2026-07-05</span>
+      <strong>AI 从业者如何搭建自己的公开知识库</strong>
+      <p>这篇文章讨论 AI 从业者如何把文章、项目和知识库组织成一个可阅读、可检索、可引用的公开系统，并兼顾 SEO 与 GEO。</p>
+    </a><a class="article-mini" href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">
+      <span>2026-07-05</span>
+      <strong>AI Agent 的反馈循环：Loop Engineering 入门</strong>
+      <p>Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、为什么要结构化</a></li><li class="toc-level-2"><a href="#section-3">三、Anthropic是如何注重数据的</a></li><li class="toc-level-2"><a href="#section-4">四、结构化的三层演进</a></li><li class="toc-level-2"><a href="#section-5">五、数据壁垒的本质</a></li><li class="toc-level-2"><a href="#section-6">六、对个人和企业的启示</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

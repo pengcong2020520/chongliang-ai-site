@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>编排能力是新护城河——多模型协作的竞争逻辑 | 冲量 AI</title>
+    <meta name="description" content="2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。">
+    <link rel="canonical" href="https://chongliang.ai/articles/orchestration-as-moat/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="编排能力是新护城河——多模型协作的竞争逻辑 | 冲量 AI">
+    <meta property="og:description" content="2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/orchestration-as-moat/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="编排能力是新护城河——多模型协作的竞争逻辑 | 冲量 AI">
+    <meta name="twitter:description" content="2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/orchestration-as-moat/#article",
+      "headline": "编排能力是新护城河——多模型协作的竞争逻辑",
+      "description": "2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从\"谁的模型更强\"迁移到\"谁的编排更会组合\"。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/orchestration-as-moat/",
+      "keywords": "多模型协作, Agent编排, 护城河, MoA",
+      "about": [],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "编排能力是新护城河——多模型协作的竞争逻辑",
+          "item": "https://chongliang.ai/articles/orchestration-as-moat/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>编排能力是新护城河——多模型协作的竞争逻辑</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">编排能力是新护城河——多模型协作的竞争逻辑</h1>
+          <p class="page-lede">2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · 多模型协作 / Agent编排 / 护城河 / MoA</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a aria-current="page" href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <p>2026年，一个反直觉的事实正在成为行业共识：<strong>模型越来越像，但用好模型的方式越来越不一样。</strong></p>
+<p>GPT-5.5单独42.7分，Claude Opus 4.6单独43.3分——差距不到1分。但两者协作后57.4分，提升不是线性的，是质的飞跃。这个数据来自微软Copilot Cowork的DRACO研究质量基准测试，它说明了一件事：单模型之间的能力差距正在缩小，但编排系统能撬动的提升空间正在拉大。</p>
+<p><strong>护城河正在从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。</strong></p>
+<p>---</p>
+<h2 id="section-1">核心结论</h2>
+<p>多模型协作不是新概念。Mixture-of-Agents（MoA）论文2024年发表，被引超500次，学术上早就证明了多模型聚合能超越单模型。但2026年发生的事情不一样——它从论文变成了产品，而且产品被独立定价了。</p>
+<p>三个标志事件：</p>
+<p><strong>微软让竞争对手的模型审校自己的输出。</strong> Copilot Cowork在2026年6月正式GA，核心架构是GPT写研究报告，Claude做事实核查和审校，修订后交付。微软投了OpenAI 130亿美元，却把最终编辑权交给了Anthropic的Claude。这不是技术选择，是战略选择——编排逻辑优先于模型所有权。微软用行动表态：我的竞争力不在拥有最好的模型，而在拥有最好的模型组合系统。</p>
+<p><strong>Manus被Meta以20亿美元收购，买的是编排系统不是模型。</strong> Manus本身不训练模型，它调用Claude做深度推理、Qwen做批量执行、Gemini Flash做轻量任务，自动为每一步选最合适的模型。Meta花20亿美元买的不是模型权重，是路由策略、上下文工程、工具链整合这些编排能力。这笔交易给编排系统定了一个价：数十亿美元。</p>
+<p><strong>行业报告把2026年定义为&quot;多Agent编排年&quot;。</strong> Camunda的《2026 Agentic Orchestration报告》调研了1150名IT领导者，结论是一句话：&quot;获胜的组织不是Agent最多的，而是编排层最清晰的。&quot;这不是分析师的预测，是对已经发生的趋势的确认。</p>
+<p>三件事指向同一个判断：<strong>编排能力已经从&quot;技术实现细节&quot;升级为&quot;可被独立定价的战略资产&quot;。</strong></p>
+<p>---</p>
+<h2 id="section-2">二、为什么编排能力是护城河——三个结构性原因</h2>
+<p>护城河的意思是：别人知道你在做什么，但短期内做不到。编排能力满足这个定义，原因有三层。</p>
+<h3 id="section-3">模型在趋同，编排在分化</h3>
+<p>2026年头部模型的能力差距已经压缩到个位数百分点。DRACO基准上，GPT和Claude的差距不到1分；HermesBench上，Opus 4.8和GPT-5.5的差距约2分。模型之间的&quot;比较优势&quot;仍然存在——GPT擅长结构化写作和代码，Claude擅长严谨推理和事实核查，DeepSeek擅长深度推理——但&quot;绝对优势&quot;在消失。</p>
+<p>这恰恰是编排能力变得重要的前提。如果某个模型在所有维度上都碾压对手，编排就多余了——直接用那个模型就行。<strong>正是因为模型各有所长且长板趋同，&quot;怎么组合&quot;才成了决定胜负的变量。</strong> 模型越像棋子，编排就越像棋手。</p>
+<h3 id="section-4">编排经验是隐性知识，不可被API复制</h3>
+<p>模型可以通过API调用复制，但编排经验不能。微软的Critique层为什么让Claude做审校而不是GPT自己做？因为Claude在事实核查维度上更强，而且&quot;生成者&quot;和&quot;审校者&quot;用不同模型能避免同类盲区。这个判断不是从论文里读来的，是大量实测后的经验沉淀。</p>
+<p>Manus的&quot;上下文工程&quot;同理——怎么为每一步任务构建最优上下文、什么时候该给子Agent独立窗口、什么时候该汇总——这些都是踩过坑才知道的。<strong>模型是商品化的，但编排经验是手艺。</strong> 手艺的壁垒不在代码里，在试错次数里。</p>
+<p>Anthropic的多Agent研究系统提供了一个量化佐证：他们发现token使用量解释了80%的性能差异。多Agent之所以强，本质是让更多token同时工作。但&quot;怎么让token有效工作&quot;而不是&quot;怎么堆更多token&quot;——这就是编排和暴力堆量的区别。</p>
+<h3 id="section-5">编排系统的切换成本一旦形成，就很难拆</h3>
+<p>企业一旦部署了多模型编排系统，编排层就嵌入了业务流程。微软的Copilot Cowork绑定了M365生态，Manus的沙盒虚拟机编排了完整执行环境，字节Coze 3.0接入了企业多Agent协作流程。这些系统的切换成本不是&quot;换个模型API&quot;那么简单——编排策略、上下文工程、工具链适配全部要重来。</p>
+<p><strong>模型可以随时换，编排系统换不了。</strong> 这是护城河的终极形态：不是锁定模型，而是锁定流程。</p>
+<p>---</p>
+<h2 id="section-6">三、代价与边界：编排不是免费的</h2>
+<p>说编排是护城河，不代表它没有代价。必须讲清楚边界，否则就是空洞的乐观。</p>
+<p><strong>Token消耗是单次对话的15倍。</strong> 这是Anthropic多Agent系统的实测数据，Manus的Wide Research部署数百个并行Agent，消耗同样量级。编排不是省钱，是花更多钱买更高质量。它适合高价值任务——深度研究、大规模批量分析、复杂决策——不适合日常问答。</p>
+<p><strong>编排质量取决于路由策略，路由策略取决于场景理解。</strong> 字节Coze 3.0的实践发现：用专门训练的大模型做节点路由效果较好，手动设规则路由效果不理想。这意味着编排系统本身也需要&quot;编排智能&quot;——不是随便组合模型就能产生协同，组合错了还不如用单模型。</p>
+<p><strong>跨厂商协作有政治成本。</strong> 微软能让Claude审校GPT的输出，是因为微软同时与OpenAI和Anthropic有商业关系。大多数企业没有这种议价能力。开源框架（如Hermes Agent的MoA）让用户自由组合任意厂商模型，但需要自配API key和技术能力，门槛不低。</p>
+<p>所以编排护城河的边界是清晰的：<strong>它保护的是那些已经投入资源构建编排层、并且找到了有效组合策略的玩家。</strong> 对还在用单模型API调用的团队来说，编排不是捷径，是长征。</p>
+<p>---</p>
+<h2 id="section-7">四、对应用层创业者的机会判断</h2>
+<p>如果编排能力是新护城河，应用层创业者的机会在哪里？</p>
+<p>我的判断是：<strong>机会不在&quot;再做一个Agent平台&quot;，在&quot;针对垂直场景做深编排&quot;。</strong></p>
+<p>通用编排平台已经被大厂占位——微软做企业级、Manus做通用Agent、Coze做业务流程。再做一个通用编排系统，等于跟巨头的工程能力正面竞争，不现实。</p>
+<p>但垂直场景的编排还有大量空白。比如说，法律文书场景需要&quot;检索+推理+事实核查&quot;三模型协作；医疗诊断场景需要&quot;影像识别+文献检索+推理&quot;的多模态编排；金融研究场景需要&quot;数据提取+建模+报告生成+审校&quot;的流水线编排。每个场景的最优模型组合不同，路由策略不同，上下文工程不同。</p>
+<p><strong>通用编排比的是工程能力，垂直编排比的是场景理解。</strong> 后者才是创业者的主场。</p>
+<p>另一个机会在编排层的&quot;中间件&quot;——监控多模型协作质量、管理Token成本、自动调优路由策略的工具。这类基础设施目前还很少见独立产品，但需求已经出现。微软的Critique层本质上就是一种&quot;质量监控中间件&quot;，只不过它被封闭在微软生态里。</p>
+<p>---</p>
+<h2 id="section-8">五、核心判断</h2>
+<p>回到最初的问题：为什么说编排能力是新护城河？</p>
+<p>因为模型能力的差距在缩小——头部模型已经趋同到个位数百分点，再往后差距会更小。但编排能力的差距在拉大——微软的Critique层、Manus的路由策略、Anthropic的多Agent系统，每一家都在实践中积累了大量&quot;怎么组合模型&quot;的隐性知识，这些知识不可被API复制，不可被论文速成。</p>
+<p><strong>模型是棋子，编排是棋手。棋子越来越像，棋手的差距越来越大。</strong></p>
+<p>2026年，多模型协作已经完成了从概念到产品的跨越。下一个阶段的竞争，不再是&quot;谁的模型更强&quot;，而是&quot;谁的编排更聪明&quot;。这场比赛才刚开始，但方向已经清楚了。</p>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><p class="muted">暂无关联知识点。</p></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><p class="muted">暂无相关阅读。</p></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、为什么编排能力是护城河——三个结构性原因</a></li><li class="toc-level-3"><a href="#section-3">模型在趋同，编排在分化</a></li><li class="toc-level-3"><a href="#section-4">编排经验是隐性知识，不可被API复制</a></li><li class="toc-level-3"><a href="#section-5">编排系统的切换成本一旦形成，就很难拆</a></li><li class="toc-level-2"><a href="#section-6">三、代价与边界：编排不是免费的</a></li><li class="toc-level-2"><a href="#section-7">四、对应用层创业者的机会判断</a></li><li class="toc-level-2"><a href="#section-8">五、核心判断</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

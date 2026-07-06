@@ -7,6 +7,108 @@
   },
   "concepts": [
     {
+      "term": "Agent Harness",
+      "title": "Agent Harness 是什么",
+      "url": "https://chongliang.ai/knowledge/agent-harness/",
+      "definition": "Agent Harness 是模型外部的一整套驾驭系统，负责提示词管理与上下文构建、工具调用流程编排、运行状态与 Memory 管理、Skills/MCP/插件加载调度、运行轨迹记录与复盘、数据治理与评估反馈，使 Agent = Model + Harness。",
+      "citation": "Agent 不等于模型——真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness，它决定模型在什么场景下使用什么工具、遵循什么边界、如何记录过程。",
+      "aliases": [
+        "Agent驾驭系统",
+        "Harness工程化",
+        "Agent脚手架"
+      ],
+      "relatedConcepts": [
+        "harness-engineer",
+        "loop-engineering",
+        "mcp",
+        "skill",
+        "agent-orchestration",
+        "context-engineering",
+        "generator-paradox"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "term": "Agent Orchestration",
+      "title": "Agent Orchestration 是什么",
+      "url": "https://chongliang.ai/knowledge/agent-orchestration/",
+      "definition": "Agent Orchestration 是一种围绕多模型协作设计路由策略、上下文工程和质量监控的系统方法，通过为每一步任务选择最合适的模型、隔离上下文、交叉校验结果，使多模型协作产出的质量超越任何单模型的上限。",
+      "citation": "编排能力是新护城河——模型是棋子，编排是棋手，棋子越来越像，棋手的差距越来越大。",
+      "aliases": [
+        "多模型编排",
+        "Agent编排",
+        "多Agent协作"
+      ],
+      "relatedConcepts": [
+        "harness-engineer",
+        "loop-engineering",
+        "context-engineering",
+        "mcp",
+        "agent-harness",
+        "generator-paradox"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "term": "AI Skill",
+      "title": "AI Skill 是什么",
+      "url": "https://chongliang.ai/knowledge/skill/",
+      "definition": "AI Skill 是一种将领域使用文档、触发条件、执行流程、可调用工具和最佳实践示例封装为标准化可分发单元的能力封装形式，通过 SKILL.md 规范实现跨代理复用，用 1/50 的成本做到 MCP Schema 同样的事。",
+      "citation": "AI Skill 是用 1/50 的成本做到 MCP Schema 同样事的能力封装——把一个有经验的工程师对工具的理解压缩成一份简短说明交给 AI。",
+      "aliases": [
+        "AI技能",
+        "Skill封装",
+        "Agent能力封装"
+      ],
+      "relatedConcepts": [
+        "mcp",
+        "harness-engineer",
+        "agent-harness",
+        "prompt-engineer",
+        "vibe-coding",
+        "loop-engineering"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "term": "Content Localization",
+      "title": "内容出海本地化 是什么",
+      "url": "https://chongliang.ai/knowledge/content-localization/",
+      "definition": "内容出海本地化是一种将视频、字幕、音频拆成三层独立资源进行存储和分发，配合 AI 翻译流水线实现新增语种无需重新压制视频的架构范式，使本地化成本从 O(n) 降到 O(1)，单视频成本从 $500+ 降到 $20 以下。",
+      "citation": "边际成本归零的前提是先做解耦——字幕、音轨和视频本体在存储和分发层面彻底独立，新增一个语种只需要一条 SRT 文件和一条音频文件，视频本体纹丝不动。",
+      "aliases": [
+        "内容本地化",
+        "多语种内容生产",
+        "出海本地化"
+      ],
+      "relatedConcepts": [
+        "loop-engineering",
+        "agent-orchestration",
+        "dsl",
+        "geo"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "term": "Context Engineering",
+      "title": "Context Engineering 是什么",
+      "url": "https://chongliang.ai/knowledge/context-engineering/",
+      "definition": "Context Engineering 是一种围绕大模型上下文窗口进行结构化管理的方法论，它关注如何把稳定的规则、动态的任务状态和实时的对话指令分层组织，使模型在每次调用时以最低的 token 成本恢复到最佳工作状态。",
+      "citation": "Context Engineering 的核心是把上下文分为可缓存的稳定层和不可缓存的动态层，用文件系统持久化，让 AI 在每次新对话里以最少的 token 恢复到最佳工作状态。",
+      "aliases": [
+        "上下文工程",
+        "上下文管理"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "loop-engineering",
+        "harness-engineer",
+        "vibe-coding",
+        "spec-driven-development"
+      ],
+      "relatedArticles": []
+    },
+    {
       "term": "DSL",
       "title": "DSL 为什么在 AI 时代重要",
       "url": "https://chongliang.ai/knowledge/dsl/",
@@ -24,8 +126,31 @@
       ],
       "relatedArticles": [
         "ai-public-knowledge-system",
+        "cli-revolution-mcp-to-skill",
+        "model-as-product-loop-as-future",
+        "saas-disrupted-by-ai-agent",
         "loop-engineering-ai-agent-feedback-loops"
       ]
+    },
+    {
+      "term": "Generator Paradox",
+      "title": "发电机悖论 是什么",
+      "url": "https://chongliang.ai/knowledge/generator-paradox/",
+      "definition": "发电机悖论是指早期工厂把蒸汽机换成电机却保留旧联动轴结构时生产率并不跃升，真正飞跃发生在围绕新动力重新设计整个工厂之后。在 Agent 时代重演：单纯把 Agent 嵌进旧工作流只是\"换动力源不改工厂结构\"，生产力质变 = Agent + Harness，需要更高自主性与更强治理结构同时成立。",
+      "citation": "发电机悖论——电动机换上蒸汽机却保留联动轴不会提升生产率，Agent嵌入旧工作流只是\"换动力源不改工厂结构\"，生产力质变 = Agent + Harness。",
+      "aliases": [
+        "发电机悖论",
+        "生产力悖论",
+        "Agent时代的发电机悖论"
+      ],
+      "relatedConcepts": [
+        "harness-engineer",
+        "agent-harness",
+        "agent-orchestration",
+        "loop-engineering",
+        "skill"
+      ],
+      "relatedArticles": []
     },
     {
       "term": "Harness Engineer",
@@ -45,6 +170,9 @@
       ],
       "relatedArticles": [
         "ai-public-knowledge-system",
+        "generator-paradox-agent-governance",
+        "harness-engineer-structural-replacement",
+        "loop-engineering-paradigm-shift",
         "loop-engineering-ai-agent-feedback-loops"
       ]
     },
@@ -63,8 +191,29 @@
         "llm-wiki"
       ],
       "relatedArticles": [
-        "loop-engineering-ai-agent-feedback-loops"
+        "loop-engineering-ai-agent-feedback-loops",
+        "loop-engineering-design-patterns",
+        "loop-engineering-paradigm-shift"
       ]
+    },
+    {
+      "term": "MCP (Model Context Protocol)",
+      "title": "MCP / Model Context Protocol 是什么",
+      "url": "https://chongliang.ai/knowledge/mcp/",
+      "definition": "MCP 是一种连接 AI 模型与外部工具/数据源的标准化协议，通过 Schema 描述工具能力、权限控制管理访问边界，使不同 AI 工具能对接同一套服务。其本质是治理协议而非效率协议。",
+      "citation": "MCP 的本质是一套治理协议，它解决的是\"谁有权做什么\"而不是\"怎么做最快\"——大多数人不需要企业级权限管理，却在为它的全部成本买单。",
+      "aliases": [
+        "模型上下文协议",
+        "MCP协议"
+      ],
+      "relatedConcepts": [
+        "skill",
+        "harness-engineer",
+        "agent-orchestration",
+        "prompt-engineer",
+        "agent-harness"
+      ],
+      "relatedArticles": []
     },
     {
       "term": "Prompt Engineer",
@@ -84,8 +233,71 @@
       ],
       "relatedArticles": [
         "ai-public-knowledge-system",
+        "harness-engineer-structural-replacement",
+        "loop-engineering-paradigm-shift",
         "loop-engineering-ai-agent-feedback-loops"
       ]
+    },
+    {
+      "term": "RAG (Retrieval-Augmented Generation)",
+      "title": "RAG / 检索增强生成 是什么",
+      "url": "https://chongliang.ai/knowledge/rag/",
+      "definition": "RAG 是一种将检索与生成结合的技术方法，通过离线阶段将文档解析、切块、Embedding 入库，线上阶段用用户查询检索相关片段并注入 Prompt，使大模型基于私有知识准确回答。",
+      "citation": "RAG 的核心判断是：瓶颈不在检索引擎，在输入质量——先把关键词扩展、术语标准化、消歧做好，再做检索优化效果才好。",
+      "aliases": [
+        "检索增强生成",
+        "RAG系统",
+        "知识库问答"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "harness-engineer",
+        "agent-orchestration",
+        "dsl",
+        "llm-wiki"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "term": "Spec-Driven Development",
+      "title": "Spec-Driven Development 是什么",
+      "url": "https://chongliang.ai/knowledge/spec-driven-development/",
+      "definition": "Spec-Driven Development 是一种将模糊业务需求约束为 AI Agent 和工程系统都能执行的结构化任务说明的方法，Spec 定义了输入输出、AI 能力边界、异常处理、验收标准和人工确认节点，使人、AI 和工程系统共享同一套可执行上下文。",
+      "citation": "Spec 不是更长的 PRD，而是把业务需求转成研发和 AI Coding 工具都能执行的结构化工程上下文——产品经理的角色从需求描述者变成上下文设计师。",
+      "aliases": [
+        "Spec驱动开发",
+        "SDD",
+        "规格驱动开发"
+      ],
+      "relatedConcepts": [
+        "prompt-engineer",
+        "context-engineering",
+        "loop-engineering",
+        "harness-engineer",
+        "vibe-coding",
+        "dsl"
+      ],
+      "relatedArticles": []
+    },
+    {
+      "term": "Vibe Coding",
+      "title": "Vibe Coding 是什么",
+      "url": "https://chongliang.ai/knowledge/vibe-coding/",
+      "definition": "Vibe Coding 是一种以自然语言意图表达为核心、以三层文档体系（README.md/TODO.md/CLAUDE.md）管理上下文、以 Prompt Caching 优化成本的编程范式，其实质是编程能力从少数人身上被拆解下来平分给每一个人。",
+      "citation": "Vibe Coding 的本质不是\"AI帮你写代码\"，是编程能力从少数人身上被拆解下来平分给每一个人——感觉比精确重要，意图比语法重要，会说话比会写代码重要。",
+      "aliases": [
+        "感觉编程",
+        "自然语言编程",
+        "AI辅助编程"
+      ],
+      "relatedConcepts": [
+        "context-engineering",
+        "prompt-engineer",
+        "spec-driven-development",
+        "skill",
+        "loop-engineering"
+      ],
+      "relatedArticles": []
     },
     {
       "term": "GEO",
@@ -130,6 +342,161 @@
     }
   ],
   "articles": [
+    {
+      "title": "CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移",
+      "url": "https://chongliang.ai/articles/cli-revolution-mcp-to-skill/",
+      "description": "CLI不是AI的工具选项，是AI的母语。MCP的本质是一套治理协议，解决\"谁有权做什么\"而非\"怎么做最快\"——大多数人不需要企业级权限管理，却在为它的全部成本买单。Skill用1/50的成本做到了MCP Schema同样的事。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "CLI化",
+        "MCP",
+        "Skill生态",
+        "AI接口",
+        "软件革命"
+      ]
+    },
+    {
+      "title": "Agent时代的发电机悖论：从节点替换到治理重构",
+      "url": "https://chongliang.ai/articles/generator-paradox-agent-governance/",
+      "description": "电动机刚进入工厂时，如果只是把蒸汽机换成电机却保留旧有联动轴，生产率并不会跃升——真正的飞跃发生在围绕新动力重新设计整个工厂之后。AI时代正在重演这一历史。单纯把Agent嵌进旧工作流，只是\"换动力源不改工厂结构\"。",
+      "date": "2026-07-06",
+      "concepts": [
+        "harness-engineer"
+      ],
+      "tags": [
+        "Agent",
+        "Harness",
+        "发电机悖论",
+        "分级治理",
+        "Multi-Agent"
+      ]
+    },
+    {
+      "title": "Harness Engineer：结构化的尽头是替代",
+      "url": "https://chongliang.ai/articles/harness-engineer-structural-replacement/",
+      "description": "编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。",
+      "date": "2026-07-06",
+      "concepts": [
+        "harness-engineer",
+        "prompt-engineer"
+      ],
+      "tags": [
+        "Harness Engineer",
+        "结构化",
+        "数据壁垒",
+        "Anthropic",
+        "AI范式迁移"
+      ]
+    },
+    {
+      "title": "Loop Engineering：设计模式、工具链与实践案例",
+      "url": "https://chongliang.ai/articles/loop-engineering-design-patterns/",
+      "description": "本文是Loop Engineering系列的第三篇，聚焦已有两篇文章未覆盖的内容：认知循环的内部结构、六大设计模式、工具链生态全景、以及真实系统的实践案例。范式演进、五要素、三个工程层级等内容请参见系列前两篇。",
+      "date": "2026-07-06",
+      "concepts": [
+        "loop-engineering"
+      ],
+      "tags": [
+        "Loop Engineering",
+        "Agent Loop",
+        "设计模式",
+        "工具链",
+        "框架选型"
+      ]
+    },
+    {
+      "title": "Loop Engineering——AI工程范式迁移",
+      "url": "https://chongliang.ai/articles/loop-engineering-paradigm-shift/",
+      "description": "软件工程六十年，工程师的定义一直是\"写代码的人\"。不管你用什么语言、什么框架、什么架构，最终产出物是代码。Loop Engineering标志着这个定义第一次被动摇：工程师不再直接产出代码，而是设计让AI产出代码的循环系统。 循环，而非提示词，成为AI工程的基本单位。",
+      "date": "2026-07-06",
+      "concepts": [
+        "loop-engineering",
+        "harness-engineer",
+        "prompt-engineer"
+      ],
+      "tags": [
+        "Loop Engineering",
+        "AI开发范式",
+        "Agent Loop",
+        "循环工程"
+      ]
+    },
+    {
+      "title": "模型即产品，Loop即未来：软件3.0的第一性原理",
+      "url": "https://chongliang.ai/articles/model-as-product-loop-as-future/",
+      "description": "软件的历史是一部不断\"去代码化\"的历史。Vibe Coding出现后，程序员从规则编写者变成幽灵的召唤师——定义目标、描述意图、校准方向。中间件、API、UI框架这些补偿机制变成了\"熵\"。软件3.0的最整洁架构是：输入→神经网络→输出。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "软件3.0",
+        "模型即产品",
+        "Loop",
+        "AGI",
+        "弗兰肯斯坦时刻"
+      ]
+    },
+    {
+      "title": "智能的本质：从牛顿思路到莫顿思路",
+      "url": "https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/",
+      "description": "我们一直以为智能是\"大道至简\"——找到终极公式一统天下。但真正的智能恰恰相反：它是无数个有条件成立的小规律叠加成的网络，以及在它们之间灵活导航的能力。用牛顿定律的框架去构建AI，方向从一开始就错了。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "智能本质",
+        "牛顿思路",
+        "莫顿思路",
+        "因果推断",
+        "具身性"
+      ]
+    },
+    {
+      "title": "编排能力是新护城河——多模型协作的竞争逻辑",
+      "url": "https://chongliang.ai/articles/orchestration-as-moat/",
+      "description": "2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从\"谁的模型更强\"迁移到\"谁的编排更会组合\"。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "多模型协作",
+        "Agent编排",
+        "护城河",
+        "MoA"
+      ]
+    },
+    {
+      "title": "SaaS正在被AI-Agent肢解：从软件即服务到能力即服务",
+      "url": "https://chongliang.ai/articles/saas-disrupted-by-ai-agent/",
+      "description": "AI Agent出现后，SaaS作为\"翻译层\"的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "SaaS",
+        "AI Agent",
+        "能力即服务",
+        "CLI化",
+        "定价模式"
+      ]
+    },
+    {
+      "title": "Spec驱动开发：AI时代产品研发协作的范式迁移",
+      "url": "https://chongliang.ai/articles/spec-driven-development/",
+      "description": "AI介入产品研发后，PRD停在业务描述层的局限性被放大——AI Agent最怕上下文模糊，而传统PRD恰恰把二次翻译留给了人。Spec不是更长的PRD，而是把业务需求转成研发和AI工具都能执行的结构化工程上下文。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "Spec驱动开发",
+        "产品研发协作",
+        "AI Coding",
+        "上下文工程",
+        "SDD"
+      ]
+    },
     {
       "title": "AI 从业者如何搭建自己的公开知识库",
       "url": "https://chongliang.ai/articles/ai-public-knowledge-system/",

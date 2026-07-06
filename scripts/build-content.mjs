@@ -266,7 +266,16 @@ function pageShell({ title, description, canonicalPath, alternatePath = "", root
     <meta property="og:title" content="${escapeAttr(title)}">
     <meta property="og:description" content="${escapeAttr(description)}">
     <meta property="og:image" content="${absoluteUrl(site.ogImage)}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="${canonical}">
+    <meta property="og:site_name" content="${escapeAttr(site.brand)}">
+    <meta property="og:locale" content="zh_CN">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${escapeAttr(title)}">
+    <meta name="twitter:description" content="${escapeAttr(description)}">
+    <meta name="twitter:image" content="${absoluteUrl(site.ogImage)}">
     <link rel="stylesheet" href="${root}assets/styles.css">
     <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
     <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2)}</script>

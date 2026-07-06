@@ -11,8 +11,17 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="个人知识库 | 冲量 AI">
     <meta property="og:description" content="冲量 AI 的个人知识库，以知识原点树和卡片索引方式整理 AI 相关原子概念。">
-    <meta property="og:image" content="https://chongliang.ai/assets/og-image.svg">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/knowledge/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="个人知识库 | 冲量 AI">
+    <meta name="twitter:description" content="冲量 AI 的个人知识库，以知识原点树和卡片索引方式整理 AI 相关原子概念。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
     <link rel="stylesheet" href="../assets/styles.css">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <script type="application/ld+json">{
@@ -38,8 +47,38 @@
       "hasDefinedTerm": [
         {
           "@type": "DefinedTerm",
+          "name": "Agent Harness",
+          "url": "https://chongliang.ai/knowledge/agent-harness/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Agent Orchestration",
+          "url": "https://chongliang.ai/knowledge/agent-orchestration/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "AI Skill",
+          "url": "https://chongliang.ai/knowledge/skill/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Content Localization",
+          "url": "https://chongliang.ai/knowledge/content-localization/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Context Engineering",
+          "url": "https://chongliang.ai/knowledge/context-engineering/"
+        },
+        {
+          "@type": "DefinedTerm",
           "name": "DSL",
           "url": "https://chongliang.ai/knowledge/dsl/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Generator Paradox",
+          "url": "https://chongliang.ai/knowledge/generator-paradox/"
         },
         {
           "@type": "DefinedTerm",
@@ -53,8 +92,28 @@
         },
         {
           "@type": "DefinedTerm",
+          "name": "MCP (Model Context Protocol)",
+          "url": "https://chongliang.ai/knowledge/mcp/"
+        },
+        {
+          "@type": "DefinedTerm",
           "name": "Prompt Engineer",
           "url": "https://chongliang.ai/knowledge/prompt-engineer/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "RAG (Retrieval-Augmented Generation)",
+          "url": "https://chongliang.ai/knowledge/rag/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Spec-Driven Development",
+          "url": "https://chongliang.ai/knowledge/spec-driven-development/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Vibe Coding",
+          "url": "https://chongliang.ai/knowledge/vibe-coding/"
         },
         {
           "@type": "DefinedTerm",
@@ -102,7 +161,7 @@
           <h2>知识原点</h2>
           <div class="tree-group">
     <h3>AI 工程化</h3>
-    <nav class="side-list"><a href="dsl/index.html">DSL</a><a href="harness-engineer/index.html">Harness Engineer</a><a href="loop-engineering/index.html">Loop Engineering</a><a href="prompt-engineer/index.html">Prompt Engineer</a></nav>
+    <nav class="side-list"><a href="agent-harness/index.html">Agent Harness</a><a href="agent-orchestration/index.html">Agent Orchestration</a><a href="skill/index.html">AI Skill</a><a href="content-localization/index.html">Content Localization</a><a href="context-engineering/index.html">Context Engineering</a><a href="dsl/index.html">DSL</a><a href="generator-paradox/index.html">Generator Paradox</a><a href="harness-engineer/index.html">Harness Engineer</a><a href="loop-engineering/index.html">Loop Engineering</a><a href="mcp/index.html">MCP (Model Context Protocol)</a><a href="prompt-engineer/index.html">Prompt Engineer</a><a href="rag/index.html">RAG (Retrieval-Augmented Generation)</a><a href="spec-driven-development/index.html">Spec-Driven Development</a><a href="vibe-coding/index.html">Vibe Coding</a></nav>
   </div><div class="tree-group">
     <h3>内容增长</h3>
     <nav class="side-list"><a href="geo/index.html">GEO</a></nav>
@@ -119,13 +178,49 @@
           <div class="toolbar">
             <label class="sr-only" for="concept-search">搜索概念</label>
             <input class="search-input" id="concept-search" data-search-input type="search" placeholder="搜索概念、标签或关键词">
-            <span class="filter-note">6 concepts</span>
+            <span class="filter-note">16 concepts</span>
           </div>
-          <div class="card-grid"><a class="concept-card" href="../knowledge/dsl/index.html" data-search-item>
+          <div class="card-grid"><a class="concept-card" href="../knowledge/agent-harness/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>Agent Harness 是什么</h2>
+    <p>Agent Harness 是从模型调用到可治理 Agent 系统的工程化框架，用轻内核插件化架构、运行事实记录和数据库原生数据闭环让 Agent 可持续运行、可排查、可扩展。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">Harness</span><span class="tag tag-concept">Agent</span><span class="tag tag-concept">工程化</span><span class="tag tag-concept">可观测性</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/agent-orchestration/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>Agent Orchestration 是什么</h2>
+    <p>Agent Orchestration 是多模型/多Agent协作的编排能力——决定哪个模型做什么、何时做、如何组合，它是 AI 时代新的护城河。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">Agent</span><span class="tag tag-concept">编排</span><span class="tag tag-concept">多模型</span><span class="tag tag-concept">护城河</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/skill/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>AI Skill 是什么</h2>
+    <p>AI Skill 是可复用的 Agent 能力封装，内嵌完整 SOP 链路和所需工具，从手动传包正在演进为仓库化标准生态。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">Skill</span><span class="tag tag-concept">技能封装</span><span class="tag tag-concept">仓库化</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/content-localization/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>内容出海本地化 是什么</h2>
+    <p>内容出海本地化是 AI 驱动的多语种内容生产管线，通过字幕配音解耦架构和 AI 翻译将新增语种的边际成本归零。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">内容出海</span><span class="tag tag-concept">本地化</span><span class="tag tag-concept">解耦架构</span><span class="tag tag-concept">边际成本</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/context-engineering/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>Context Engineering 是什么</h2>
+    <p>Context Engineering 是设计和管理大模型在多轮交互中应该看到什么信息、何时看到、以什么形式看到的系统工程方法。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">上下文</span><span class="tag tag-concept">Context</span><span class="tag tag-concept">Vibe Coding</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/dsl/index.html" data-search-item>
     <p class="card-meta">AI 工程化</p>
     <h2>DSL 为什么在 AI 时代重要</h2>
     <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
     <div class="card-footer"><span class="tag tag-concept">DSL</span><span class="tag tag-concept">System</span><span class="tag tag-concept">Workflow</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/generator-paradox/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>发电机悖论 是什么</h2>
+    <p>发电机悖论揭示了 Agent 时代的生产力质变逻辑——单点替换不产生质变，系统级治理重构才产生质变。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">Agent</span><span class="tag tag-concept">Harness</span><span class="tag tag-concept">生产力</span><span class="tag tag-concept">组织重构</span></div>
   </a>
 <a class="concept-card" href="../knowledge/harness-engineer/index.html" data-search-item>
     <p class="card-meta">AI 工程化</p>
@@ -139,11 +234,35 @@
     <p>Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。</p>
     <div class="card-footer"><span class="tag tag-concept">AI 工程化</span><span class="tag tag-concept">Agent</span><span class="tag tag-concept">反馈循环</span><span class="tag tag-concept">工作流</span></div>
   </a>
+<a class="concept-card" href="../knowledge/mcp/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>MCP / Model Context Protocol 是什么</h2>
+    <p>MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">MCP</span><span class="tag tag-concept">协议</span><span class="tag tag-concept">工具调用</span></div>
+  </a>
 <a class="concept-card" href="../knowledge/prompt-engineer/index.html" data-search-item>
     <p class="card-meta">AI 工程化</p>
     <h2>Prompt Engineer 是什么</h2>
     <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
     <div class="card-footer"><span class="tag tag-concept">Prompt</span><span class="tag tag-concept">LLM</span><span class="tag tag-concept">Context</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/rag/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>RAG / 检索增强生成 是什么</h2>
+    <p>RAG 是让大模型在生成回答前先检索外部知识库的技术，解决模型缺乏私有知识、知识无法实时更新、回答需要可追溯来源的问题。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">RAG</span><span class="tag tag-concept">检索</span><span class="tag tag-concept">知识库</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/spec-driven-development/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>Spec-Driven Development 是什么</h2>
+    <p>Spec-Driven Development 是用可执行规格替代传统 PRD 的协作范式——把业务需求转成研发和 AI 工具都能执行的结构化工程上下文。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">Spec</span><span class="tag tag-concept">产品研发</span><span class="tag tag-concept">协作范式</span></div>
+  </a>
+<a class="concept-card" href="../knowledge/vibe-coding/index.html" data-search-item>
+    <p class="card-meta">AI 工程化</p>
+    <h2>Vibe Coding 是什么</h2>
+    <p>Vibe Coding 是自然语言驱动的编程范式——你描述感觉，AI 实现代码，编程从一门需要学习的技能变成了一个可以对话的能力。</p>
+    <div class="card-footer"><span class="tag tag-concept">AI</span><span class="tag tag-concept">Vibe Coding</span><span class="tag tag-concept">编程范式</span><span class="tag tag-concept">上下文管理</span></div>
   </a>
 <a class="concept-card" href="../knowledge/geo/index.html" data-search-item>
     <p class="card-meta">内容增长</p>

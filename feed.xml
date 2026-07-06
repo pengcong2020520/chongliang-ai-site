@@ -3,8 +3,78 @@
   <channel>
     <title>冲量 AI</title>
     <link>https://chongliang.ai</link>
-    <description>冲量 AI 是一个面向 AI 时代的个人知识资产网站，整理文章、项目与原子概念。</description>
+    <description>冲量 AI 是面向新手入门 AI 产品经理的知识库，系统整理 AI Agent、Loop Engineering、MCP、Prompt Engineering 等核心概念与实战文章，帮助零基础读者建立 AI 产品认知框架。</description>
     <language>zh-CN</language>
+    <item>
+      <title>CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</title>
+      <link>https://chongliang.ai/articles/cli-revolution-mcp-to-skill/</link>
+      <guid>https://chongliang.ai/articles/cli-revolution-mcp-to-skill/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>CLI不是AI的工具选项，是AI的母语。MCP的本质是一套治理协议，解决&quot;谁有权做什么&quot;而非&quot;怎么做最快&quot;——大多数人不需要企业级权限管理，却在为它的全部成本买单。Skill用1/50的成本做到了MCP Schema同样的事。</description>
+    </item>
+    <item>
+      <title>Agent时代的发电机悖论：从节点替换到治理重构</title>
+      <link>https://chongliang.ai/articles/generator-paradox-agent-governance/</link>
+      <guid>https://chongliang.ai/articles/generator-paradox-agent-governance/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>电动机刚进入工厂时，如果只是把蒸汽机换成电机却保留旧有联动轴，生产率并不会跃升——真正的飞跃发生在围绕新动力重新设计整个工厂之后。AI时代正在重演这一历史。单纯把Agent嵌进旧工作流，只是&quot;换动力源不改工厂结构&quot;。</description>
+    </item>
+    <item>
+      <title>Harness Engineer：结构化的尽头是替代</title>
+      <link>https://chongliang.ai/articles/harness-engineer-structural-replacement/</link>
+      <guid>https://chongliang.ai/articles/harness-engineer-structural-replacement/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。</description>
+    </item>
+    <item>
+      <title>Loop Engineering：设计模式、工具链与实践案例</title>
+      <link>https://chongliang.ai/articles/loop-engineering-design-patterns/</link>
+      <guid>https://chongliang.ai/articles/loop-engineering-design-patterns/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>本文是Loop Engineering系列的第三篇，聚焦已有两篇文章未覆盖的内容：认知循环的内部结构、六大设计模式、工具链生态全景、以及真实系统的实践案例。范式演进、五要素、三个工程层级等内容请参见系列前两篇。</description>
+    </item>
+    <item>
+      <title>Loop Engineering——AI工程范式迁移</title>
+      <link>https://chongliang.ai/articles/loop-engineering-paradigm-shift/</link>
+      <guid>https://chongliang.ai/articles/loop-engineering-paradigm-shift/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>软件工程六十年，工程师的定义一直是&quot;写代码的人&quot;。不管你用什么语言、什么框架、什么架构，最终产出物是代码。Loop Engineering标志着这个定义第一次被动摇：工程师不再直接产出代码，而是设计让AI产出代码的循环系统。 循环，而非提示词，成为AI工程的基本单位。</description>
+    </item>
+    <item>
+      <title>模型即产品，Loop即未来：软件3.0的第一性原理</title>
+      <link>https://chongliang.ai/articles/model-as-product-loop-as-future/</link>
+      <guid>https://chongliang.ai/articles/model-as-product-loop-as-future/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>软件的历史是一部不断&quot;去代码化&quot;的历史。Vibe Coding出现后，程序员从规则编写者变成幽灵的召唤师——定义目标、描述意图、校准方向。中间件、API、UI框架这些补偿机制变成了&quot;熵&quot;。软件3.0的最整洁架构是：输入→神经网络→输出。</description>
+    </item>
+    <item>
+      <title>智能的本质：从牛顿思路到莫顿思路</title>
+      <link>https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/</link>
+      <guid>https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>我们一直以为智能是&quot;大道至简&quot;——找到终极公式一统天下。但真正的智能恰恰相反：它是无数个有条件成立的小规律叠加成的网络，以及在它们之间灵活导航的能力。用牛顿定律的框架去构建AI，方向从一开始就错了。</description>
+    </item>
+    <item>
+      <title>编排能力是新护城河——多模型协作的竞争逻辑</title>
+      <link>https://chongliang.ai/articles/orchestration-as-moat/</link>
+      <guid>https://chongliang.ai/articles/orchestration-as-moat/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。</description>
+    </item>
+    <item>
+      <title>SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</title>
+      <link>https://chongliang.ai/articles/saas-disrupted-by-ai-agent/</link>
+      <guid>https://chongliang.ai/articles/saas-disrupted-by-ai-agent/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>AI Agent出现后，SaaS作为&quot;翻译层&quot;的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。</description>
+    </item>
+    <item>
+      <title>Spec驱动开发：AI时代产品研发协作的范式迁移</title>
+      <link>https://chongliang.ai/articles/spec-driven-development/</link>
+      <guid>https://chongliang.ai/articles/spec-driven-development/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>AI介入产品研发后，PRD停在业务描述层的局限性被放大——AI Agent最怕上下文模糊，而传统PRD恰恰把二次翻译留给了人。Spec不是更长的PRD，而是把业务需求转成研发和AI工具都能执行的结构化工程上下文。</description>
+    </item>
     <item>
       <title>AI 从业者如何搭建自己的公开知识库</title>
       <link>https://chongliang.ai/articles/ai-public-knowledge-system/</link>

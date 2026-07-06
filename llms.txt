@@ -2,7 +2,7 @@
 
 > 在噪声中提取结构，在结构中形成判断。
 
-冲量 AI 是一个面向 AI 时代的个人知识资产网站，整理文章、项目与原子概念。
+冲量 AI 是面向新手入门 AI 产品经理的知识库，系统整理 AI Agent、Loop Engineering、MCP、Prompt Engineering 等核心概念与实战文章，帮助零基础读者建立 AI 产品认知框架。
 
 ## Primary Pages
 
@@ -14,15 +14,35 @@
 
 ## Article Pages
 
+- CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移: https://chongliang.ai/articles/cli-revolution-mcp-to-skill/
+- Agent时代的发电机悖论：从节点替换到治理重构: https://chongliang.ai/articles/generator-paradox-agent-governance/
+- Harness Engineer：结构化的尽头是替代: https://chongliang.ai/articles/harness-engineer-structural-replacement/
+- Loop Engineering：设计模式、工具链与实践案例: https://chongliang.ai/articles/loop-engineering-design-patterns/
+- Loop Engineering——AI工程范式迁移: https://chongliang.ai/articles/loop-engineering-paradigm-shift/
+- 模型即产品，Loop即未来：软件3.0的第一性原理: https://chongliang.ai/articles/model-as-product-loop-as-future/
+- 智能的本质：从牛顿思路到莫顿思路: https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/
+- 编排能力是新护城河——多模型协作的竞争逻辑: https://chongliang.ai/articles/orchestration-as-moat/
+- SaaS正在被AI-Agent肢解：从软件即服务到能力即服务: https://chongliang.ai/articles/saas-disrupted-by-ai-agent/
+- Spec驱动开发：AI时代产品研发协作的范式迁移: https://chongliang.ai/articles/spec-driven-development/
 - AI 从业者如何搭建自己的公开知识库: https://chongliang.ai/articles/ai-public-knowledge-system/
 - AI Agent 的反馈循环：Loop Engineering 入门: https://chongliang.ai/articles/loop-engineering-ai-agent-feedback-loops/
 
 ## Concept Pages
 
+- Agent Harness: https://chongliang.ai/knowledge/agent-harness/
+- Agent Orchestration: https://chongliang.ai/knowledge/agent-orchestration/
+- AI Skill: https://chongliang.ai/knowledge/skill/
+- Content Localization: https://chongliang.ai/knowledge/content-localization/
+- Context Engineering: https://chongliang.ai/knowledge/context-engineering/
 - DSL: https://chongliang.ai/knowledge/dsl/
+- Generator Paradox: https://chongliang.ai/knowledge/generator-paradox/
 - Harness Engineer: https://chongliang.ai/knowledge/harness-engineer/
 - Loop Engineering: https://chongliang.ai/knowledge/loop-engineering/
+- MCP (Model Context Protocol): https://chongliang.ai/knowledge/mcp/
 - Prompt Engineer: https://chongliang.ai/knowledge/prompt-engineer/
+- RAG (Retrieval-Augmented Generation): https://chongliang.ai/knowledge/rag/
+- Spec-Driven Development: https://chongliang.ai/knowledge/spec-driven-development/
+- Vibe Coding: https://chongliang.ai/knowledge/vibe-coding/
 - GEO: https://chongliang.ai/knowledge/geo/
 - LLM Wiki: https://chongliang.ai/knowledge/llm-wiki/
 

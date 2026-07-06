@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SaaS正在被AI-Agent肢解：从软件即服务到能力即服务 | 冲量 AI</title>
+    <meta name="description" content="AI Agent出现后，SaaS作为&quot;翻译层&quot;的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。">
+    <link rel="canonical" href="https://chongliang.ai/articles/saas-disrupted-by-ai-agent/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SaaS正在被AI-Agent肢解：从软件即服务到能力即服务 | 冲量 AI">
+    <meta property="og:description" content="AI Agent出现后，SaaS作为&quot;翻译层&quot;的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/saas-disrupted-by-ai-agent/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SaaS正在被AI-Agent肢解：从软件即服务到能力即服务 | 冲量 AI">
+    <meta name="twitter:description" content="AI Agent出现后，SaaS作为&quot;翻译层&quot;的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/saas-disrupted-by-ai-agent/#article",
+      "headline": "SaaS正在被AI-Agent肢解：从软件即服务到能力即服务",
+      "description": "AI Agent出现后，SaaS作为\"翻译层\"的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/saas-disrupted-by-ai-agent/",
+      "keywords": "SaaS, AI Agent, 能力即服务, CLI化, 定价模式",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "DSL",
+          "url": "https://chongliang.ai/knowledge/dsl/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SaaS正在被AI-Agent肢解：从软件即服务到能力即服务",
+          "item": "https://chongliang.ai/articles/saas-disrupted-by-ai-agent/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</h1>
+          <p class="page-lede">AI Agent出现后，SaaS作为&quot;翻译层&quot;的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · SaaS / AI Agent / 能力即服务 / CLI化 / 定价模式</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a aria-current="page" href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <p>一个做了7年SaaS的朋友说了一句话：<strong>&quot;我现在每天都在想，我的产品到底还有没有必要存在。&quot;</strong></p>
+<p>不是因为他做得不好。他的产品在细分领域排前三，ARR过亿，客户续费率90%以上。他焦虑的原因很简单：他发现自己的用户正在被AI Agent吃掉。</p>
+<p>以前一个运营团队买了他的SaaS，每天登录、看数据、做报表、发通知。现在呢？运营负责人直接跟AI说&quot;帮我拉一下上周的转化数据，做个对比分析，然后同步到群里&quot;。AI底层调了几个API，3分钟搞定。全程没人打开他的产品。</p>
+<p><strong>这不是某个SaaS的问题。这是整个SaaS行业的生存危机。</strong></p>
+<h2 id="section-1">核心结论</h2>
+<p>先想一个问题：SaaS到底是卖什么的？</p>
+<p>表面上是卖软件服务。但往深一层想，<strong>SaaS的本质是&quot;翻译层&quot;</strong>。它把底层技术能力（数据库、计算、存储、API），翻译成一个普通人能看懂的界面——按钮、表单、图表、工作流。</p>
+<p>软件行业过去几十年的发展，本质上就是在做这件事：写代码 → 封装成功能 → 套一个GUI → 卖给不会写代码的人。</p>
+<p><strong>但AI Agent出现之后，这层翻译不需要了。</strong></p>
+<p>用户不跟界面交互，用户跟AI对话。AI在底层直接调用能力——数据库查询、数据分析、消息推送——跳过SaaS的GUI，直达能力本身。</p>
+<p>这就像你以前去餐厅，需要服务员翻译你的需求给后厨。现在你直接跟后厨说话，服务员的存在感归零。</p>
+<p><strong>SaaS行业正在从&quot;不可或缺的中间层&quot;变成&quot;可以被跳过的冗余层&quot;。</strong></p>
+<h2 id="section-2">二、价值的重心正在从&quot;界面&quot;迁移到&quot;能力&quot;</h2>
+<p>以前SaaS产品的核心竞争力，很大一部分在那个界面上。</p>
+<p>UI设计好不好看、交互顺不顺畅、工作流合不合理——这些是用户选择SaaS的重要标准。一家SaaS公司可能有30%的研发资源投在前端，因为界面就是用户体验，用户体验就是续费率。</p>
+<p><strong>但界面正在贬值。</strong></p>
+<p>因为最终的&quot;用户&quot;可能根本不是人。是一个AI Agent在调用你的能力，它不在乎你的按钮颜色、不在乎你的动画过渡、不在乎你的导航结构。它在乎的只有一件事：<strong>你的能力能不能被干净地调出来。</strong></p>
+<p>也就是说，以前SaaS卖的是&quot;店面装修+后厨出品&quot;的组合。以后只能卖&quot;后厨出品&quot;。而&quot;后厨出品&quot;的价值，取决于你的数据独不独特、你的能力够不够深。</p>
+<h2 id="section-3">三、SaaS的出路：把自己变成一个Agent可以调用的能力单元</h2>
+<p>如果界面不再值钱，SaaS还能卖什么？</p>
+<p><strong>答案是：把自己变成一个AI Agent可以直接调用的能力单元。</strong></p>
+<p>具体来说就是两件事：</p>
+<p><strong>第一，CLI化或API-first。</strong> 核心能力必须能被程序化调用——不是&quot;用户点一个按钮触发一个功能&quot;，而是&quot;一个指令就能触发一个能力链&quot;。CLI比API更彻底，因为AI对CLI的理解是训练阶段就内建的——不需要读API文档，不需要理解鉴权方式，直接调。</p>
+<p><strong>第二，能力颗粒度要足够细。</strong> 以前SaaS的功能是以&quot;页面&quot;为单位的——一个页面完成一套工作流。但现在调用方是AI，AI需要的不是页面，是原子化的能力单元。&quot;分析转化数据&quot;不是一个功能，而是&quot;查询数据库→清洗数据→做对比→生成图表→推送到IM&quot;五个独立的Skill。颗粒度越细，AI组合的灵活性越高。</p>
+<p><strong>SaaS产品经理的角色也在变。</strong> 以前是设计&quot;人怎么用这个功能&quot;，以后是设计&quot;AI怎么理解和使用这个能力&quot;。一个是画原型图，一个是写Skill文档。听起来差不多，底层逻辑完全不同。</p>
+<h2 id="section-4">四、定价模式必然被掀翻</h2>
+<p><strong>如果SaaS的主要调用方从&quot;人&quot;变成了&quot;AI Agent&quot;，按人头收费的模式就彻底不成立了。</strong></p>
+<p>现在大部分B2B SaaS的定价是：$X/人/月。这个逻辑的前提是&quot;每个用户都是一个独立的使用者&quot;——一个人占一个席位，产生一份使用量，付一份钱。</p>
+<p>但当AI Agent成为主要调用方：</p>
+<ul>
+<li>一个AI Agent可以在10分钟内完成100个人一天的工作量</li>
+<li>调用频率不是&quot;一个人每天用几次&quot;，而是&quot;一个Agent每秒调用几十次&quot;</li>
+<li>你没法按&quot;Agent数&quot;收费，因为一个公司可能只有一个Agent，但调用量是海量的</li>
+</ul>
+<p><strong>定价逻辑必须从&quot;按席位&quot;转向&quot;按能力调用&quot;。</strong></p>
+<p>这个转变已经在发生了。有的客服产品推出了按解决率收费的AI定价，有的APM工具开始按&quot;监控数据量&quot;而非&quot;工程师席位数&quot;定价。</p>
+<p><strong>不是他们想变，是不变就会死。</strong> 当一个5人的AI-native竞品能以1/10的成本覆盖同样的能力，你的按人头定价就不再是一个&quot;商业模式&quot;，而是一个&quot;自杀协议&quot;。</p>
+<h2 id="section-5">五、谁会活下来，谁会消失</h2>
+<p>这个趋势下，SaaS产品的命运基本上由三个因素决定：</p>
+<p><strong>1. 有没有独特数据？</strong></p>
+<p>产品积累的数据是否独有、是否在持续更新、是否能形成壁垒？一个有10万家企业真实交易数据的SaaS，和一个月活百万的通用工具，前者被AI替代的难度远高于后者。因为AI可以复制功能，但复制不了专有数据。</p>
+<p><strong>2. 有没有网络效应？</strong></p>
+<p>产品是不是&quot;用户越多越有价值&quot;？协作型产品的价值不只在功能，在于协作网络。AI可以替代一个独立工具，但很难替代一个所有人都在用的协作平台。</p>
+<p><strong>3. 能力够不够深？</strong></p>
+<p>一个&quot;帮你管理待办事项&quot;的SaaS——AI可以直接做。但一个&quot;帮你自动完成合规审计&quot;的SaaS——这需要深度行业知识、法律逻辑、认证流程，AI短时间内做不了。</p>
+<p><strong>核心判断：界面不是护城河，数据壁垒和网络效应才是。</strong></p>
+<h2 id="section-6">六、这个进程正在加速</h2>
+<p>为什么2026年下半年到2027年会是一个爆发期？</p>
+<p>三个信号已经很明确了：</p>
+<p><strong>信号一：AI编程工具已经证明了CLI调用的可行性。</strong> Claude Code、Cursor、Codex——它们每天都在用CLI工具完成复杂任务。这说明&quot;AI直接调用软件能力&quot;不是概念，是每天都在发生的现实。SaaS的能力被CLI化之后，AI调用它是完全无缝的。</p>
+<p><strong>信号二：Agent框架正在快速成熟。</strong> Agent编排框架的能力越来越强。以前搭一个能调用多个外部能力的Agent需要大量工程投入，现在一个Skill文档就能让Agent拥有这个能力。复用的成本在急剧下降。</p>
+<p><strong>信号三：SaaS行业的增长焦虑正在加剧。</strong> 传统SaaS的人海战术（堆销售、堆CSM、堆市场）遇到了天花板。当一个SaaS公司发现自己一半的成本花在&quot;让人去用软件&quot;上，而AI可以直接跳过&quot;人教人&quot;这个环节——降本增效的本能就会驱动整个行业往AI可调用的方向走。</p>
+<p><strong>这三个信号加起来，指向同一个方向：SaaS的AI能力化不是&quot;要不要做&quot;的问题，而是&quot;什么时候必须做&quot;的问题。</strong></p>
+<h2 id="section-7">七、结构性冲击的行业级判断</h2>
+<p>回到更宏观的层面，SaaS被AI Agent肢解这件事，本质上是软件行业价值链的一次重新分配。</p>
+<p>传统SaaS价值链：<strong>底层能力 → 封装层（GUI）→ 用户</strong></p>
+<p>AI Agent时代价值链：<strong>底层能力 → AI Agent → 用户</strong></p>
+<p>封装层被跳过，价值回流到底层能力和AI编排层。这意味着：</p>
+<p>1. <strong>纯界面型SaaS会消亡</strong>——没有独特数据和能力，只靠UI好用的产品，AI可以完全替代 2. <strong>能力型SaaS会变强</strong>——有独特数据壁垒的产品，AI调用反而放大数据价值 3. <strong>平台型SaaS会存活</strong>——有网络效应的协作平台，AI短期内替代不了 4. <strong>新生意出现在编排层</strong>——帮AI理解和调用各种能力的中间件、Skill市场、Agent编排工具，这是新的价值地带</p>
+<p>这对SaaS创业者和产品经理意味着什么？</p>
+<p><strong>如果你在做SaaS，现在该问自己一个问题：剥掉界面，你的产品还剩什么？</strong> 如果答案是&quot;一个数据库+几个API&quot;，那你需要尽快做两件事——要么往深处挖数据壁垒，要么把自己变成AI可调用的能力单元。</p>
+<p><strong>如果你在做AI产品，SaaS的肢解就是你的机会。</strong> 每一个被跳过的SaaS，都意味着一组能力正在等待被AI原生地重新封装。谁能最先把这些能力做成Skill，谁就能吃到这波红利。</p>
+<p>回到开头那个朋友的问题：他的产品到底还有没有必要存在？</p>
+<p><strong>如果SaaS只是一个&quot;带界面的数据库&quot;，那确实该焦虑。但如果SaaS背后有独特数据、深度行业知识、或者一个已经形成的协作网络，该焦虑的不是&quot;会不会被替代&quot;，而是&quot;怎么让AI更容易地调用你&quot;。</strong></p>
+<p>以前SaaS公司花了几千万打磨出来的UI/UX，可能在一夜之间变成负资产——因为那套给人设计的界面，AI根本用不上。</p>
+<p>但残酷的另一面是公平。当界面不再是护城河，竞争就会回归到最本质的东西：你的数据够不够好、你的能力够不够深、你的用户网络够不够密。</p>
+<p>AI正在把SaaS行业逼回第一性原理——你到底创造了什么不可替代的价值？</p>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/cli-revolution-mcp-to-skill/index.html">
+      <span>2026-07-06</span>
+      <strong>CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</strong>
+      <p>CLI不是AI的工具选项，是AI的母语。MCP的本质是一套治理协议，解决&quot;谁有权做什么&quot;而非&quot;怎么做最快&quot;——大多数人不需要企业级权限管理，却在为它的全部成本买单。Skill用1/50的成本做到了MCP Schema同样的事。</p>
+    </a><a class="article-mini" href="../../articles/model-as-product-loop-as-future/index.html">
+      <span>2026-07-06</span>
+      <strong>模型即产品，Loop即未来：软件3.0的第一性原理</strong>
+      <p>软件的历史是一部不断&quot;去代码化&quot;的历史。Vibe Coding出现后，程序员从规则编写者变成幽灵的召唤师——定义目标、描述意图、校准方向。中间件、API、UI框架这些补偿机制变成了&quot;熵&quot;。软件3.0的最整洁架构是：输入→神经网络→输出。</p>
+    </a><a class="article-mini" href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">
+      <span>2026-07-05</span>
+      <strong>AI Agent 的反馈循环：Loop Engineering 入门</strong>
+      <p>Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、价值的重心正在从&quot;界面&quot;迁移到&quot;能力&quot;</a></li><li class="toc-level-2"><a href="#section-3">三、SaaS的出路：把自己变成一个Agent可以调用的能力单元</a></li><li class="toc-level-2"><a href="#section-4">四、定价模式必然被掀翻</a></li><li class="toc-level-2"><a href="#section-5">五、谁会活下来，谁会消失</a></li><li class="toc-level-2"><a href="#section-6">六、这个进程正在加速</a></li><li class="toc-level-2"><a href="#section-7">七、结构性冲击的行业级判断</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>
