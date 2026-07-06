@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>企业AI PM平台架构实践：从需求到自动开发 | 冲量 AI</title>
+    <meta name="description" content="企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住&quot;关键决策必须人确认&quot;的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。">
+    <link rel="canonical" href="https://chongliang.ai/articles/enterprise-aipm-platform-architecture/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="企业AI PM平台架构实践：从需求到自动开发 | 冲量 AI">
+    <meta property="og:description" content="企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住&quot;关键决策必须人确认&quot;的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/enterprise-aipm-platform-architecture/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="企业AI PM平台架构实践：从需求到自动开发 | 冲量 AI">
+    <meta name="twitter:description" content="企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住&quot;关键决策必须人确认&quot;的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/enterprise-aipm-platform-architecture/#article",
+      "headline": "企业AI PM平台架构实践：从需求到自动开发",
+      "description": "企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住\"关键决策必须人确认\"的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/enterprise-aipm-platform-architecture/",
+      "keywords": "AI, 知识沉淀",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "DSL",
+          "url": "https://chongliang.ai/knowledge/dsl/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "LLM Wiki",
+          "url": "https://chongliang.ai/knowledge/llm-wiki/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "企业AI PM平台架构实践：从需求到自动开发",
+          "item": "https://chongliang.ai/articles/enterprise-aipm-platform-architecture/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>企业AI PM平台架构实践：从需求到自动开发</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">企业AI PM平台架构实践：从需求到自动开发</h1>
+          <p class="page-lede">企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住&quot;关键决策必须人确认&quot;的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · AI / 知识沉淀</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a  href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-guandan-platform-architecture/index.html">AI 掼蛋比赛平台架构与赛前准备说明</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-multilingual-pipeline-subtitle-to-dubbing/index.html">AI内容多语言生产管线：从字幕到配音的全流程</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a  href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-short-drama-overseas-business-architecture/index.html">AI短剧出海业务架构：从内容引入到变现分账的全链路</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/closed-loop-as-moat-short-drama-ad-iteration/index.html">闭环即护城河——短剧投放自动迭代的竞争逻辑</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a aria-current="page" href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a  href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/multilingual-subtitle-dubbing-decoupled-architecture/index.html">多语种外挂字幕与配音方案：视频/字幕/音频解耦架构</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/overseas-short-drama-dubbing-analysis/index.html">海外AI短剧小语种配音需求分析</a><a  href="../../articles/overseas-short-drama-user-segmentation/index.html">海外AI短剧用户分层与转化模型</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a  href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a  href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/short-drama-ad-auto-iteration/index.html">短剧投放自动迭代方案：Agent驱动的素材闭环</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/viral-replication-flywheel-creative-gene/index.html">爆款复刻飞轮：从素材归因到创意基因的闭环方法论</a><a  href="../../articles/zero-marginal-cost-content-localization/index.html">边际成本归零：内容出海本地化的基础设施</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <h2 id="section-1">核心结论</h2>
+<p>企业AI PM（产品管理）平台的核心命题是：<strong>用AI重新定义需求→设计→开发的全链路流转，同时守住&quot;关键决策必须人确认&quot;的底线。</strong> 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。平台分三大模块——任务工作台、Agent体系、Skill库与提示词库——并通过SDD（规格驱动开发）流程弥补国产大模型在Web Coding能力上的不足。本文从平台架构、开发适配、多Agent调度稳定性三个维度逐点拆解，并对照Anthropic Agent Skills的行业趋势做关联对比。</p>
+<p>---</p>
+<h2 id="section-2">逐点拆解</h2>
+<h3 id="section-3">1. 平台三大核心模块与流转规则</h3>
+<p>平台划分为<strong>任务工作台、Agent体系、Skill库与提示词库</strong>三个核心部分，形成&quot;流转—执行—知识沉淀&quot;的闭环。</p>
+<p><strong>任务工作台流转规则：</strong></p>
+<ul>
+<li>需求录入后由AI自动分析，生成结构化拆解。</li>
+<li><strong>核心关键点必须人工确认追责</strong>——这是平台设计的第一原则，AI可以提建议，但关键节点的决策权和责任归属在人。</li>
+<li>需求确认后，后续设计、开发环节的自动化程度很高，人工介入大幅减少。</li>
+</ul>
+<p><strong>Agent体系职责：</strong></p>
+<ul>
+<li>结合历史项目知识库审查需求可行性，输出判断依据而非仅给结论。</li>
+<li>需求确认后接管开发编排，做任务拆解、定开发规则和技术栈，后续开发仅需实现功能模块。</li>
+</ul>
+<p><strong>Skill库与提示词库：</strong></p>
+<ul>
+<li>Skill将企业SOP沉淀为可发现、可激活、可执行的&quot;技能组件&quot;（与Anthropic Agent Skills理念一致）。</li>
+<li>提示词库管理各角色的系统提示词，确保Agent行为一致性和可追溯。</li>
+</ul>
+<h3 id="section-4">2. SDD规格驱动开发：弥补模型Coding短板</h3>
+<p><strong>问题背景：</strong> 企业内部使用的是基于开源模型封装的大模型服务，Web Coding 能力弱于海外模型（如Claude、GPT系列），直接让模型生成完整代码质量不稳定。</p>
+<p><strong>适配方案——SDD（Specification-Driven Development）流程：</strong> 1. <strong>开发前由Agent做好任务拆解</strong>：将需求拆成可独立实现的功能模块，定好每个模块的开发规则和技术栈。 2. <strong>规格先行，代码后行</strong>：先输出明确的开发规格（接口定义、数据结构、业务逻辑规则），后续开发环节仅需按规格实现功能模块，降低对模型创造性的依赖。 3. <strong>模块级验证</strong>：每个功能模块独立验证，避免&quot;一错全错&quot;的级联风险。</p>
+<p><strong>核心思路：</strong> 模型coding能力弱，就用&quot;约束开发自由度&quot;来补偿——把开放式代码生成降维成&quot;按规格填空&quot;，让模型的弱点不暴露。</p>
+<h3 id="section-5">3. 实战验证：29个项目迭代沉淀</h3>
+<p><strong>实践背景：</strong> 一套企业级AI PM平台在企业内部独立搭建并跑通，推动公司AI化转型。</p>
+<p><strong>平台流程：</strong> 1. 业务方上传需求。 2. 通过RAG匹配知识库，判断需求可行性。 3. 输出标准化MRD、BRD、PRD文档。 4. 先开发MVP版本，与客户沟通调整。 5. 确认后交付开发团队做全自动化开发。</p>
+<p><strong>模块划分（与上文一致）：</strong> 任务工作台、Agent模块、Prompt与Skill库。</p>
+<p><strong>关键数据：</strong></p>
+<ul>
+<li>已经过<strong>29个项目迭代</strong>，沉淀了固定交付SOP。</li>
+<li>MVP先行策略降低了需求偏差风险，避免直接全量开发后返工。</li>
+</ul>
+<h3 id="section-6">4. 多Agent调度稳定性保障</h3>
+<p><strong>核心问题：</strong> 多Agent并行工作时，容易出现调用混乱——Agent A调用了不该调用的Skill，用户越权触发高权限Agent等。</p>
+<p><strong>架构设计原则：</strong></p>
+<ul>
+<li><strong>区分用户和场景</strong>：在架构设计阶段就要明确不同用户角色对应的不同Agent集合。</li>
+<li><strong>Agent和Skill分层</strong>：Agent层负责编排和决策，Skill层负责执行，两层解耦。</li>
+<li><strong>提前明确权限边界</strong>：</li>
+<p>- 每个用户的Agent使用范围（哪些Agent可调）。 - 每个Agent的Skill调用范围（哪些Skill可执行）。</p>
+<li><strong>避免调用混乱</strong>：通过白名单机制和分层设计，确保Agent只能在其被授权的Skill范围内操作。</li>
+</ul>
+<p><strong>这与OWASP提出的AI智能体安全风险中的&quot;身份权限滥用&quot;和&quot;不安全的技能间通讯&quot;风险直接对应。</strong> 分层+白名单是工程上最可控的防御手段。</p>
+<p>---</p>
+<h2 id="section-7">关联与对比</h2>
+<h3 id="section-8">与Anthropic Agent Skills的对照</h3>
+<p>| 维度 | 企业级AI PM平台实践 | Anthropic Agent Skills (2025-10) | |------|-------------------|----------------------------------| | 核心理念 | Skill库+提示词库沉淀企业SOP | &quot;Don't Build Agents, Build Skills Instead&quot; | | Skill定位 | 可执行的企业SOP组件 | 可发现、可激活、可执行的技能组件 | | 架构特征 | Agent和Skill分层，权限白名单 | 渐进式披露（Progressive Disclosure），降低60%-80% Token消耗 | | 适用场景 | 企业内部PM全流程 | 通用Agent生态 |</p>
+<p><strong>关键发现：</strong> 实战验证与Anthropic的Agent Skills理念高度一致——都把Skill作为独立于Agent的可复用组件，而非把能力硬编码在Agent内部。但企业级实践更强调<strong>权限分层和追责机制</strong>，这反映了企业内部场景对合规和安全更高要求。</p>
+<h3 id="section-9">与Claude Code市场表现的关联</h3>
+<p>Claude Code 等工具的快速增长验证了&quot;AI辅助开发&quot;的市场需求。SDD流程是<strong>在模型能力受限场景下的工程适配方案</strong>——当可用模型的 Coding 能力不足以支撑自主开发时，用规格约束替代模型自主性，让能力较弱的模型也能完成任务。SDD 的约束程度可根据模型能力动态调整：模型越强，约束越少；模型越弱，约束越严。</p>
+<h3 id="section-10">企业实践路径的行业共性</h3>
+<p>行业实践路径是从&quot;VOC分析&quot;&quot;内容生成助手&quot;等低风险场景切入，逐步扩展到核心业务（如货品全生命周期管理），为10000+门店服务。这套AI PM平台的路径高度类似：从需求分析切入，逐步扩展到全链路自动开发，29个项目迭代本身就是&quot;渐进式扩展&quot;的体现。</p>
+<h3 id="section-11">与AI安全风险框架的关联</h3>
+<p>多Agent调度的权限分层设计，直接回应了OWASP AI智能体十大风险中的：</p>
+<ul>
+<li><strong>目标劫持</strong>：通过Agent使用范围白名单限制。</li>
+<li><strong>身份权限滥用</strong>：通过用户-Agent-Skill三层权限映射。</li>
+<li><strong>不安全的技能间通讯</strong>：通过Agent和Skill分层解耦，隔离通讯通道。</li>
+</ul>
+<p>---</p>
+<h2 id="section-12">存疑/待办</h2>
+<ul>
+<li>[ ] <strong>SDD流程的具体规格模板</strong>待获取：当前仅有流程描述，缺少MRD/BRD/PRD的具体模板结构和字段定义，需补充实际文档样例。</li>
+<li>[ ] <strong>29个项目迭代的量化数据</strong>待补充：目前仅知道迭代次数，缺少效率提升数据（如需求到交付周期缩短比例、人力节省比例）。</li>
+<li>[ ] <strong>企业内部模型与海外模型的Coding能力差距量化</strong>：需要具体的基准测试数据（如HumanEval、SWE-Bench评分对比）支撑&quot;SDD是必要适配&quot;的判断。</li>
+<li>[ ] <strong>RAG知识库的构建细节</strong>待了解：知识库覆盖了哪些历史项目、向量检索的准确率、误判率如何。</li>
+<li>[ ] <strong>MVP版本的开发周期</strong>待确认：从需求确认到MVP交付的平均周期，以及MVP到全量交付的转化率。</li>
+<li>[ ] <strong>多Agent调度的具体技术栈</strong>待调研：使用的是自研调度框架还是基于LangChain/AutoGen等开源框架，调度策略（轮询/优先级/并行）如何设计。</li>
+<li>[ ] <strong>与Anthropic Progressive Disclosure架构的Token节省效果对比</strong>：企业级AIPM平台是否做了类似的Token优化，效果如何。</li>
+</ul>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a><a class="related-concept-card" href="../../knowledge/llm-wiki/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>LLM Wiki</h3>
+      <p>LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">
+      <span>2026-07-06</span>
+      <strong>AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</strong>
+      <p>本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。</p>
+    </a><a class="article-mini" href="../../articles/enterprise-agent-implementation-governance/index.html">
+      <span>2026-07-06</span>
+      <strong>企业级Agent落地实践：从需求准入到知识治理</strong>
+      <p>企业级Agent落地不是技术问题，是管理问题。需求准入要前置评估频率和满意度，避免上线后无人使用。知识收集要靠管理手段而非技术自动化——梳理清单、下发部门、固定对接人、定期上报、通报推动。Skill Hub的新建标准是主干流程SOP是否变更。</p>
+    </a><a class="article-mini" href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">
+      <span>2026-07-06</span>
+      <strong>企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</strong>
+      <p>本文整理自多场AI产品从业者的深度访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、企业AI推广策略等核心议题。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">逐点拆解</a></li><li class="toc-level-3"><a href="#section-3">1. 平台三大核心模块与流转规则</a></li><li class="toc-level-3"><a href="#section-4">2. SDD规格驱动开发：弥补模型Coding短板</a></li><li class="toc-level-3"><a href="#section-5">3. 实战验证：29个项目迭代沉淀</a></li><li class="toc-level-3"><a href="#section-6">4. 多Agent调度稳定性保障</a></li><li class="toc-level-2"><a href="#section-7">关联与对比</a></li><li class="toc-level-3"><a href="#section-8">与Anthropic Agent Skills的对照</a></li><li class="toc-level-3"><a href="#section-9">与Claude Code市场表现的关联</a></li><li class="toc-level-3"><a href="#section-10">企业实践路径的行业共性</a></li><li class="toc-level-3"><a href="#section-11">与AI安全风险框架的关联</a></li><li class="toc-level-2"><a href="#section-12">存疑/待办</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

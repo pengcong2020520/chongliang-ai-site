@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI产品经理技术实践：从RAG调优到Agent架构的系统方法论 | 冲量 AI</title>
+    <meta name="description" content="本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。">
+    <link rel="canonical" href="https://chongliang.ai/articles/ai-pm-tech-practice-rag-to-agent/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI产品经理技术实践：从RAG调优到Agent架构的系统方法论 | 冲量 AI">
+    <meta property="og:description" content="本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/ai-pm-tech-practice-rag-to-agent/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI产品经理技术实践：从RAG调优到Agent架构的系统方法论 | 冲量 AI">
+    <meta name="twitter:description" content="本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/ai-pm-tech-practice-rag-to-agent/#article",
+      "headline": "AI产品经理技术实践：从RAG调优到Agent架构的系统方法论",
+      "description": "本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/ai-pm-tech-practice-rag-to-agent/",
+      "keywords": "RAG调优, 多Agent, Skill, Harness, 提示词工程",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "DSL",
+          "url": "https://chongliang.ai/knowledge/dsl/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "LLM Wiki",
+          "url": "https://chongliang.ai/knowledge/llm-wiki/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI产品经理技术实践：从RAG调优到Agent架构的系统方法论",
+          "item": "https://chongliang.ai/articles/ai-pm-tech-practice-rag-to-agent/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</h1>
+          <p class="page-lede">本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · RAG调优 / 多Agent / Skill / Harness / 提示词工程</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a  href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-guandan-platform-architecture/index.html">AI 掼蛋比赛平台架构与赛前准备说明</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-multilingual-pipeline-subtitle-to-dubbing/index.html">AI内容多语言生产管线：从字幕到配音的全流程</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a aria-current="page" href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-short-drama-overseas-business-architecture/index.html">AI短剧出海业务架构：从内容引入到变现分账的全链路</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/closed-loop-as-moat-short-drama-ad-iteration/index.html">闭环即护城河——短剧投放自动迭代的竞争逻辑</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a  href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a  href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/multilingual-subtitle-dubbing-decoupled-architecture/index.html">多语种外挂字幕与配音方案：视频/字幕/音频解耦架构</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/overseas-short-drama-dubbing-analysis/index.html">海外AI短剧小语种配音需求分析</a><a  href="../../articles/overseas-short-drama-user-segmentation/index.html">海外AI短剧用户分层与转化模型</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a  href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a  href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/short-drama-ad-auto-iteration/index.html">短剧投放自动迭代方案：Agent驱动的素材闭环</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/viral-replication-flywheel-creative-gene/index.html">爆款复刻飞轮：从素材归因到创意基因的闭环方法论</a><a  href="../../articles/zero-marginal-cost-content-localization/index.html">边际成本归零：内容出海本地化的基础设施</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <blockquote><p>本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。</p></blockquote>
+<p>---</p>
+<h2 id="section-1">核心结论</h2>
+<h3 id="section-2">1.1 传统政企项目链路的效率瓶颈</h3>
+<p>传统政企信息化项目从需求获取到交付的链路极长：客户经理拿到需求后，需要与客户反复沟通确认，再协调供应商、走内部上会与招投标流程，仅沟通环节就可能耗时一个月以上，全链路至少半年。</p>
+<p><strong>AI驱动的优化方案</strong>：客户经理仅需提供客户需求会议录音，由AI产品经理完成全链路工作——需求分析、输出MRD/BRD/PRD文档、通过低代码平台快速制作Demo、与客户现场调试确认后，再交付开发团队做工程化实现。这套&quot;一人+AI&quot;的模式可将交付周期大幅缩短。</p>
+<h3 id="section-3">1.2 企业AI服务平台四层架构</h3>
+<p>一个完整的企业AI服务平台通常包含以下层次：</p>
+<ul>
+<li><strong>第一层：身份注册层</strong>——对接企业SSO，完成用户身份识别与注册</li>
+<li><strong>第二层：Agent注册中心</strong>——支持单个用户绑定多个AI Agent，做集中化管理</li>
+<li><strong>第三层：工具集成层</strong>——搭建Tool Hub，集成底层MCP、CLI等工具，实现不同AI工具之间的上下文桥接与无缝切换</li>
+<li><strong>第四层：数据资产层</strong>——内置可自迭代的RAG知识库，新项目交付产生的新文档自动回滚沉淀</li>
+</ul>
+<h3 id="section-4">1.3 成本控制策略</h3>
+<ul>
+<li>基础大模型采用本地部署（如DeepSeek），无额外基础费用</li>
+<li>开发团队的Token消耗通过项目金额覆盖</li>
+<li>中文文本处理使用国产模型（去AI味效果优于多数国产模型），编程类任务使用国外模型</li>
+<li>Token消耗统一在平台内监测管理</li>
+</ul>
+<p>---</p>
+<h2 id="section-5">二、RAG技术全链路调优方法论</h2>
+<h3 id="section-6">2.1 RAG基础落地流程</h3>
+<p>完整的RAG落地分为离线处理和线上查询两部分：</p>
+<p><strong>离线处理</strong>： 1. 非结构化数据（PDF、图片等）输入 2. OCR预处理转化为Markdown文本 3. 按策略对文本切块 4. Embedding后存入向量数据库建立索引</p>
+<p><strong>线上查询</strong>： 1. 用户Query与向量库做相似度匹配（第一轮粗筛） 2. Top-K结果做重排序（第二轮精选） 3. 抓取最终结果给大模型组装输出</p>
+<h3 id="section-7">2.2 文档解析模块调优</h3>
+<p>调优前文档解析准确率仅80%出头，主要问题与解决方案：</p>
+<p>| 问题类型 | 解决方案 | |---------|---------| | 印刷体文档 | 使用DeepSeek OCR识别 | | 手写体文档 | 更换为PaddleOCR/Pandora OCR，识别效果更优 | | 图文混排文档 | 优先使用Pandora OCR，将图片单独存储，用图片识别模型生成关键词标签 | | 跨页表格——表头分离 | 前后首尾检查，将上一页表头迁移到下一页，做Text拼接 | | 跨页表格——数据切割 | 识别后通过Text Mender做拼接修复 |</p>
+<h3 id="section-8">2.3 文本切块三层调优法</h3>
+<p>这是RAG调优中最核心的环节：</p>
+<p>1. <strong>第一层：段落切分</strong>——按段落（<code>\n\n</code>）做初步切块 2. <strong>第二层：语句切分</strong>——段落仍过长时，按标点符号（逗号、句号）切分为单个句子 3. <strong>第三层：语义切分</strong>——通过语义脉冲分析做调整： - 脉冲平缓 → 前后语义关联度高 → 重新拼接召回 - 脉冲明显 → 前后语义差异大 → 再次切分</p>
+<p>调优后整体文档处理准确率可提升至95%以上。</p>
+<h3 id="section-9">2.4 全链路追踪方案（Run ID机制）</h3>
+<p>传统RAG的核心痛点：只知道整体准确率不高，无法定位是哪个环节出了问题。</p>
+<p><strong>解决方案</strong>：引入Run ID串联整条RAG链路，在每个环节都通过Run ID记录数据，共建立8张数据表：</p>
+<ul>
+<li>切块表：记录chunk大小、overlap大小、切块方式等参数</li>
+<li>Embedding表：记录向量维度、模型版本等</li>
+<li>向量匹配表：记录相似度分数、匹配结果</li>
+<li>……（共8张表）</li>
+</ul>
+<p>当问答准确率不足时，通过Run ID查询每个环节的日志数据，快速定位具体问题模块。可将数据库权限通过MCP给到AI，让AI自动分析问题环节。</p>
+<h3 id="section-10">2.5 输出质量验证流程</h3>
+<p>1. <strong>强制溯源</strong>：大模型输出必须带上内容来源索引 2. <strong>AI自动判别</strong>：引入AI自动判别引用来源和输出内容的关联性 3. <strong>评测集测试</strong>：上线前用带标准答案的评测集做自动匹配测试 4. <strong>小批量用户体验</strong>：邀请小批量用户实际体验，收集Bad Case 5. <strong>Bad Case回流</strong>：将Bad Case回流到全链路做调优迭代</p>
+<h3 id="section-11">2.6 Graph RAG的适用场景</h3>
+<p>Graph RAG以图的方式存储文本关系，在以下场景效果提升明显：</p>
+<ul>
+<li>跨文本推理：同一项目内容散落在多个零散文档中</li>
+<li>复杂关系梳理：需要从多个文档的关系网中抓取实体间关系</li>
+<li>文本分类不好、文档组织杂乱的场景</li>
+</ul>
+<h3 id="section-12">2.7 Embedding模型选择</h3>
+<ul>
+<li><strong>千问Embedding模型</strong>：当前常用</li>
+<li><strong>智源BGE模型</strong>：开源生态更好，使用广泛</li>
+</ul>
+<p>---</p>
+<h2 id="section-13">三、多Agent架构设计方法论</h2>
+<h3 id="section-14">3.1 何时需要多Agent架构</h3>
+<p>单RAG知识库无法满足多角色、多场景需求时，需要采用多Agent架构。典型场景：校园问答助手服务老师、学生、家长、行政人员四类用户，本科院校侧重学术教务，高职院校侧重就业实训。</p>
+<h3 id="section-15">3.2 多Agent架构核心设计</h3>
+<pre><code>用户输入
+  │
+  ▼
+意图识别Agent（三层机制）
+  ├── 第一层：规则引擎打标签
+  ├── 第二层：RAG增强识别
+  └── 第三层：大模型兜底判断
+  │
+  ▼
+路由分发 → 对应专家Agent
+  ├── 就业专家Agent（挂载就业知识库）
+  ├── 学术专家Agent（挂载学术论文、知网等数据）
+  ├── 教务专家Agent（挂载教务规章知识库）
+  └── 兜底Agent（处理通用简单问题）
+  │
+  ▼
+风格匹配（学术风格/轻松风格/严谨风格）
+  │
+  ▼
+最终输出</code></pre>
+<p>路由准确率可从单RAG的60%左右提升到90%以上。</p>
+<h3 id="section-16">3.3 多Agent通信与分歧处理</h3>
+<ul>
+<li><strong>通信机制</strong>：主Agent和子Agent之间通过事件总线（Event Bus）完成通信，触发事件后子Agent接收信息</li>
+<li><strong>分歧处理</strong>：设置专门的审查Agent，分两层审查——第一层审查单个Agent的输出质量，第二层审查整条链路汇总后的最终输出</li>
+<li><strong>降级与重试</strong>：对异常情况做降级和重试的兜底方案</li>
+</ul>
+<h3 id="section-17">3.4 Agent需求准入评估标准</h3>
+<p>为避免子Agent上线后无人使用，需前置设计评估体系：</p>
+<p>1. <strong>频率评估</strong>：评估需求意图被识别并匹配到对应Agent的频率，筛选高频有效需求 2. <strong>满意度指标</strong>：通过用户追答、打断回复等行为辅助评估满意度 3. <strong>小范围试用</strong>：完成验证后对所有Agent划分优先级排序 4. <strong>低使用率案例分析</strong>：如心理辅导类Agent使用率低，根因是用户担心隐私泄露，不愿在可管的官方应用中进行心理疏导——这类问题很难从产品层面解决</p>
+<h3 id="section-18">3.5 Agent与Workflow的区别</h3>
+<p>| 维度 | Agent | Workflow | |------|-------|----------| | 自主性 | 可自主完成从规划到执行的全链路 | 预先设定好的SOP流程 | | 异常处理 | 遇到问题可自主进入循环重试 | 按固定流程执行 | | 灵活性 | 高 | 低 | | 适用场景 | 包含非结构化数据、需要多步操作 | 固定流程、固定格式输出 |</p>
+<h3 id="section-19">3.6 两种Agent执行框架对比</h3>
+<p>| 框架 | 特点 | 适用场景 | |------|------|---------| | <strong>React</strong> | 自主性强，实时生成 | 输出前后依赖性强、需要实时生成的场景 | | <strong>Plan &amp; Execute</strong> | 先规划再执行，目标收敛 | 主干链路清晰、对输出格式有固定要求的场景 |</p>
+<p>企业内部多数固定流程场景适合Plan &amp; Execute框架，可避免React自主性过强脱离约束的问题。</p>
+<p>---</p>
+<h2 id="section-20">四、开放知识问答场景的产品设计</h2>
+<h3 id="section-21">4.1 三层卡控分流机制</h3>
+<p>面对无法预先限定问题的开放问答场景，采用三层分流：</p>
+<p>1. <strong>第一层</strong>：将用户问题通过AI润色后，用规则标签完成初步分流匹配 2. <strong>第二层</strong>：集成企业内部数据资产、行业规则、规章制度增强匹配 3. <strong>第三层</strong>：大模型结合自信度概念做最终卡控——不同频次场景设置不同自信度阈值，高频场景阈值更高，低自信度内容进入人工兜底审核</p>
+<h3 id="section-22">4.2 模糊表达问题处理策略</h3>
+<p>| 策略 | 优点 | 缺点 | |------|------|------| | 大模型假设补全 | 体验流畅，不打断用户 | 可能误解用户意图 | | 主动澄清 | 准确性高 | 多轮澄清拉长交互链路，用户不耐烦 |</p>
+<p><strong>推荐做法</strong>：默认采用大模型补全，同时保留澄清能力但严格限制最多不超过两轮，两种方式结合使用。</p>
+<h3 id="section-23">4.3 行业黑话/专业词汇处理</h3>
+<p>在意图识别Agent中内置专门处理行业黑话的RAG库，提前收录对应行业的专业词汇、规则，在意图识别阶段就完成专业词汇的准确识别，解决大模型无法理解内部专有词汇的问题。</p>
+<h3 id="section-24">4.4 内容审核分层架构</h3>
+<ul>
+<li><strong>第一层</strong>：规则引擎拦截明确违规违纪内容</li>
+<li><strong>第二层</strong>：集成了平台规则、行业规范RAG知识库的大模型做二次审核，高自信度直接放行</li>
+<li><strong>第三层</strong>：低自信度内容由人工兜底审核</li>
+<li><strong>迭代机制</strong>：所有审核失误、人工兜底案例整理为Bad Case，反向反馈回链路完成调优</li>
+</ul>
+<p>---</p>
+<h2 id="section-25">五、知识治理与迭代机制</h2>
+<h3 id="section-26">5.1 知识收集方案</h3>
+<p>企业知识分散在各部门，无法靠技术自动收集，核心通过管理手段解决：</p>
+<p>1. 根据项目覆盖场景完成调研，梳理需要的知识清单 2. 明确对应知识所属部门 3. 下发给对应部门按清单上报 4. 每个部门安排固定对接人，按每周周期定期上报更新 5. 对未按时上报的部门发内部通报推动</p>
+<h3 id="section-27">5.2 知识更新迭代方案</h3>
+<ul>
+<li><strong>技术层面</strong>：通过哈希值判断识别知识点更新——哈希值变化说明知识点已更新，自动替换原有知识</li>
+<li><strong>人工判断</strong>：结合人工自信度权重判断，完成新知识入库</li>
+<li><strong>问题驱动迭代</strong>：当错误率突然升高或出现接不住的问题时，产生变动信号，流转给知识供给方协同解决</li>
+</ul>
+<h3 id="section-28">5.3 知识库隔离原则</h3>
+<p>不同维度需要做隔离处理：</p>
+<ul>
+<li>项目之间隔离</li>
+<li>不同用户场景隔离</li>
+<li>不同业务场景挂载不同的RAG知识库</li>
+</ul>
+<p>---</p>
+<h2 id="section-29">六、Skill Hub体系与Harness工程</h2>
+<h3 id="section-30">6.1 AI工程化演进的四个阶段</h3>
+<p>1. <strong>Prompt工程</strong>：通过编写提示词驱动大模型 2. <strong>上下文工程</strong>：管理大模型的上下文输入 3. <strong>Harness工程</strong>：管理大模型以外的所有能力（记忆、工具、权限等） 4. <strong>Loop工程</strong>：提示词形成自我闭环、自动化迭代</p>
+<h3 id="section-31">6.2 Skill的定义与核心组成</h3>
+<p>Skill是可复用的流程化能力封装，内部内嵌完整SOP链路和所需工具。调用Skill可以：</p>
+<ul>
+<li>提升Agent执行效率</li>
+<li>降低Token消耗</li>
+<li>提升工具调用成功率</li>
+</ul>
+<p><strong>Skill vs Workflow</strong>：Workflow所有节点固定写死；Skill保留了Agent的自主决策空间，灵活性更高。</p>
+<p><strong>一个合格的Skill需要包含</strong>： 1. 触发条件 2. 完整流程（SOP） 3. 可调用工具 4. Bad Case避坑限制 5. 最佳实践示例（Few Shot） 6. 相关模板资产（单独文件夹管理）</p>
+<h3 id="section-32">6.3 新建Skill的判断标准</h3>
+<ul>
+<li><strong>新建</strong>：主干流程SOP发生变更，或主干路完全不同</li>
+<li><strong>迭代</strong>：仅主干流程中某个节点做细微调整</li>
+</ul>
+<h3 id="section-33">6.4 记忆模块管理</h3>
+<p>| 类型 | 存储内容 | 实现方式 | |------|---------|---------| | 长期记忆 | 任务拆分的子节点和完成结果 | 项目级文件（如<code>cloud.md</code>） | | 短期记忆 | 当前会话上下文 | 会话级上下文窗口 | | 全局记忆 | 跨项目的通用记忆 | 根目录全局文件 |</p>
+<p>---</p>
+<h2 id="section-34">七、提示词编写与迭代方法</h2>
+<h3 id="section-35">7.1 提示词核心结构</h3>
+<p>一套合格的提示词需要包含： 1. <strong>角色定义</strong>：明确AI扮演的角色 2. <strong>使用工具</strong>：指定可调用的工具 3. <strong>标准化SOP</strong>：明确执行流程 4. <strong>限制条件</strong>：约束输出范围 5. <strong>Few Shot示例</strong>：最佳实践示例——权重非常高，需持续迭代</p>
+<h3 id="section-36">7.2 提示词迭代逻辑</h3>
+<ul>
+<li><strong>Bad Case</strong>：效果不好的案例返回给AI，调优提示词的结构模块（角色、工具、技能调用等）</li>
+<li><strong>Best Practice</strong>：效果好的案例补充到Few Shot示例库中</li>
+<li>可自研&quot;生成提示词的提示词&quot;工具，支持多轮对话澄清需求后输出完整提示词</li>
+</ul>
+<h3 id="section-37">7.3 提示词与大模型的关系</h3>
+<p>提示词的本质是将人的意图转化为结构化的键值对数据，方便大模型精准识别语义。Transformer的基础运行流程为：用户输入转化为Token后生成向量，同时提取位置编码实现并行处理；用户Query与模型内部通用知识库以键值对方式做相似度匹配，抓取匹配度高的答案；最后对抓取到的答案进行解码编排，拼接后输出给用户。</p>
+<p>---</p>
+<h2 id="section-38">八、AI生成短剧的方案思路</h2>
+<h3 id="section-39">8.1 自动化生成工作流</h3>
+<p>1. <strong>数据抓取</strong>：从抖音、海外平台、专业短剧平台抓取近期高热度短剧 2. <strong>爆点提取</strong>：AI分析现有剧本，提取爆点元素 3. <strong>拼接洗稿</strong>：将爆点拼接，设置与原稿的差异度约束，生成新剧本 4. <strong>AI分镜</strong>：对新剧本做分镜处理 5. <strong>测试视频生成</strong>：AI生成测试视频 6. <strong>投放测试</strong>：做数据验证，挑选数据表现好的项目 7. <strong>实际拍摄</strong>：仅对数据验证通过的项目进行实际拍摄</p>
+<h3 id="section-40">8.2 自有风格保持方案</h3>
+<p>1. <strong>风格指纹提取</strong>：将自有历史短剧给AI提取风格指纹 2. <strong>风格匹配</strong>：新生成剧本与风格指纹做模糊匹配 3. <strong>提示词约束</strong>：通过提示词约束风格要求，设置可自定义占位符支持场景替换 4. <strong>多版本输出</strong>：最终输出3个不同特色的版本供选择 5. <strong>LoRA微调</strong>：通过LoRA对模型做微调，持续训练后固化自有风格，形成独特资产 6. <strong>情绪分析</strong>：情绪起伏分析需要用到多模态模型，是待深入研究的方向</p>
+<p>---</p>
+<h2 id="section-41">九、AI工具企业内部推广的阻力与策略</h2>
+<h3 id="section-42">9.1 核心阻力</h3>
+<p>1. <strong>员工改变意愿低</strong>：AI冲击引发抗拒，强行推广引发普遍抗拒 2. <strong>央国企环境驱动力不足</strong>：环境本身改变驱动力不足 3. <strong>工具使用限制</strong>：只能线下使用主流工具，无法大规模明面铺开 4. <strong>战略缺失</strong>：集团层面没有对应战略部署，从上到下推广链路长 5. <strong>单点效率提升不明显</strong>：AI替换企业原有节点只能先提升单点效率，需要所有节点都替换完成后才能出现整体效率的爆发式提升</p>
+<h3 id="section-43">9.2 推广策略</h3>
+<ul>
+<li>设定考核指标，强制要求各部门派人参加培训</li>
+<li>下发使用频次通报，领导知晓</li>
+<li>专项培训</li>
+<li>将工具使用嵌入流程——不使用流程走不通</li>
+</ul>
+<h3 id="section-44">9.3 关键认知</h3>
+<blockquote><p>&quot;AI替换企业原有节点只能先提升单点效率，需要所有节点都替换完成后才能出现整体效率的爆发式提升，初期收益不明显，叠加用户原有习惯，推广本身就是行业共同难点。&quot;</p></blockquote>
+<blockquote><p>&quot;如果真正能够切身的提升他的效率的话，那他肯定是愿意去改变的。如果说这个东西确实对他现有的流程提升不是很多，那他还要去付出更多的学习成本，那对于他来说，他肯定会觉得不是很划算。&quot;</p></blockquote>
+<p>---</p>
+<h2 id="section-45">十、AI行业趋势判断</h2>
+<h3 id="section-46">10.1 赛道机会</h3>
+<ul>
+<li><strong>C端</strong>：机会容易被大模型公司抢占，对普通人机会不多</li>
+<li><strong>B端</strong>：细分需求有大量可挖掘机会，解决单个点的需求比做全链路解决方案市场空间更大</li>
+<li><strong>未来方向</strong>：软件会逐渐转向为AI服务，而非直接为人服务；可将B端成熟能力移植到C端打造产品</li>
+</ul>
+<h3 id="section-47">10.2 Web Coding趋势</h3>
+<p>Web Coding未来不会是AI从业者的专属技能，会像WPS一样成为所有办公人员的基础技能。每个办公人员可搭建适配自身岗位的Agent，通过&quot;人+AI&quot;的模式扩大生产力。当企业内部全员搭建个人Agent后，会需要专门的Agent中枢管理平台。</p>
+<h3 id="section-48">10.3 行业信息获取渠道</h3>
+<ul>
+<li>网上信息碎片化，只能获取部分内容</li>
+<li>最高效方式：参加线下活动、黑客松——已成为极客和投资方聚集的社交场合</li>
+<li>北京每周都有大量相关活动，信息更新速度远快于线上</li>
+</ul>
+<h3 id="section-49">10.4 极客圈前沿方向</h3>
+<ul>
+<li><strong>&quot;Modify Everything&quot;（一切可魔改）</strong>：设计抽象层，允许用户通过自然对话随时对现有AI工具增加、删除、修改功能，实现每个用户都能定制完全符合个人需求的AI工具</li>
+<li><strong>AI游戏</strong>：实时生成剧情，同一剧本不同玩家和NPC对话内容完全不同，大幅提升沉浸感</li>
+<li><strong>Loop Engineer</strong>：提示词形成自我闭环、自动化迭代</li>
+</ul>
+<h3 id="section-50">10.5 主流大模型使用体验（2026年中）</h3>
+<p>| 类型 | 推荐模型 | 备注 | |------|---------|------| | 代码模型 | Claude Code / OpenAI Codex | 主力使用，月成本约3000元 | | 中文文本 | DeepSeek | 去AI味效果最优，月成本约100元 | | 综合文本 | Sonnet | 文本处理更人性化 | | 图片生成 | GPT Image 2 | 备选Nano Banana 2 Pro | | 视频生成 | CC Dance | 常用谷歌WILL补充，自媒体多用可灵 | | Embedding | 千问 / 智源BGE | BGE开源生态更好 |</p>
+<h3 id="section-51">10.6 AI开发提效工具栈</h3>
+<p>| 用途 | 工具 | |------|------| | Skill封装提效 | 自定义Skill | | 复杂跨工具流程 | n8n搭建工作流 + 前端页面 | | 文档协作 | Obsidian + Cursor | | PRD输出 | AI辅助生成 | | 企业内部协作 | 飞书文档 | | 项目排期管理 | 飞书多维表格 | | 原型设计 | Figma | | POC Demo | LangChain / Dify（低代码拖拉拽） | | 正式交付 | LangGraph等成熟框架 |</p>
+<p>---</p>
+<h2 id="section-52">十一、项目交付管理实践</h2>
+<h3 id="section-53">11.1 项目排期与优先级</h3>
+<ul>
+<li>划分P0/P1/P2优先级</li>
+<li>通过飞书多维表格统一管理所有项目</li>
+<li>分发给开发团队执行</li>
+</ul>
+<h3 id="section-54">11.2 Demo到交付的流程</h3>
+<p>1. <strong>Demo阶段</strong>：使用低代码平台（Dify等）拖拉拽快速制作 2. <strong>客户确认</strong>：拿Demo与客户现场调试，满意后再交付开发 3. <strong>工程化交付</strong>：使用成熟框架（LangGraph等）重新开发 4. <strong>前置约束</strong>：提前输出细化的功能Spec与Agent架构约束，降低开发沟通成本</p>
+<h3 id="section-55">11.3 SPEC文档的细化</h3>
+<p>与传统产品经理不同，AI产品经理需要额外负责：</p>
+<ul>
+<li>从PRD映射到具体功能拆解</li>
+<li>每个功能的细化点</li>
+<li>整个系统的Agent架构设计</li>
+<li>涉及哪些Agent的约束定义</li>
+</ul>
+<p>---</p>
+<h2 id="section-56">十二、关键认知沉淀</h2>
+<blockquote><p>&quot;在AI这个赛道里面，和传统产品经理不一样的地方，就是要去触碰用户的底线，就是你最不能接受的点到底是什么样的，基于这个点去设计产品。&quot;</p></blockquote>
+<blockquote><p>&quot;C端机会容易被大模型公司吃掉，B端解决每个细分点的需求，目前来说是非常大的机会点。&quot;</p></blockquote>
+<blockquote><p>&quot;未来很多软件会慢慢消失，取而代之的是这些软件会为AI去做服务，而不是说为人去做服务。&quot;</p></blockquote>
+<blockquote><p>&quot;传统RAG你只是知道它精准度不高，但是并不知道是哪个环节出了问题。全链路跟踪是调优RAG和Agent效果的关键。&quot;</p></blockquote>
+<blockquote><p>&quot;语义切分看脉冲，脉冲明显代表上下文不一致就要切分，脉冲平缓代表语义一致就可以拼接召回。&quot;</p></blockquote>
+<blockquote><p>&quot;对于企业内部来说，它每个节点的文档其实都是有固定格式的。如果说用React的方式，它可能自主性太强了，就会导致会脱离约束。&quot;</p></blockquote>
+<blockquote><p>&quot;AI改变企业链路，都是通过把原有的一个节点替换成一个Agent提升了单点的效率，但整体的效率确实，你除非说所有的点都换成Agent的，才会有这种涌现的爆发。&quot;</p></blockquote>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a><a class="related-concept-card" href="../../knowledge/llm-wiki/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>LLM Wiki</h3>
+      <p>LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/enterprise-agent-implementation-governance/index.html">
+      <span>2026-07-06</span>
+      <strong>企业级Agent落地实践：从需求准入到知识治理</strong>
+      <p>企业级Agent落地不是技术问题，是管理问题。需求准入要前置评估频率和满意度，避免上线后无人使用。知识收集要靠管理手段而非技术自动化——梳理清单、下发部门、固定对接人、定期上报、通报推动。Skill Hub的新建标准是主干流程SOP是否变更。</p>
+    </a><a class="article-mini" href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">
+      <span>2026-07-06</span>
+      <strong>企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</strong>
+      <p>本文整理自多场AI产品从业者的深度访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、企业AI推广策略等核心议题。</p>
+    </a><a class="article-mini" href="../../articles/enterprise-aipm-platform-architecture/index.html">
+      <span>2026-07-06</span>
+      <strong>企业AI PM平台架构实践：从需求到自动开发</strong>
+      <p>企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住&quot;关键决策必须人确认&quot;的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-3"><a href="#section-2">1.1 传统政企项目链路的效率瓶颈</a></li><li class="toc-level-3"><a href="#section-3">1.2 企业AI服务平台四层架构</a></li><li class="toc-level-3"><a href="#section-4">1.3 成本控制策略</a></li><li class="toc-level-2"><a href="#section-5">二、RAG技术全链路调优方法论</a></li><li class="toc-level-3"><a href="#section-6">2.1 RAG基础落地流程</a></li><li class="toc-level-3"><a href="#section-7">2.2 文档解析模块调优</a></li><li class="toc-level-3"><a href="#section-8">2.3 文本切块三层调优法</a></li><li class="toc-level-3"><a href="#section-9">2.4 全链路追踪方案（Run ID机制）</a></li><li class="toc-level-3"><a href="#section-10">2.5 输出质量验证流程</a></li><li class="toc-level-3"><a href="#section-11">2.6 Graph RAG的适用场景</a></li><li class="toc-level-3"><a href="#section-12">2.7 Embedding模型选择</a></li><li class="toc-level-2"><a href="#section-13">三、多Agent架构设计方法论</a></li><li class="toc-level-3"><a href="#section-14">3.1 何时需要多Agent架构</a></li><li class="toc-level-3"><a href="#section-15">3.2 多Agent架构核心设计</a></li><li class="toc-level-3"><a href="#section-16">3.3 多Agent通信与分歧处理</a></li><li class="toc-level-3"><a href="#section-17">3.4 Agent需求准入评估标准</a></li><li class="toc-level-3"><a href="#section-18">3.5 Agent与Workflow的区别</a></li><li class="toc-level-3"><a href="#section-19">3.6 两种Agent执行框架对比</a></li><li class="toc-level-2"><a href="#section-20">四、开放知识问答场景的产品设计</a></li><li class="toc-level-3"><a href="#section-21">4.1 三层卡控分流机制</a></li><li class="toc-level-3"><a href="#section-22">4.2 模糊表达问题处理策略</a></li><li class="toc-level-3"><a href="#section-23">4.3 行业黑话/专业词汇处理</a></li><li class="toc-level-3"><a href="#section-24">4.4 内容审核分层架构</a></li><li class="toc-level-2"><a href="#section-25">五、知识治理与迭代机制</a></li><li class="toc-level-3"><a href="#section-26">5.1 知识收集方案</a></li><li class="toc-level-3"><a href="#section-27">5.2 知识更新迭代方案</a></li><li class="toc-level-3"><a href="#section-28">5.3 知识库隔离原则</a></li><li class="toc-level-2"><a href="#section-29">六、Skill Hub体系与Harness工程</a></li><li class="toc-level-3"><a href="#section-30">6.1 AI工程化演进的四个阶段</a></li><li class="toc-level-3"><a href="#section-31">6.2 Skill的定义与核心组成</a></li><li class="toc-level-3"><a href="#section-32">6.3 新建Skill的判断标准</a></li><li class="toc-level-3"><a href="#section-33">6.4 记忆模块管理</a></li><li class="toc-level-2"><a href="#section-34">七、提示词编写与迭代方法</a></li><li class="toc-level-3"><a href="#section-35">7.1 提示词核心结构</a></li><li class="toc-level-3"><a href="#section-36">7.2 提示词迭代逻辑</a></li><li class="toc-level-3"><a href="#section-37">7.3 提示词与大模型的关系</a></li><li class="toc-level-2"><a href="#section-38">八、AI生成短剧的方案思路</a></li><li class="toc-level-3"><a href="#section-39">8.1 自动化生成工作流</a></li><li class="toc-level-3"><a href="#section-40">8.2 自有风格保持方案</a></li><li class="toc-level-2"><a href="#section-41">九、AI工具企业内部推广的阻力与策略</a></li><li class="toc-level-3"><a href="#section-42">9.1 核心阻力</a></li><li class="toc-level-3"><a href="#section-43">9.2 推广策略</a></li><li class="toc-level-3"><a href="#section-44">9.3 关键认知</a></li><li class="toc-level-2"><a href="#section-45">十、AI行业趋势判断</a></li><li class="toc-level-3"><a href="#section-46">10.1 赛道机会</a></li><li class="toc-level-3"><a href="#section-47">10.2 Web Coding趋势</a></li><li class="toc-level-3"><a href="#section-48">10.3 行业信息获取渠道</a></li><li class="toc-level-3"><a href="#section-49">10.4 极客圈前沿方向</a></li><li class="toc-level-3"><a href="#section-50">10.5 主流大模型使用体验（2026年中）</a></li><li class="toc-level-3"><a href="#section-51">10.6 AI开发提效工具栈</a></li><li class="toc-level-2"><a href="#section-52">十一、项目交付管理实践</a></li><li class="toc-level-3"><a href="#section-53">11.1 项目排期与优先级</a></li><li class="toc-level-3"><a href="#section-54">11.2 Demo到交付的流程</a></li><li class="toc-level-3"><a href="#section-55">11.3 SPEC文档的细化</a></li><li class="toc-level-2"><a href="#section-56">十二、关键认知沉淀</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

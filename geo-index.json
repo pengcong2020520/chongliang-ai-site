@@ -126,9 +126,25 @@
       ],
       "relatedArticles": [
         "ai-public-knowledge-system",
+        "agent-harness-engineering-governable-system",
+        "agent-requirement-admission-lifecycle",
+        "ai-industry-layering-data-moat",
+        "ai-pm-tech-practice-rag-to-agent",
+        "ai-skill-reuse-manual-to-repository",
         "cli-revolution-mcp-to-skill",
+        "enterprise-agent-implementation-governance",
+        "enterprise-ai-product-practice-rag-to-agent",
+        "enterprise-aipm-platform-architecture",
+        "gui-agent-single-step-vs-multi-step",
+        "ip-ai-platform-engine-orchestration",
         "model-as-product-loop-as-future",
+        "overseas-short-drama-user-segmentation",
+        "production-agent-gui-failure-modes",
+        "prompt-engineering-multi-agent-rag",
+        "prompt-harness-rag-toolchain-puzzle",
         "saas-disrupted-by-ai-agent",
+        "self-built-agent-hub-architecture",
+        "vibe-coding-ai-democratization",
         "loop-engineering-ai-agent-feedback-loops"
       ]
     },
@@ -173,6 +189,7 @@
         "generator-paradox-agent-governance",
         "harness-engineer-structural-replacement",
         "loop-engineering-paradigm-shift",
+        "rag-to-harness-ai-assistant-upgrade",
         "loop-engineering-ai-agent-feedback-loops"
       ]
     },
@@ -192,8 +209,11 @@
       ],
       "relatedArticles": [
         "loop-engineering-ai-agent-feedback-loops",
+        "agent-harness-engineering-governable-system",
         "loop-engineering-design-patterns",
-        "loop-engineering-paradigm-shift"
+        "loop-engineering-paradigm-shift",
+        "ontology-adaptability-assessment",
+        "production-agent-gui-failure-modes"
       ]
     },
     {
@@ -235,6 +255,7 @@
         "ai-public-knowledge-system",
         "harness-engineer-structural-replacement",
         "loop-engineering-paradigm-shift",
+        "rag-to-harness-ai-assistant-upgrade",
         "loop-engineering-ai-agent-feedback-loops"
       ]
     },
@@ -337,11 +358,229 @@
       ],
       "relatedArticles": [
         "ai-public-knowledge-system",
+        "ai-pm-tech-practice-rag-to-agent",
+        "enterprise-agent-implementation-governance",
+        "enterprise-ai-product-practice-rag-to-agent",
+        "enterprise-aipm-platform-architecture",
+        "enterprise-multi-agent-intent-routing",
+        "link-graph-to-knowledge-graph-ontology",
+        "pdf-smart-rag-multi-keyword-retrieval",
+        "production-agent-gui-failure-modes",
+        "prompt-engineering-multi-agent-rag",
+        "prompt-harness-rag-toolchain-puzzle",
+        "rag-to-harness-ai-assistant-upgrade",
+        "self-built-agent-hub-architecture",
         "loop-engineering-ai-agent-feedback-loops"
       ]
     }
   ],
   "articles": [
+    {
+      "title": "Agent重构广告投放——投手角色重构",
+      "url": "https://chongliang.ai/articles/ad-optimizer-role-reconstruction/",
+      "description": "很多人看到\"Agent+广告投放\"的第一反应是：哦，用自然语言代替点击操作，省事了。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI Agent",
+        "广告投放",
+        "投手角色",
+        "多模型架构",
+        "工具链"
+      ]
+    },
+    {
+      "title": "广告投放Agent工程化：平台生态对接与工具链架构",
+      "url": "https://chongliang.ai/articles/ad-targeting-agent-engineering/",
+      "description": "当讨论\"用Agent操作广告投放\"时，大多数人的第一反应是做一个能听懂自然语言的机器人，对接广告平台API，投手说一句就执行一步。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "广告投放Agent",
+        "工具链架构",
+        "MCP协议",
+        "Function Calling",
+        "安全治理"
+      ]
+    },
+    {
+      "title": "Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论",
+      "url": "https://chongliang.ai/articles/agent-harness-engineering-governable-system/",
+      "description": "Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，",
+      "date": "2026-07-06",
+      "concepts": [
+        "loop-engineering",
+        "dsl"
+      ],
+      "tags": [
+        "Agent Harness",
+        "轻内核",
+        "插件化",
+        "运行事实",
+        "数据闭环"
+      ]
+    },
+    {
+      "title": "Agent需求准入评估体系：从上线到下线的生命周期",
+      "url": "https://chongliang.ai/articles/agent-requirement-admission-lifecycle/",
+      "description": "当企业开始规模化部署 Agent 时，最先遇到的问题往往不是\"能不能做出来\"，而是\"做出来之后有没有人用\"。大量子 Agent 上线后无人问津，不仅浪费工程资源，还会拖慢整体 Agent 架构的迭代节奏。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI Agent 与加密支付：自主交易的新范式",
+      "url": "https://chongliang.ai/articles/ai-agent-crypto-payment-autonomous-transaction/",
+      "description": "Web3体系对AI Agent的支付场景是天然适配的——Agent没有生物特征无法通过传统KYC、需要可编程的支付条件、需要结算终局性，而加密支付恰好满足这三点。这不是巧合，而是两个体系在底层逻辑上的结构性契合。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI内容审核双方案：抽帧与整篇的成本博弈",
+      "url": "https://chongliang.ai/articles/ai-content-moderation-frame-vs-full-text/",
+      "description": "整篇审核（字幕驱动）是当前AI短剧内容审核的最优解。 它在成本和覆盖率上碾压抽帧方案，单环节审核成本仅为市场第三方服务的13%。配合撞脸检测和选择性抽帧构成三层架构后，整体审核成本仍可控制在市场价的15-20%以内，同时覆盖率不降反升。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI开发者社区日：AI Agent与数据层",
+      "url": "https://chongliang.ai/articles/ai-dev-community-day-agent-data-layer/",
+      "description": "这是「我」作为听众参加 AI 开发者社区日峰会、对嘉宾分享的转述与加工。上午场覆盖三位嘉宾（认知革命 / NVIDIA 全栈 / 数据层），下午补录两场深度技术内容（Apache 开源治理 + AIDLC、对象存储友好的云原生数据库）。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI 掼蛋比赛平台架构与赛前准备说明",
+      "url": "https://chongliang.ai/articles/ai-guandan-platform-architecture/",
+      "description": "以下为活动现场讲解内容的知识化重构。每个知识点独立成节，补充背景、原理与延展，使读者能系统掌握「AI 掼蛋平台」这一话题。金句归讲解者。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI行业分层与数据壁垒：为什么结构化数据是护城河",
+      "url": "https://chongliang.ai/articles/ai-industry-layering-data-moat/",
+      "description": "AI行业从下到上可分为四层：Infra基础设施层 → MaaS模型即服务层 → PaaS Agent基础服务层 → SaaS应用层。越往下层门槛越高、拓展性越强；SaaS层门槛低，容易被复制。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI内容多语言生产管线：从字幕到配音的全流程",
+      "url": "https://chongliang.ai/articles/ai-multilingual-pipeline-subtitle-to-dubbing/",
+      "description": "AI短剧出海的核心挑战不在于\"拍出来\"，而在于\"译出去\"。一部英语原声短剧要进入西语、葡语、印尼语等市场，需要经过音轨提取 → 台词识别 → 角色拆分 → 字幕翻译 → 时间轴对齐 → AI配音匹配的完整管线。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI不是效率工具：从个人到企业都需要重构",
+      "url": "https://chongliang.ai/articles/ai-not-efficiency-tool-individual-to-enterprise/",
+      "description": "未来不是快到了，是已经到了。但大多数人对此毫无察觉，照样按老方式上班、干活、焦虑。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "重构",
+        "Agent",
+        "工作模式",
+        "企业转型"
+      ]
+    },
+    {
+      "title": "AI产品经理技术实践：从RAG调优到Agent架构的系统方法论",
+      "url": "https://chongliang.ai/articles/ai-pm-tech-practice-rag-to-agent/",
+      "description": "本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "RAG调优",
+        "多Agent",
+        "Skill",
+        "Harness",
+        "提示词工程"
+      ]
+    },
+    {
+      "title": "AI 安全：企业落地 Agent 的安全风险与合规框架",
+      "url": "https://chongliang.ai/articles/ai-security-enterprise-agent-compliance/",
+      "description": "一位安全行业老兵（长期从事安全授权与解决方案工作）讲解企业落地 AI 智能体（Agent）的安全风险与合规框架。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI短剧出海业务架构：从内容引入到变现分账的全链路",
+      "url": "https://chongliang.ai/articles/ai-short-drama-overseas-business-architecture/",
+      "description": "AI短剧出海的核心链路是：内容引入（创作者平台/版权方）→ AI多语言译制生产 → APP出海分发 → C端变现（会员/虚拟货币/广告）→ 数据结算与分成。核心判断：做产品功能是\"术\"，理解用户在看什么内容才是\"道\"。业务的关键不在技术能力，而在内容获取能力和分账机制的信任建立。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI短剧",
+        "内容出海",
+        "创作者平台",
+        "多语言译制",
+        "版权分账"
+      ]
+    },
+    {
+      "title": "AI技能复用与共享：从手动传包到仓库化",
+      "url": "https://chongliang.ai/articles/ai-skill-reuse-manual-to-repository/",
+      "description": "AI技能的复用与共享正在经历从\"手动传包\"到\"仓库化标准生态\"的范式迁移，这不是渐进改良而是结构性跃迁。 谁还在用压缩包传技能文件，谁就还停留在AI工具链的石器时代。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "AI小工具赛道定位与企业内部协作模式",
+      "url": "https://chongliang.ai/articles/ai-tool-positioning-enterprise-collaboration/",
+      "description": "AI小工具不是大厂赛道降级的替代品，而是企业内部AI落地投入产出比最高的一条路径。它的竞争力来自三个特征——场景够窄、搭档够紧、工程够轻。桌面智能体解决\"通用操作覆盖\"问题，常规产研解决\"长周期系统迭代\"问题，而AI小工具解决的是\"特定业务环节的纵深穿透\"问题——这个问题，",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
     {
       "title": "CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移",
       "url": "https://chongliang.ai/articles/cli-revolution-mcp-to-skill/",
@@ -356,6 +595,78 @@
         "Skill生态",
         "AI接口",
         "软件革命"
+      ]
+    },
+    {
+      "title": "闭环即护城河——短剧投放自动迭代的竞争逻辑",
+      "url": "https://chongliang.ai/articles/closed-loop-as-moat-short-drama-ad-iteration/",
+      "description": "短剧行业有一个反常识的现象：所有人都知道素材生命周期极短，迭代速度决定生死，但大多数团队的素材生产、投放、变现三个环节依然各自为政。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "短剧投放",
+        "自动迭代",
+        "闭环",
+        "护城河",
+        "Agent"
+      ]
+    },
+    {
+      "title": "企业级Agent落地实践：从需求准入到知识治理",
+      "url": "https://chongliang.ai/articles/enterprise-agent-implementation-governance/",
+      "description": "企业级Agent落地不是技术问题，是管理问题。需求准入要前置评估频率和满意度，避免上线后无人使用。知识收集要靠管理手段而非技术自动化——梳理清单、下发部门、固定对接人、定期上报、通报推动。Skill Hub的新建标准是主干流程SOP是否变更。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "企业级Agent",
+        "知识问答",
+        "Skill Hub",
+        "RAG治理",
+        "Agent推广"
+      ]
+    },
+    {
+      "title": "企业级AI产品实践：从RAG调优到Agent架构的系统性方法论",
+      "url": "https://chongliang.ai/articles/enterprise-ai-product-practice-rag-to-agent/",
+      "description": "本文整理自多场AI产品从业者的深度访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、企业AI推广策略等核心议题。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "企业AI PM平台架构实践：从需求到自动开发",
+      "url": "https://chongliang.ai/articles/enterprise-aipm-platform-architecture/",
+      "description": "企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住\"关键决策必须人确认\"的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "企业级多Agent架构落地：意图识别与专家分发",
+      "url": "https://chongliang.ai/articles/enterprise-multi-agent-intent-routing/",
+      "description": "当AI Agent从单点实验走向企业级生产系统时，\"一个模型解决一切\"的幻想迅速被现实击碎。以校园智能助手为例——这类系统覆盖老师、学生、教工、家长多类用户、横跨就业与学术等多场景，传统RAG问答在意图模糊、场景交叉的复杂需求面前力不从心。",
+      "date": "2026-07-06",
+      "concepts": [
+        "llm-wiki"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
       ]
     },
     {
@@ -375,6 +686,22 @@
       ]
     },
     {
+      "title": "GUI Agent：CLI化终局之前的桥梁，中心化的入口",
+      "url": "https://chongliang.ai/articles/gui-agent-single-step-vs-multi-step/",
+      "description": "所有软件最终都会CLI化吗？",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "GUI Agent",
+        "Computer Use",
+        "ReAct",
+        "多步可靠性",
+        "训练数据飞轮"
+      ]
+    },
+    {
       "title": "Harness Engineer：结构化的尽头是替代",
       "url": "https://chongliang.ai/articles/harness-engineer-structural-replacement/",
       "description": "编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。",
@@ -389,6 +716,35 @@
         "数据壁垒",
         "Anthropic",
         "AI范式迁移"
+      ]
+    },
+    {
+      "title": "知产AI能力中台设计：引擎化编排与引导式交付方法论",
+      "url": "https://chongliang.ai/articles/ip-ai-platform-engine-orchestration/",
+      "description": "知识产权行业的AI产品设计，核心不是\"做一个知产聊天机器人\"，而是构建一套\"能力中台\"——把商标、专利、版权全链条中的专业环节封装成可调用、可组合、可编排的\"引擎\"。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "AI产品架构",
+        "知识产权",
+        "能力中台",
+        "Agent编排",
+        "引导式交付"
+      ]
+    },
+    {
+      "title": "本体论离你有多远：LLM时代的知识结构升级",
+      "url": "https://chongliang.ai/articles/link-graph-to-knowledge-graph-ontology/",
+      "description": "先说一个你可能听过的词：知识图谱。再说一个你可能没听过的词：本体论。",
+      "date": "2026-07-06",
+      "concepts": [
+        "llm-wiki"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
       ]
     },
     {
@@ -441,6 +797,44 @@
       ]
     },
     {
+      "title": "Modify Everything：一种新的运行时交互范式",
+      "url": "https://chongliang.ai/articles/modify-everything-new-runtime-interaction/",
+      "description": "Modify Everything 不是游戏专属的概念。它的本质是一种新的交互范式——用户对当前使用的软件或应用有任何不满，可以随时修改，不用等官方更新。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "多模型协作全景图：六大平台技术架构与最优组合",
+      "url": "https://chongliang.ai/articles/multi-model-collaboration-landscape/",
+      "description": "本文是技术地图，回答\"多模型协作有哪些做法、各自怎么实现、效果如何\"。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答\"为什么编排能力是护城河\"。两文互补：一文是地图，一文是论点。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "多模型协作",
+        "MoA",
+        "Agent编排",
+        "技术全景"
+      ]
+    },
+    {
+      "title": "多语种外挂字幕与配音方案：视频/字幕/音频解耦架构",
+      "url": "https://chongliang.ai/articles/multilingual-subtitle-dubbing-decoupled-architecture/",
+      "description": "传统字幕压制在视频中，用户无法自主切换语种。解法是采用\"一个视频+多个独立字幕文件+多个独立音频文件\"的解耦方案，兼容压制成片、仅外挂字幕、字幕音频全外挂三种场景。核心技术难点是播放器SDK对外挂音轨的支持，以及离线下载时的本地组装能力。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "多语种",
+        "外挂字幕",
+        "外挂音轨",
+        "视频解耦",
+        "内容出海"
+      ]
+    },
+    {
       "title": "智能的本质：从牛顿思路到莫顿思路",
       "url": "https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/",
       "description": "我们一直以为智能是\"大道至简\"——找到终极公式一统天下。但真正的智能恰恰相反：它是无数个有条件成立的小规律叠加成的网络，以及在它们之间灵活导航的能力。用牛顿定律的框架去构建AI，方向从一开始就错了。",
@@ -455,6 +849,19 @@
       ]
     },
     {
+      "title": "本体论（Ontology）适配性评估与落地方案",
+      "url": "https://chongliang.ai/articles/ontology-adaptability-assessment/",
+      "description": "评估日期：2026-07-05",
+      "date": "2026-07-06",
+      "concepts": [
+        "loop-engineering"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
       "title": "编排能力是新护城河——多模型协作的竞争逻辑",
       "url": "https://chongliang.ai/articles/orchestration-as-moat/",
       "description": "2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从\"谁的模型更强\"迁移到\"谁的编排更会组合\"。",
@@ -465,6 +872,144 @@
         "Agent编排",
         "护城河",
         "MoA"
+      ]
+    },
+    {
+      "title": "海外AI短剧小语种配音需求分析",
+      "url": "https://chongliang.ai/articles/overseas-short-drama-dubbing-analysis/",
+      "description": "海外短剧出海的小语种AI配音是核心成本和技术难点。现状痛点包括：小语种配音自然度差、成本高、效率低。需求分析覆盖现状调研、技术方案选型、投放测试设计三个层面。核心判断：AI配音的优先级不是\"所有语种都做\"，而是\"先做高ROI语种，用投放数据验证后再扩展\"。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI配音",
+        "小语种",
+        "短剧出海",
+        "配音译制",
+        "需求分析"
+      ]
+    },
+    {
+      "title": "海外AI短剧用户分层与转化模型",
+      "url": "https://chongliang.ai/articles/overseas-short-drama-user-segmentation/",
+      "description": "海外AI短剧的转化本质是冲动消费+内容饥渴——染色当天（首次接触平台当天）决定一半付费决策，纯新用户当天买会员比例达七成。这不是\"更快的传统视频转化\"，而是一种完全不同的消费物种。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "基于PDF内容的智能RAG助手：多关键词并行检索方法论",
+      "url": "https://chongliang.ai/articles/pdf-smart-rag-multi-keyword-retrieval/",
+      "description": "传统RAG直接用用户原始query检索，口语化表达和术语不规范导致召回率低。解法是让LLM先从问题中提取6-8个精准关键词，并行检索知识库后整合结果生成回答。核心设计：关键词扩展解决表达问题，并行检索扩大召回范围，来源追溯保证可信度，空值保护防止幻觉。",
+      "date": "2026-07-06",
+      "concepts": [
+        "llm-wiki"
+      ],
+      "tags": [
+        "RAG",
+        "多关键词检索",
+        "知识库",
+        "Dify",
+        "检索优化"
+      ]
+    },
+    {
+      "title": "产品深度报告Agent：主从架构与上下文摘要传递",
+      "url": "https://chongliang.ai/articles/product-report-agent-master-slave-architecture/",
+      "description": "搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "Agent架构",
+        "主从Agent",
+        "上下文管理",
+        "依赖排序",
+        "报告生成"
+      ]
+    },
+    {
+      "title": "生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构",
+      "url": "https://chongliang.ai/articles/production-agent-gui-failure-modes/",
+      "description": "GUI Agent的三种常见失败模式——不看图失败、COT漂移、不可信历史——都可以通过SFT数据清洗和大规模rollout+在线RL解决。需求分析Engine采用准备层→编排层→能力层→数据层四层架构，主进程+子Agent分层解决上下文爆炸。",
+      "date": "2026-07-06",
+      "concepts": [
+        "loop-engineering",
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "GUI Agent",
+        "需求分析Engine",
+        "Agent失败模式",
+        "模型选型",
+        "Loop Engineering"
+      ]
+    },
+    {
+      "title": "Prompt工程 / 多Agent / RAG 三类技术基础认知",
+      "url": "https://chongliang.ai/articles/prompt-engineering-multi-agent-rag/",
+      "description": "Prompt工程、多Agent架构、RAG（检索增强生成）是当前Agent工程化的三类基础设施技术。行业公开调研显示，这三类技术已成为企业级AI应用的标配组件。三者并非互斥关系，而是在不同环节各自发挥作用的互补技术栈：Prompt工程解决\"如何与LLM高效沟通\"，",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "提示词、Harness与RAG：AI工具链的系统拼图",
+      "url": "https://chongliang.ai/articles/prompt-harness-rag-toolchain-puzzle/",
+      "description": "提示词不是一段文字，是三层拼图——内置系统指令、企业云端策略、用户Skill。Skill是提示词的\"稳定器\"，目的是别让系统提示词乱动。Harness的核是\"问→做→问\"的无限循环。RAG让模型读到它不知道的东西。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "提示词工程",
+        "Harness",
+        "RAG",
+        "Skill",
+        "Agent架构"
+      ]
+    },
+    {
+      "title": "从RAG到Harness：AI助手实战升级与数据库原生架构",
+      "url": "https://chongliang.ai/articles/rag-to-harness-ai-assistant-upgrade/",
+      "description": "一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。",
+      "date": "2026-07-06",
+      "concepts": [
+        "harness-engineer",
+        "prompt-engineer",
+        "llm-wiki"
+      ],
+      "tags": [
+        "RAG",
+        "Agent Harness",
+        "数据库原生",
+        "可观测性",
+        "多Agent"
+      ]
+    },
+    {
+      "title": "需求分析Engine：把需求工程变成Agent循环",
+      "url": "https://chongliang.ai/articles/requirement-analysis-engine-agent-loop/",
+      "description": "需求分析这件事，在软件开发流程里一直是个尴尬的角色。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "需求分析Engine",
+        "Agent架构",
+        "MCP",
+        "LLM-as-Judge",
+        "可观测性"
       ]
     },
     {
@@ -484,6 +1029,37 @@
       ]
     },
     {
+      "title": "自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断",
+      "url": "https://chongliang.ai/articles/self-built-agent-hub-architecture/",
+      "description": "当企业内部AI工具从\"一个人用一套工作流\"扩展到\"几百人各用多个AI工具\"时，单点工作流不够了——需要一个Agent中枢系统做统一管控。核心模块包括：SSO身份识别、Agent注册中心、多工具API Key统管、本地客户端与服务端的上下文桥接、Tool Hub底层集成。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl",
+        "llm-wiki"
+      ],
+      "tags": [
+        "Agent中枢系统",
+        "多工具管控",
+        "上下文桥接",
+        "Tool Hub",
+        "B端商业化"
+      ]
+    },
+    {
+      "title": "短剧投放自动迭代方案：Agent驱动的素材闭环",
+      "url": "https://chongliang.ai/articles/short-drama-ad-auto-iteration/",
+      "description": "短剧素材生产、投放、变现三个环节相互割裂，验证周期太长。解法是用Agent搭建自动循环——素材生成→投放测试→数据采集→智能评级→自动放量/关停→二创衍生→循环迭代。核心判断：从\"工具化\"到\"Agent化\"，投放优化从\"人用AI工具\"进化为\"AI Agent自主决策执行\"。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "短剧投放",
+        "自动迭代",
+        "Agent",
+        "ROI优化",
+        "素材测试"
+      ]
+    },
+    {
       "title": "Spec驱动开发：AI时代产品研发协作的范式迁移",
       "url": "https://chongliang.ai/articles/spec-driven-development/",
       "description": "AI介入产品研发后，PRD停在业务描述层的局限性被放大——AI Agent最怕上下文模糊，而传统PRD恰恰把二次翻译留给了人。Spec不是更长的PRD，而是把业务需求转成研发和AI工具都能执行的结构化工程上下文。",
@@ -495,6 +1071,72 @@
         "AI Coding",
         "上下文工程",
         "SDD"
+      ]
+    },
+    {
+      "title": "统一化vs个性化技术哲学：牛顿思路与莫顿思路",
+      "url": "https://chongliang.ai/articles/unification-vs-personalization-newton-morton/",
+      "description": "在技术架构与AI发展路径的选择上，存在两种根本性的哲学分野：牛顿思路追求用少数统一规律解决所有问题；莫顿思路主张针对具体场景积累\"小定律\"，一个小规律只解决对应小场景的问题。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "Vibe Coding与AI平权：从技能垄断到能力民主化",
+      "url": "https://chongliang.ai/articles/vibe-coding-ai-democratization/",
+      "description": "程序员是最先被AI淘汰的职业，不是因为AI讨厌程序员，而是因为程序员是离AI最近的人。Vibe Coding的本质不是\"AI帮你写代码\"，是编程能力从少数人身上被拆解下来，平分给每一个人。",
+      "date": "2026-07-06",
+      "concepts": [
+        "dsl"
+      ],
+      "tags": [
+        "Vibe Coding",
+        "AI平权",
+        "Skill原子化",
+        "数据采集器",
+        "AGI临界质量"
+      ]
+    },
+    {
+      "title": "Vibe Coding上下文管理：三层文档系统与Prompt Caching优化",
+      "url": "https://chongliang.ai/articles/vibe-coding-context-management/",
+      "description": "Claude Code的\"失忆\"问题本质是长对话贵、短对话忘的矛盾。解法是用三层文件系统——README.md（项目级）、TODO.md（任务级）、CLAUDE.md（对话级）——让AI每次开新对话自动恢复到最佳工作状态。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "Vibe Coding",
+        "上下文管理",
+        "CLAUDE.md",
+        "Prompt Caching",
+        "三层文档"
+      ]
+    },
+    {
+      "title": "爆款复刻飞轮：从素材归因到创意基因的闭环方法论",
+      "url": "https://chongliang.ai/articles/viral-replication-flywheel-creative-gene/",
+      "description": "内容投放领域有一个普遍误区：把\"复刻爆款\"等同于\"搬运竞品\"。这个理解不仅错，而且危险——平台违规、版权风险、判重拒审、受众广告疲劳，四条红线同时踩上去，投入越多亏得越多。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "AI",
+        "知识沉淀"
+      ]
+    },
+    {
+      "title": "边际成本归零：内容出海本地化的基础设施",
+      "url": "https://chongliang.ai/articles/zero-marginal-cost-content-localization/",
+      "description": "内容出海这件事，大部分团队的做法是「压一遍，算一遍」——每多一个语种，就把原片重新压制一遍，字幕烧进视频、配音混进音轨，产出一个全新的视频文件。一个 10 集剧要上 5 个语种？那就是 50 次完整压制、50 份独立存储、50 个上架流程节点。",
+      "date": "2026-07-06",
+      "concepts": [],
+      "tags": [
+        "内容出海",
+        "本地化",
+        "边际成本",
+        "字幕配音",
+        "基础设施"
       ]
     },
     {

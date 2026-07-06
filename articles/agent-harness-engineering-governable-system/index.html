@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论 | 冲量 AI</title>
+    <meta name="description" content="Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，">
+    <link rel="canonical" href="https://chongliang.ai/articles/agent-harness-engineering-governable-system/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论 | 冲量 AI">
+    <meta property="og:description" content="Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/agent-harness-engineering-governable-system/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论 | 冲量 AI">
+    <meta name="twitter:description" content="Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/agent-harness-engineering-governable-system/#article",
+      "headline": "Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论",
+      "description": "Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/agent-harness-engineering-governable-system/",
+      "keywords": "Agent Harness, 轻内核, 插件化, 运行事实, 数据闭环",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Loop Engineering",
+          "url": "https://chongliang.ai/knowledge/loop-engineering/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "DSL",
+          "url": "https://chongliang.ai/knowledge/dsl/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论",
+          "item": "https://chongliang.ai/articles/agent-harness-engineering-governable-system/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</h1>
+          <p class="page-lede">Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · Agent Harness / 轻内核 / 插件化 / 运行事实 / 数据闭环</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a aria-current="page" href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-guandan-platform-architecture/index.html">AI 掼蛋比赛平台架构与赛前准备说明</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-multilingual-pipeline-subtitle-to-dubbing/index.html">AI内容多语言生产管线：从字幕到配音的全流程</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a  href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-short-drama-overseas-business-architecture/index.html">AI短剧出海业务架构：从内容引入到变现分账的全链路</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/closed-loop-as-moat-short-drama-ad-iteration/index.html">闭环即护城河——短剧投放自动迭代的竞争逻辑</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a  href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a  href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/multilingual-subtitle-dubbing-decoupled-architecture/index.html">多语种外挂字幕与配音方案：视频/字幕/音频解耦架构</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/overseas-short-drama-dubbing-analysis/index.html">海外AI短剧小语种配音需求分析</a><a  href="../../articles/overseas-short-drama-user-segmentation/index.html">海外AI短剧用户分层与转化模型</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a  href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a  href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/short-drama-ad-auto-iteration/index.html">短剧投放自动迭代方案：Agent驱动的素材闭环</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/viral-replication-flywheel-creative-gene/index.html">爆款复刻飞轮：从素材归因到创意基因的闭环方法论</a><a  href="../../articles/zero-marginal-cost-content-localization/index.html">边际成本归零：内容出海本地化的基础设施</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <h2 id="section-1">核心结论</h2>
+<p>很多人把&quot;做 Agent&quot;等同于&quot;调模型 API + 写 Prompt&quot;。但模型本身只是一个根据输入给出输出的函数，它不天然理解业务状态、历史轨迹和运行边界。</p>
+<p>真正让 Agent 在实际场景中稳定工作的，是模型外部的一整套驾驭系统——<strong>Harness</strong>。</p>
+<p><strong>模型</strong>负责语言理解、推理和生成。<strong>Harness</strong> 负责一切工程化事务：</p>
+<ul>
+<li>提示词管理与上下文构建</li>
+<li>工具调用流程编排</li>
+<li>运行状态与 Memory 管理</li>
+<li>Skills / MCP / 插件的加载与调度</li>
+<li>运行轨迹记录与复盘</li>
+<li>数据治理与评估反馈</li>
+</ul>
+<p>可以把 Harness 理解为模型的&quot;驾驭工程&quot;：它决定模型在什么场景下使用什么工具、读取什么上下文、遵循什么业务边界、如何记录过程、如何复盘失败，以及如何把运行数据转化为后续优化所需的数据资产。</p>
+<h2 id="section-2">二、传统 Agent 落地的五个痛点</h2>
+<p>理解 Harness 的价值，先要看清不做 Harness 工程化时会遇到什么：</p>
+<p>1. <strong>运行记录分散</strong>——对话记录、工具调用日志、Memory 文件、调试信息散落在文件系统或不同日志平台，后续难以统一查询和复盘。</p>
+<p>2. <strong>上下文不可治理</strong>——Agent 的上下文不仅包含用户输入，还包含工具调用过程、状态变化、失败原因、阶段性结论等运行事实。如果这些信息只以普通聊天记录存在，就无法被 Agent 自身再次利用。</p>
+<p>3. <strong>工具与业务逻辑耦合严重</strong>——过多能力直接内置到主流程中，系统越来越重，某个能力出问题可能影响整体稳定性。</p>
+<p>4. <strong>快速验证成本高</strong>——自行部署模型服务、MCP Server、数据库和前端应用，工程成本高，不利于快速验证一个 Agent 场景是否成立。</p>
+<p>5. <strong>缺少数据闭环</strong>——运行过程中产生的大量数据如果不能沉淀为评估数据、调试数据和训练数据，就无法反哺下一轮优化。</p>
+<blockquote><p>本质问题：如何用较低成本搭建一个 Agent 系统，使运行数据从第一天起就具备可查询、可观测、可复盘和可持续优化的能力。</p></blockquote>
+<h2 id="section-3">三、架构设计：轻内核 + 插件化扩展</h2>
+<h3 id="section-4">3.1 轻内核的职责边界</h3>
+<p>Agent 框架不应该把所有能力都内置到核心流程里。核心原则是：<strong>维护一个稳定、清晰、轻量的内核，通过插件扩展业务能力。</strong></p>
+<p><strong>内核只负责：</strong></p>
+<ul>
+<li>Agent Loop 的稳定运行</li>
+<li>会话和状态管理</li>
+<li>输入输出通道抽象</li>
+<li>工具调用流程编排</li>
+<li>上下文构建</li>
+<li>运行轨迹记录</li>
+</ul>
+<p><strong>插件负责扩展：</strong></p>
+<ul>
+<li>MCP 工具能力</li>
+<li>Memory 能力</li>
+<li>IM 通道（飞书、微信等）</li>
+<li>定时任务</li>
+<li>可视化界面</li>
+<li>数据库适配</li>
+<li>业务专属 Skills</li>
+</ul>
+<p>这种设计的好处：某个插件出现问题时，可以局部摘除或替换，不会直接破坏整个 Agent 系统。对于生产环境来说，这比将所有能力捆绑在主流程中更容易维护。</p>
+<h3 id="section-5">3.2 阶段化拆分交互流程</h3>
+<p>Agent 的一次交互不应该被看成单一的&quot;输入-输出&quot;，而应拆成多个明确阶段：</p>
+<p>1. 接收用户输入 2. 识别任务意图 3. 构建上下文 4. 选择工具或 Skills 5. 调用工具 6. 记录运行事实 7. 生成响应 8. 写入运行轨迹 9. 必要时进行复盘或沉默</p>
+<p>阶段化拆分让工程团队可以在不同阶段挂载 Hook，实现细粒度扩展。例如在上下文构建阶段注入 Memory，在工具调用阶段接入 MCP，在输出阶段决定是否回复用户。</p>
+<p><strong>一个关键经验：Agent 不一定每次都要回复。</strong> 在多人协作或多 Agent 协作场景中，过多回复会变成噪音。输入通道和输出通道不应被强绑定，Agent 应允许在某些场景下保持沉默。</p>
+<h3 id="section-6">3.3 Skills 与 Tools 的边界</h3>
+<p>实践中需要区分三个层次的能力扩展：</p>
+<p>| 层次 | 定位 | 示例 | |------|------|------| | <strong>Tools / MCP</strong> | 可调用的单点工具 | 时间服务、地图服务、检索服务 | | <strong>Skills</strong> | 标准化 SOP，沉淀任务方法论 | 文档规范、代码审查方法、工作流 | | <strong>插件</strong> | 大粒度能力扩展，可同时包含工具、Skills、通道和运行时逻辑 | IM 通道插件、数据库适配插件 |</p>
+<p>Skills 的价值在于<strong>减少 Agent Loop 的复杂度</strong>。不是所有能力都应该写进核心流程，有些通用经验可以作为可分发、可复用的技能包存在。</p>
+<h2 id="section-7">四、数据闭环：从运行事实到自我复盘</h2>
+<h3 id="section-8">4.1 Tap：运行事实而非普通聊天记录</h3>
+<p>传统聊天记录只保存&quot;用户说了什么、Agent 回了什么&quot;。但如果要支撑排查和复盘，需要记录的是<strong>运行事实（Tap）</strong>——对任务有意义的关键过程：</p>
+<ul>
+<li>用户提出了什么问题</li>
+<li>Agent 识别出了什么任务</li>
+<li>使用了哪些工具</li>
+<li>工具返回了什么关键结果</li>
+<li>哪一步失败或中断</li>
+<li>Agent 做出了什么判断</li>
+<li>最终输出是什么</li>
+</ul>
+<p>Tap 与传统可观测性数据相比更简洁，但它有一个关键优势：<strong>既能给人看，也能给 Agent 自己看。</strong> 工程师和 Agent 可以基于同一份运行事实进行排查和复盘。</p>
+<h3 id="section-9">4.2 从可观测性到自我复盘</h3>
+<p>过去排查 Agent 问题时，工程师需要进入日志平台，从 Trace、日志和指标中人工定位问题。</p>
+<p>在 Harness 的设计中，<strong>Agent 的运行轨迹本身就是上下文的一部分。</strong> 用户或工程师可以直接问 Agent：</p>
+<ul>
+<li>刚才为什么没有回答成功？</li>
+<li>哪个工具调用失败了？</li>
+<li>这次回答用了哪些上下文？</li>
+<li>这个任务和上一次任务有什么差异？</li>
+</ul>
+<p>Agent 可以读取自己的运行事实，对失败原因进行初步分析。这种设计将一部分工程排查能力前移到了 Agent 自身。</p>
+<h3 id="section-10">4.3 数据资产化</h3>
+<p>当运行轨迹被结构化记录后，可以形成完整的数据闭环：</p>
+<ul>
+<li>对比不同模型在同类任务上的表现</li>
+<li>评估同一模型在多次运行中的稳定性</li>
+<li>沉淀失败案例和边界案例</li>
+<li>脱敏后导出为调试数据集</li>
+<li>用于后续模型微调、评测和训练</li>
+</ul>
+<h2 id="section-11">五、数据库原生 Harness：为什么不用文件系统</h2>
+<p>很多 Agent 项目依赖文件系统管理 Memory（Markdown 文件、日志文件、本地缓存）。这种方式对人类阅读友好，但不适合做结构化查询、统一治理和长期数据闭环。</p>
+<p><strong>数据库原生 Harness 的核心优势：</strong></p>
+<ul>
+<li>所有运行数据统一存储</li>
+<li>支持结构化查询和分析</li>
+<li>支持上下文、Memory、Trace、任务记录之间的关联</li>
+<li>便于做权限管理、归档和脱敏</li>
+<li>便于沉淀评估数据集</li>
+<li>可以支撑从本地验证到生产规模的演进</li>
+</ul>
+<p>数据库不仅是业务数据存储组件，也是 Agent Harness 的运行底座。它让 Agent 的上下文、运行轨迹和评估数据从一开始就具备可治理能力。</p>
+<h2 id="section-12">六、Agent 系统评估维度</h2>
+<p>评估一个 Agent 系统是否可用，不能只看回答是否&quot;看起来正确&quot;，还需要关注过程质量和工程可控性：</p>
+<p>| 维度 | 核心问题 | |------|----------| | <strong>任务完成率</strong> | Agent 是否能完成用户提出的核心任务 | | <strong>工具调用成功率</strong> | MCP 或其他工具是否被正确选择、正确调用，并返回可用结果 | | <strong>工具调用轮数</strong> | 完成简单任务是否需要过多轮调用（过多说明规划或选择有问题） | | <strong>上下文利用质量</strong> | Agent 是否正确读取了历史运行事实、Memory 或数据库中的相关信息 | | <strong>失败可解释性</strong> | 任务失败时，能否定位失败发生在哪一步，能否说明失败原因 | | <strong>扩展成本</strong> | 新增 MCP、Skill 或插件时，是否需要改动核心 Agent Loop | | <strong>数据闭环能力</strong> | 运行数据是否能被查询、分析、脱敏导出，并用于后续优化 |</p>
+<h2 id="section-13">七、实践中的关键经验</h2>
+<h3 id="section-14">7.1 先跑通最小闭环，再扩展能力</h3>
+<p>最小可用链路：</p>
+<ul>
+<li>模型 API 可用</li>
+<li>数据库可用</li>
+<li>对话界面可访问</li>
+<li>Agent 能完成一次基础问答</li>
+<li>运行记录可查询</li>
+</ul>
+<p>在此基础上再逐步添加 MCP、Skills 和业务插件。这样可以降低问题定位成本。</p>
+<h3 id="section-15">7.2 工具和技能不要一次性加太多</h3>
+<p>工具和技能越多，Agent 的选择空间越大，也越容易出现错误调用或上下文膨胀。建议按任务场景逐个添加，确认可用后再扩展。</p>
+<h3 id="section-16">7.3 把运行轨迹当成产品能力</h3>
+<p>Agent 的运行轨迹不只是调试日志，而是用户信任系统的重要依据。能解释自己为什么这样回答、为什么失败、用了哪些工具，是面向真实业务落地的关键能力。</p>
+<h3 id="section-17">7.4 数据库是 Agent 工程化的基础设施</h3>
+<p>当 Agent 从 Demo 走向生产时，数据管理会成为核心问题。将上下文、Memory、工具调用、任务轨迹和评估数据统一纳入数据库管理，可以显著降低后续治理成本。</p>
+<h3 id="section-18">7.5 Docker 适合快速验证，源码部署适合二次开发</h3>
+<p>如果目标是快速体验，Docker 一键部署更合适。如果要深入修改框架、扩展插件或调试底层逻辑，则应考虑本地源码部署。</p>
+<h2 id="section-19">八、方法论总结</h2>
+<p>这套实践验证了一个面向生产落地的 Agent Harness 思路：</p>
+<blockquote><p>模型只是智能体能力的一部分，真正决定 Agent 是否可持续运行、可治理、可扩展的，是模型外部的 Harness。</p></blockquote>
+<p>核心工程闭环：</p>
+<ul>
+<li><strong>用数据库统一承载 Agent 运行数据</strong></li>
+<li><strong>用 Tap 记录关键运行事实</strong>（而非普通聊天记录）</li>
+<li><strong>用 MCP 和 Skills 扩展业务能力</strong>（而非堆砌核心流程）</li>
+<li><strong>用插件化架构降低核心系统复杂度</strong>（轻内核 + 可替换插件）</li>
+<li><strong>用运行轨迹支持调试、评估和训练反馈</strong>（数据资产化）</li>
+</ul>
+<p>这套方法论为构建更复杂的多 Agent 系统、多人协作 Agent 和业务问答助手提供了可复用的工程经验。</p>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/loop-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Loop Engineering</h3>
+      <p>Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。</p>
+    </a><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/production-agent-gui-failure-modes/index.html">
+      <span>2026-07-06</span>
+      <strong>生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</strong>
+      <p>GUI Agent的三种常见失败模式——不看图失败、COT漂移、不可信历史——都可以通过SFT数据清洗和大规模rollout+在线RL解决。需求分析Engine采用准备层→编排层→能力层→数据层四层架构，主进程+子Agent分层解决上下文爆炸。</p>
+    </a><a class="article-mini" href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">
+      <span>2026-07-05</span>
+      <strong>AI Agent 的反馈循环：Loop Engineering 入门</strong>
+      <p>Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。</p>
+    </a><a class="article-mini" href="../../articles/agent-requirement-admission-lifecycle/index.html">
+      <span>2026-07-06</span>
+      <strong>Agent需求准入评估体系：从上线到下线的生命周期</strong>
+      <p>当企业开始规模化部署 Agent 时，最先遇到的问题往往不是&quot;能不能做出来&quot;，而是&quot;做出来之后有没有人用&quot;。大量子 Agent 上线后无人问津，不仅浪费工程资源，还会拖慢整体 Agent 架构的迭代节奏。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、传统 Agent 落地的五个痛点</a></li><li class="toc-level-2"><a href="#section-3">三、架构设计：轻内核 + 插件化扩展</a></li><li class="toc-level-3"><a href="#section-4">3.1 轻内核的职责边界</a></li><li class="toc-level-3"><a href="#section-5">3.2 阶段化拆分交互流程</a></li><li class="toc-level-3"><a href="#section-6">3.3 Skills 与 Tools 的边界</a></li><li class="toc-level-2"><a href="#section-7">四、数据闭环：从运行事实到自我复盘</a></li><li class="toc-level-3"><a href="#section-8">4.1 Tap：运行事实而非普通聊天记录</a></li><li class="toc-level-3"><a href="#section-9">4.2 从可观测性到自我复盘</a></li><li class="toc-level-3"><a href="#section-10">4.3 数据资产化</a></li><li class="toc-level-2"><a href="#section-11">五、数据库原生 Harness：为什么不用文件系统</a></li><li class="toc-level-2"><a href="#section-12">六、Agent 系统评估维度</a></li><li class="toc-level-2"><a href="#section-13">七、实践中的关键经验</a></li><li class="toc-level-3"><a href="#section-14">7.1 先跑通最小闭环，再扩展能力</a></li><li class="toc-level-3"><a href="#section-15">7.2 工具和技能不要一次性加太多</a></li><li class="toc-level-3"><a href="#section-16">7.3 把运行轨迹当成产品能力</a></li><li class="toc-level-3"><a href="#section-17">7.4 数据库是 Agent 工程化的基础设施</a></li><li class="toc-level-3"><a href="#section-18">7.5 Docker 适合快速验证，源码部署适合二次开发</a></li><li class="toc-level-2"><a href="#section-19">八、方法论总结</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

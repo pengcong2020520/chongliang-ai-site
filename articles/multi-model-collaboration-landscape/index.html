@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>多模型协作全景图：六大平台技术架构与最优组合 | 冲量 AI</title>
+    <meta name="description" content="本文是技术地图，回答&quot;多模型协作有哪些做法、各自怎么实现、效果如何&quot;。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答&quot;为什么编排能力是护城河&quot;。两文互补：一文是地图，一文是论点。">
+    <link rel="canonical" href="https://chongliang.ai/articles/multi-model-collaboration-landscape/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="多模型协作全景图：六大平台技术架构与最优组合 | 冲量 AI">
+    <meta property="og:description" content="本文是技术地图，回答&quot;多模型协作有哪些做法、各自怎么实现、效果如何&quot;。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答&quot;为什么编排能力是护城河&quot;。两文互补：一文是地图，一文是论点。">
+    <meta property="og:image" content="https://chongliang.ai/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://chongliang.ai/articles/multi-model-collaboration-landscape/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="多模型协作全景图：六大平台技术架构与最优组合 | 冲量 AI">
+    <meta name="twitter:description" content="本文是技术地图，回答&quot;多模型协作有哪些做法、各自怎么实现、效果如何&quot;。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答&quot;为什么编排能力是护城河&quot;。两文互补：一文是地图，一文是论点。">
+    <meta name="twitter:image" content="https://chongliang.ai/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://chongliang.ai/articles/multi-model-collaboration-landscape/#article",
+      "headline": "多模型协作全景图：六大平台技术架构与最优组合",
+      "description": "本文是技术地图，回答\"多模型协作有哪些做法、各自怎么实现、效果如何\"。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答\"为什么编排能力是护城河\"。两文互补：一文是地图，一文是论点。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://chongliang.ai"
+      },
+      "mainEntityOfPage": "https://chongliang.ai/articles/multi-model-collaboration-landscape/",
+      "keywords": "多模型协作, MoA, Agent编排, 技术全景",
+      "about": [],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://chongliang.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://chongliang.ai/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "多模型协作全景图：六大平台技术架构与最优组合",
+          "item": "https://chongliang.ai/articles/multi-model-collaboration-landscape/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>多模型协作全景图：六大平台技术架构与最优组合</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">多模型协作全景图：六大平台技术架构与最优组合</h1>
+          <p class="page-lede">本文是技术地图，回答&quot;多模型协作有哪些做法、各自怎么实现、效果如何&quot;。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答&quot;为什么编排能力是护城河&quot;。两文互补：一文是地图，一文是论点。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · 多模型协作 / MoA / Agent编排 / 技术全景</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a  href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-guandan-platform-architecture/index.html">AI 掼蛋比赛平台架构与赛前准备说明</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-multilingual-pipeline-subtitle-to-dubbing/index.html">AI内容多语言生产管线：从字幕到配音的全流程</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a  href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-short-drama-overseas-business-architecture/index.html">AI短剧出海业务架构：从内容引入到变现分账的全链路</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/closed-loop-as-moat-short-drama-ad-iteration/index.html">闭环即护城河——短剧投放自动迭代的竞争逻辑</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a  href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a aria-current="page" href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/multilingual-subtitle-dubbing-decoupled-architecture/index.html">多语种外挂字幕与配音方案：视频/字幕/音频解耦架构</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/overseas-short-drama-dubbing-analysis/index.html">海外AI短剧小语种配音需求分析</a><a  href="../../articles/overseas-short-drama-user-segmentation/index.html">海外AI短剧用户分层与转化模型</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a  href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a  href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/short-drama-ad-auto-iteration/index.html">短剧投放自动迭代方案：Agent驱动的素材闭环</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/viral-replication-flywheel-creative-gene/index.html">爆款复刻飞轮：从素材归因到创意基因的闭环方法论</a><a  href="../../articles/zero-marginal-cost-content-localization/index.html">边际成本归零：内容出海本地化的基础设施</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <blockquote><p>本文是技术地图，回答&quot;多模型协作有哪些做法、各自怎么实现、效果如何&quot;。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答&quot;为什么编排能力是护城河&quot;。两文互补：一文是地图，一文是论点。</p></blockquote>
+<p>---</p>
+<h2 id="section-1">核心结论</h2>
+<p>2026年多模型协作已产品化，按架构分为三条路线：</p>
+<p>| 路线 | 核心思路 | 代表平台 | |------|---------|---------| | 跨厂商协作 | 让竞争对手的模型互相配合 | 微软 Copilot Cowork、Manus | | 单厂商多Agent | 同厂商不同型号模型分工协作 | Anthropic、OpenAI GPT-5 Router | | 开源框架组合 | 用户自由组合任意厂商模型 | Hermes Agent |</p>
+<p>国产平台（字节Coze、百度千帆、阿里百炼、智谱GLM）主要走第二条路线，在自家生态内做编排，跨厂商协作能力较弱。</p>
+<p>---</p>
+<h2 id="section-2">二、六大平台技术架构详解</h2>
+<h3 id="section-3">1. 微软 Copilot Cowork + Researcher：最成熟的跨厂商协作</h3>
+<p><strong>上线时间：</strong> 2026年6月16日正式GA（此前在Frontier预览3个月）</p>
+<p><strong>两个核心模式：</strong></p>
+<p>| 模式 | 怎么协作 | 效果 | |------|---------|------| | Critique（审校） | GPT写研究报告 → Claude独立事实核查（检查准确性、引用质量、论证完整度）→ 修订后交付 | DRACO基准57.4分，比单模型高13.8% | | Council（评审会） | 两个模型各写一份独立报告 → 第三个模型写对比信（标注分歧、共识、各自独特洞察） | 能看到两份完整报告+差异分析 |</p>
+<p><strong>关键数据（DRACO研究质量基准）：</strong></p>
+<p>| 系统 | DRACO得分 | |------|-----------| | Copilot Researcher + Critique | 57.4 | | Perplexity Deep Research | 50.4 | | 单独 Claude Opus 4.6 | 43.3 | | 单独 GPT o3 | 42.7 |</p>
+<p>核心发现：GPT单独42.7分，Claude单独43.3分，但两者协作后57.4分——提升不是线性的，协作产生了质的飞跃。</p>
+<p><strong>使用的模型：</strong> Anthropic Opus 4.8 + Sonnet 4.6（GA版），GPT 5.5（Frontier预览），自研 Cowork 1（即将发布，主打低成本）</p>
+<p><strong>使用门槛：</strong> 需M365 Copilot许可证（$30/人/月）+ Frontier计划 + IT管理员开启第三方模型访问。Copilot Chat → Tools → Researcher → 模型选择器选&quot;Auto&quot;。每月25次查询上限。</p>
+<p>---</p>
+<h3 id="section-4">2. Manus：多模型自动路由型Agent</h3>
+<p><strong>架构：</strong> 封闭式多模组代理，本身不训练模型，调用现有强大模型的组合。</p>
+<p>| 模型 | 用途 | |------|------| | Anthropic Claude（Opus / Sonnet） | 高度逻辑推理、复杂规划、主导决策 | | 阿里 Qwen（通义千问）微调版 | 一般性任务执行、批量处理 | | GPT 系列 | 部分场景补充 | | Gemini Flash | 轻量快速任务 |</p>
+<p><strong>路由策略：</strong> 自动为任务每一步挑选最合适的模型——需要深度推理时调Opus级模型，一般性执行用Qwen或Gemini Flash控成本。</p>
+<p><strong>核心功能 Wide Research（广泛研究）：</strong></p>
+<ul>
+<li>不是单个Agent顺序处理，而是部署数百个并行独立Agent</li>
+<li>每个Agent有独立上下文窗口，互不干扰</li>
+<li>主Agent拆解任务 → 派发子Agent并行执行 → 汇总合成</li>
+<li>解决传统AI处理超过8-10个项目后质量骤降的问题</li>
+<li>实测：研究250位AI研究人员、比较100款运动鞋等大规模任务，从第1个到第250个质量始终如一</li>
+</ul>
+<p><strong>代价：</strong> Token消耗是单次对话的15倍，适合高价值任务。</p>
+<p>---</p>
+<h3 id="section-5">3. Anthropic Claude：单厂商多Agent研究系统</h3>
+<p><strong>架构：Orchestrator-Worker 模式</strong></p>
+<ul>
+<li>一个主Agent（Opus 4）负责拆解问题、制定研究策略</li>
+<li>主Agent派生出多个并行子Agent（Sonnet 4），各自独立搜索不同方向</li>
+<li>子Agent各自有独立上下文窗口，互不干扰</li>
+<li>最后主Agent汇总子Agent的发现</li>
+</ul>
+<p><strong>效果：</strong> 比单Agent Claude Opus 4高出90.2%（内部评测）</p>
+<p><strong>代价：</strong> 多Agent系统token消耗是普通对话的15倍</p>
+<p><strong>核心洞察：</strong> Anthropic发现token使用量解释了80%的性能差异——多Agent之所以强，本质是让更多token同时工作。</p>
+<p>注意：这是同厂商不同型号模型协作（Opus主控+Sonnet执行），不是跨厂商的。</p>
+<p>---</p>
+<h3 id="section-6">4. Hermes Agent / Nous Research：开源框架，三套协作机制</h3>
+<p>#### 4a. MoA（Mixture of Agents）— 核心多模型协作</p>
+<p><strong>原理：</strong> 让多个AI模型同时分析问题，然后由一个&quot;汇总模型&quot;整合输出。</p>
+<pre><code>用户问题
+    │
+    ▼
+┌──────────────────────────────────┐
+│     参考模型层（并行执行）          │
+│  DeepSeek(推理)  GPT-5.5(代码)    │
+└──────────┬───────────────────────┘
+           ▼
+┌──────────────────────────────────┐
+│   汇总模型（Claude Opus 4.8）      │
+│   整合分析 → 输出最终结果           │
+└──────────────────────────────────┘</code></pre>
+<p><strong>实测效果（HermesBench基准）：</strong></p>
+<p>| 配置 | 得分 | 提升 | |------|------|------| | MoA（Opus + GPT-5.5） | 0.8202 | +8% | | Claude Opus 4.8 单独 | 0.7607 | 基准 | | GPT-5.5 单独 | 0.7412 | -2.6% |</p>
+<p>MoA比最强组件模型（Opus 4.8）高约6分，确认多模型聚合提升质量而非简单平均。</p>
+<p><strong>关键设计细节：</strong> 参考模型只接收对话文本，不接收系统提示词（省token）；汇总模型接收完整上下文 + 参考模型分析。整个过程对用户透明，像正常对话一样。MoA是虚拟模型provider，选preset就像选普通模型一样，不破坏prompt caching，不改变上下文。</p>
+<p><strong>预设配置示例：</strong></p>
+<ul>
+<li>通用协作：DeepSeek V4 Pro + GPT-5.5参考 → Opus 4.8汇总</li>
+<li>中文优化：Qwen-2.5-72B + GLM-4参考 → Opus 4.8汇总</li>
+<li>代码专家：GPT-5.5 + DeepSeek-Coder-V3参考 → Opus 4.8汇总</li>
+</ul>
+<p>#### 4b. Subagent Delegation（子Agent委派）</p>
+<p><strong>原理：</strong> 主Agent拆解任务 → 派发子Agent并行执行 → 汇总结果。每个子Agent有独立上下文窗口和终端session。</p>
+<ul>
+<li>单任务委派：<code>delegate_task(goal=&quot;...&quot;, context=&quot;...&quot;)</code></li>
+<li>并行批量：最多3个并发（可配置更高），各自独立工作</li>
+<li>2026年6月15日升级异步子Agent：委派任务不再阻塞主对话</li>
+</ul>
+<p><strong>多模型能力：</strong> 可在config.yaml给子Agent配置不同模型（如子Agent用Gemini Flash省钱，主Agent用Opus）。</p>
+<p>#### 4c. Kanban 看板（多Agent协作板）</p>
+<p><strong>原理：</strong> 持久化SQLite任务看板，跨多个Hermes Profile协作。每个Profile可用不同模型，各自领任务、执行、完成。</p>
+<p>适合长周期项目级协作：Profile A（Claude Opus）做架构设计，Profile B（DeepSeek）做代码实现，Profile C（GLM-5.1）做代码审查。</p>
+<p>---</p>
+<h3 id="section-7">5. OpenAI GPT-5 Router：模型路由（非协作但相关）</h3>
+<p>GPT-5引入内部路由器：根据请求复杂度自动在 gpt-5-main（快）、gpt-5-thinking（深度推理）等子模型间切换。</p>
+<p>争议：部分用户反馈自动路由质量不稳定，更倾向手动选模型。CNBC报道称模型路由正在成为OpenAI/Anthropic的&quot;成本问题&quot;。</p>
+<p>这是自动选择单个最优模型，不是让多个模型协作，但代表了&quot;编排&quot;的另一面——在模型内部做路由。</p>
+<p>---</p>
+<h3 id="section-8">6. 国产平台</h3>
+<p>#### 字节 Coze 扣子 3.0（最接近产品化的国产方案）</p>
+<ul>
+<li>2026年6月1日上线3.0版本</li>
+<li>&quot;多人+多Agent&quot;协作模式：一人配多Agent、多人配多Agent</li>
+<li>接入外部Agent框架：Claude Code、Codex CLI、OpenClaw等</li>
+<li>多模型调度：支持通义/DeepSeek等多模型，用大模型做节点路由</li>
+<li>多Agent节点路由用专门训练的大模型效果较好，手动设规则路由效果不理想</li>
+</ul>
+<p>#### 百度千帆 AppBuilder</p>
+<ul>
+<li>提供&quot;多智能体协同Agent&quot;模板，可视化拖拽搭建</li>
+<li>支持工作流编排（对话流、自主规划两种模式）</li>
+<li>主要基于文心大模型，跨模型协作能力较弱，更多是单模型多Agent</li>
+</ul>
+<p>#### 阿里百炼</p>
+<ul>
+<li>Qwen3.7-Max专为Agent场景深度打造，长周期自主执行能力强</li>
+<li>支持多模型调度（通义/DeepSeek），MCP协议打通系统</li>
+<li>生态最强，但跨厂商模型协作不如Manus/Coze灵活</li>
+</ul>
+<p>#### 智谱 GLM</p>
+<ul>
+<li>2026年4月发布Agent模型，适配Agent场景</li>
+<li>面向视觉编程的多模态Coding基座</li>
+<li>工具调用针对长程多轮Agent工作流做了稳定性优化</li>
+<li>社区反馈GLM-5.1&quot;执行力比GPT强&quot;</li>
+</ul>
+<p>---</p>
+<h2 id="section-9">三、横向对比矩阵</h2>
+<p>| 平台 | 协作模式 | 跨厂商模型 | 成熟度 | 最擅长 | |------|---------|-----------|--------|--------| | 微软 Copilot Cowork | GPT写+Claude审 | ✅ GPT+Claude | ⭐⭐⭐⭐⭐ | 深度研究（准确率最高） | | Manus | 自动路由+并行Agent | ✅ Claude+Qwen+GPT | ⭐⭐⭐⭐ | 大规模批量任务 | | Anthropic | Opus主控+Sonnet并行 | ❌ 仅Claude系 | ⭐⭐⭐⭐ | 广度搜索型研究 | | Hermes Agent | MoA+Delegation+Kanban | ✅ 任意厂商 | ⭐⭐⭐⭐ | 灵活组合，开源可控 | | 字节 Coze 3.0 | 多人+多Agent编排 | ✅ Qwen+DeepSeek+外部 | ⭐⭐⭐⭐ | 企业业务流程 | | OpenAI GPT-5 | 内部路由器 | ❌ 仅GPT系 | ⭐⭐⭐ | 快速响应 | | 百度千帆 | 多智能体协同 | ❌ 主要文心 | ⭐⭐⭐ | 客服/营销标准场景 | | 阿里百炼 | 多模型调度 | 部分 | ⭐⭐⭐ | 生态内企业应用 |</p>
+<p>---</p>
+<h2 id="section-10">四、最优模型组合分析</h2>
+<p>| 协作组合 | 场景 | 效果 | |---------|------|------| | GPT写 + Claude审（微软Critique） | 深度研究 | DRACO 57.4，事实准确性提升最大 | | GPT-5.5参考 + Opus 4.8汇总（Hermes MoA） | 通用高难度任务 | HermesBench 0.82，比单模型+8% | | Claude Opus主控 + Claude Sonnet并行（Anthropic） | 广度搜索型研究 | 比单Agent高90.2% | | Manus（Claude+Qwen+GPT自动路由） | 大规模批量任务 | 100+项目质量始终如一 | | GPT + Claude各写一份对比（微软Council） | 多视角决策 | 能看到分歧，适合争议话题 |</p>
+<p><strong>核心判断：</strong></p>
+<ul>
+<li><strong>Claude Opus 做&quot;汇总/裁判&quot;模型效果最好</strong>——擅长整合多视角信息</li>
+<li><strong>GPT 擅长代码和结构化写作</strong>，适合做&quot;生成者&quot;</li>
+<li><strong>DeepSeek 擅长推理</strong>，适合做&quot;参考/分析者&quot;</li>
+<li>GPT和Claude的互补性最强：GPT擅长广度和结构化，Claude擅长严谨推理和事实核查</li>
+<li>目前验证过的最优组合：<strong>GPT/DeepSeek做参考模型，Opus做汇总</strong></li>
+</ul>
+<p>---</p>
+<h2 id="section-11">五、技术趋势总结</h2>
+<p>1. <strong>多模型协作已产品化，不是实验室概念。</strong> 微软、Manus、Hermes 都已上线可用的多模型协作功能。</p>
+<p>2. <strong>跨厂商协作出乎意料地有效。</strong> GPT和Claude协作的效果远超任一单模型——GPT单独42.7分→Claude审后57.4分，提升不是线性的。</p>
+<p>3. <strong>代价明确：Token消耗大幅增加。</strong> 多Agent是单次对话的15倍（Anthropic数据），适合高价值任务。</p>
+<p>4. <strong>国产短板：</strong> 缺少像微软Critique那样&quot;让竞争对手的模型互相审校&quot;的大胆设计，更多是在自家生态内做编排。字节Coze 3.0最接近国际思路。</p>
+<p>5. <strong>开源优势：</strong> Hermes Agent的MoA让用户自由组合任意厂商模型，灵活性最强，但需要用户自己配API key。</p>
+<p>6. <strong>路由策略是关键变量。</strong> 字节Coze的实践表明，用大模型做节点路由效果远好于手动设规则——编排系统本身也需要&quot;编排智能&quot;。</p>
+<p>---</p>
+<blockquote><p>调研来源：微软官方博客（Copilot Cowork GA公告 2026-06-16）、FindSkill.ai深度分析、Anthropic工程博客、Hermes Agent官方文档、CSDN智能体开发者社区、Manus官方文档、多条社区讨论和实测反馈</p></blockquote>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><p class="muted">暂无关联知识点。</p></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><p class="muted">暂无相关阅读。</p></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、六大平台技术架构详解</a></li><li class="toc-level-3"><a href="#section-3">1. 微软 Copilot Cowork + Researcher：最成熟的跨厂商协作</a></li><li class="toc-level-3"><a href="#section-4">2. Manus：多模型自动路由型Agent</a></li><li class="toc-level-3"><a href="#section-5">3. Anthropic Claude：单厂商多Agent研究系统</a></li><li class="toc-level-3"><a href="#section-6">4. Hermes Agent / Nous Research：开源框架，三套协作机制</a></li><li class="toc-level-3"><a href="#section-7">5. OpenAI GPT-5 Router：模型路由（非协作但相关）</a></li><li class="toc-level-3"><a href="#section-8">6. 国产平台</a></li><li class="toc-level-2"><a href="#section-9">三、横向对比矩阵</a></li><li class="toc-level-2"><a href="#section-10">四、最优模型组合分析</a></li><li class="toc-level-2"><a href="#section-11">五、技术趋势总结</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>
