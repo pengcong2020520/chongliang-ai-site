@@ -22,6 +22,8 @@ AI 会根据 `content/pipeline/chongliang-ai.pipeline.json` 里的 DSL 输出：
 - 自动互链字段
 - 生成后的 HTML、SEO、GEO 索引文件
 
+如果新上传的内容命中了已有知识点，AI 应该更新或合并到原有知识点，而不是创建重复条目；脚本也会按 slug、term、title 和 aliases 做一层去重保护。
+
 前期策略是“自动开 PR，但不自动合并”。你看完 PR 后再合并，合并后网站会自动部署。
 
 模型服务可以使用 OpenAI 或 DeepSeek：

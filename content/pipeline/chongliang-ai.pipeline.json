@@ -25,13 +25,24 @@
       "goal": "识别原始内容的主题、论点、适合保留的表达和可拆解的知识点。"
     },
     {
+      "id": "concept_resolution",
+      "name": "匹配已有知识结构",
+      "goal": "在创建新条目前，先判断内容是否应该合并进已有知识点或已有文章。",
+      "rules": [
+        "如果已有概念的 slug、term、title 或 aliases 能承载新内容，必须使用已有 slug。",
+        "已有概念命中时，operation 必须使用 update 或 merge，不创建语义重复的新知识点。",
+        "如果原始材料只是补充已有概念，优先更新知识点，不强行生成新文章。",
+        "只有当内容能独立回答一个新的原子问题，才允许创建新概念。"
+      ]
+    },
+    {
       "id": "concept_extraction",
       "name": "拆解原子概念",
       "goal": "把稳定、可复用、可独立查询的概念拆成知识原点。",
       "rules": [
         "概念必须能单独回答“是什么、不是是什么、用于什么场景”。",
         "概念不应该只是文章小标题或临时观点。",
-        "如果已有知识点可以承载，不要重复创建，只在文章互链里引用。"
+        "如果已有知识点可以承载，不要重复创建，要合并、更新或只在文章互链里引用。"
       ]
     },
     {
@@ -69,6 +80,7 @@
       "directory": "content/concepts",
       "maxItemsPerSource": 8,
       "slugRule": "lowercase-ascii-kebab-case",
+      "requiredModelFields": ["operation"],
       "requiredFrontmatter": [
         "type",
         "title",
@@ -101,6 +113,7 @@
       "directory": "content/articles",
       "maxItemsPerSource": 2,
       "slugRule": "lowercase-ascii-kebab-case",
+      "requiredModelFields": ["operation"],
       "requiredFrontmatter": [
         "type",
         "title",
@@ -140,6 +153,8 @@
   },
   "qualityGate": {
     "dedupeExistingSlugs": true,
+    "mergeExistingConcepts": true,
+    "mergeExistingArticlesBySlug": true,
     "avoidPrivateData": true,
     "preferConceptReuse": true,
     "requireMarkdownHeadingLevel": "h2_or_h3_only",

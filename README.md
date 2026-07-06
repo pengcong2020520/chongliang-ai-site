@@ -8,6 +8,7 @@
 - SEO 基础文件：`sitemap.xml`、`robots.txt`、`feed.xml`、canonical、结构化数据。
 - GEO 辅助文件：`llms.txt`、`llms-full.txt`、`geo-index.json`、`search-index.json`。
 - AI Inbox 工作流：上传内容后，AI 按 DSL 拆解文章和知识点，并自动开 Pull Request。
+- 知识库合并策略：已有概念优先合并/更新，避免重复条目。
 
 ## 日常维护
 
@@ -28,6 +29,8 @@ content/inbox/
 ```text
 上传原始内容 → AI 按 DSL 生成文章/知识点 → 自动开 PR → 你审核合并 → 自动部署
 ```
+
+如果上传内容补充的是已有概念，流程会优先更新原知识点；只有确实是新的原子概念时，才创建新条目。
 
 启用这个流程前，需要在 GitHub 仓库里配置一个模型服务。OpenAI 和 DeepSeek 二选一即可。
 

@@ -48,6 +48,8 @@ AI Inbox Draft PR
 - 生成后的 HTML
 - SEO/GEO 索引文件
 
+如果上传内容对应已有知识点，AI 应该合并或更新原有知识点，而不是新建重复条目；脚本也会按 slug、term、title 和 aliases 做去重保护。
+
 然后它会自动开一个 Pull Request。你只需要检查 PR 里的内容，确认没问题后合并。合并后，网站会自动部署。
 
 第一次使用前，需要配置一个模型服务。OpenAI 和 DeepSeek 二选一即可。

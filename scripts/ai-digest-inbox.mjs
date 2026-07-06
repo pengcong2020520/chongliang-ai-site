@@ -123,6 +123,12 @@ function cleanBody(markdown = "") {
     .trim();
 }
 
+function excerpt(markdown = "", limit = 1800) {
+  const text = cleanBody(markdown);
+  if (text.length <= limit) return text;
+  return `${text.slice(0, limit)}\n\n[EXCERPT TRUNCATED]`;
+}
+
 function frontmatter(fields) {
   return `---\n${Object.entries(fields).map(([key, value]) => `${key}: ${yamlValue(value)}`).join("\n")}\n---\n`;
 }
@@ -206,14 +212,21 @@ function compactExistingContext(concepts, articles) {
       slug: item.slug,
       title: item.title,
       term: item.term,
+      aliases: item.aliases || [],
+      category: item.category,
       summary: item.summary,
-      parent: item.parent || item.category
+      definition: item.definition,
+      parent: item.parent || item.category,
+      citation: item.citation,
+      bodyExcerpt: excerpt(item.body)
     })),
     articles: articles.map((item) => ({
       slug: item.slug,
       title: item.title,
       description: item.description,
-      concepts: item.concepts || []
+      tags: item.tags || [],
+      concepts: item.concepts || [],
+      bodyExcerpt: excerpt(item.body, 1200)
     }))
   };
 }
@@ -222,6 +235,7 @@ const conceptSchema = {
   type: "object",
   additionalProperties: false,
   required: [
+    "operation",
     "title",
     "slug",
     "term",
@@ -241,6 +255,7 @@ const conceptSchema = {
     "bodyMarkdown"
   ],
   properties: {
+    operation: { type: "string", enum: ["create", "update", "merge"] },
     title: { type: "string" },
     slug: { type: "string" },
     term: { type: "string" },
@@ -265,6 +280,7 @@ const articleSchema = {
   type: "object",
   additionalProperties: false,
   required: [
+    "operation",
     "title",
     "slug",
     "description",
@@ -276,6 +292,7 @@ const articleSchema = {
     "bodyMarkdown"
   ],
   properties: {
+    operation: { type: "string", enum: ["create", "update", "merge"] },
     title: { type: "string" },
     slug: { type: "string" },
     description: { type: "string" },
@@ -327,6 +344,8 @@ function createDigestPrompt({ dsl, context, source }) {
     "输出必须是符合 JSON Schema 的 JSON，不要包含 Markdown 代码围栏。",
     "只基于用户上传到 inbox 的原文生成内容，不要编造外部事实。",
     "优先复用已有知识点 slug；如果已有概念能承载，就不要重复创建。",
+    "如果原文补充的是已有知识点，必须返回已有 slug，并把 operation 设为 update 或 merge。",
+    "如果原文只是补充已有知识点，不要为了补充材料强行创建新文章。",
     "所有正文使用中文 Markdown，只使用二级和三级标题，不要使用 H1。"
   ].join("\n");
 
@@ -348,7 +367,10 @@ function createDigestPrompt({ dsl, context, source }) {
     `- 最多生成 ${maxConcepts} 个新知识点。`,
     `- 最多生成 ${maxArticles} 篇文章。`,
     "- slug 必须是小写英文、数字和短横线。",
+    "- 如果知识点已存在，必须使用 Existing Site Context 中的已有 slug，operation 使用 update 或 merge，并输出合并后的完整 frontmatter 与正文。",
+    "- 如果知识点不存在，operation 使用 create。",
     "- 如果只是引用已有知识点，请把已有 slug 放进文章 concepts 或知识点 relatedConcepts。",
+    "- 不要为已有概念创建语义重复的知识点或文章。",
     "- concept.bodyMarkdown 必须包含解释、边界、例子和关系。",
     "- article.bodyMarkdown 必须包含核心结论、背景、方法或框架、与知识点的关系。",
     "- 不确定的内容写进 notes，不要硬写成事实。"
@@ -464,6 +486,38 @@ function writeConceptMarkdown(concept, slug) {
   return `${frontmatter(fields)}\n${cleanBody(concept.bodyMarkdown)}\n`;
 }
 
+function mergeUnique(...arrays) {
+  return [...new Set(arrays.flatMap((items) => cleanArray(items)))];
+}
+
+function preferIncoming(incoming, existing = "") {
+  const value = normalizeOneLine(incoming);
+  return value || existing || "";
+}
+
+function mergeConcept(existing, incoming, slug) {
+  return {
+    ...incoming,
+    title: preferIncoming(incoming.title, existing.title),
+    slug,
+    term: preferIncoming(incoming.term, existing.term || existing.title),
+    aliases: mergeUnique(existing.aliases, incoming.aliases),
+    category: preferIncoming(incoming.category, existing.category),
+    parent: preferIncoming(incoming.parent, existing.parent || existing.category),
+    summary: preferIncoming(incoming.summary, existing.summary),
+    definition: preferIncoming(incoming.definition, existing.definition),
+    not: preferIncoming(incoming.not, existing.not),
+    scenarios: mergeUnique(existing.scenarios, incoming.scenarios),
+    misconceptions: mergeUnique(existing.misconceptions, incoming.misconceptions),
+    tags: mergeUnique(existing.tags, incoming.tags),
+    relatedConcepts: mergeUnique(existing.relatedConcepts, incoming.relatedConcepts),
+    relatedArticles: mergeUnique(existing.relatedArticles, incoming.relatedArticles),
+    projects: mergeUnique(existing.projects, incoming.projects),
+    citation: preferIncoming(incoming.citation, existing.citation),
+    bodyMarkdown: cleanBody(incoming.bodyMarkdown) || existing.body || ""
+  };
+}
+
 function writeArticleMarkdown(article, slug, conceptSlugMap) {
   const concepts = cleanArray(article.concepts)
     .map((item) => conceptSlugMap.get(slugify(item)) || slugify(item))
@@ -486,6 +540,21 @@ function writeArticleMarkdown(article, slug, conceptSlugMap) {
     language: "zh-CN"
   };
   return `${frontmatter(fields)}\n${cleanBody(article.bodyMarkdown)}\n`;
+}
+
+function mergeArticle(existing, incoming, slug) {
+  return {
+    ...incoming,
+    title: preferIncoming(incoming.title, existing.title),
+    slug,
+    description: preferIncoming(incoming.description, existing.description),
+    tags: mergeUnique(existing.tags, incoming.tags),
+    concepts: mergeUnique(existing.concepts, incoming.concepts),
+    projects: mergeUnique(existing.projects, incoming.projects),
+    featured: Boolean(incoming.featured || existing.featured),
+    hot: Boolean(incoming.hot || existing.hot),
+    bodyMarkdown: cleanBody(incoming.bodyMarkdown) || existing.body || ""
+  };
 }
 
 async function ensureDir(dir) {
@@ -512,9 +581,23 @@ function summaryMarkdown({ pending, generated, notes, dsl }) {
     lines.push("- None");
   }
 
+  lines.push("", "## Updated concepts");
+  if (generated.updatedConcepts.length) {
+    lines.push(...generated.updatedConcepts.map((item) => `- \`${item.slug}\` - ${item.title}`));
+  } else {
+    lines.push("- None");
+  }
+
   lines.push("", "## Generated articles");
   if (generated.articles.length) {
     lines.push(...generated.articles.map((item) => `- \`${item.slug}\` - ${item.title}`));
+  } else {
+    lines.push("- None");
+  }
+
+  lines.push("", "## Updated articles");
+  if (generated.updatedArticles.length) {
+    lines.push(...generated.updatedArticles.map((item) => `- \`${item.slug}\` - ${item.title}`));
   } else {
     lines.push("- None");
   }
@@ -575,12 +658,21 @@ async function main() {
   const concepts = await loadCollection("concepts");
   const articles = await loadCollection("articles");
   const context = compactExistingContext(concepts, articles);
-  const existingConceptSlugs = new Set(concepts.map((item) => slugify(item.slug || item.file.replace(/\.md$/, ""))).filter(Boolean));
-  const existingArticleSlugs = new Set(articles.map((item) => slugify(item.slug || item.file.replace(/\.md$/, ""))).filter(Boolean));
+  const existingConceptBySlug = new Map(concepts.map((item) => [slugify(item.slug || item.file.replace(/\.md$/, "")), item]).filter(([slug]) => slug));
+  const existingArticleBySlug = new Map(articles.map((item) => [slugify(item.slug || item.file.replace(/\.md$/, "")), item]).filter(([slug]) => slug));
+  const existingConceptSlugs = new Set(existingConceptBySlug.keys());
+  const existingArticleSlugs = new Set(existingArticleBySlug.keys());
+  const conceptLookup = new Map();
+  for (const [slug, concept] of existingConceptBySlug.entries()) {
+    for (const key of [slug, concept.term, concept.title, ...(concept.aliases || [])]) {
+      const normalized = slugify(key);
+      if (normalized) conceptLookup.set(normalized, slug);
+    }
+  }
   const usedConceptSlugs = new Set(existingConceptSlugs);
   const usedArticleSlugs = new Set(existingArticleSlugs);
   const conceptSlugMap = new Map([...existingConceptSlugs].map((slug) => [slug, slug]));
-  const generated = { concepts: [], articles: [] };
+  const generated = { concepts: [], updatedConcepts: [], articles: [], updatedArticles: [] };
   const notes = [];
 
   await ensureDir(path.join(CONTENT, "concepts"));
@@ -590,12 +682,21 @@ async function main() {
     const digest = await callModel({ dsl, context, source });
     notes.push(...cleanArray(digest.notes).map((note) => `${source.relativePath}: ${note}`));
 
-    const sourceGenerated = { concepts: [], articles: [] };
+    const sourceGenerated = { concepts: [], updatedConcepts: [], articles: [], updatedArticles: [] };
     for (const concept of Array.isArray(digest.concepts) ? digest.concepts : []) {
       const requestedSlug = slugify(concept.slug || concept.term || concept.title);
-      if (existingConceptSlugs.has(requestedSlug)) {
-        conceptSlugMap.set(requestedSlug, requestedSlug);
-        notes.push(`${source.relativePath}: reused existing concept ${requestedSlug}.`);
+      const targetSlug = conceptLookup.get(requestedSlug) || conceptLookup.get(slugify(concept.term)) || conceptLookup.get(slugify(concept.title));
+      if (targetSlug && existingConceptBySlug.has(targetSlug)) {
+        const existing = existingConceptBySlug.get(targetSlug);
+        const merged = mergeConcept(existing, concept, targetSlug);
+        conceptSlugMap.set(requestedSlug, targetSlug);
+        conceptSlugMap.set(slugify(concept.term), targetSlug);
+        const filePath = path.join(CONTENT, "concepts", `${targetSlug}.md`);
+        await writeFile(filePath, writeConceptMarkdown(merged, targetSlug), "utf8");
+        const record = { slug: targetSlug, title: merged.title, file: `content/concepts/${targetSlug}.md`, operation: concept.operation || "merge" };
+        generated.updatedConcepts.push(record);
+        sourceGenerated.updatedConcepts.push(record);
+        notes.push(`${source.relativePath}: merged into existing concept ${targetSlug}.`);
         continue;
       }
       const slug = uniqueSlug(requestedSlug, usedConceptSlugs, path.basename(source.relativePath, path.extname(source.relativePath)));
@@ -608,7 +709,19 @@ async function main() {
     }
 
     for (const article of Array.isArray(digest.articles) ? digest.articles : []) {
-      const slug = uniqueSlug(article.slug || article.title, usedArticleSlugs, path.basename(source.relativePath, path.extname(source.relativePath)));
+      const requestedSlug = slugify(article.slug || article.title);
+      const existingArticle = existingArticleBySlug.get(requestedSlug);
+      if (existingArticle) {
+        const merged = mergeArticle(existingArticle, article, requestedSlug);
+        const filePath = path.join(CONTENT, "articles", `${requestedSlug}.md`);
+        await writeFile(filePath, writeArticleMarkdown(merged, requestedSlug, conceptSlugMap), "utf8");
+        const record = { slug: requestedSlug, title: merged.title, file: `content/articles/${requestedSlug}.md`, operation: article.operation || "merge" };
+        generated.updatedArticles.push(record);
+        sourceGenerated.updatedArticles.push(record);
+        notes.push(`${source.relativePath}: merged into existing article ${requestedSlug}.`);
+        continue;
+      }
+      const slug = uniqueSlug(requestedSlug, usedArticleSlugs, path.basename(source.relativePath, path.extname(source.relativePath)));
       const filePath = path.join(CONTENT, "articles", `${slug}.md`);
       await writeFile(filePath, writeArticleMarkdown(article, slug, conceptSlugMap), "utf8");
       const record = { slug, title: article.title, file: `content/articles/${slug}.md` };
@@ -631,7 +744,7 @@ async function main() {
 
   await writeFile(PROCESSED_PATH, `${JSON.stringify(processed, null, 2)}\n`, "utf8");
   await writeFile(SUMMARY_PATH, summaryMarkdown({ pending: limitedPending, generated, notes, dsl }), "utf8");
-  console.log(`Processed ${limitedPending.length} inbox file(s). Generated ${generated.concepts.length} concept(s) and ${generated.articles.length} article(s).`);
+  console.log(`Processed ${limitedPending.length} inbox file(s). Generated ${generated.concepts.length} concept(s), updated ${generated.updatedConcepts.length} concept(s), generated ${generated.articles.length} article(s), and updated ${generated.updatedArticles.length} article(s).`);
 }
 
 await main();
