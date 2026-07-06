@@ -1,11 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">冲量 AI</title>
-  <desc id="desc">Minimal grey social preview for Chongliang AI.</desc>
-  <rect width="1200" height="630" fill="#fafaf8"/>
-  <rect x="60" y="60" width="1080" height="510" rx="12" fill="#ffffff" stroke="#e3e3df" stroke-width="2"/>
-  <text x="110" y="180" fill="#8b8b84" font-family="IBM Plex Mono, monospace" font-size="28">CHONGLIANG AI</text>
-  <text x="108" y="314" fill="#161616" font-family="Noto Serif SC, Songti SC, serif" font-size="96" font-weight="700">冲量 AI</text>
-  <text x="112" y="394" fill="#4f4f4a" font-family="Noto Sans SC, Inter, sans-serif" font-size="34">在噪声中提取结构，在结构中形成判断。</text>
-  <line x1="112" y1="466" x2="1088" y2="466" stroke="#e3e3df" stroke-width="2"/>
-  <text x="112" y="520" fill="#777771" font-family="IBM Plex Mono, monospace" font-size="24">Articles / Projects / Knowledge</text>
+  <title id="title">冲量 AI — AI 产品经理入门知识库</title>
+  <desc id="desc">冲量 AI：面向新手入门 AI 产品经理的知识库</desc>
+
+  <!-- 深色背景 -->
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+
+  <!-- 左侧红色装饰条 -->
+  <rect x="0" y="0" width="8" height="630" fill="#e94560"/>
+
+  <!-- 顶部标签 -->
+  <rect x="80" y="70" width="200" height="40" rx="20" fill="#e94560" opacity="0.15"/>
+  <text x="180" y="97" fill="#e94560" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" text-anchor="middle">CHONGLIANG AI</text>
+
+  <!-- 主标题 -->
+  <text x="80" y="250" fill="#ffffff" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif" font-size="72" font-weight="700">冲量 AI</text>
+
+  <!-- 副标题 -->
+  <text x="80" y="330" fill="#e0e0e8" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif" font-size="40" font-weight="500">AI 产品经理入门知识库</text>
+
+  <!-- 分隔线 -->
+  <line x1="80" y1="400" x2="680" y2="400" stroke="#2a2a4e" stroke-width="2"/>
+
+  <!-- 标语 -->
+  <text x="80" y="455" fill="#9a9ab0" font-family="system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif" font-size="28">在噪声中提取结构，在结构中形成判断</text>
+
+  <!-- 底部关键词 -->
+  <text x="80" y="560" fill="#6a6a8a" font-family="system-ui, -apple-system, monospace" font-size="22">AI Agent · LLM · 产品策略 · Loop Engineering · MCP</text>
 </svg>
