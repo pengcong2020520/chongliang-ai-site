@@ -20,6 +20,14 @@
 - Aliases: AI Harness Engineer, 评测基座工程师, Harness 工程师
 - Related concepts: prompt-engineer, dsl, llm-wiki
 
+### Loop Engineering
+
+- URL: https://chongliang.ai/knowledge/loop-engineering/
+- Definition: Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。
+- Citation summary: Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，它通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。
+- Aliases: 
+- Related concepts: prompt-engineer, harness-engineer, dsl, geo, llm-wiki
+
 ### Prompt Engineer
 
 - URL: https://chongliang.ai/knowledge/prompt-engineer/
@@ -54,6 +62,14 @@
 - Summary: 这篇文章讨论 AI 从业者如何把文章、项目和知识库组织成一个可阅读、可检索、可引用的公开系统，并兼顾 SEO 与 GEO。
 - Tags: AI, 知识库, GEO, 个人网站
 - Related concepts: llm-wiki, prompt-engineer, harness-engineer, geo
+
+### AI Agent 的反馈循环：Loop Engineering 入门
+
+- URL: https://chongliang.ai/articles/loop-engineering-ai-agent-feedback-loops/
+- Date: 2026-07-05
+- Summary: Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。
+- Tags: AI 工程化, Agent, 反馈循环, 工作流
+- Related concepts: loop-engineering, prompt-engineer, harness-engineer, dsl, geo, llm-wiki
 
 
 ## Projects

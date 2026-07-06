@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "files": {
+    "loop-engineering-research.md": {
+      "hash": "cbe6e4e474037ce8cbe9de377921c5ee34d06294199a4898f9abb0728f7ca92b",
+      "processedAt": "2026-07-05T15:21:43.472Z",
+      "sourceTitle": "Loop Engineering 调研笔记",
+      "sourceSummary": "调研笔记，用于沉淀 Loop Engineering 这个新兴 AI 工程概念。",
+      "generated": {
+        "concepts": [
+          {
+            "slug": "loop-engineering",
+            "title": "Loop Engineering 是什么",
+            "file": "content/concepts/loop-engineering.md"
+          }
+        ],
+        "articles": [
+          {
+            "slug": "loop-engineering-ai-agent-feedback-loops",
+            "title": "AI Agent 的反馈循环：Loop Engineering 入门",
+            "file": "content/articles/loop-engineering-ai-agent-feedback-loops.md"
+          }
+        ]
+      }
+    }
+  }
+}
