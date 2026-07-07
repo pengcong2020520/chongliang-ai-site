@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [AI, 重构, Agent, 工作模式, 企业转型]
-concepts: []
+concepts: [newton-vs-morton]
 projects: []
 featured: false
 hot: false

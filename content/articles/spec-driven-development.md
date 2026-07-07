@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [Spec驱动开发, 产品研发协作, AI Coding, 上下文工程, SDD]
-concepts: []
+concepts: [spec-driven-development]
 projects: []
 featured: false
 hot: false

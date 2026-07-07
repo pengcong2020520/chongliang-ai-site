@@ -101,15 +101,27 @@
     <h2>知识原点</h2>
     
       <div class="tree-group">
+        <h3>AI 交互范式</h3>
+        <nav class="side-list" aria-label="AI 交互范式">
+          <a  href="../../knowledge/modify-everything/index.html">Modify Everything</a>
+        </nav>
+      </div>
+      <div class="tree-group">
         <h3>AI 工程化</h3>
         <nav class="side-list" aria-label="AI 工程化">
-          <a  href="../../knowledge/agent-harness/index.html">Agent Harness</a><a  href="../../knowledge/agent-orchestration/index.html">Agent Orchestration</a><a  href="../../knowledge/skill/index.html">AI Skill</a><a  href="../../knowledge/content-localization/index.html">Content Localization</a><a  href="../../knowledge/context-engineering/index.html">Context Engineering</a><a  href="../../knowledge/dsl/index.html">DSL</a><a  href="../../knowledge/generator-paradox/index.html">Generator Paradox</a><a  href="../../knowledge/harness-engineer/index.html">Harness Engineer</a><a  href="../../knowledge/loop-engineering/index.html">Loop Engineering</a><a aria-current="page" href="../../knowledge/mcp/index.html">MCP (Model Context Protocol)</a><a  href="../../knowledge/prompt-engineer/index.html">Prompt Engineer</a><a  href="../../knowledge/rag/index.html">RAG (Retrieval-Augmented Generation)</a><a  href="../../knowledge/spec-driven-development/index.html">Spec-Driven Development</a><a  href="../../knowledge/vibe-coding/index.html">Vibe Coding</a>
+          <a  href="../../knowledge/agent-harness/index.html">Agent Harness</a><a  href="../../knowledge/agent-orchestration/index.html">Agent Orchestration</a><a  href="../../knowledge/agent-security/index.html">Agent Security</a><a  href="../../knowledge/context-engineering/index.html">Context Engineering</a><a  href="../../knowledge/dsl/index.html">DSL</a><a  href="../../knowledge/generator-paradox/index.html">Generator Paradox</a><a  href="../../knowledge/harness-engineer/index.html">Harness Engineer</a><a  href="../../knowledge/loop-engineering/index.html">Loop Engineering</a><a aria-current="page" href="../../knowledge/mcp/index.html">MCP (Model Context Protocol)</a><a  href="../../knowledge/multi-model-collaboration/index.html">Multi-Model Collaboration</a><a  href="../../knowledge/orchestration-moat/index.html">Orchestration as Moat</a><a  href="../../knowledge/prompt-engineer/index.html">Prompt Engineer</a><a  href="../../knowledge/spec-driven-development/index.html">Spec-Driven Development</a><a  href="../../knowledge/vibe-coding/index.html">Vibe Coding</a>
         </nav>
       </div>
       <div class="tree-group">
         <h3>内容增长</h3>
         <nav class="side-list" aria-label="内容增长">
           <a  href="../../knowledge/geo/index.html">GEO</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>技术哲学</h3>
+        <nav class="side-list" aria-label="技术哲学">
+          <a  href="../../knowledge/newton-vs-morton/index.html">Newton vs Morton Paradigm</a>
         </nav>
       </div>
       <div class="tree-group">
@@ -146,11 +158,7 @@
 <p>企业 AI 服务平台架构中，工具集成层搭建 Tool Hub，集成底层 MCP、CLI 等工具，实现不同 AI 工具之间的上下文桥接与无缝切换。涉及登录、注册、数据库调用等需要鉴权与权限管控的场景必须使用 MCP 方案。但快速原型开发和个人开发场景，CLI 工具依赖大模型内置的 bash 原生工具调用更高效——无需独立维护 Server，直接可用。</p>
           <section class="link-section" aria-labelledby="concept-related">
             <h2 id="concept-related">相关概念</h2>
-            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/skill/index.html">
-      <p class="card-meta">RELATED CONCEPT</p>
-      <h3>AI Skill</h3>
-      <p>AI Skill 是可复用的 Agent 能力封装，内嵌完整 SOP 链路和所需工具，从手动传包正在演进为仓库化标准生态。</p>
-    </a><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
       <p class="card-meta">RELATED CONCEPT</p>
       <h3>Harness Engineer</h3>
       <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
@@ -170,7 +178,11 @@
           </section>
           <section class="link-section" aria-labelledby="concept-articles">
             <h2 id="concept-articles">关联文章</h2>
-            <div class="mini-list"><p class="muted">暂无关联文章。</p></div>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ad-targeting-agent-engineering/index.html">
+      <span>2026-07-06</span>
+      <strong>广告投放Agent工程化：平台生态对接与工具链架构</strong>
+      <p>当讨论&quot;用Agent操作广告投放&quot;时，大多数人的第一反应是做一个能听懂自然语言的机器人，对接广告平台API，投手说一句就执行一步。</p>
+    </a></div>
           </section>
           <section class="link-section" aria-labelledby="concept-projects">
             <h2 id="concept-projects">关联项目</h2>

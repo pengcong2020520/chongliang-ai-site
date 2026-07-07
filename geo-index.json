@@ -7,6 +7,25 @@
   },
   "concepts": [
     {
+      "term": "Modify Everything",
+      "title": "Modify Everything 是什么",
+      "url": "https://chongliang.ai/knowledge/modify-everything/",
+      "definition": "Modify Everything是指用户在软件运行过程中，可以随时对软件的任何层面进行修改的交互范式——从界面布局到功能逻辑到内容呈现，不需要编程技能，不需要退出应用，不用等官方发版。用户用自然语言描述需求，AI理解意图并执行修改，即时生效。理念源自Ubisoft在GDC 2017的数据驱动动态效果实践，AI介入后从\"参数级调整\"跃迁为\"改一切\"。",
+      "citation": "Modify Everything推翻的不是\"写代码的效率问题\"而是\"软件统一所有人偏好\"这个工业时代遗产——当AI让个性化的边际成本趋近于零，一个软件为每个人呈现不同形态不再需要开发多个版本，而是\"一个底座+AI实时修改\"。",
+      "aliases": [
+        "魔改一切",
+        "运行时交互范式",
+        "Modify Everything范式"
+      ],
+      "relatedConcepts": [
+        "vibe-coding",
+        "agent-harness"
+      ],
+      "relatedArticles": [
+        "modify-everything-new-runtime-interaction"
+      ]
+    },
+    {
       "term": "Agent Harness",
       "title": "Agent Harness 是什么",
       "url": "https://chongliang.ai/knowledge/agent-harness/",
@@ -26,7 +45,10 @@
         "context-engineering",
         "generator-paradox"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "ai-dev-community-day-agent-data-layer",
+        "ai-security-enterprise-agent-compliance"
+      ]
     },
     {
       "term": "Agent Orchestration",
@@ -47,47 +69,33 @@
         "agent-harness",
         "generator-paradox"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "ad-optimizer-role-reconstruction",
+        "ad-targeting-agent-engineering",
+        "ai-agent-crypto-payment-autonomous-transaction",
+        "ai-dev-community-day-agent-data-layer",
+        "product-report-agent-master-slave-architecture"
+      ]
     },
     {
-      "term": "AI Skill",
-      "title": "AI Skill 是什么",
-      "url": "https://chongliang.ai/knowledge/skill/",
-      "definition": "AI Skill 是一种将领域使用文档、触发条件、执行流程、可调用工具和最佳实践示例封装为标准化可分发单元的能力封装形式，通过 SKILL.md 规范实现跨代理复用，用 1/50 的成本做到 MCP Schema 同样的事。",
-      "citation": "AI Skill 是用 1/50 的成本做到 MCP Schema 同样事的能力封装——把一个有经验的工程师对工具的理解压缩成一份简短说明交给 AI。",
+      "term": "Agent Security",
+      "title": "Agent 安全 是什么",
+      "url": "https://chongliang.ai/knowledge/agent-security/",
+      "definition": "Agent 安全是指在 AI Agent 具备自主感知、推理、决策和执行能力的背景下，围绕 Agent 的权限边界、行为可控性、数据安全性和合规性所展开的系统性安全治理框架。与传统应用安全的根本差异在于：Agent 拥有自主决策权——即使代码完全安全，AI 的\"合理推理\"仍可能导致危险行为。",
+      "citation": "Agent安全的本质是解决AI自主性带来的新风险类别——传统安全假设执行者是确定性程序，而Agent的执行者是一个会自主推理的AI，权限悖论的解法不是增减权限而是建立分级动态可审计的权限控制体系。",
       "aliases": [
-        "AI技能",
-        "Skill封装",
-        "Agent能力封装"
+        "Agent安全",
+        "智能体安全",
+        "AI安全合规"
       ],
       "relatedConcepts": [
-        "mcp",
-        "harness-engineer",
         "agent-harness",
-        "prompt-engineer",
-        "vibe-coding",
-        "loop-engineering"
-      ],
-      "relatedArticles": []
-    },
-    {
-      "term": "Content Localization",
-      "title": "内容出海本地化 是什么",
-      "url": "https://chongliang.ai/knowledge/content-localization/",
-      "definition": "内容出海本地化是一种将视频、字幕、音频拆成三层独立资源进行存储和分发，配合 AI 翻译流水线实现新增语种无需重新压制视频的架构范式，使本地化成本从 O(n) 降到 O(1)，单视频成本从 $500+ 降到 $20 以下。",
-      "citation": "边际成本归零的前提是先做解耦——字幕、音轨和视频本体在存储和分发层面彻底独立，新增一个语种只需要一条 SRT 文件和一条音频文件，视频本体纹丝不动。",
-      "aliases": [
-        "内容本地化",
-        "多语种内容生产",
-        "出海本地化"
-      ],
-      "relatedConcepts": [
         "loop-engineering",
-        "agent-orchestration",
-        "dsl",
-        "geo"
+        "agent-orchestration"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "ai-security-enterprise-agent-compliance"
+      ]
     },
     {
       "term": "Context Engineering",
@@ -106,7 +114,9 @@
         "vibe-coding",
         "spec-driven-development"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "vibe-coding-context-management"
+      ]
     },
     {
       "term": "DSL",
@@ -165,7 +175,9 @@
         "loop-engineering",
         "skill"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "ai-content-moderation-frame-vs-full-text"
+      ]
     },
     {
       "term": "Harness Engineer",
@@ -208,11 +220,14 @@
       ],
       "relatedArticles": [
         "loop-engineering-ai-agent-feedback-loops",
+        "ad-optimizer-role-reconstruction",
         "agent-harness-engineering-governable-system",
         "loop-engineering-design-patterns",
         "loop-engineering-paradigm-shift",
         "ontology-adaptability-assessment",
-        "production-agent-gui-failure-modes"
+        "product-report-agent-master-slave-architecture",
+        "production-agent-gui-failure-modes",
+        "requirement-analysis-engine-agent-loop"
       ]
     },
     {
@@ -232,7 +247,52 @@
         "prompt-engineer",
         "agent-harness"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "ad-targeting-agent-engineering"
+      ]
+    },
+    {
+      "term": "Multi-Model Collaboration",
+      "title": "多模型协作 是什么",
+      "url": "https://chongliang.ai/knowledge/multi-model-collaboration/",
+      "definition": "多模型协作是指让多个AI模型（可以跨厂商或同厂商不同型号）分工配合完成同一任务的架构模式。核心是通过路由策略将任务分发给最合适的模型，再通过汇总、审校、投票等机制整合输出。Mixture-of-Agents(MoA)是其学术原型，2026年已被微软Copilot Cowork、Manus等产品化。",
+      "citation": "多模型协作的本质不是\"选最强模型\"而是\"组合各模型的长板\"——GPT单独42.7分Claude单独43.3分，协作后57.4分，提升不是线性的是质的飞跃，因为不同模型的比较优势互补了彼此盲区。",
+      "aliases": [
+        "多模型协作",
+        "MoA",
+        "Mixture of Agents",
+        "多模型编排"
+      ],
+      "relatedConcepts": [
+        "agent-orchestration",
+        "orchestration-moat",
+        "loop-engineering"
+      ],
+      "relatedArticles": [
+        "multi-model-collaboration-landscape",
+        "orchestration-as-moat"
+      ]
+    },
+    {
+      "term": "Orchestration as Moat",
+      "title": "编排即护城河 是什么",
+      "url": "https://chongliang.ai/knowledge/orchestration-moat/",
+      "definition": "编排即护城河是指当头部AI模型能力差距缩小到个位数百分点后，多模型编排能力（路由策略、上下文工程、工具链整合）取代模型能力本身成为可持续竞争优势的现象。核心判断是：模型是棋子越来越像，编排是棋手差距越来越大。",
+      "citation": "模型是棋子编排是棋手——棋子越来越像（GPT和Claude差距不到1分），棋手的差距越来越大（协作后57.4分vs单独43分），护城河正从\"谁的模型更强\"迁移到\"谁的编排更会组合\"。",
+      "aliases": [
+        "编排即护城河",
+        "编排能力护城河",
+        "Orchestration Moat"
+      ],
+      "relatedConcepts": [
+        "multi-model-collaboration",
+        "agent-orchestration",
+        "harness-engineer"
+      ],
+      "relatedArticles": [
+        "multi-model-collaboration-landscape",
+        "orchestration-as-moat"
+      ]
     },
     {
       "term": "Prompt Engineer",
@@ -259,26 +319,6 @@
       ]
     },
     {
-      "term": "RAG (Retrieval-Augmented Generation)",
-      "title": "RAG / 检索增强生成 是什么",
-      "url": "https://chongliang.ai/knowledge/rag/",
-      "definition": "RAG 是一种将检索与生成结合的技术方法，通过离线阶段将文档解析、切块、Embedding 入库，线上阶段用用户查询检索相关片段并注入 Prompt，使大模型基于私有知识准确回答。",
-      "citation": "RAG 的核心判断是：瓶颈不在检索引擎，在输入质量——先把关键词扩展、术语标准化、消歧做好，再做检索优化效果才好。",
-      "aliases": [
-        "检索增强生成",
-        "RAG系统",
-        "知识库问答"
-      ],
-      "relatedConcepts": [
-        "prompt-engineer",
-        "harness-engineer",
-        "agent-orchestration",
-        "dsl",
-        "llm-wiki"
-      ],
-      "relatedArticles": []
-    },
-    {
       "term": "Spec-Driven Development",
       "title": "Spec-Driven Development 是什么",
       "url": "https://chongliang.ai/knowledge/spec-driven-development/",
@@ -297,7 +337,10 @@
         "vibe-coding",
         "dsl"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "requirement-analysis-engine-agent-loop",
+        "spec-driven-development"
+      ]
     },
     {
       "term": "Vibe Coding",
@@ -317,7 +360,10 @@
         "skill",
         "loop-engineering"
       ],
-      "relatedArticles": []
+      "relatedArticles": [
+        "modify-everything-new-runtime-interaction",
+        "vibe-coding-context-management"
+      ]
     },
     {
       "term": "GEO",
@@ -337,6 +383,29 @@
       "relatedArticles": [
         "ai-public-knowledge-system",
         "loop-engineering-ai-agent-feedback-loops"
+      ]
+    },
+    {
+      "term": "Newton vs Morton Paradigm",
+      "title": "牛顿思路与莫顿思路 是什么",
+      "url": "https://chongliang.ai/knowledge/newton-vs-morton/",
+      "definition": "牛顿思路是演绎收敛范式——寻找少数统一规律覆盖所有情况，AI中对应AGI追求、大统一模型、规模假说；莫顿思路是归纳开放范式——源自Robert K. Merton的中程理论（1949），主张大数据小定律，每条规律只解决特定场景，AI中对应场景化微调、RAG、多Agent架构。",
+      "citation": "AI时代的范式迁移不是牛顿败给莫顿，而是复杂世界不可穷举——当规则冲突超过人力维护极限，从演绎收敛转向归纳开放是必然，但统一追求与场景积累始终螺旋交叉。",
+      "aliases": [
+        "牛顿思路与莫顿思路",
+        "统一化vs个性化",
+        "演绎收敛与归纳开放"
+      ],
+      "relatedConcepts": [
+        "agent-orchestration",
+        "llm-wiki",
+        "generator-paradox"
+      ],
+      "relatedArticles": [
+        "ai-not-efficiency-tool-individual-to-enterprise",
+        "ai-tool-positioning-enterprise-collaboration",
+        "nature-of-intelligence-newton-vs-morton",
+        "unification-vs-personalization-newton-morton"
       ]
     },
     {
@@ -379,7 +448,10 @@
       "url": "https://chongliang.ai/articles/ad-optimizer-role-reconstruction/",
       "description": "很多人看到\"Agent+广告投放\"的第一反应是：哦，用自然语言代替点击操作，省事了。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "agent-orchestration",
+        "loop-engineering"
+      ],
       "tags": [
         "AI Agent",
         "广告投放",
@@ -393,7 +465,10 @@
       "url": "https://chongliang.ai/articles/ad-targeting-agent-engineering/",
       "description": "当讨论\"用Agent操作广告投放\"时，大多数人的第一反应是做一个能听懂自然语言的机器人，对接广告平台API，投手说一句就执行一步。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "agent-orchestration",
+        "mcp"
+      ],
       "tags": [
         "广告投放Agent",
         "工具链架构",
@@ -437,7 +512,9 @@
       "url": "https://chongliang.ai/articles/ai-agent-crypto-payment-autonomous-transaction/",
       "description": "Web3体系对AI Agent的支付场景是天然适配的——Agent没有生物特征无法通过传统KYC、需要可编程的支付条件、需要结算终局性，而加密支付恰好满足这三点。这不是巧合，而是两个体系在底层逻辑上的结构性契合。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "agent-orchestration"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -448,7 +525,9 @@
       "url": "https://chongliang.ai/articles/ai-content-moderation-frame-vs-full-text/",
       "description": "整篇审核（字幕驱动）是当前AI短剧内容审核的最优解。 它在成本和覆盖率上碾压抽帧方案，单环节审核成本仅为市场第三方服务的13%。配合撞脸检测和选择性抽帧构成三层架构后，整体审核成本仍可控制在市场价的15-20%以内，同时覆盖率不降反升。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "generator-paradox"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -459,7 +538,10 @@
       "url": "https://chongliang.ai/articles/ai-dev-community-day-agent-data-layer/",
       "description": "这是「我」作为听众参加 AI 开发者社区日峰会、对嘉宾分享的转述与加工。上午场覆盖三位嘉宾（认知革命 / NVIDIA 全栈 / 数据层），下午补录两场深度技术内容（Apache 开源治理 + AIDLC、对象存储友好的云原生数据库）。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "agent-orchestration",
+        "agent-harness"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -483,7 +565,9 @@
       "url": "https://chongliang.ai/articles/ai-not-efficiency-tool-individual-to-enterprise/",
       "description": "未来不是快到了，是已经到了。但大多数人对此毫无察觉，照样按老方式上班、干活、焦虑。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "newton-vs-morton"
+      ],
       "tags": [
         "AI",
         "重构",
@@ -514,7 +598,10 @@
       "url": "https://chongliang.ai/articles/ai-security-enterprise-agent-compliance/",
       "description": "一位安全行业老兵（长期从事安全授权与解决方案工作）讲解企业落地 AI 智能体（Agent）的安全风险与合规框架。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "agent-security",
+        "agent-harness"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -538,7 +625,9 @@
       "url": "https://chongliang.ai/articles/ai-tool-positioning-enterprise-collaboration/",
       "description": "AI小工具不是大厂赛道降级的替代品，而是企业内部AI落地投入产出比最高的一条路径。它的竞争力来自三个特征——场景够窄、搭档够紧、工程够轻。桌面智能体解决\"通用操作覆盖\"问题，常规产研解决\"长周期系统迭代\"问题，而AI小工具解决的是\"特定业务环节的纵深穿透\"问题——这个问题，",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "newton-vs-morton"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -750,7 +839,10 @@
       "url": "https://chongliang.ai/articles/modify-everything-new-runtime-interaction/",
       "description": "Modify Everything 不是游戏专属的概念。它的本质是一种新的交互范式——用户对当前使用的软件或应用有任何不满，可以随时修改，不用等官方更新。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "modify-everything",
+        "vibe-coding"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -761,7 +853,10 @@
       "url": "https://chongliang.ai/articles/multi-model-collaboration-landscape/",
       "description": "本文是技术地图，回答\"多模型协作有哪些做法、各自怎么实现、效果如何\"。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答\"为什么编排能力是护城河\"。两文互补：一文是地图，一文是论点。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "multi-model-collaboration",
+        "orchestration-moat"
+      ],
       "tags": [
         "多模型协作",
         "MoA",
@@ -774,7 +869,9 @@
       "url": "https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/",
       "description": "我们一直以为智能是\"大道至简\"——找到终极公式一统天下。但真正的智能恰恰相反：它是无数个有条件成立的小规律叠加成的网络，以及在它们之间灵活导航的能力。用牛顿定律的框架去构建AI，方向从一开始就错了。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "newton-vs-morton"
+      ],
       "tags": [
         "智能本质",
         "牛顿思路",
@@ -801,7 +898,10 @@
       "url": "https://chongliang.ai/articles/orchestration-as-moat/",
       "description": "2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从\"谁的模型更强\"迁移到\"谁的编排更会组合\"。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "orchestration-moat",
+        "multi-model-collaboration"
+      ],
       "tags": [
         "多模型协作",
         "Agent编排",
@@ -830,7 +930,10 @@
       "url": "https://chongliang.ai/articles/product-report-agent-master-slave-architecture/",
       "description": "搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "agent-orchestration",
+        "loop-engineering"
+      ],
       "tags": [
         "Agent架构",
         "主从Agent",
@@ -911,7 +1014,10 @@
       "url": "https://chongliang.ai/articles/requirement-analysis-engine-agent-loop/",
       "description": "需求分析这件事，在软件开发流程里一直是个尴尬的角色。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "loop-engineering",
+        "spec-driven-development"
+      ],
       "tags": [
         "需求分析Engine",
         "Agent架构",
@@ -958,7 +1064,9 @@
       "url": "https://chongliang.ai/articles/spec-driven-development/",
       "description": "AI介入产品研发后，PRD停在业务描述层的局限性被放大——AI Agent最怕上下文模糊，而传统PRD恰恰把二次翻译留给了人。Spec不是更长的PRD，而是把业务需求转成研发和AI工具都能执行的结构化工程上下文。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "spec-driven-development"
+      ],
       "tags": [
         "Spec驱动开发",
         "产品研发协作",
@@ -972,7 +1080,9 @@
       "url": "https://chongliang.ai/articles/unification-vs-personalization-newton-morton/",
       "description": "在技术架构与AI发展路径的选择上，存在两种根本性的哲学分野：牛顿思路追求用少数统一规律解决所有问题；莫顿思路主张针对具体场景积累\"小定律\"，一个小规律只解决对应小场景的问题。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "newton-vs-morton"
+      ],
       "tags": [
         "AI",
         "知识沉淀"
@@ -999,7 +1109,10 @@
       "url": "https://chongliang.ai/articles/vibe-coding-context-management/",
       "description": "Claude Code的\"失忆\"问题本质是长对话贵、短对话忘的矛盾。解法是用三层文件系统——README.md（项目级）、TODO.md（任务级）、CLAUDE.md（对话级）——让AI每次开新对话自动恢复到最佳工作状态。",
       "date": "2026-07-06",
-      "concepts": [],
+      "concepts": [
+        "vibe-coding",
+        "context-engineering"
+      ],
       "tags": [
         "Vibe Coding",
         "上下文管理",

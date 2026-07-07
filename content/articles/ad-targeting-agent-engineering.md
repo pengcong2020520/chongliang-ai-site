@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [广告投放Agent, 工具链架构, MCP协议, Function Calling, 安全治理]
-concepts: []
+concepts: [agent-orchestration, mcp]
 projects: []
 featured: false
 hot: false

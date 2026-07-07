@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [智能本质, 牛顿思路, 莫顿思路, 因果推断, 具身性]
-concepts: []
+concepts: [newton-vs-morton]
 projects: []
 featured: false
 hot: false

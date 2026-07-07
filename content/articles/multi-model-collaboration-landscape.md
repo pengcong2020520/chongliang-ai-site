@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [多模型协作, MoA, Agent编排, 技术全景]
-concepts: []
+concepts: [multi-model-collaboration, orchestration-moat]
 projects: []
 featured: false
 hot: false

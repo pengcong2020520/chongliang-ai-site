@@ -45,7 +45,18 @@
       },
       "mainEntityOfPage": "https://chongliang.ai/articles/ad-targeting-agent-engineering/",
       "keywords": "广告投放Agent, 工具链架构, MCP协议, Function Calling, 安全治理",
-      "about": [],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Agent Orchestration",
+          "url": "https://chongliang.ai/knowledge/agent-orchestration/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "MCP (Model Context Protocol)",
+          "url": "https://chongliang.ai/knowledge/mcp/"
+        }
+      ],
       "inLanguage": "zh-CN"
     },
     {
@@ -233,11 +244,31 @@ IM消息推送（结果反馈）
 <p>这句话道出了广告投放Agent工程化的本质：<strong>模型的智能体现在工具组合的方式上，而不是工具本身。</strong> 工具是固定的原子能力，架构是固定的分层调度，唯一灵活的是大模型如何理解意图、拆解策略、组合工具。把这三件事做对，Agent就能从&quot;能用的机器人&quot;变成&quot;好用的投放助手&quot;。</p>
           <section class="link-section" aria-labelledby="related-concepts">
             <h2 id="related-concepts">关联知识点</h2>
-            <div class="related-grid"><p class="muted">暂无关联知识点。</p></div>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/agent-orchestration/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Agent Orchestration</h3>
+      <p>Agent Orchestration 是多模型/多Agent协作的编排能力——决定哪个模型做什么、何时做、如何组合，它是 AI 时代新的护城河。</p>
+    </a><a class="related-concept-card" href="../../knowledge/mcp/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>MCP (Model Context Protocol)</h3>
+      <p>MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。</p>
+    </a></div>
           </section>
           <section class="link-section" aria-labelledby="related-articles">
             <h2 id="related-articles">相关阅读</h2>
-            <div class="mini-list"><p class="muted">暂无相关阅读。</p></div>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ad-optimizer-role-reconstruction/index.html">
+      <span>2026-07-06</span>
+      <strong>Agent重构广告投放——投手角色重构</strong>
+      <p>很多人看到&quot;Agent+广告投放&quot;的第一反应是：哦，用自然语言代替点击操作，省事了。</p>
+    </a><a class="article-mini" href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">
+      <span>2026-07-06</span>
+      <strong>AI Agent 与加密支付：自主交易的新范式</strong>
+      <p>Web3体系对AI Agent的支付场景是天然适配的——Agent没有生物特征无法通过传统KYC、需要可编程的支付条件、需要结算终局性，而加密支付恰好满足这三点。这不是巧合，而是两个体系在底层逻辑上的结构性契合。</p>
+    </a><a class="article-mini" href="../../articles/ai-dev-community-day-agent-data-layer/index.html">
+      <span>2026-07-06</span>
+      <strong>AI开发者社区日：AI Agent与数据层</strong>
+      <p>这是「我」作为听众参加 AI 开发者社区日峰会、对嘉宾分享的转述与加工。上午场覆盖三位嘉宾（认知革命 / NVIDIA 全栈 / 数据层），下午补录两场深度技术内容（Apache 开源治理 + AIDLC、对象存储友好的云原生数据库）。</p>
+    </a></div>
           </section>
           <section class="link-section" aria-labelledby="related-projects">
             <h2 id="related-projects">关联项目</h2>

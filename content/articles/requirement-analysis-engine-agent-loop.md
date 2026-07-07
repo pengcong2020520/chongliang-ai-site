@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [需求分析Engine, Agent架构, MCP, LLM-as-Judge, 可观测性]
-concepts: []
+concepts: [loop-engineering, spec-driven-development]
 projects: []
 featured: false
 hot: false

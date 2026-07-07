@@ -225,6 +225,10 @@
     <lastmod>2026-07-05</lastmod>
   </url>
   <url>
+    <loc>https://chongliang.ai/knowledge/modify-everything/</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
     <loc>https://chongliang.ai/knowledge/agent-harness/</loc>
     <lastmod>2026-07-06</lastmod>
   </url>
@@ -233,12 +237,8 @@
     <lastmod>2026-07-06</lastmod>
   </url>
   <url>
-    <loc>https://chongliang.ai/knowledge/skill/</loc>
-    <lastmod>2026-07-06</lastmod>
-  </url>
-  <url>
-    <loc>https://chongliang.ai/knowledge/content-localization/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://chongliang.ai/knowledge/agent-security/</loc>
+    <lastmod>2026-07-07</lastmod>
   </url>
   <url>
     <loc>https://chongliang.ai/knowledge/context-engineering/</loc>
@@ -265,12 +265,16 @@
     <lastmod>2026-07-06</lastmod>
   </url>
   <url>
-    <loc>https://chongliang.ai/knowledge/prompt-engineer/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <loc>https://chongliang.ai/knowledge/multi-model-collaboration/</loc>
+    <lastmod>2026-07-07</lastmod>
   </url>
   <url>
-    <loc>https://chongliang.ai/knowledge/rag/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://chongliang.ai/knowledge/orchestration-moat/</loc>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+  <url>
+    <loc>https://chongliang.ai/knowledge/prompt-engineer/</loc>
+    <lastmod>2026-07-05</lastmod>
   </url>
   <url>
     <loc>https://chongliang.ai/knowledge/spec-driven-development/</loc>
@@ -283,6 +287,10 @@
   <url>
     <loc>https://chongliang.ai/knowledge/geo/</loc>
     <lastmod>2026-07-05</lastmod>
+  </url>
+  <url>
+    <loc>https://chongliang.ai/knowledge/newton-vs-morton/</loc>
+    <lastmod>2026-07-07</lastmod>
   </url>
   <url>
     <loc>https://chongliang.ai/knowledge/llm-wiki/</loc>

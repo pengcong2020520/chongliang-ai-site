@@ -63,21 +63,23 @@
 
 ## Concept Pages
 
+- Modify Everything: https://chongliang.ai/knowledge/modify-everything/
 - Agent Harness: https://chongliang.ai/knowledge/agent-harness/
 - Agent Orchestration: https://chongliang.ai/knowledge/agent-orchestration/
-- AI Skill: https://chongliang.ai/knowledge/skill/
-- Content Localization: https://chongliang.ai/knowledge/content-localization/
+- Agent Security: https://chongliang.ai/knowledge/agent-security/
 - Context Engineering: https://chongliang.ai/knowledge/context-engineering/
 - DSL: https://chongliang.ai/knowledge/dsl/
 - Generator Paradox: https://chongliang.ai/knowledge/generator-paradox/
 - Harness Engineer: https://chongliang.ai/knowledge/harness-engineer/
 - Loop Engineering: https://chongliang.ai/knowledge/loop-engineering/
 - MCP (Model Context Protocol): https://chongliang.ai/knowledge/mcp/
+- Multi-Model Collaboration: https://chongliang.ai/knowledge/multi-model-collaboration/
+- Orchestration as Moat: https://chongliang.ai/knowledge/orchestration-moat/
 - Prompt Engineer: https://chongliang.ai/knowledge/prompt-engineer/
-- RAG (Retrieval-Augmented Generation): https://chongliang.ai/knowledge/rag/
 - Spec-Driven Development: https://chongliang.ai/knowledge/spec-driven-development/
 - Vibe Coding: https://chongliang.ai/knowledge/vibe-coding/
 - GEO: https://chongliang.ai/knowledge/geo/
+- Newton vs Morton Paradigm: https://chongliang.ai/knowledge/newton-vs-morton/
 - LLM Wiki: https://chongliang.ai/knowledge/llm-wiki/
 
 ## Machine Readable Indexes

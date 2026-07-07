@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [Agent架构, 主从Agent, 上下文管理, 依赖排序, 报告生成]
-concepts: []
+concepts: [agent-orchestration, loop-engineering]
 projects: []
 featured: false
 hot: false

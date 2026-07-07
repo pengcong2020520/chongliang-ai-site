@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [AI Agent, 广告投放, 投手角色, 多模型架构, 工具链]
-concepts: []
+concepts: [agent-orchestration, loop-engineering]
 projects: []
 featured: false
 hot: false

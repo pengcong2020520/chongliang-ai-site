@@ -9,7 +9,7 @@ source: local
 sourceLabel: LOCAL MD
 originalUrl:
 tags: [Vibe Coding, 上下文管理, CLAUDE.md, Prompt Caching, 三层文档]
-concepts: []
+concepts: [vibe-coding, context-engineering]
 projects: []
 featured: false
 hot: false
