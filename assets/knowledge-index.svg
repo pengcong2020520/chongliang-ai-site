@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">冲量 AI knowledge index map</title>
+  <desc id="desc">A minimal grey map connecting articles, projects, and concept cards into a personal judgement system.</desc>
+  <style>
+    text { font-family: "Noto Sans SC", Inter, sans-serif; fill: #161616; }
+    .muted { fill: #777771; font-size: 18px; }
+    .label { font-size: 22px; font-weight: 700; }
+    .mono { font-family: "IBM Plex Mono", monospace; font-size: 14px; fill: #8b8b84; }
+    .node { fill: #ffffff; stroke: #d8d8d2; stroke-width: 2; }
+    .node-soft { fill: #f2f2ef; stroke: #c9c9c2; stroke-width: 2; }
+    .line { fill: none; stroke: #c9c9c2; stroke-width: 2; }
+    .accent { stroke: #315a9f; }
+    .concept { stroke: #4f6f64; }
+  </style>
+  <rect width="960" height="640" fill="#fafaf8"/>
+  <path class="line" d="M220 166 C330 166 350 296 462 296"/>
+  <path class="line concept" d="M220 474 C334 474 350 344 462 344"/>
+  <path class="line accent" d="M738 320 C666 320 612 320 542 320"/>
+  <path class="line" d="M480 232 V186"/>
+  <path class="line" d="M480 408 V454"/>
+  <rect class="node" x="72" y="104" width="232" height="124" rx="8"/>
+  <text class="mono" x="104" y="146">ARTICLES</text>
+  <text class="label" x="104" y="181">个人文章</text>
+  <text class="muted" x="104" y="210">沉淀判断与方法</text>
+  <rect class="node-soft" x="72" y="412" width="232" height="124" rx="8"/>
+  <text class="mono" x="104" y="454">KNOWLEDGE</text>
+  <text class="label" x="104" y="489">原子概念</text>
+  <text class="muted" x="104" y="518">拆解可检索知识</text>
+  <rect class="node" x="656" y="258" width="232" height="124" rx="8"/>
+  <text class="mono" x="688" y="300">PROJECTS</text>
+  <text class="label" x="688" y="335">个人项目</text>
+  <text class="muted" x="688" y="364">验证想法与工具</text>
+  <rect class="node" x="386" y="258" width="188" height="124" rx="8"/>
+  <text class="mono" x="432" y="300">BRAND</text>
+  <text class="label" x="425" y="335">冲量 AI</text>
+  <text class="muted" x="423" y="364">结构与判断</text>
+  <rect class="node-soft" x="352" y="96" width="256" height="90" rx="8"/>
+  <text class="mono" x="386" y="132">GEO / SEO</text>
+  <text class="muted" x="386" y="164">结构化页面与内链</text>
+  <rect class="node-soft" x="352" y="454" width="256" height="90" rx="8"/>
+  <text class="mono" x="386" y="490">BILINGUAL</text>
+  <text class="muted" x="386" y="522">中文为主，英文镜像</text>
+</svg>

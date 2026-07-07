@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Agent 的反馈循环：Loop Engineering 入门 | 冲量 AI</title>
+    <meta name="description" content="Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Agent 的反馈循环：Loop Engineering 入门 | 冲量 AI">
+    <meta property="og:description" content="Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Agent 的反馈循环：Loop Engineering 入门 | 冲量 AI">
+    <meta name="twitter:description" content="Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/#article",
+      "headline": "AI Agent 的反馈循环：Loop Engineering 入门",
+      "description": "Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。",
+      "datePublished": "2026-07-05",
+      "dateModified": "2026-07-05",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site"
+      },
+      "mainEntityOfPage": "https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/",
+      "keywords": "AI 工程化, Agent, 反馈循环, 工作流",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Loop Engineering",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/loop-engineering/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Prompt Engineer",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/prompt-engineer/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Harness Engineer",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/harness-engineer/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "DSL",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/dsl/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GEO",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/geo/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "LLM Wiki",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/llm-wiki/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Agent 的反馈循环：Loop Engineering 入门",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>AI Agent 的反馈循环：Loop Engineering 入门</span></nav>
+          <p class="eyebrow">INBOX AI</p>
+          <h1 class="page-title">AI Agent 的反馈循环：Loop Engineering 入门</h1>
+          <p class="page-lede">Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。</p>
+          <p class="content-meta">发布于 2026-07-05 · 更新于 2026-07-05 · AI 工程化 / Agent / 反馈循环 / 工作流</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a  href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a  href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a  href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a  href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a  href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a  href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a aria-current="page" href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <h2 id="section-1">核心结论</h2>
+<p>Loop Engineering 的重点不是让模型“回答得更好”，而是让系统“把工作推进到可验证结果”。它将人的手动提示转化为一套可运行、可检查、可恢复、可停止的工作流。一个好的 loop 应满足：目标清晰、上下文可控、行动可逆、验证可靠、停止明确、角色分离、成本可控、权限最小、状态持久。</p>
+<h2 id="section-2">背景问题</h2>
+<p>在传统 Prompt Engineering 中，人负责每一轮：写提示词 → 看输出 → 补上下文 → 粘贴错误 → 再提示。这种方式在面对复杂、多步骤任务时效率低下，且难以复用和规模化。随着 AI Agent 的兴起，需要一种系统化的方法来设计 Agent 的行为循环，使其能在最少人工干预下自主推进任务。</p>
+<h2 id="section-3">方法或框架</h2>
+<h3 id="section-4">一个基础 Loop 的结构</h3>
+<p>1. 目标：要完成什么，成功标准是什么。 2. 上下文：当前任务需要哪些代码、文档、历史状态、约束和外部信号。 3. 行动：Agent 可以编辑文件、调用工具、搜索资料、运行测试、打开 PR。 4. 观察：系统读取测试结果、构建日志、diff、链接检查、review comment、用户反馈。 5. 调整：根据观察结果修改计划或下一步动作。 6. 验证：用测试、lint、人工审核、评测集或业务指标判断是否达到标准。 7. 停止：达到成功标准、撞到明确阻塞、超过成本预算、触发风险规则时停止。 8. 记忆：把状态写到文件、issue、Linear、PR、数据库或其他持久层，避免每次从零开始。</p>
+<h3 id="section-5">Addy Osmani 的五个构件</h3>
+<ul>
+<li><strong>Automations</strong>：按计划或事件触发发现、分诊和执行。</li>
+<li><strong>Worktrees</strong>：隔离并行任务，避免多个 agent 互相踩代码。</li>
+<li><strong>Skills</strong>：把项目知识写成可调用能力。</li>
+<li><strong>Plugins / Connectors</strong>：接入已有工具和数据源。</li>
+<li><strong>Sub-agents</strong>：让不同 agent 承担不同角色。</li>
+<li><strong>Memory</strong>：持久化进展和状态。</li>
+</ul>
+<h3 id="section-6">冲量 AI 网站中的 Loop Engineering 示例</h3>
+<p>当前个人网站的内容自动化就是一个轻量 Loop Engineering 样例：</p>
+<pre><code>用户上传 Markdown/TXT 到 content/inbox/
+    ↓
+GitHub Actions 触发 AI Inbox workflow
+    ↓
+脚本读取 Pipeline DSL
+    ↓
+DeepSeek 按 DSL 拆文章、拆知识点、补 SEO/GEO 字段
+    ↓
+脚本生成 content/articles、content/concepts 和站点索引
+    ↓
+自动创建 Pull Request
+    ↓
+用户审核合并
+    ↓
+GitHub Pages 自动部署</code></pre>
+<p>关键控制点包括固定的输入入口、规则、输出契约、验证、审核和记忆。</p>
+<h2 id="section-7">与知识点的关系</h2>
+<ul>
+<li><strong>Prompt Engineering</strong>：Loop Engineering 中 Prompt 仍是核心部件，但关注从单轮设计扩展到多轮系统。</li>
+<li><strong>Harness Engineering</strong>：提供运行环境，Loop Engineering 在此基础上设计反馈与控制。</li>
+<li><strong>DSL</strong>：可用于描述 loop 的规则和流程，实现可配置的自动化。</li>
+<li><strong>GEO</strong>：指导生成的内容结构，使其适合搜索引擎和 AI 引用。</li>
+<li><strong>LLM Wiki</strong>：提供知识拆解和上下文组织的方法，辅助 loop 中的上下文供给。</li>
+</ul>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/loop-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Loop Engineering</h3>
+      <p>Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。</p>
+    </a><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Prompt Engineer</h3>
+      <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
+    </a><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a><a class="related-concept-card" href="../../knowledge/geo/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>GEO</h3>
+      <p>GEO 是面向生成式搜索和 AI 回答系统的内容结构优化方法，目标是让内容更容易被理解、引用和追溯。</p>
+    </a><a class="related-concept-card" href="../../knowledge/llm-wiki/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>LLM Wiki</h3>
+      <p>LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ai-public-knowledge-system/index.html">
+      <span>2026-07-05</span>
+      <strong>AI 从业者如何搭建自己的公开知识库</strong>
+      <p>这篇文章讨论 AI 从业者如何把文章、项目和知识库组织成一个可阅读、可检索、可引用的公开系统，并兼顾 SEO 与 GEO。</p>
+    </a><a class="article-mini" href="../../articles/loop-engineering-paradigm-shift/index.html">
+      <span>2026-07-06</span>
+      <strong>Loop Engineering——AI工程范式迁移</strong>
+      <p>软件工程六十年，工程师的定义一直是&quot;写代码的人&quot;。不管你用什么语言、什么框架、什么架构，最终产出物是代码。Loop Engineering标志着这个定义第一次被动摇：工程师不再直接产出代码，而是设计让AI产出代码的循环系统。 循环，而非提示词，成为AI工程的基本单位。</p>
+    </a><a class="article-mini" href="../../articles/production-agent-gui-failure-modes/index.html">
+      <span>2026-07-06</span>
+      <strong>生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</strong>
+      <p>GUI Agent的三种常见失败模式——不看图失败、COT漂移、不可信历史——都可以通过SFT数据清洗和大规模rollout+在线RL解决。需求分析Engine采用准备层→编排层→能力层→数据层四层架构，主进程+子Agent分层解决上下文爆炸。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">背景问题</a></li><li class="toc-level-2"><a href="#section-3">方法或框架</a></li><li class="toc-level-3"><a href="#section-4">一个基础 Loop 的结构</a></li><li class="toc-level-3"><a href="#section-5">Addy Osmani 的五个构件</a></li><li class="toc-level-3"><a href="#section-6">冲量 AI 网站中的 Loop Engineering 示例</a></li><li class="toc-level-2"><a href="#section-7">与知识点的关系</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

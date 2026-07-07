@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MCP / Model Context Protocol 是什么 | 冲量 AI</title>
+    <meta name="description" content="MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MCP / Model Context Protocol 是什么 | 冲量 AI">
+    <meta property="og:description" content="MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MCP / Model Context Protocol 是什么 | 冲量 AI">
+    <meta name="twitter:description" content="MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/#defined-term",
+      "name": "MCP (Model Context Protocol)",
+      "alternateName": [
+        "模型上下文协议",
+        "MCP协议"
+      ],
+      "description": "MCP 是一种连接 AI 模型与外部工具/数据源的标准化协议，通过 Schema 描述工具能力、权限控制管理访问边界，使不同 AI 工具能对接同一套服务。其本质是治理协议而非效率协议。",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "冲量 AI 个人知识库",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+      },
+      "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/",
+      "termCode": "mcp"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "知识库",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "MCP (Model Context Protocol)",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link"  href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link" aria-current="page" href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">知识库</a><span>/</span><span>MCP (Model Context Protocol)</span></nav>
+          <p class="eyebrow">DEFINED TERM</p>
+          <h1 class="page-title">MCP / Model Context Protocol 是什么</h1>
+          <p class="page-lede">MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。</p>
+          <p class="content-meta">更新于 2026-07-06 · 模型上下文协议 / MCP协议</p>
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside knowledge-tree">
+    <h2>知识原点</h2>
+    
+      <div class="tree-group">
+        <h3>AI 交互范式</h3>
+        <nav class="side-list" aria-label="AI 交互范式">
+          <a  href="../../knowledge/modify-everything/index.html">Modify Everything</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>AI 工程化</h3>
+        <nav class="side-list" aria-label="AI 工程化">
+          <a  href="../../knowledge/agent-harness/index.html">Agent Harness</a><a  href="../../knowledge/agent-orchestration/index.html">Agent Orchestration</a><a  href="../../knowledge/agent-security/index.html">Agent Security</a><a  href="../../knowledge/context-engineering/index.html">Context Engineering</a><a  href="../../knowledge/dsl/index.html">DSL</a><a  href="../../knowledge/generator-paradox/index.html">Generator Paradox</a><a  href="../../knowledge/harness-engineer/index.html">Harness Engineer</a><a  href="../../knowledge/loop-engineering/index.html">Loop Engineering</a><a aria-current="page" href="../../knowledge/mcp/index.html">MCP (Model Context Protocol)</a><a  href="../../knowledge/multi-model-collaboration/index.html">Multi-Model Collaboration</a><a  href="../../knowledge/orchestration-moat/index.html">Orchestration as Moat</a><a  href="../../knowledge/prompt-engineer/index.html">Prompt Engineer</a><a  href="../../knowledge/spec-driven-development/index.html">Spec-Driven Development</a><a  href="../../knowledge/vibe-coding/index.html">Vibe Coding</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>内容增长</h3>
+        <nav class="side-list" aria-label="内容增长">
+          <a  href="../../knowledge/geo/index.html">GEO</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>技术哲学</h3>
+        <nav class="side-list" aria-label="技术哲学">
+          <a  href="../../knowledge/newton-vs-morton/index.html">Newton vs Morton Paradigm</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>知识管理</h3>
+        <nav class="side-list" aria-label="知识管理">
+          <a  href="../../knowledge/llm-wiki/index.html">LLM Wiki</a>
+        </nav>
+      </div>
+  </aside>
+        <article class="article-body reader-main">
+          <div class="definition-box"><p><strong>定义：</strong>MCP 是一种连接 AI 模型与外部工具/数据源的标准化协议，通过 Schema 描述工具能力、权限控制管理访问边界，使不同 AI 工具能对接同一套服务。其本质是治理协议而非效率协议。</p></div>
+          <h2>适用场景</h2>
+          <ul><li>多租户企业级SaaS的授权管理</li><li>金融合规场景的细粒度权限控制</li><li>政府系统需要协议层权限隔离的场景</li><li>团队需要统一工具对接标准的协作环境</li></ul>
+          <h2>它不是什么</h2>
+          <p>它不等于&quot;AI 的万能接口&quot;——MCP 有 Schema 注入的结构性缺陷（每次调用携带全部工具说明），成本远高于 CLI 方案；它也不等于唯一接口标准，在大多数场景下 CLI+Skill 是更经济的选择。</p>
+          <h2>常见误区</h2>
+          <ul><li>认为 MCP 是 AI 时代的 USB 接口——&quot;不上 MCP 就是落后&quot;</li><li>忽略 Schema 注入的 token 成本（单次调用可达 25</li><li>000-44</li><li>000 Token）</li><li>以为 MCP 适合所有场景——实际上大多数人不需要企业级权限管理，却在为它的全部成本买单</li></ul>
+          <h2 id="section-1">更完整的解释</h2>
+<p>2024年 MCP 出现时，整个 AI 圈的反应是——这玩意儿就是 AI 时代的 USB 接口，以后所有工具都能插进来。到 2025 年，MCP Server 在 GitHub 上突破 5000 个，主流 AI 工具全部接入，行业形成共识：不上 MCP 就是落后。</p>
+<p>但 2026 年的实践揭示了 MCP 的结构性缺陷。</p>
+<h3 id="section-2">MCP 真正解决的问题</h3>
+<p>MCP 不是没有价值。它真正解决了一个问题——让不同的 AI 工具能对接同一套服务。在企业级场景里，MCP 有原生的权限控制机制——多用户、多租户，各自有各自的访问权限，在协议层就能处理。</p>
+<p><strong>MCP 的本质是一套治理协议，它解决的是&quot;谁有权做什么&quot;，而不是&quot;怎么做最快&quot;。</strong></p>
+<h3 id="section-3">先天缺陷：Schema 注入</h3>
+<p>MCP 有一个先天的设计缺陷——Schema 注入。每次 AI 调用 MCP 工具时，它会把这个 Server 上所有工具的&quot;说明书&quot;全部塞进对话上下文里，哪怕你只需要用其中一个。</p>
+<p>比如一个 MCP Server 有 43 个工具，你只想问&quot;这个仓库用什么编程语言？&quot;AI 必须先把另外 42 个工具的说明书全读一遍。</p>
+<p>基准测试对比：查仓库编程语言，CLI 消耗 1,365 Token，MCP 消耗 44,026 Token——32 倍差距。月运营成本 CLI 是 $3.20，MCP 是 $55.20——17 倍差距。任务成功率 CLI 是 100%，MCP 是 72%。</p>
+<p><strong>这不是 bug，是协议设计决定的。标准化的代价，就是永远要携带全套行李。</strong> 更深的隐患是：AI Agent 越强，单次任务调用工具次数越多，MCP 的 Schema 注入成本就越高——这是一个随 AI 能力增长而持续恶化的结构性缺陷。</p>
+<h3 id="section-4">MCP 与 CLI 的关系</h3>
+<p>CLI 是 AI 的母语——LLM 在训练时消化了全球几十年积累的 CLI 文档、man page、shell 脚本，CLI 语法和常用工具的用法已经被 AI 内化成了直觉。</p>
+<p>接口之争的本质，是人类思维习惯和 AI 本能之间的冲突。MCP 是前者，CLI 是后者。MCP 是人类用工程习惯强行给 AI 套了一个外壳。</p>
+<p>当 Skill 生态成熟，MCP 的工程价值空间被压缩到唯一一个场景：<strong>多租户企业级授权管理。</strong> 而这，恰恰是绝大多数人根本碰不到的场景。</p>
+<h2 id="section-5">例子</h2>
+<p>企业 AI 服务平台架构中，工具集成层搭建 Tool Hub，集成底层 MCP、CLI 等工具，实现不同 AI 工具之间的上下文桥接与无缝切换。涉及登录、注册、数据库调用等需要鉴权与权限管控的场景必须使用 MCP 方案。但快速原型开发和个人开发场景，CLI 工具依赖大模型内置的 bash 原生工具调用更高效——无需独立维护 Server，直接可用。</p>
+          <section class="link-section" aria-labelledby="concept-related">
+            <h2 id="concept-related">相关概念</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/agent-orchestration/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Agent Orchestration</h3>
+      <p>Agent Orchestration 是多模型/多Agent协作的编排能力——决定哪个模型做什么、何时做、如何组合，它是 AI 时代新的护城河。</p>
+    </a><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Prompt Engineer</h3>
+      <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
+    </a><a class="related-concept-card" href="../../knowledge/agent-harness/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Agent Harness</h3>
+      <p>Agent Harness 是从模型调用到可治理 Agent 系统的工程化框架，用轻内核插件化架构、运行事实记录和数据库原生数据闭环让 Agent 可持续运行、可排查、可扩展。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-articles">
+            <h2 id="concept-articles">关联文章</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ad-targeting-agent-engineering/index.html">
+      <span>2026-07-06</span>
+      <strong>广告投放Agent工程化：平台生态对接与工具链架构</strong>
+      <p>当讨论&quot;用Agent操作广告投放&quot;时，大多数人的第一反应是做一个能听懂自然语言的机器人，对接广告平台API，投手说一句就执行一步。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-projects">
+            <h2 id="concept-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+          <section class="citation-box" aria-labelledby="citation-title">
+            <h2 id="citation-title">可引用摘要</h2>
+            <p>MCP 的本质是一套治理协议，它解决的是&quot;谁有权做什么&quot;而不是&quot;怎么做最快&quot;——大多数人不需要企业级权限管理，却在为它的全部成本买单。</p>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>概念信息</h2>
+          <dl class="compact-dl">
+            <div><dt>英文术语</dt><dd>MCP (Model Context Protocol)</dd></div>
+            <div><dt>父节点</dt><dd>AI 工程化</dd></div>
+            <div><dt>标签</dt><dd>AI / MCP / 协议 / 工具调用</dd></div>
+          </dl>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

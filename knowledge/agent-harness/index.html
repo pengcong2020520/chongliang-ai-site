@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agent Harness 是什么 | 冲量 AI</title>
+    <meta name="description" content="Agent Harness 是从模型调用到可治理 Agent 系统的工程化框架，用轻内核插件化架构、运行事实记录和数据库原生数据闭环让 Agent 可持续运行、可排查、可扩展。">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Agent Harness 是什么 | 冲量 AI">
+    <meta property="og:description" content="Agent Harness 是从模型调用到可治理 Agent 系统的工程化框架，用轻内核插件化架构、运行事实记录和数据库原生数据闭环让 Agent 可持续运行、可排查、可扩展。">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agent Harness 是什么 | 冲量 AI">
+    <meta name="twitter:description" content="Agent Harness 是从模型调用到可治理 Agent 系统的工程化框架，用轻内核插件化架构、运行事实记录和数据库原生数据闭环让 Agent 可持续运行、可排查、可扩展。">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/#defined-term",
+      "name": "Agent Harness",
+      "alternateName": [
+        "Agent驾驭系统",
+        "Harness工程化",
+        "Agent脚手架"
+      ],
+      "description": "Agent Harness 是模型外部的一整套驾驭系统，负责提示词管理与上下文构建、工具调用流程编排、运行状态与 Memory 管理、Skills/MCP/插件加载调度、运行轨迹记录与复盘、数据治理与评估反馈，使 Agent = Model + Harness。",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "冲量 AI 个人知识库",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+      },
+      "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/",
+      "termCode": "agent-harness"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "知识库",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agent Harness",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link"  href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link" aria-current="page" href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">知识库</a><span>/</span><span>Agent Harness</span></nav>
+          <p class="eyebrow">DEFINED TERM</p>
+          <h1 class="page-title">Agent Harness 是什么</h1>
+          <p class="page-lede">Agent Harness 是从模型调用到可治理 Agent 系统的工程化框架，用轻内核插件化架构、运行事实记录和数据库原生数据闭环让 Agent 可持续运行、可排查、可扩展。</p>
+          <p class="content-meta">更新于 2026-07-06 · Agent驾驭系统 / Harness工程化 / Agent脚手架</p>
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside knowledge-tree">
+    <h2>知识原点</h2>
+    
+      <div class="tree-group">
+        <h3>AI 交互范式</h3>
+        <nav class="side-list" aria-label="AI 交互范式">
+          <a  href="../../knowledge/modify-everything/index.html">Modify Everything</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>AI 工程化</h3>
+        <nav class="side-list" aria-label="AI 工程化">
+          <a aria-current="page" href="../../knowledge/agent-harness/index.html">Agent Harness</a><a  href="../../knowledge/agent-orchestration/index.html">Agent Orchestration</a><a  href="../../knowledge/agent-security/index.html">Agent Security</a><a  href="../../knowledge/context-engineering/index.html">Context Engineering</a><a  href="../../knowledge/dsl/index.html">DSL</a><a  href="../../knowledge/generator-paradox/index.html">Generator Paradox</a><a  href="../../knowledge/harness-engineer/index.html">Harness Engineer</a><a  href="../../knowledge/loop-engineering/index.html">Loop Engineering</a><a  href="../../knowledge/mcp/index.html">MCP (Model Context Protocol)</a><a  href="../../knowledge/multi-model-collaboration/index.html">Multi-Model Collaboration</a><a  href="../../knowledge/orchestration-moat/index.html">Orchestration as Moat</a><a  href="../../knowledge/prompt-engineer/index.html">Prompt Engineer</a><a  href="../../knowledge/spec-driven-development/index.html">Spec-Driven Development</a><a  href="../../knowledge/vibe-coding/index.html">Vibe Coding</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>内容增长</h3>
+        <nav class="side-list" aria-label="内容增长">
+          <a  href="../../knowledge/geo/index.html">GEO</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>技术哲学</h3>
+        <nav class="side-list" aria-label="技术哲学">
+          <a  href="../../knowledge/newton-vs-morton/index.html">Newton vs Morton Paradigm</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>知识管理</h3>
+        <nav class="side-list" aria-label="知识管理">
+          <a  href="../../knowledge/llm-wiki/index.html">LLM Wiki</a>
+        </nav>
+      </div>
+  </aside>
+        <article class="article-body reader-main">
+          <div class="definition-box"><p><strong>定义：</strong>Agent Harness 是模型外部的一整套驾驭系统，负责提示词管理与上下文构建、工具调用流程编排、运行状态与 Memory 管理、Skills/MCP/插件加载调度、运行轨迹记录与复盘、数据治理与评估反馈，使 Agent = Model + Harness。</p></div>
+          <h2>适用场景</h2>
+          <ul><li>生产级Agent系统的工具调用与状态管理</li><li>多Agent协作的上下文隔离与交叉校验</li><li>Agent运行轨迹的调试与自我复盘</li><li>企业级Agent从Demo到生产的数据治理演进</li></ul>
+          <h2>它不是什么</h2>
+          <p>它不等于&quot;调模型 API + 写 Prompt&quot;——模型只是能力核心，Harness 决定模型在什么场景下使用什么工具、遵循什么边界、如何记录过程；也不等于传统 QA 或测试脚本——它关注 AI 系统的可复现、可观测和可迭代。</p>
+          <h2>常见误区</h2>
+          <ul><li>把&quot;做Agent&quot;等同于&quot;调模型API+写Prompt&quot;</li><li>把所有能力内置到主流程中导致系统越来越重</li><li>用普通聊天记录替代运行事实（Tap），无法支撑排查和复盘</li><li>依赖文件系统管理Memory，不适合结构化查询和长期数据闭环</li></ul>
+          <h2 id="section-1">更完整的解释</h2>
+<p>很多人把&quot;做 Agent&quot;等同于&quot;调模型 API + 写 Prompt&quot;。但模型本身只是一个根据输入给出输出的函数，它不天然理解业务状态、历史轨迹和运行边界。真正让 Agent 在实际场景中稳定工作的，是模型外部的一整套驾驭系统——Harness。</p>
+<h3 id="section-2">轻内核 + 插件化架构</h3>
+<p>核心原则：<strong>维护一个稳定、清晰、轻量的内核，通过插件扩展业务能力。</strong></p>
+<p><strong>内核只负责</strong>：Agent Loop 稳定运行、会话和状态管理、输入输出通道抽象、工具调用流程编排、上下文构建、运行轨迹记录。</p>
+<p><strong>插件负责扩展</strong>：MCP 工具能力、Memory 能力、IM 通道、定时任务、可视化界面、数据库适配、业务专属 Skills。</p>
+<p>某个插件出问题时可以局部摘除或替换，不会直接破坏整个 Agent 系统。</p>
+<h3 id="section-3">阶段化拆分交互流程</h3>
+<p>Agent 的一次交互不是单一的&quot;输入-输出&quot;，而是多个明确阶段：接收输入 → 识别意图 → 构建上下文 → 选择工具 → 调用工具 → 记录运行事实 → 生成响应 → 写入运行轨迹 → 必要时复盘或沉默。</p>
+<p><strong>一个关键经验：Agent 不一定每次都要回复。</strong> 在多人协作或多 Agent 场景中，过多回复会变成噪音。输入通道和输出通道不应被强绑定。</p>
+<h3 id="section-4">Tap：运行事实而非普通聊天记录</h3>
+<p>传统聊天记录只保存&quot;用户说了什么、Agent 回了什么&quot;。但要支撑排查和复盘，需要记录的是<strong>运行事实（Tap）</strong>——Agent 识别了什么任务、使用了哪些工具、哪一步失败、做了什么判断、最终输出是什么。</p>
+<p>Tap 的关键优势：<strong>既能给人看，也能给 Agent 自己看。</strong> 工程师和 Agent 可以基于同一份运行事实进行排查和复盘。Agent 可以读取自己的运行事实，对失败原因进行初步分析——这种设计将一部分工程排查能力前移到了 Agent 自身。</p>
+<h3 id="section-5">数据库原生 Harness</h3>
+<p>很多 Agent 项目依赖文件系统管理 Memory。这种方式对人类阅读友好，但不适合做结构化查询、统一治理和长期数据闭环。</p>
+<p>数据库原生 Harness 的核心优势：所有运行数据统一存储、支持结构化查询、支持上下文/Memory/Trace/任务记录关联、便于权限管理和脱敏、便于沉淀评估数据集。</p>
+<p><strong>数据库不仅是业务数据存储组件，也是 Agent Harness 的运行底座。</strong></p>
+<h3 id="section-6">数据闭环：从运行事实到自我复盘</h3>
+<p>当运行轨迹被结构化记录后，可以形成完整的数据闭环：对比不同模型在同类任务上的表现 → 评估同一模型的稳定性 → 沉淀失败案例 → 脱敏导出调试数据集 → 用于模型微调和评测。</p>
+<h3 id="section-7">Agent 系统评估维度</h3>
+<p>不能只看回答是否&quot;看起来正确&quot;：任务完成率、工具调用成功率、工具调用轮数、上下文利用质量、失败可解释性、扩展成本、数据闭环能力。</p>
+<h2 id="section-8">例子</h2>
+<p>一个生产级 Agent 系统的最小闭环：模型 API 可用 → 数据库可用 → 对话界面可访问 → Agent 能完成基础问答 → 运行记录可查询。在此基础上逐步添加 MCP、Skills 和业务插件。Agent 的运行轨迹不只是调试日志，而是用户信任系统的重要依据——能解释自己为什么这样回答、为什么失败、用了哪些工具，是面向真实业务落地的关键能力。用户可以直接问 Agent：&quot;刚才为什么没有回答成功？哪个工具调用失败了？&quot;Agent 读取自己的 Tap 进行初步分析。</p>
+          <section class="link-section" aria-labelledby="concept-related">
+            <h2 id="concept-related">相关概念</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/loop-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Loop Engineering</h3>
+      <p>Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。</p>
+    </a><a class="related-concept-card" href="../../knowledge/mcp/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>MCP (Model Context Protocol)</h3>
+      <p>MCP 是 Anthropic 提出的模型上下文协议，为 AI 模型连接外部工具和数据源提供标准化接口，本质是一套治理协议，解决&quot;谁有权做什么&quot;。</p>
+    </a><a class="related-concept-card" href="../../knowledge/agent-orchestration/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Agent Orchestration</h3>
+      <p>Agent Orchestration 是多模型/多Agent协作的编排能力——决定哪个模型做什么、何时做、如何组合，它是 AI 时代新的护城河。</p>
+    </a><a class="related-concept-card" href="../../knowledge/context-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Context Engineering</h3>
+      <p>Context Engineering 是设计和管理大模型在多轮交互中应该看到什么信息、何时看到、以什么形式看到的系统工程方法。</p>
+    </a><a class="related-concept-card" href="../../knowledge/generator-paradox/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Generator Paradox</h3>
+      <p>发电机悖论揭示了 Agent 时代的生产力质变逻辑——单点替换不产生质变，系统级治理重构才产生质变。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-articles">
+            <h2 id="concept-articles">关联文章</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ai-dev-community-day-agent-data-layer/index.html">
+      <span>2026-07-06</span>
+      <strong>AI开发者社区日：AI Agent与数据层</strong>
+      <p>这是「我」作为听众参加 AI 开发者社区日峰会、对嘉宾分享的转述与加工。上午场覆盖三位嘉宾（认知革命 / NVIDIA 全栈 / 数据层），下午补录两场深度技术内容（Apache 开源治理 + AIDLC、对象存储友好的云原生数据库）。</p>
+    </a><a class="article-mini" href="../../articles/ai-security-enterprise-agent-compliance/index.html">
+      <span>2026-07-06</span>
+      <strong>AI 安全：企业落地 Agent 的安全风险与合规框架</strong>
+      <p>一位安全行业老兵（长期从事安全授权与解决方案工作）讲解企业落地 AI 智能体（Agent）的安全风险与合规框架。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-projects">
+            <h2 id="concept-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+          <section class="citation-box" aria-labelledby="citation-title">
+            <h2 id="citation-title">可引用摘要</h2>
+            <p>Agent 不等于模型——真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness，它决定模型在什么场景下使用什么工具、遵循什么边界、如何记录过程。</p>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>概念信息</h2>
+          <dl class="compact-dl">
+            <div><dt>英文术语</dt><dd>Agent Harness</dd></div>
+            <div><dt>父节点</dt><dd>AI 工程化</dd></div>
+            <div><dt>标签</dt><dd>AI / Harness / Agent / 工程化 / 可观测性</dd></div>
+          </dl>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pengcong2020520.github.io/chongliang-ai-site/sitemap.xml

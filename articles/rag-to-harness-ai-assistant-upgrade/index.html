@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>从RAG到Harness：AI助手实战升级与数据库原生架构 | 冲量 AI</title>
+    <meta name="description" content="一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="从RAG到Harness：AI助手实战升级与数据库原生架构 | 冲量 AI">
+    <meta property="og:description" content="一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="从RAG到Harness：AI助手实战升级与数据库原生架构 | 冲量 AI">
+    <meta name="twitter:description" content="一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/#article",
+      "headline": "从RAG到Harness：AI助手实战升级与数据库原生架构",
+      "description": "一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site"
+      },
+      "mainEntityOfPage": "https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/",
+      "keywords": "RAG, Agent Harness, 数据库原生, 可观测性, 多Agent",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Harness Engineer",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/harness-engineer/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Prompt Engineer",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/prompt-engineer/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "LLM Wiki",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/llm-wiki/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "从RAG到Harness：AI助手实战升级与数据库原生架构",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>从RAG到Harness：AI助手实战升级与数据库原生架构</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">从RAG到Harness：AI助手实战升级与数据库原生架构</h1>
+          <p class="page-lede">一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · RAG / Agent Harness / 数据库原生 / 可观测性 / 多Agent</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a  href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a  href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a  href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a  href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a  href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a aria-current="page" href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <h2 id="section-1">核心结论</h2>
+<p>项目面向K12和高职院校，主要解决教务、后勤、校园生活三大类问题。</p>
+<p>架构上用的是经典的多Agent+RAG方案：一个协调Agent做意图识别和任务分发，下面挂教务Agent、后勤Agent、校园生活Agent和一个通用兜底Agent。每条问题进来，先检索知识库，Rerank排序，然后把相关知识塞进Prompt，让对应领域的Agent生成回答。</p>
+<p>效果数据还不错——Top3准确率92%+，召回率85%+，端到端延迟控制在2秒以内。用户满意度NPS能到60以上。</p>
+<p>看起来一切都挺好。直到有一次运营同学拿着一个点踩案例来找我。</p>
+<h2 id="section-2">二、一个点踩案例暴露的根本问题</h2>
+<p>用户问的是：&quot;高二3班张同学的家长，孩子要请病假，需要交什么材料？&quot;</p>
+<p>系统回复了一段关于请假流程的通用说明，但没有具体到&quot;高二3班&quot;和&quot;病假材料清单&quot;这个粒度。用户点踩了。</p>
+<p>运营同学想看这条回答到底哪里出了问题。然后我们发现，能看到的只有：用户问了什么、系统答了什么、用户点踩了。至于系统为什么这样回答——意图有没有识别对、有没有分发到教务Agent、检索回来的知识片段是什么、Rerank之后排第一的是不是正确答案、模型有没有读到正确的知识——这些全看不到。</p>
+<p><strong>这就是第一个痛点：只知道答错了，不知道为什么答错。</strong></p>
+<p>往后越查越发现，这不是个别案例的问题，而是整个系统缺少一层关键能力：<strong>Agent的运行过程没有被结构化记录。</strong></p>
+<p>换句话说，系统能回答问题，但不能解释自己为什么这样回答。</p>
+<h2 id="section-3">三、Harness到底在做什么</h2>
+<p>Harness做的事情是：让Agent的决策过程变得可记录、可追踪、可诊断、可优化。</p>
+<p>Prompt Engineer是让表达结构化，Context Engineer是让数据源结构化。Harness Engineer更进一步——它让Agent每一次交互的完整链路结构化：意图怎么判断的、任务怎么分发的、知识怎么检索的、工具怎么调用的、答案怎么生成的。</p>
+<p><strong>Harness要解决的核心问题是：当用户问&quot;病假要交什么材料&quot;系统答错了，你能不能在三分钟内，顺着一条完整的运行链路查下去，定位到这是知识库缺失、意图分发错误、Rerank排序翻车，还是模型生成幻觉？</strong></p>
+<h2 id="section-4">四、数据库原生Harness：8张核心表</h2>
+<p>核心思路很简单：<strong>每一次Agent执行，都生成一个唯一的run_id，然后把这次执行中发生的所有事情——意图识别、Agent分发、知识检索、Rerank排序、工具调用、答案生成、用户反馈——全部串到这条run_id上。</strong></p>
+<p><strong>1. sessions（会话表）</strong> — 记录谁、在哪个入口、什么时候、什么身份发起的对话。让后续分析可以按学校、角色、渠道来切分。</p>
+<p><strong>2. messages（消息表）</strong> — 记录每一轮user和assistant的原始对话，保留语音识别文本。</p>
+<p><strong>3. agent_runs（Agent运行表）</strong> — 整个Harness的核心。每一次Agent执行都是一条run记录，包含意图、分发的Agent、状态、耗时、模型版本、Prompt版本。这步改造让一次问答从&quot;一条消息记录&quot;升级成了&quot;一个可分析的任务执行&quot;。</p>
+<p><strong>4. agent_steps（步骤表）</strong> — 把一个run拆成意图分类、检索、重排、工具调用、生成等多个阶段，每步记录输入摘要、输出摘要、状态和耗时。让你能精确定位失败发生在哪一步。</p>
+<p><strong>5. retrieval_records（检索记录表）</strong> — 记录每次RAG查询的query、召回的Top-K片段、Rerank后的排序、最终进入Prompt的片段。RAG问题到底是召回没命中、排序没排对、还是生成阶段没用好，一查就知道。</p>
+<p><strong>6. tool_calls（工具调用表）</strong> — 记录业务API的调用参数、结果、状态和耗时。业务系统稳不稳定，数据说话。</p>
+<p><strong>7. agent_memories（记忆表）</strong> — 把以前只存在于Prompt里的&quot;历史对话摘要&quot;升级成可治理的数据资产：有来源、有置信度、有过期时间、可删除。</p>
+<p><strong>8. evaluations（评估反馈表）</strong> — 记录用户点赞点踩、人工标注结果、错误类型分类。每一条评估都关联到具体的run_id，所以你知道用户不满意的是哪一次执行的哪个环节。</p>
+<h2 id="section-5">五、四个场景：Harness怎么改变运营方式</h2>
+<p><strong>场景一：答错可追溯。</strong> 同样是&quot;病假材料&quot;问题。有了Harness之后，运营查出run_id，一路看下去：意图正确识别为教务场景，正确分发给了教务Agent，但检索环节发现——知识库里根本没有&quot;高二病假材料清单&quot;这个文档。问题定位：知识库缺失。从发现到修复，十分钟。</p>
+<p><strong>场景二：多Agent分发可优化。</strong> 拉了一周的分发数据，发现&quot;补办&quot;这个词导致意图分类模型倾向于后勤类。调整了意图分类规则后，路由准确率从72%提到了91%。</p>
+<p><strong>场景三：Memory支持连续服务。</strong> 家长第一次问&quot;我是高二3班张同学的家长&quot;，系统把身份信息写入agent_memories。三天后家长又问&quot;病假要交什么材料&quot;，系统从Memory中召回上下文，直接定位到高二3班+病假场景。同时Memory设置了过期时间、来源追溯和可删除机制，解决隐私敏感性问题。</p>
+<p><strong>场景四：评估集自动沉淀。</strong> 每次用户点踩、触发兜底、或转人工，系统自动把这条run_id扔进错误案例池，按错误类型打标签。两周积累200多条标注好的错误案例，直接成为Prompt回归测试集和RAG效果评估集。以前做Prompt优化只能靠感觉说&quot;新版本好像好一点&quot;；现在跑一遍错误案例集，数据说话。</p>
+<h2 id="section-6">六、从&quot;效果达标&quot;到&quot;系统可治理&quot;</h2>
+<p>原来只看四个数字：准确率、召回率、延迟、NPS。这些指标能告诉你&quot;系统整体好不好&quot;，但不能告诉你&quot;哪里不好、为什么不好、怎么改&quot;。</p>
+<p>Harness升级后新增九个指标：</p>
+<ul>
+<li>Agent路由准确率：协调Agent有没有分发给对的领域Agent</li>
+<li>检索命中率：正确知识有没有进入Top-K</li>
+<li>Rerank有效提升率：Rerank有没有把正确片段排到更前面</li>
+<li>兜底率：系统答不了或转人工的比例</li>
+<li>工具调用成功率：对接的业务API稳不稳定</li>
+<li>可解释失败率：答错的时候能不能定位原因</li>
+<li>Memory命中率：历史上下文有没有被正确召回</li>
+<li>反馈覆盖率：多少比例的对话有用户反馈或人工标注</li>
+<li>错误案例修复周期：从发现问题到修好要多久</li>
+</ul>
+<p><strong>这九个指标一上，项目的管理方式就从&quot;效果达标&quot;变成了&quot;系统可治理&quot;。</strong></p>
+<h2 id="section-7">七、核心判断：差的不是模型能力，是Harness能力</h2>
+<p>做完这次改造，最大的感受是：<strong>一个好的AI产品和一个能持续变好的AI产品之间，差的不是模型能力，而是Harness能力。</strong></p>
+<p>模型能让你跑起来，但只有Harness能让你知道往哪个方向跑。</p>
+<p>RAG和多Agent解决了&quot;能不能回答&quot;的问题，数据埋点解决了&quot;回答效果好不好&quot;的问题，而数据库原生Harness解决的是&quot;回答为什么不好、怎么变好、谁来改、改完有没有用&quot;这一整条链路。</p>
+<p><strong>Harness Engineer的本质，是让决策过程结构化。对个人如此，对一个Agent系统更是如此——如果Agent的运行过程不能被记录和诊断，优化就永远是盲人摸象。</strong></p>
+<p>另外一个意外的收获：有了完整的运行轨迹数据之后，积累的不仅仅是问答记录，而是一整套可复用的数据资产——意图分类数据集、RAG评估集、工具调用分析集、Memory样本集。这些数据对后续的模型微调、知识库优化、Prompt迭代都是直接可用的燃料。</p>
+<p><strong>做AI产品这件事，长期来看，谁的Harness做得好，谁的数据飞轮就转得快。</strong></p>
+<h2 id="section-8">八、实施建议：分六阶段，从最痛的场景开始</h2>
+<p>不要一上来就追求完美。建议分六个阶段：</p>
+<p>1. <strong>第一阶段</strong>：先把agent_runs和agent_steps建起来，保证任意一次问答都能通过run_id找到完整执行过程。这是整个Harness的骨架。 2. <strong>第二阶段</strong>：管RAG链路，加retrieval_records，让检索问题可诊断。 3. <strong>第三阶段</strong>：接工具调用记录。 4. <strong>第四阶段</strong>：做Memory资产化。 5. <strong>第五阶段</strong>：建评估反馈闭环。 6. <strong>第六阶段</strong>：数据导出和训练闭环。</p>
+<p><strong>不要一上来就想把八张表全部建完，先从最痛的场景开始——能追溯一条答错的记录，就已经值回改造成本了。</strong></p>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Prompt Engineer</h3>
+      <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
+    </a><a class="related-concept-card" href="../../knowledge/llm-wiki/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>LLM Wiki</h3>
+      <p>LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ai-public-knowledge-system/index.html">
+      <span>2026-07-05</span>
+      <strong>AI 从业者如何搭建自己的公开知识库</strong>
+      <p>这篇文章讨论 AI 从业者如何把文章、项目和知识库组织成一个可阅读、可检索、可引用的公开系统，并兼顾 SEO 与 GEO。</p>
+    </a><a class="article-mini" href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">
+      <span>2026-07-05</span>
+      <strong>AI Agent 的反馈循环：Loop Engineering 入门</strong>
+      <p>Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。</p>
+    </a><a class="article-mini" href="../../articles/harness-engineer-structural-replacement/index.html">
+      <span>2026-07-06</span>
+      <strong>Harness Engineer：结构化的尽头是替代</strong>
+      <p>编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、一个点踩案例暴露的根本问题</a></li><li class="toc-level-2"><a href="#section-3">三、Harness到底在做什么</a></li><li class="toc-level-2"><a href="#section-4">四、数据库原生Harness：8张核心表</a></li><li class="toc-level-2"><a href="#section-5">五、四个场景：Harness怎么改变运营方式</a></li><li class="toc-level-2"><a href="#section-6">六、从&quot;效果达标&quot;到&quot;系统可治理&quot;</a></li><li class="toc-level-2"><a href="#section-7">七、核心判断：差的不是模型能力，是Harness能力</a></li><li class="toc-level-2"><a href="#section-8">八、实施建议：分六阶段，从最痛的场景开始</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

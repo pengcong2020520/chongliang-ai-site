@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spec-Driven Development 是什么 | 冲量 AI</title>
+    <meta name="description" content="Spec-Driven Development 是用可执行规格替代传统 PRD 的协作范式——把业务需求转成研发和 AI 工具都能执行的结构化工程上下文。">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Spec-Driven Development 是什么 | 冲量 AI">
+    <meta property="og:description" content="Spec-Driven Development 是用可执行规格替代传统 PRD 的协作范式——把业务需求转成研发和 AI 工具都能执行的结构化工程上下文。">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Spec-Driven Development 是什么 | 冲量 AI">
+    <meta name="twitter:description" content="Spec-Driven Development 是用可执行规格替代传统 PRD 的协作范式——把业务需求转成研发和 AI 工具都能执行的结构化工程上下文。">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/#defined-term",
+      "name": "Spec-Driven Development",
+      "alternateName": [
+        "Spec驱动开发",
+        "SDD",
+        "规格驱动开发"
+      ],
+      "description": "Spec-Driven Development 是一种将模糊业务需求约束为 AI Agent 和工程系统都能执行的结构化任务说明的方法，Spec 定义了输入输出、AI 能力边界、异常处理、验收标准和人工确认节点，使人、AI 和工程系统共享同一套可执行上下文。",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "冲量 AI 个人知识库",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+      },
+      "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/",
+      "termCode": "spec-driven-development"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "知识库",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Spec-Driven Development",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link"  href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link" aria-current="page" href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">知识库</a><span>/</span><span>Spec-Driven Development</span></nav>
+          <p class="eyebrow">DEFINED TERM</p>
+          <h1 class="page-title">Spec-Driven Development 是什么</h1>
+          <p class="page-lede">Spec-Driven Development 是用可执行规格替代传统 PRD 的协作范式——把业务需求转成研发和 AI 工具都能执行的结构化工程上下文。</p>
+          <p class="content-meta">更新于 2026-07-06 · Spec驱动开发 / SDD / 规格驱动开发</p>
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside knowledge-tree">
+    <h2>知识原点</h2>
+    
+      <div class="tree-group">
+        <h3>AI 交互范式</h3>
+        <nav class="side-list" aria-label="AI 交互范式">
+          <a  href="../../knowledge/modify-everything/index.html">Modify Everything</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>AI 工程化</h3>
+        <nav class="side-list" aria-label="AI 工程化">
+          <a  href="../../knowledge/agent-harness/index.html">Agent Harness</a><a  href="../../knowledge/agent-orchestration/index.html">Agent Orchestration</a><a  href="../../knowledge/agent-security/index.html">Agent Security</a><a  href="../../knowledge/context-engineering/index.html">Context Engineering</a><a  href="../../knowledge/dsl/index.html">DSL</a><a  href="../../knowledge/generator-paradox/index.html">Generator Paradox</a><a  href="../../knowledge/harness-engineer/index.html">Harness Engineer</a><a  href="../../knowledge/loop-engineering/index.html">Loop Engineering</a><a  href="../../knowledge/mcp/index.html">MCP (Model Context Protocol)</a><a  href="../../knowledge/multi-model-collaboration/index.html">Multi-Model Collaboration</a><a  href="../../knowledge/orchestration-moat/index.html">Orchestration as Moat</a><a  href="../../knowledge/prompt-engineer/index.html">Prompt Engineer</a><a aria-current="page" href="../../knowledge/spec-driven-development/index.html">Spec-Driven Development</a><a  href="../../knowledge/vibe-coding/index.html">Vibe Coding</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>内容增长</h3>
+        <nav class="side-list" aria-label="内容增长">
+          <a  href="../../knowledge/geo/index.html">GEO</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>技术哲学</h3>
+        <nav class="side-list" aria-label="技术哲学">
+          <a  href="../../knowledge/newton-vs-morton/index.html">Newton vs Morton Paradigm</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>知识管理</h3>
+        <nav class="side-list" aria-label="知识管理">
+          <a  href="../../knowledge/llm-wiki/index.html">LLM Wiki</a>
+        </nav>
+      </div>
+  </aside>
+        <article class="article-body reader-main">
+          <div class="definition-box"><p><strong>定义：</strong>Spec-Driven Development 是一种将模糊业务需求约束为 AI Agent 和工程系统都能执行的结构化任务说明的方法，Spec 定义了输入输出、AI 能力边界、异常处理、验收标准和人工确认节点，使人、AI 和工程系统共享同一套可执行上下文。</p></div>
+          <h2>适用场景</h2>
+          <ul><li>AI Coding 介入后的产品研发协作</li><li>Agent 系统的需求约束与能力边界定义</li><li>AI 项目的快速Demo与持续迭代</li><li>需要AI能力边界、人工确认节点和验收标准的合规场景</li></ul>
+          <h2>它不是什么</h2>
+          <p>它不等于&quot;更长的 PRD&quot;——Spec 的核心不是写得更长而是写得更可执行；也不等于替代研发拆需求——研发仍然要做技术方案设计和任务拆分，只是在一个更清晰的上下文上做工程判断。</p>
+          <h2>常见误区</h2>
+          <ul><li>认为 Spec 就是&quot;更详细的 PRD&quot;——Spec 是可执行的工程上下文，不是需求说明</li><li>以为 Spec 可以替代研发拆需求——研发仍然需要做技术方案设计</li><li>忽略 AI 能力边界定义——不定义边界，AI和研发会按&quot;能自动就自动&quot;方向做</li><li>把 Spec 当一次性文档——Spec 需要随项目演进纳入版本管理</li></ul>
+          <h2 id="section-1">更完整的解释</h2>
+<p>AI 介入产品研发后，PRD 停在业务描述层的局限性被放大——AI Agent 最怕上下文模糊，而传统 PRD 恰恰把二次翻译留给了人。</p>
+<h3 id="section-2">PRD 的问题不是不好，而是停在了业务描述层</h3>
+<p>传统 PRD 主要回答三个问题：为什么做？给谁用？要做什么功能？对业务方来说够清楚，但研发拿到以后仍然要追问——录音支持什么格式？AI 生成结果能不能自动进入下一流程？哪些地方必须人工确认？验收标准是什么？</p>
+<p>研发真正开始做工程时，还需要做一次二次翻译：把业务语言翻译成接口、数据、状态、任务、异常、测试和上线边界。这个二次翻译在传统开发中靠人的经验完成，但 AI Coding 介入后，这个环节成了最大的断裂点。</p>
+<p><strong>AI 就像一个能力很强但完全不了解业务的新同事。你跟他说&quot;帮我做个需求分析功能&quot;，他能做出来——但大概率不是你想要的那个。这不是 AI 笨，是你给它的上下文不够。</strong></p>
+<h3 id="section-3">Spec 的核心：写得更可执行，不是写得更长</h3>
+<p>Spec 介于 PRD 和工程实现之间，它补充了传统 PRD 缺失的工程维度：</p>
+<p>| 维度 | 传统 PRD | Spec 需要补充 | |------|---------|-------------| | 业务目标 | 说明为什么做 | 明确成功标准和不做什么 | | 用户流程 | 描述主流程 | 补状态、权限、异常和兜底 | | AI 能力 | 写&quot;智能生成&quot; | 明确输入、输出、置信度、人工确认 | | 验收 | 写功能可用 | 给测试样例和通过标准 |</p>
+<h3 id="section-4">AI 时代产品研发对齐的五个变化</h3>
+<p>1. <strong>产品经理要定义 AI 的能力边界</strong>——AI 能做什么、不能做什么、哪些必须人工确认 2. <strong>产品经理要提供样例，而不只是描述</strong>——输入样例、输出样例、Badcase、验收样例 3. <strong>研发拆的不只是功能，还有 AI 链路</strong>——Prompt、RAG知识库、Agent工作流、置信度判断 4. <strong>对齐方式从一次性交接变成持续校准</strong>——Spec初版 → 快速Demo → 发现Badcase → 补Spec → 再迭代 5. <strong>验收从&quot;功能可用&quot;变成&quot;结果可控&quot;</strong>——回答是否有依据、是否幻觉、置信度低时是否兜底</p>
+<h3 id="section-5">产品经理的新角色：上下文设计师</h3>
+<p>产品经理不再只是需求的描述者，而要成为 AI 时代工程上下文的组织者——把业务、研发和 AI 之间的不确定性提前收敛。</p>
+<p>Spec 从&quot;人和人之间的对齐工具&quot;变成了&quot;人、AI 和工程系统之间的共享上下文&quot;。</p>
+<h3 id="section-6">Spec 与 SDD 的关系</h3>
+<p>传统 SDD 强调&quot;先写规格再写代码&quot;——规格满足即终止。AI 时代，Spec 不只是代码的输入，它是 AI Agent 的运行约束：</p>
+<ul>
+<li>Spec 定义了 AI 能做什么、不能做什么 → AI 能力边界</li>
+<li>Spec 定义了输入输出格式 → Agent 调用的契约</li>
+<li>Spec 定义了异常处理 → Agent 的兜底逻辑</li>
+<li>Spec 定义了验收标准 → 验证器的判断依据</li>
+<li>Spec 定义了人工确认节点 → Human-in-the-loop 的介入点</li>
+</ul>
+<h2 id="section-7">例子</h2>
+<p>需求：&quot;用户上传客户会议录音后，系统自动生成需求分析文档，并匹配历史项目。&quot;</p>
+<p>PRD 写到这里就够了。但 Spec 会进一步拆成：输入字段（audio_file、customer_id）、处理流程（ASR → 抽取需求 → 检索历史项目 → 人工确认）、AI 能力边界（不允许自动确认客户需求、不允许自动承诺交付周期）、异常处理（ASR失败提示重新上传、置信度低标记&quot;需人工确认&quot;）、验收标准（30分钟录音5分钟内生成初稿、必须包含来源引用、进入下一流程前必须有人确认）。研发不再从模糊 PRD 里猜业务边界，而是在清晰上下文上做工程判断。</p>
+          <section class="link-section" aria-labelledby="concept-related">
+            <h2 id="concept-related">相关概念</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Prompt Engineer</h3>
+      <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
+    </a><a class="related-concept-card" href="../../knowledge/context-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Context Engineering</h3>
+      <p>Context Engineering 是设计和管理大模型在多轮交互中应该看到什么信息、何时看到、以什么形式看到的系统工程方法。</p>
+    </a><a class="related-concept-card" href="../../knowledge/loop-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Loop Engineering</h3>
+      <p>Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。</p>
+    </a><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/vibe-coding/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Vibe Coding</h3>
+      <p>Vibe Coding 是自然语言驱动的编程范式——你描述感觉，AI 实现代码，编程从一门需要学习的技能变成了一个可以对话的能力。</p>
+    </a><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-articles">
+            <h2 id="concept-articles">关联文章</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/requirement-analysis-engine-agent-loop/index.html">
+      <span>2026-07-06</span>
+      <strong>需求分析Engine：把需求工程变成Agent循环</strong>
+      <p>需求分析这件事，在软件开发流程里一直是个尴尬的角色。</p>
+    </a><a class="article-mini" href="../../articles/spec-driven-development/index.html">
+      <span>2026-07-06</span>
+      <strong>Spec驱动开发：AI时代产品研发协作的范式迁移</strong>
+      <p>AI介入产品研发后，PRD停在业务描述层的局限性被放大——AI Agent最怕上下文模糊，而传统PRD恰恰把二次翻译留给了人。Spec不是更长的PRD，而是把业务需求转成研发和AI工具都能执行的结构化工程上下文。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-projects">
+            <h2 id="concept-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+          <section class="citation-box" aria-labelledby="citation-title">
+            <h2 id="citation-title">可引用摘要</h2>
+            <p>Spec 不是更长的 PRD，而是把业务需求转成研发和 AI Coding 工具都能执行的结构化工程上下文——产品经理的角色从需求描述者变成上下文设计师。</p>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>概念信息</h2>
+          <dl class="compact-dl">
+            <div><dt>英文术语</dt><dd>Spec-Driven Development</dd></div>
+            <div><dt>父节点</dt><dd>AI 工程化</dd></div>
+            <div><dt>标签</dt><dd>AI / Spec / 产品研发 / 协作范式</dd></div>
+          </dl>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

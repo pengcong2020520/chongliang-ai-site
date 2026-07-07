@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RAG / 检索增强生成 是什么 | 冲量 AI</title>
+    <meta name="description" content="RAG 是让大模型在生成回答前先检索外部知识库的技术，解决模型缺乏私有知识、知识无法实时更新、回答需要可追溯来源的问题。">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/rag/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="RAG / 检索增强生成 是什么 | 冲量 AI">
+    <meta property="og:description" content="RAG 是让大模型在生成回答前先检索外部知识库的技术，解决模型缺乏私有知识、知识无法实时更新、回答需要可追溯来源的问题。">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/knowledge/rag/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RAG / 检索增强生成 是什么 | 冲量 AI">
+    <meta name="twitter:description" content="RAG 是让大模型在生成回答前先检索外部知识库的技术，解决模型缺乏私有知识、知识无法实时更新、回答需要可追溯来源的问题。">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/rag/#defined-term",
+      "name": "RAG (Retrieval-Augmented Generation)",
+      "alternateName": [
+        "检索增强生成",
+        "RAG系统",
+        "知识库问答"
+      ],
+      "description": "RAG 是一种将检索与生成结合的技术方法，通过离线阶段将文档解析、切块、Embedding 入库，线上阶段用用户查询检索相关片段并注入 Prompt，使大模型基于私有知识准确回答。",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "冲量 AI 个人知识库",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+      },
+      "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/rag/",
+      "termCode": "rag"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "知识库",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "RAG (Retrieval-Augmented Generation)",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/rag/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link"  href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link" aria-current="page" href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">知识库</a><span>/</span><span>RAG (Retrieval-Augmented Generation)</span></nav>
+          <p class="eyebrow">DEFINED TERM</p>
+          <h1 class="page-title">RAG / 检索增强生成 是什么</h1>
+          <p class="page-lede">RAG 是让大模型在生成回答前先检索外部知识库的技术，解决模型缺乏私有知识、知识无法实时更新、回答需要可追溯来源的问题。</p>
+          <p class="content-meta">更新于 2026-07-06 · 检索增强生成 / RAG系统 / 知识库问答</p>
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside knowledge-tree">
+    <h2>知识原点</h2>
+    
+      <div class="tree-group">
+        <h3>AI 工程化</h3>
+        <nav class="side-list" aria-label="AI 工程化">
+          <a  href="../../knowledge/agent-harness/index.html">Agent Harness</a><a  href="../../knowledge/agent-orchestration/index.html">Agent Orchestration</a><a  href="../../knowledge/skill/index.html">AI Skill</a><a  href="../../knowledge/content-localization/index.html">Content Localization</a><a  href="../../knowledge/context-engineering/index.html">Context Engineering</a><a  href="../../knowledge/dsl/index.html">DSL</a><a  href="../../knowledge/generator-paradox/index.html">Generator Paradox</a><a  href="../../knowledge/harness-engineer/index.html">Harness Engineer</a><a  href="../../knowledge/loop-engineering/index.html">Loop Engineering</a><a  href="../../knowledge/mcp/index.html">MCP (Model Context Protocol)</a><a  href="../../knowledge/prompt-engineer/index.html">Prompt Engineer</a><a aria-current="page" href="../../knowledge/rag/index.html">RAG (Retrieval-Augmented Generation)</a><a  href="../../knowledge/spec-driven-development/index.html">Spec-Driven Development</a><a  href="../../knowledge/vibe-coding/index.html">Vibe Coding</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>内容增长</h3>
+        <nav class="side-list" aria-label="内容增长">
+          <a  href="../../knowledge/geo/index.html">GEO</a>
+        </nav>
+      </div>
+      <div class="tree-group">
+        <h3>知识管理</h3>
+        <nav class="side-list" aria-label="知识管理">
+          <a  href="../../knowledge/llm-wiki/index.html">LLM Wiki</a>
+        </nav>
+      </div>
+  </aside>
+        <article class="article-body reader-main">
+          <div class="definition-box"><p><strong>定义：</strong>RAG 是一种将检索与生成结合的技术方法，通过离线阶段将文档解析、切块、Embedding 入库，线上阶段用用户查询检索相关片段并注入 Prompt，使大模型基于私有知识准确回答。</p></div>
+          <h2>适用场景</h2>
+          <ul><li>企业私有文档问答</li><li>需求分析与历史项目匹配</li><li>合规性溯源回答</li><li>多Agent架构中专家Agent的知识挂载</li></ul>
+          <h2>它不是什么</h2>
+          <p>它不等于&quot;给模型加个搜索引擎&quot;，也不等于微调——RAG 不改变模型参数，只改变模型在生成时能看到什么上下文；RAG 也不保证答案正确，需要全链路调优和质量验证。</p>
+          <h2>常见误区</h2>
+          <ul><li>认为 RAG 的瓶颈在检索引擎，实际上瓶颈在输入质量和切块策略</li><li>忽视 chunk 大小调优——过大导致检索精度下降，过小导致上下文不完整</li><li>只关注整体准确率而不做全链路追踪，无法定位具体哪个环节出了问题</li><li>认为 Graph RAG 万能——它只在跨文本推理和复杂关系梳理场景才有明显提升</li></ul>
+          <h2 id="section-1">更完整的解释</h2>
+<p>RAG 是当前 Agent 工程化的三类基础设施技术之一（Prompt 工程、多Agent架构、RAG），它解决的核心问题是：仅靠 LLM 的参数化知识无法覆盖企业私有文档，必须通过检索机制将历史文档注入生成过程。</p>
+<h3 id="section-2">标准流程</h3>
+<p><strong>离线处理</strong>：非结构化数据（PDF、图片等）→ OCR 预处理转 Markdown → 按策略切块 → Embedding 后存入向量数据库建立索引</p>
+<p><strong>线上查询</strong>：用户 Query 与向量库做相似度匹配（粗筛）→ Top-K 结果做重排序（精选）→ 抓取最终结果给大模型组装输出</p>
+<h3 id="section-3">核心调优：文本切块三层法</h3>
+<p>RAG 调优中最核心的环节：</p>
+<p>1. <strong>段落切分</strong>：按段落（<code>\n\n</code>）做初步切块 2. <strong>语句切分</strong>：段落仍过长时，按标点符号切分为单个句子 3. <strong>语义切分</strong>：通过语义脉冲分析做调整——脉冲平缓说明前后语义关联度高，重新拼接召回；脉冲明显说明前后语义差异大，再次切分</p>
+<p>调优后整体文档处理准确率可从 80% 提升至 95% 以上。</p>
+<h3 id="section-4">全链路追踪</h3>
+<p>传统 RAG 的核心痛点：只知道整体准确率不高，无法定位是哪个环节出了问题。解法是引入 Run ID 串联整条链路，在切块、Embedding、向量匹配等每个环节都记录数据。当问答准确率不足时，通过 Run ID 快速定位具体问题模块。</p>
+<h3 id="section-5">多关键词并行检索</h3>
+<p>传统 RAG 直接用用户原始 query 检索，口语化表达导致召回率低。解法是让 LLM 先从问题中提取 6-8 个精准关键词，并行检索后整合结果。核心判断：<strong>RAG 的瓶颈不在检索引擎，在输入质量。</strong> 先做关键词扩展、术语标准化、消歧，再做检索优化，效果才好。</p>
+<h3 id="section-6">输出质量验证</h3>
+<p>强制溯源（输出必须带上来源索引）→ AI 自动判别引用关联性 → 评测集测试 → 小批量用户体验 → Bad Case 回流调优。</p>
+<h3 id="section-7">三类技术的定位关系</h3>
+<ul>
+<li><strong>多Agent架构</strong>是系统级组织方式，决定&quot;谁来做&quot;</li>
+<li><strong>RAG</strong>是知识级增强手段，决定&quot;用什么知识做&quot;</li>
+<li><strong>Prompt 工程</strong>是交互级优化手段，决定&quot;怎么跟 LLM 说&quot;</li>
+</ul>
+<p>三者是嵌套互补关系，不是平级竞争。</p>
+<h2 id="section-8">例子</h2>
+<p>企业知识问答场景：用户问&quot;我想了解一下我们公司新出的那款笔记本电脑，最近好像有人说存不上文件&quot;——如果直接用这段话做向量检索，会被大量无关信息干扰。正确做法是让 LLM 先提取关键词（&quot;笔记本电脑&quot;、&quot;文件保存失败&quot;等），标准化术语后并行检索，最终生成带来源引用的回答。这就是 RAG 在企业落地中的典型工作流。</p>
+          <section class="link-section" aria-labelledby="concept-related">
+            <h2 id="concept-related">相关概念</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/prompt-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Prompt Engineer</h3>
+      <p>Prompt Engineer 通过任务建模、上下文组织、约束设计和评估迭代，让大模型在具体任务中更稳定地产出结果。</p>
+    </a><a class="related-concept-card" href="../../knowledge/harness-engineer/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Harness Engineer</h3>
+      <p>Harness Engineer 为 AI 系统建立可复现的运行、评测、日志、实验和反馈基座。</p>
+    </a><a class="related-concept-card" href="../../knowledge/agent-orchestration/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Agent Orchestration</h3>
+      <p>Agent Orchestration 是多模型/多Agent协作的编排能力——决定哪个模型做什么、何时做、如何组合，它是 AI 时代新的护城河。</p>
+    </a><a class="related-concept-card" href="../../knowledge/dsl/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>DSL</h3>
+      <p>DSL 用领域语言压缩复杂性，让人、模型和系统之间共享更稳定的中间表达。</p>
+    </a><a class="related-concept-card" href="../../knowledge/llm-wiki/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>LLM Wiki</h3>
+      <p>LLM Wiki 是把个人知识库拆成原子概念、概念关系、引用摘要和可查询路径的方法。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-articles">
+            <h2 id="concept-articles">关联文章</h2>
+            <div class="mini-list"><p class="muted">暂无关联文章。</p></div>
+          </section>
+          <section class="link-section" aria-labelledby="concept-projects">
+            <h2 id="concept-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+          <section class="citation-box" aria-labelledby="citation-title">
+            <h2 id="citation-title">可引用摘要</h2>
+            <p>RAG 的核心判断是：瓶颈不在检索引擎，在输入质量——先把关键词扩展、术语标准化、消歧做好，再做检索优化效果才好。</p>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>概念信息</h2>
+          <dl class="compact-dl">
+            <div><dt>英文术语</dt><dd>RAG (Retrieval-Augmented Generation)</dd></div>
+            <div><dt>父节点</dt><dd>AI 工程化</dd></div>
+            <div><dt>标签</dt><dd>AI / RAG / 检索 / 知识库</dd></div>
+          </dl>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

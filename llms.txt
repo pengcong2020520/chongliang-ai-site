@@ -1,0 +1,93 @@
+# 冲量 AI
+
+> 在噪声中提取结构，在结构中形成判断。
+
+冲量 AI 是面向新手入门 AI 产品经理的知识库，系统整理 AI Agent、Loop Engineering、MCP、Prompt Engineering 等核心概念与实战文章，帮助零基础读者建立 AI 产品认知框架。
+
+## Primary Pages
+
+- Home: https://pengcong2020520.github.io/chongliang-ai-site/
+- Articles: https://pengcong2020520.github.io/chongliang-ai-site/articles/
+- Projects: https://pengcong2020520.github.io/chongliang-ai-site/projects/
+- Knowledge Index: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/
+- About: https://pengcong2020520.github.io/chongliang-ai-site/about/
+
+## Article Pages
+
+- Agent重构广告投放——投手角色重构: https://pengcong2020520.github.io/chongliang-ai-site/articles/ad-optimizer-role-reconstruction/
+- 广告投放Agent工程化：平台生态对接与工具链架构: https://pengcong2020520.github.io/chongliang-ai-site/articles/ad-targeting-agent-engineering/
+- Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论: https://pengcong2020520.github.io/chongliang-ai-site/articles/agent-harness-engineering-governable-system/
+- Agent需求准入评估体系：从上线到下线的生命周期: https://pengcong2020520.github.io/chongliang-ai-site/articles/agent-requirement-admission-lifecycle/
+- AI Agent 与加密支付：自主交易的新范式: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-agent-crypto-payment-autonomous-transaction/
+- AI内容审核双方案：抽帧与整篇的成本博弈: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-content-moderation-frame-vs-full-text/
+- AI开发者社区日：AI Agent与数据层: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-dev-community-day-agent-data-layer/
+- AI行业分层与数据壁垒：为什么结构化数据是护城河: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-industry-layering-data-moat/
+- AI不是效率工具：从个人到企业都需要重构: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-not-efficiency-tool-individual-to-enterprise/
+- AI产品经理技术实践：从RAG调优到Agent架构的系统方法论: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-pm-tech-practice-rag-to-agent/
+- AI 安全：企业落地 Agent 的安全风险与合规框架: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-security-enterprise-agent-compliance/
+- AI技能复用与共享：从手动传包到仓库化: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-skill-reuse-manual-to-repository/
+- AI小工具赛道定位与企业内部协作模式: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-tool-positioning-enterprise-collaboration/
+- CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移: https://pengcong2020520.github.io/chongliang-ai-site/articles/cli-revolution-mcp-to-skill/
+- 企业级Agent落地实践：从需求准入到知识治理: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-agent-implementation-governance/
+- 企业级AI产品实践：从RAG调优到Agent架构的系统性方法论: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-ai-product-practice-rag-to-agent/
+- 企业AI PM平台架构实践：从需求到自动开发: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-aipm-platform-architecture/
+- 企业级多Agent架构落地：意图识别与专家分发: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-multi-agent-intent-routing/
+- Agent时代的发电机悖论：从节点替换到治理重构: https://pengcong2020520.github.io/chongliang-ai-site/articles/generator-paradox-agent-governance/
+- GUI Agent：CLI化终局之前的桥梁，中心化的入口: https://pengcong2020520.github.io/chongliang-ai-site/articles/gui-agent-single-step-vs-multi-step/
+- Harness Engineer：结构化的尽头是替代: https://pengcong2020520.github.io/chongliang-ai-site/articles/harness-engineer-structural-replacement/
+- 知产AI能力中台设计：引擎化编排与引导式交付方法论: https://pengcong2020520.github.io/chongliang-ai-site/articles/ip-ai-platform-engine-orchestration/
+- 本体论离你有多远：LLM时代的知识结构升级: https://pengcong2020520.github.io/chongliang-ai-site/articles/link-graph-to-knowledge-graph-ontology/
+- Loop Engineering：设计模式、工具链与实践案例: https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-design-patterns/
+- Loop Engineering——AI工程范式迁移: https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-paradigm-shift/
+- 模型即产品，Loop即未来：软件3.0的第一性原理: https://pengcong2020520.github.io/chongliang-ai-site/articles/model-as-product-loop-as-future/
+- Modify Everything：一种新的运行时交互范式: https://pengcong2020520.github.io/chongliang-ai-site/articles/modify-everything-new-runtime-interaction/
+- 多模型协作全景图：六大平台技术架构与最优组合: https://pengcong2020520.github.io/chongliang-ai-site/articles/multi-model-collaboration-landscape/
+- 智能的本质：从牛顿思路到莫顿思路: https://pengcong2020520.github.io/chongliang-ai-site/articles/nature-of-intelligence-newton-vs-morton/
+- 本体论（Ontology）适配性评估与落地方案: https://pengcong2020520.github.io/chongliang-ai-site/articles/ontology-adaptability-assessment/
+- 编排能力是新护城河——多模型协作的竞争逻辑: https://pengcong2020520.github.io/chongliang-ai-site/articles/orchestration-as-moat/
+- 基于PDF内容的智能RAG助手：多关键词并行检索方法论: https://pengcong2020520.github.io/chongliang-ai-site/articles/pdf-smart-rag-multi-keyword-retrieval/
+- 产品深度报告Agent：主从架构与上下文摘要传递: https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/
+- 生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构: https://pengcong2020520.github.io/chongliang-ai-site/articles/production-agent-gui-failure-modes/
+- Prompt工程 / 多Agent / RAG 三类技术基础认知: https://pengcong2020520.github.io/chongliang-ai-site/articles/prompt-engineering-multi-agent-rag/
+- 提示词、Harness与RAG：AI工具链的系统拼图: https://pengcong2020520.github.io/chongliang-ai-site/articles/prompt-harness-rag-toolchain-puzzle/
+- 从RAG到Harness：AI助手实战升级与数据库原生架构: https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/
+- 需求分析Engine：把需求工程变成Agent循环: https://pengcong2020520.github.io/chongliang-ai-site/articles/requirement-analysis-engine-agent-loop/
+- SaaS正在被AI-Agent肢解：从软件即服务到能力即服务: https://pengcong2020520.github.io/chongliang-ai-site/articles/saas-disrupted-by-ai-agent/
+- 自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断: https://pengcong2020520.github.io/chongliang-ai-site/articles/self-built-agent-hub-architecture/
+- Spec驱动开发：AI时代产品研发协作的范式迁移: https://pengcong2020520.github.io/chongliang-ai-site/articles/spec-driven-development/
+- 统一化vs个性化技术哲学：牛顿思路与莫顿思路: https://pengcong2020520.github.io/chongliang-ai-site/articles/unification-vs-personalization-newton-morton/
+- Vibe Coding与AI平权：从技能垄断到能力民主化: https://pengcong2020520.github.io/chongliang-ai-site/articles/vibe-coding-ai-democratization/
+- Vibe Coding上下文管理：三层文档系统与Prompt Caching优化: https://pengcong2020520.github.io/chongliang-ai-site/articles/vibe-coding-context-management/
+- AI 从业者如何搭建自己的公开知识库: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-public-knowledge-system/
+- AI Agent 的反馈循环：Loop Engineering 入门: https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/
+
+## Concept Pages
+
+- Modify Everything: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/modify-everything/
+- Agent Harness: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/
+- Agent Orchestration: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-orchestration/
+- Agent Security: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-security/
+- Context Engineering: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/context-engineering/
+- DSL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/dsl/
+- Generator Paradox: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/generator-paradox/
+- Harness Engineer: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/harness-engineer/
+- Loop Engineering: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/loop-engineering/
+- MCP (Model Context Protocol): https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/
+- Multi-Model Collaboration: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/multi-model-collaboration/
+- Orchestration as Moat: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/orchestration-moat/
+- Prompt Engineer: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/prompt-engineer/
+- Spec-Driven Development: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/
+- Vibe Coding: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/vibe-coding/
+- GEO: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/geo/
+- Newton vs Morton Paradigm: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/newton-vs-morton/
+- LLM Wiki: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/llm-wiki/
+
+## Machine Readable Indexes
+
+- Search index: https://pengcong2020520.github.io/chongliang-ai-site/search-index.json
+- GEO index: https://pengcong2020520.github.io/chongliang-ai-site/geo-index.json
+- Full LLM summary: https://pengcong2020520.github.io/chongliang-ai-site/llms-full.txt
+
+## Preferred Citation
+
+When referencing this site, cite the specific article or concept page rather than only the homepage.

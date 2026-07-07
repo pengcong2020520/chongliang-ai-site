@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>产品深度报告Agent：主从架构与上下文摘要传递 | 冲量 AI</title>
+    <meta name="description" content="搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；">
+    <link rel="canonical" href="https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="产品深度报告Agent：主从架构与上下文摘要传递 | 冲量 AI">
+    <meta property="og:description" content="搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；">
+    <meta property="og:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/">
+    <meta property="og:site_name" content="冲量 AI">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="产品深度报告Agent：主从架构与上下文摘要传递 | 冲量 AI">
+    <meta name="twitter:description" content="搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；">
+    <meta name="twitter:image" content="https://pengcong2020520.github.io/chongliang-ai-site/assets/og-image.png">
+    <link rel="stylesheet" href="../../assets/styles.css">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/#article",
+      "headline": "产品深度报告Agent：主从架构与上下文摘要传递",
+      "description": "搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "name": "冲量 AI",
+        "@type": "Person",
+        "description": "AI 从业者的个人知识资产网站，整理文章、项目与原子概念。"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "冲量 AI",
+        "url": "https://pengcong2020520.github.io/chongliang-ai-site"
+      },
+      "mainEntityOfPage": "https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/",
+      "keywords": "Agent架构, 主从Agent, 上下文管理, 依赖排序, 报告生成",
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Agent Orchestration",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-orchestration/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Loop Engineering",
+          "url": "https://pengcong2020520.github.io/chongliang-ai-site/knowledge/loop-engineering/"
+        }
+      ],
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "文章",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/articles/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "产品深度报告Agent：主从架构与上下文摘要传递",
+          "item": "https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/"
+        }
+      ]
+    }
+  ]
+}</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="../../index.html" aria-label="冲量 AI 首页"><span class="brand-mark">冲</span><span>冲量 AI</span></a>
+        <nav class="nav-links" aria-label="主导航">
+          <a class="nav-link"  href="../../index.html">首页</a>
+<a class="nav-link" aria-current="page" href="../../articles/index.html">文章</a>
+<a class="nav-link"  href="../../projects/index.html">项目</a>
+<a class="nav-link"  href="../../knowledge/index.html">知识库</a>
+<a class="nav-link"  href="../../about/index.html">关于</a>
+        </nav>
+        <div class="language-switch" aria-label="语言切换"><a href="./index.html" aria-current="true">中</a><a href="../../en/index.html">EN</a></div>
+        <button class="menu-button" type="button" data-menu-button aria-label="打开菜单" aria-expanded="false">≡</button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="面包屑"><a href="../../index.html">首页</a><span>/</span><a href="../index.html">文章</a><span>/</span><span>产品深度报告Agent：主从架构与上下文摘要传递</span></nav>
+          <p class="eyebrow">LOCAL MD</p>
+          <h1 class="page-title">产品深度报告Agent：主从架构与上下文摘要传递</h1>
+          <p class="page-lede">搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；</p>
+          <p class="content-meta">发布于 2026-07-06 · 更新于 2026-07-06 · Agent架构 / 主从Agent / 上下文管理 / 依赖排序 / 报告生成</p>
+          
+        </div>
+      </section>
+      <section class="reader-layout container">
+        <aside class="reader-aside">
+    <h2>文章目录</h2>
+    <nav class="side-list" aria-label="文章目录">
+      <a  href="../../articles/ad-optimizer-role-reconstruction/index.html">Agent重构广告投放——投手角色重构</a><a  href="../../articles/ad-targeting-agent-engineering/index.html">广告投放Agent工程化：平台生态对接与工具链架构</a><a  href="../../articles/agent-harness-engineering-governable-system/index.html">Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</a><a  href="../../articles/agent-requirement-admission-lifecycle/index.html">Agent需求准入评估体系：从上线到下线的生命周期</a><a  href="../../articles/ai-agent-crypto-payment-autonomous-transaction/index.html">AI Agent 与加密支付：自主交易的新范式</a><a  href="../../articles/ai-content-moderation-frame-vs-full-text/index.html">AI内容审核双方案：抽帧与整篇的成本博弈</a><a  href="../../articles/ai-dev-community-day-agent-data-layer/index.html">AI开发者社区日：AI Agent与数据层</a><a  href="../../articles/ai-industry-layering-data-moat/index.html">AI行业分层与数据壁垒：为什么结构化数据是护城河</a><a  href="../../articles/ai-not-efficiency-tool-individual-to-enterprise/index.html">AI不是效率工具：从个人到企业都需要重构</a><a  href="../../articles/ai-pm-tech-practice-rag-to-agent/index.html">AI产品经理技术实践：从RAG调优到Agent架构的系统方法论</a><a  href="../../articles/ai-security-enterprise-agent-compliance/index.html">AI 安全：企业落地 Agent 的安全风险与合规框架</a><a  href="../../articles/ai-skill-reuse-manual-to-repository/index.html">AI技能复用与共享：从手动传包到仓库化</a><a  href="../../articles/ai-tool-positioning-enterprise-collaboration/index.html">AI小工具赛道定位与企业内部协作模式</a><a  href="../../articles/cli-revolution-mcp-to-skill/index.html">CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移</a><a  href="../../articles/enterprise-agent-implementation-governance/index.html">企业级Agent落地实践：从需求准入到知识治理</a><a  href="../../articles/enterprise-ai-product-practice-rag-to-agent/index.html">企业级AI产品实践：从RAG调优到Agent架构的系统性方法论</a><a  href="../../articles/enterprise-aipm-platform-architecture/index.html">企业AI PM平台架构实践：从需求到自动开发</a><a  href="../../articles/enterprise-multi-agent-intent-routing/index.html">企业级多Agent架构落地：意图识别与专家分发</a><a  href="../../articles/generator-paradox-agent-governance/index.html">Agent时代的发电机悖论：从节点替换到治理重构</a><a  href="../../articles/gui-agent-single-step-vs-multi-step/index.html">GUI Agent：CLI化终局之前的桥梁，中心化的入口</a><a  href="../../articles/harness-engineer-structural-replacement/index.html">Harness Engineer：结构化的尽头是替代</a><a  href="../../articles/ip-ai-platform-engine-orchestration/index.html">知产AI能力中台设计：引擎化编排与引导式交付方法论</a><a  href="../../articles/link-graph-to-knowledge-graph-ontology/index.html">本体论离你有多远：LLM时代的知识结构升级</a><a  href="../../articles/loop-engineering-design-patterns/index.html">Loop Engineering：设计模式、工具链与实践案例</a><a  href="../../articles/loop-engineering-paradigm-shift/index.html">Loop Engineering——AI工程范式迁移</a><a  href="../../articles/model-as-product-loop-as-future/index.html">模型即产品，Loop即未来：软件3.0的第一性原理</a><a  href="../../articles/modify-everything-new-runtime-interaction/index.html">Modify Everything：一种新的运行时交互范式</a><a  href="../../articles/multi-model-collaboration-landscape/index.html">多模型协作全景图：六大平台技术架构与最优组合</a><a  href="../../articles/nature-of-intelligence-newton-vs-morton/index.html">智能的本质：从牛顿思路到莫顿思路</a><a  href="../../articles/ontology-adaptability-assessment/index.html">本体论（Ontology）适配性评估与落地方案</a><a  href="../../articles/orchestration-as-moat/index.html">编排能力是新护城河——多模型协作的竞争逻辑</a><a  href="../../articles/pdf-smart-rag-multi-keyword-retrieval/index.html">基于PDF内容的智能RAG助手：多关键词并行检索方法论</a><a aria-current="page" href="../../articles/product-report-agent-master-slave-architecture/index.html">产品深度报告Agent：主从架构与上下文摘要传递</a><a  href="../../articles/production-agent-gui-failure-modes/index.html">生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构</a><a  href="../../articles/prompt-engineering-multi-agent-rag/index.html">Prompt工程 / 多Agent / RAG 三类技术基础认知</a><a  href="../../articles/prompt-harness-rag-toolchain-puzzle/index.html">提示词、Harness与RAG：AI工具链的系统拼图</a><a  href="../../articles/rag-to-harness-ai-assistant-upgrade/index.html">从RAG到Harness：AI助手实战升级与数据库原生架构</a><a  href="../../articles/requirement-analysis-engine-agent-loop/index.html">需求分析Engine：把需求工程变成Agent循环</a><a  href="../../articles/saas-disrupted-by-ai-agent/index.html">SaaS正在被AI-Agent肢解：从软件即服务到能力即服务</a><a  href="../../articles/self-built-agent-hub-architecture/index.html">自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断</a><a  href="../../articles/spec-driven-development/index.html">Spec驱动开发：AI时代产品研发协作的范式迁移</a><a  href="../../articles/unification-vs-personalization-newton-morton/index.html">统一化vs个性化技术哲学：牛顿思路与莫顿思路</a><a  href="../../articles/vibe-coding-ai-democratization/index.html">Vibe Coding与AI平权：从技能垄断到能力民主化</a><a  href="../../articles/vibe-coding-context-management/index.html">Vibe Coding上下文管理：三层文档系统与Prompt Caching优化</a><a  href="../../articles/ai-public-knowledge-system/index.html">AI 从业者如何搭建自己的公开知识库</a><a  href="../../articles/loop-engineering-ai-agent-feedback-loops/index.html">AI Agent 的反馈循环：Loop Engineering 入门</a>
+    </nav>
+  </aside>
+        <article class="article-body reader-main">
+          <h2 id="section-1">核心结论</h2>
+<p>目标是搭一个能够独立生成AI产品深度报告的Agent。</p>
+<p>一份合格的行业深度报告，通常包含市场全景、竞品分析、产品概况、用户画像、产品体验、增长策略、SWOT分析、改进建议、执行摘要、目录和附录。每个模块的分析逻辑、专业视角、输出格式都不一样——市场分析需要数据驱动，产品分析需要结构化拆解，用户研究需要真实用户声音，增长分析需要可验证的策略观察。</p>
+<p>一个人用一个长对话应该就能搞定。但我犹豫了一下：<strong>我一个人，够专业吗？</strong></p>
+<p>每个模块都有自己的&quot;专业度门槛&quot;，我怕自己写出来的提示词，看起来有，但不够深。</p>
+<p>于是做了一个决定：<strong>让多个人分工协作，每人专精一个模块。</strong></p>
+<p>现在回头看，这个决定让我绕了很大的弯路。但也正是这个弯路，让我摸索出了一套方法论。</p>
+<h2 id="section-2">二、分工之后的混乱</h2>
+<p>分工的初衷是好的——每个模块由最擅长这个领域的人来写提示词，同时调取对应的工具做网页数据抓取，保证数据质量和深度。</p>
+<p>每个人写完后，把所有提示词汇总到一起，准备交给AI做最终的整合。</p>
+<p><strong>然后问题一个接一个地来了。</strong></p>
+<p><strong>第一个问题：格式风格完全不统一。</strong> 有人用<code>## 1.1</code>，有人用<code>01.</code>，有人用&quot;Part 0&quot;。更麻烦的是，每个人写的时候都以为自己是&quot;第2章&quot;，编号互相冲突。</p>
+<p><strong>第二个问题：有些东西没人写。</strong> 封面怎么生成？目录怎么拼？执行摘要怎么提炼？附录怎么整理？这些依赖全部内容才能生成的部分，每个分工的人只管自己的模块，谁也没管。</p>
+<p><strong>第三个问题：生成顺序搞错了。</strong> 一开始让Agent按章节1→2→3→4的顺序生成，结果执行摘要写出来全是空话——因为那时候后面的章节还没生成，它根本没有结论可提炼。</p>
+<p><strong>原来以为分工是&quot;加速器&quot;，没想到它差点变成了&quot;绊脚石&quot;。</strong></p>
+<h2 id="section-3">三、和AI反复拉扯：从混乱到v1</h2>
+<p>把所有人写好的提示词文档交给AI，试图让它来做最终的汇总。</p>
+<p>一开始想得很简单：&quot;把所有提示词丢给它，让它自己整合。&quot;</p>
+<p>结果AI做了很多不想要的修改——删掉某个模块的关键限制、调整不该动的内容、把各章节的编号改得面目全非。</p>
+<p>于是又给了它一个&quot;补丁&quot;指令：按照大纲结构调整，不要删减提示词内容，只梳理序号。</p>
+<p>然后它做出来了，又发现新问题：某些章节编号对不上、某些内部编号互相冲突、某些自相矛盾的指令没被清理掉。</p>
+<p>开始进入反复拉扯。一轮一轮地对话、调整、验证。</p>
+<p><strong>AI不会主动理解你的&quot;不改什么&quot;，它只会执行你的&quot;改什么&quot;。你需要非常精确地告诉它边界在哪里。</strong></p>
+<p>最终，经过多轮拉扯，生成了一版看起来完整的v1版本。</p>
+<h2 id="section-4">四、v1还不够：需要一个&quot;总指挥&quot;</h2>
+<p>v1出来后试了一下，发现生成的报告还是不完整。</p>
+<p>问题出在哪里？</p>
+<p>每个人只负责生成各自部分的报告，但<strong>没有人负责那些依赖全部内容才能生成的部分</strong>：</p>
+<ul>
+<li><strong>封面</strong>需要汇总产品名、作者、日期</li>
+<li><strong>目录</strong>需要知道所有章节的实际结构</li>
+<li><strong>执行摘要</strong>需要提炼前8章的核心结论，但那时候后面的章节还没生成</li>
+<li><strong>附录</strong>需要汇总所有章节中引用的数据来源</li>
+</ul>
+<p><strong>更关键的是：生成顺序搞错了。</strong> 如果按章节顺序生成，执行摘要写出来一定是空话——因为它是&quot;总结&quot;，而后面还有7个章节没写。</p>
+<p>这就像让一个人写论文的&quot;结论&quot;，但他的文献综述、方法论、数据分析都还没写。</p>
+<p><strong>这时候意识到：我需要一个&quot;总指挥&quot;。</strong> 不是简单的拼装工——它需要能调度、能统筹、能处理依赖关系、能管理上下文。</p>
+<h2 id="section-5">五、最终方案：主从Agent + 上下文摘要传递</h2>
+<p>重新设计了整个架构。核心思路是：</p>
+<p><strong>主Agent是总指挥，负责调度、统筹、汇总。分Agent是各领域专家，负责各自模块的专业分析。</strong></p>
+<p>主Agent和分Agent不是简单的&quot;拼装关系&quot;，而是有明确的职责分工和依赖管理。</p>
+<p><strong>主Agent的职责（总指挥）：</strong></p>
+<ul>
+<li>接收用户输入，制定执行计划</li>
+<li>按依赖关系排序各模块的生成顺序</li>
+<li>调度分Agent依次执行，每步切换专家角色</li>
+<li>处理依赖全部内容的部分：封面、目录、执行摘要、附录</li>
+<li>做最后的整合和拼装</li>
+</ul>
+<p><strong>分Agent的职责（领域专家）：</strong></p>
+<ul>
+<li>各自拿到自己的提示词后，独立完成分析</li>
+<li>每个分Agent有自己的专业角色（市场全景专家、资深产品经理、增长策略分析师）</li>
+<li>调用对应的工具获取真实数据</li>
+<li>不需要关心全局，只需要把自己的模块写好</li>
+</ul>
+<p><strong>关键突破：按依赖关系排序。</strong></p>
+<p>生成顺序不是按报告章节顺序排，而是按依赖关系排：</p>
+<p>| 顺序 | 内容 | 为什么是这个顺序 | |------|------|-----------------| | Step 1 | 封面 | 无依赖，随时可生成 | | Step 2 | 市场全景 | 报告主体的起点 | | Step 3 | 产品概况 | 参考市场分析的结论定位产品 | | Step 4 | 用户分析 | 参考市场+产品定位确定用户画像 | | Step 5 | 产品体验 | 参考市场+产品+用户分析进行走查 | | Step 6 | 增长策略 | 参考前序全部结论分析增长策略 | | Step 7 | SWOT | 参考前序全部结论做战略判断 | | Step 8 | 改进建议 | 参考前序全部结论提出改进 | | Step 9 | 执行摘要 | <strong>必须等2-8全部完成</strong> | | Step 10 | 目录 | <strong>必须等全部章节完成</strong> | | Step 11 | 附录 | <strong>必须等全部章节完成</strong> |</p>
+<p>执行摘要必须放在最后，因为它需要&quot;提炼整个报告最重要的3-5个结论&quot;。如果它先生成，后面7章还没写，它只能写空话。</p>
+<h2 id="section-6">六、隐藏的坑：上下文窗口溢出</h2>
+<p>方案定了，又发现一个问题。如果让一个对话里的Agent按顺序生成全部10个章节，到了后面的章节，前面的内容已经占满了上下文窗口——<strong>后面的章节开始截断、遗忘关键结论、输出质量下降</strong>。</p>
+<p>一份完整的产品深度体验报告通常有3-5万字，一个对话的上下文虽然有200K tokens，但提示词本身加上已经生成的内容，到了Step 7、Step 8就容易超。</p>
+<p>解决方案是：<strong>每章生成完后，自动提取一个300-500字的关键摘要，后续章节只接收摘要，不接收完整内容。</strong></p>
+<pre><code>### [章节名] 关键摘要
+
+**核心结论（3-5条）：**
+1. ...
+2. ...
+3. ...
+
+**对后续章节的直接指导：**
+- ...
+
+**已确认的数据/事实：**
+- ...
+
+**数据缺口（待后续章节关注）：**
+- ...</code></pre>
+<p><strong>别小看这个摘要模板。</strong> 第四栏&quot;数据缺口&quot;是最有价值的——它把跨模块的线索传递了起来。</p>
+<p>比如说，市场分析没有找到某个竞品的MAU数据，这个缺口会在摘要中标注出来。到了用户分析模块，它接收到这个摘要，就知道&quot;前序没搞定那个数据，我这边需要关注&quot;。这就是<strong>跨模块的线索传递</strong>——让每个模块不只是独立工作，还能接收到前序的&quot;遗留任务&quot;。</p>
+<h2 id="section-7">七、6个关键坑点复盘</h2>
+<p>| 坑 | 现象 | 解法 | |----|------|------| | 多人写提示词格式必乱 | 不同人用不同编号体系 | 分工时就给出统一模板 | | 提示词自相矛盾 | &quot;不要改编号&quot;但编号必须改 | 整合时删除模块内部限制，全局统一规定 | | 摘要附录没人写 | 每人只管自己的模块 | 主Agent的核心职责 | | 一次生成太长会截断 | 10章一次性生成质量下降 | 分步生成+摘要传递 | | 专家角色被混淆 | 整合后所有模块用同一角色 | 保留每个模块的独立专家角色 | | 生成顺序搞错 | 执行摘要写出来是空话 | 按依赖关系排序，摘要最后生成 |</p>
+<h2 id="section-8">八、方法论的通用性</h2>
+<p>这套&quot;主从Agent&quot;的架构思路，不只适用于报告生成。任何一个<strong>需要多领域专业知识、多步骤输出、有依赖关系</strong>的复杂任务，都可以用这个框架。</p>
+<p><strong>拆解任务时问自己三个问题：</strong></p>
+<p>1. <strong>这个任务可以拆成几个独立的专业模块？</strong> —— 每个模块对应一个子Agent 2. <strong>哪些模块之间有依赖关系？</strong> —— 依赖关系决定生成顺序 3. <strong>有没有哪些输出需要&quot;汇总全部内容&quot;才能生成？</strong> —— 这些是主Agent的核心职责</p>
+<p><strong>这套架构的核心判断：复杂Agent搭建本质上是架构设计问题，不只是提示词问题。</strong></p>
+<p>提示词解决的是&quot;每个模块怎么写得专业&quot;——专家角色、分析框架、输出格式、质量标准。</p>
+<p>架构解决的是&quot;多个模块怎么组合在一起&quot;——依赖关系、生成顺序、上下文传递、整合机制。</p>
+<p><strong>这两件事缺一不可。但很多人在搭Agent的时候，只关心前者，忽略了后者。</strong></p>
+<p><strong>先把架构想清楚，再写提示词。</strong> 如果顺序反了，你会像我一样——写完了再改编号、再改顺序、再解决截断问题、再和AI反复拉扯。</p>
+<p>当然，如果当初没走那个&quot;分工&quot;的弯路，可能也不会发现这些问题。有时候，将错就错反而能发现真正的答案。</p>
+          <section class="link-section" aria-labelledby="related-concepts">
+            <h2 id="related-concepts">关联知识点</h2>
+            <div class="related-grid"><a class="related-concept-card" href="../../knowledge/agent-orchestration/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Agent Orchestration</h3>
+      <p>Agent Orchestration 是多模型/多Agent协作的编排能力——决定哪个模型做什么、何时做、如何组合，它是 AI 时代新的护城河。</p>
+    </a><a class="related-concept-card" href="../../knowledge/loop-engineering/index.html">
+      <p class="card-meta">RELATED CONCEPT</p>
+      <h3>Loop Engineering</h3>
+      <p>Loop Engineering 是围绕 AI Agent 设计可重复运行的反馈系统，让 Agent 能根据目标、上下文、工具结果、验证信号和停止条件持续迭代。</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-articles">
+            <h2 id="related-articles">相关阅读</h2>
+            <div class="mini-list"><a class="article-mini" href="../../articles/ad-optimizer-role-reconstruction/index.html">
+      <span>2026-07-06</span>
+      <strong>Agent重构广告投放——投手角色重构</strong>
+      <p>很多人看到&quot;Agent+广告投放&quot;的第一反应是：哦，用自然语言代替点击操作，省事了。</p>
+    </a><a class="article-mini" href="../../articles/ad-targeting-agent-engineering/index.html">
+      <span>2026-07-06</span>
+      <strong>广告投放Agent工程化：平台生态对接与工具链架构</strong>
+      <p>当讨论&quot;用Agent操作广告投放&quot;时，大多数人的第一反应是做一个能听懂自然语言的机器人，对接广告平台API，投手说一句就执行一步。</p>
+    </a><a class="article-mini" href="../../articles/agent-harness-engineering-governable-system/index.html">
+      <span>2026-07-06</span>
+      <strong>Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论</strong>
+      <p>Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，</p>
+    </a></div>
+          </section>
+          <section class="link-section" aria-labelledby="related-projects">
+            <h2 id="related-projects">关联项目</h2>
+            <div class="mini-list"><p class="muted">暂无关联项目。</p></div>
+          </section>
+        </article>
+        <aside class="reader-aside toc-panel">
+          <h2>本文目录</h2>
+          <ol class="toc-list"><li class="toc-level-2"><a href="#section-1">核心结论</a></li><li class="toc-level-2"><a href="#section-2">二、分工之后的混乱</a></li><li class="toc-level-2"><a href="#section-3">三、和AI反复拉扯：从混乱到v1</a></li><li class="toc-level-2"><a href="#section-4">四、v1还不够：需要一个&quot;总指挥&quot;</a></li><li class="toc-level-2"><a href="#section-5">五、最终方案：主从Agent + 上下文摘要传递</a></li><li class="toc-level-2"><a href="#section-6">六、隐藏的坑：上下文窗口溢出</a></li><li class="toc-level-2"><a href="#section-7">七、6个关键坑点复盘</a></li><li class="toc-level-2"><a href="#section-8">八、方法论的通用性</a></li></ol>
+        </aside>
+      </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <span>© 2026 冲量 AI</span>
+        <div class="footer-links">
+          <a href="../../sitemap.xml">Sitemap</a>
+          <a href="../../llms.txt">llms.txt</a>
+          <a href="../../llms-full.txt">llms-full.txt</a>
+          <a href="../../robots.txt">Robots</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../assets/main.js" defer></script>
+  </body>
+</html>

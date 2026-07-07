@@ -1,0 +1,542 @@
+# 冲量 AI Full Content Summary
+
+冲量 AI 是面向新手入门 AI 产品经理的知识库，系统整理 AI Agent、Loop Engineering、MCP、Prompt Engineering 等核心概念与实战文章，帮助零基础读者建立 AI 产品认知框架。
+
+## Concepts
+
+### Modify Everything
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/modify-everything/
+- Definition: Modify Everything是指用户在软件运行过程中，可以随时对软件的任何层面进行修改的交互范式——从界面布局到功能逻辑到内容呈现，不需要编程技能，不需要退出应用，不用等官方发版。用户用自然语言描述需求，AI理解意图并执行修改，即时生效。理念源自Ubisoft在GDC 2017的数据驱动动态效果实践，AI介入后从"参数级调整"跃迁为"改一切"。
+- Citation summary: Modify Everything推翻的不是"写代码的效率问题"而是"软件统一所有人偏好"这个工业时代遗产——当AI让个性化的边际成本趋近于零，一个软件为每个人呈现不同形态不再需要开发多个版本，而是"一个底座+AI实时修改"。
+- Aliases: 魔改一切, 运行时交互范式, Modify Everything范式
+- Related concepts: vibe-coding, agent-harness
+
+### Agent Harness
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-harness/
+- Definition: Agent Harness 是模型外部的一整套驾驭系统，负责提示词管理与上下文构建、工具调用流程编排、运行状态与 Memory 管理、Skills/MCP/插件加载调度、运行轨迹记录与复盘、数据治理与评估反馈，使 Agent = Model + Harness。
+- Citation summary: Agent 不等于模型——真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness，它决定模型在什么场景下使用什么工具、遵循什么边界、如何记录过程。
+- Aliases: Agent驾驭系统, Harness工程化, Agent脚手架
+- Related concepts: harness-engineer, loop-engineering, mcp, skill, agent-orchestration, context-engineering, generator-paradox
+
+### Agent Orchestration
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-orchestration/
+- Definition: Agent Orchestration 是一种围绕多模型协作设计路由策略、上下文工程和质量监控的系统方法，通过为每一步任务选择最合适的模型、隔离上下文、交叉校验结果，使多模型协作产出的质量超越任何单模型的上限。
+- Citation summary: 编排能力是新护城河——模型是棋子，编排是棋手，棋子越来越像，棋手的差距越来越大。
+- Aliases: 多模型编排, Agent编排, 多Agent协作
+- Related concepts: harness-engineer, loop-engineering, context-engineering, mcp, agent-harness, generator-paradox
+
+### Agent Security
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/agent-security/
+- Definition: Agent 安全是指在 AI Agent 具备自主感知、推理、决策和执行能力的背景下，围绕 Agent 的权限边界、行为可控性、数据安全性和合规性所展开的系统性安全治理框架。与传统应用安全的根本差异在于：Agent 拥有自主决策权——即使代码完全安全，AI 的"合理推理"仍可能导致危险行为。
+- Citation summary: Agent安全的本质是解决AI自主性带来的新风险类别——传统安全假设执行者是确定性程序，而Agent的执行者是一个会自主推理的AI，权限悖论的解法不是增减权限而是建立分级动态可审计的权限控制体系。
+- Aliases: Agent安全, 智能体安全, AI安全合规
+- Related concepts: agent-harness, loop-engineering, agent-orchestration
+
+### Context Engineering
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/context-engineering/
+- Definition: Context Engineering 是一种围绕大模型上下文窗口进行结构化管理的方法论，它关注如何把稳定的规则、动态的任务状态和实时的对话指令分层组织，使模型在每次调用时以最低的 token 成本恢复到最佳工作状态。
+- Citation summary: Context Engineering 的核心是把上下文分为可缓存的稳定层和不可缓存的动态层，用文件系统持久化，让 AI 在每次新对话里以最少的 token 恢复到最佳工作状态。
+- Aliases: 上下文工程, 上下文管理
+- Related concepts: prompt-engineer, loop-engineering, harness-engineer, vibe-coding, spec-driven-development
+
+### DSL
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/dsl/
+- Definition: DSL 是面向特定领域设计的表达语言，它用更贴近业务或系统边界的语法，降低复杂任务的表达和执行成本。
+- Citation summary: DSL 在 AI 时代的价值是提供稳定的中间表达，让人、模型和系统能围绕同一套领域语言协作。
+- Aliases: Domain Specific Language, 领域专用语言, 领域语言
+- Related concepts: prompt-engineer, harness-engineer, llm-wiki
+
+### Generator Paradox
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/generator-paradox/
+- Definition: 发电机悖论是指早期工厂把蒸汽机换成电机却保留旧联动轴结构时生产率并不跃升，真正飞跃发生在围绕新动力重新设计整个工厂之后。在 Agent 时代重演：单纯把 Agent 嵌进旧工作流只是"换动力源不改工厂结构"，生产力质变 = Agent + Harness，需要更高自主性与更强治理结构同时成立。
+- Citation summary: 发电机悖论——电动机换上蒸汽机却保留联动轴不会提升生产率，Agent嵌入旧工作流只是"换动力源不改工厂结构"，生产力质变 = Agent + Harness。
+- Aliases: 发电机悖论, 生产力悖论, Agent时代的发电机悖论
+- Related concepts: harness-engineer, agent-harness, agent-orchestration, loop-engineering, skill
+
+### Harness Engineer
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/harness-engineer/
+- Definition: Harness Engineer 负责围绕模型和 AI 应用构建评测、工具、数据、流程与反馈回路，使模型能力能够稳定进入真实系统。
+- Citation summary: Harness Engineer 的核心是为 AI 系统建立可复现的运行与评测基座，让模型能力能够稳定进入生产流程。
+- Aliases: AI Harness Engineer, 评测基座工程师, Harness 工程师
+- Related concepts: prompt-engineer, dsl, llm-wiki
+
+### Loop Engineering
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/loop-engineering/
+- Definition: Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。
+- Citation summary: Loop Engineering 是一种围绕 AI Agent 设计反馈循环和控制系统的方法，它通过目标、上下文、工具、验证、状态记忆和停止条件，让 Agent 能从一次性输出走向可审查、可迭代、可验证的结果交付。
+- Aliases: 
+- Related concepts: prompt-engineer, harness-engineer, dsl, geo, llm-wiki
+
+### MCP (Model Context Protocol)
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/mcp/
+- Definition: MCP 是一种连接 AI 模型与外部工具/数据源的标准化协议，通过 Schema 描述工具能力、权限控制管理访问边界，使不同 AI 工具能对接同一套服务。其本质是治理协议而非效率协议。
+- Citation summary: MCP 的本质是一套治理协议，它解决的是"谁有权做什么"而不是"怎么做最快"——大多数人不需要企业级权限管理，却在为它的全部成本买单。
+- Aliases: 模型上下文协议, MCP协议
+- Related concepts: skill, harness-engineer, agent-orchestration, prompt-engineer, agent-harness
+
+### Multi-Model Collaboration
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/multi-model-collaboration/
+- Definition: 多模型协作是指让多个AI模型（可以跨厂商或同厂商不同型号）分工配合完成同一任务的架构模式。核心是通过路由策略将任务分发给最合适的模型，再通过汇总、审校、投票等机制整合输出。Mixture-of-Agents(MoA)是其学术原型，2026年已被微软Copilot Cowork、Manus等产品化。
+- Citation summary: 多模型协作的本质不是"选最强模型"而是"组合各模型的长板"——GPT单独42.7分Claude单独43.3分，协作后57.4分，提升不是线性的是质的飞跃，因为不同模型的比较优势互补了彼此盲区。
+- Aliases: 多模型协作, MoA, Mixture of Agents, 多模型编排
+- Related concepts: agent-orchestration, orchestration-moat, loop-engineering
+
+### Orchestration as Moat
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/orchestration-moat/
+- Definition: 编排即护城河是指当头部AI模型能力差距缩小到个位数百分点后，多模型编排能力（路由策略、上下文工程、工具链整合）取代模型能力本身成为可持续竞争优势的现象。核心判断是：模型是棋子越来越像，编排是棋手差距越来越大。
+- Citation summary: 模型是棋子编排是棋手——棋子越来越像（GPT和Claude差距不到1分），棋手的差距越来越大（协作后57.4分vs单独43分），护城河正从"谁的模型更强"迁移到"谁的编排更会组合"。
+- Aliases: 编排即护城河, 编排能力护城河, Orchestration Moat
+- Related concepts: multi-model-collaboration, agent-orchestration, harness-engineer
+
+### Prompt Engineer
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/prompt-engineer/
+- Definition: Prompt Engineer 负责设计和迭代模型输入，使大模型在具体任务中更稳定地理解目标、调用上下文、遵守约束并产出可评估结果。
+- Citation summary: Prompt Engineer 的核心不是写提示词，而是把任务、上下文、约束和评估标准组织成模型可执行的输入结构。
+- Aliases: 提示词工程师, Prompt Engineering, 提示词工程
+- Related concepts: harness-engineer, dsl, llm-wiki
+
+### Spec-Driven Development
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/spec-driven-development/
+- Definition: Spec-Driven Development 是一种将模糊业务需求约束为 AI Agent 和工程系统都能执行的结构化任务说明的方法，Spec 定义了输入输出、AI 能力边界、异常处理、验收标准和人工确认节点，使人、AI 和工程系统共享同一套可执行上下文。
+- Citation summary: Spec 不是更长的 PRD，而是把业务需求转成研发和 AI Coding 工具都能执行的结构化工程上下文——产品经理的角色从需求描述者变成上下文设计师。
+- Aliases: Spec驱动开发, SDD, 规格驱动开发
+- Related concepts: prompt-engineer, context-engineering, loop-engineering, harness-engineer, vibe-coding, dsl
+
+### Vibe Coding
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/vibe-coding/
+- Definition: Vibe Coding 是一种以自然语言意图表达为核心、以三层文档体系（README.md/TODO.md/CLAUDE.md）管理上下文、以 Prompt Caching 优化成本的编程范式，其实质是编程能力从少数人身上被拆解下来平分给每一个人。
+- Citation summary: Vibe Coding 的本质不是"AI帮你写代码"，是编程能力从少数人身上被拆解下来平分给每一个人——感觉比精确重要，意图比语法重要，会说话比会写代码重要。
+- Aliases: 感觉编程, 自然语言编程, AI辅助编程
+- Related concepts: context-engineering, prompt-engineer, spec-driven-development, skill, loop-engineering
+
+### GEO
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/geo/
+- Definition: GEO 通过清晰定义、结构化页面、可引用摘要、权威来源和稳定内链，让生成式搜索系统更容易正确引用网站内容。
+- Citation summary: GEO 的目标是让生成式搜索系统更容易理解、引用和追溯你的内容，而不是替代传统 SEO。
+- Aliases: Generative Engine Optimization, 生成式搜索优化, AI 搜索优化
+- Related concepts: llm-wiki, prompt-engineer
+
+### Newton vs Morton Paradigm
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/newton-vs-morton/
+- Definition: 牛顿思路是演绎收敛范式——寻找少数统一规律覆盖所有情况，AI中对应AGI追求、大统一模型、规模假说；莫顿思路是归纳开放范式——源自Robert K. Merton的中程理论（1949），主张大数据小定律，每条规律只解决特定场景，AI中对应场景化微调、RAG、多Agent架构。
+- Citation summary: AI时代的范式迁移不是牛顿败给莫顿，而是复杂世界不可穷举——当规则冲突超过人力维护极限，从演绎收敛转向归纳开放是必然，但统一追求与场景积累始终螺旋交叉。
+- Aliases: 牛顿思路与莫顿思路, 统一化vs个性化, 演绎收敛与归纳开放
+- Related concepts: agent-orchestration, llm-wiki, generator-paradox
+
+### LLM Wiki
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/knowledge/llm-wiki/
+- Definition: LLM Wiki 使用大模型辅助拆解长文、笔记和资料，将其组织成独立概念、概念关系、引用摘要、来源反链和知识路径，让个人知识库既能被人阅读，也能被 AI 检索系统正确理解。
+- Citation summary: LLM Wiki 的核心是用 AI 辅助拆解个人知识库，将文章、笔记和项目经验沉淀为可阅读、可检索、可引用的原子概念网络。
+- Aliases: AI Wiki, 个人知识库拆解, 原子知识库
+- Related concepts: prompt-engineer, harness-engineer, geo
+
+
+## Articles
+
+### Agent重构广告投放——投手角色重构
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ad-optimizer-role-reconstruction/
+- Date: 2026-07-06
+- Summary: 很多人看到"Agent+广告投放"的第一反应是：哦，用自然语言代替点击操作，省事了。
+- Tags: AI Agent, 广告投放, 投手角色, 多模型架构, 工具链
+- Related concepts: agent-orchestration, loop-engineering
+
+### 广告投放Agent工程化：平台生态对接与工具链架构
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ad-targeting-agent-engineering/
+- Date: 2026-07-06
+- Summary: 当讨论"用Agent操作广告投放"时，大多数人的第一反应是做一个能听懂自然语言的机器人，对接广告平台API，投手说一句就执行一步。
+- Tags: 广告投放Agent, 工具链架构, MCP协议, Function Calling, 安全治理
+- Related concepts: agent-orchestration, mcp
+
+### Agent Harness 工程化：从模型调用到可治理 Agent 系统的方法论
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/agent-harness-engineering-governable-system/
+- Date: 2026-07-06
+- Summary: Agent 不等于模型，真正决定 Agent 能否持续运行、可排查、可扩展的是模型外部的 Harness。本文系统梳理 Agent Harness 的工程化方法论——轻内核 + 插件化架构降低系统复杂度，阶段化拆分交互流程实现细粒度控制，
+- Tags: Agent Harness, 轻内核, 插件化, 运行事实, 数据闭环
+- Related concepts: loop-engineering, dsl
+
+### Agent需求准入评估体系：从上线到下线的生命周期
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/agent-requirement-admission-lifecycle/
+- Date: 2026-07-06
+- Summary: 当企业开始规模化部署 Agent 时，最先遇到的问题往往不是"能不能做出来"，而是"做出来之后有没有人用"。大量子 Agent 上线后无人问津，不仅浪费工程资源，还会拖慢整体 Agent 架构的迭代节奏。
+- Tags: AI, 知识沉淀
+- Related concepts: dsl
+
+### AI Agent 与加密支付：自主交易的新范式
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-agent-crypto-payment-autonomous-transaction/
+- Date: 2026-07-06
+- Summary: Web3体系对AI Agent的支付场景是天然适配的——Agent没有生物特征无法通过传统KYC、需要可编程的支付条件、需要结算终局性，而加密支付恰好满足这三点。这不是巧合，而是两个体系在底层逻辑上的结构性契合。
+- Tags: AI, 知识沉淀
+- Related concepts: agent-orchestration
+
+### AI内容审核双方案：抽帧与整篇的成本博弈
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-content-moderation-frame-vs-full-text/
+- Date: 2026-07-06
+- Summary: 整篇审核（字幕驱动）是当前AI短剧内容审核的最优解。 它在成本和覆盖率上碾压抽帧方案，单环节审核成本仅为市场第三方服务的13%。配合撞脸检测和选择性抽帧构成三层架构后，整体审核成本仍可控制在市场价的15-20%以内，同时覆盖率不降反升。
+- Tags: AI, 知识沉淀
+- Related concepts: generator-paradox
+
+### AI开发者社区日：AI Agent与数据层
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-dev-community-day-agent-data-layer/
+- Date: 2026-07-06
+- Summary: 这是「我」作为听众参加 AI 开发者社区日峰会、对嘉宾分享的转述与加工。上午场覆盖三位嘉宾（认知革命 / NVIDIA 全栈 / 数据层），下午补录两场深度技术内容（Apache 开源治理 + AIDLC、对象存储友好的云原生数据库）。
+- Tags: AI, 知识沉淀
+- Related concepts: agent-orchestration, agent-harness
+
+### AI行业分层与数据壁垒：为什么结构化数据是护城河
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-industry-layering-data-moat/
+- Date: 2026-07-06
+- Summary: AI行业从下到上可分为四层：Infra基础设施层 → MaaS模型即服务层 → PaaS Agent基础服务层 → SaaS应用层。越往下层门槛越高、拓展性越强；SaaS层门槛低，容易被复制。
+- Tags: AI, 知识沉淀
+- Related concepts: dsl
+
+### AI不是效率工具：从个人到企业都需要重构
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-not-efficiency-tool-individual-to-enterprise/
+- Date: 2026-07-06
+- Summary: 未来不是快到了，是已经到了。但大多数人对此毫无察觉，照样按老方式上班、干活、焦虑。
+- Tags: AI, 重构, Agent, 工作模式, 企业转型
+- Related concepts: newton-vs-morton
+
+### AI产品经理技术实践：从RAG调优到Agent架构的系统方法论
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-pm-tech-practice-rag-to-agent/
+- Date: 2026-07-06
+- Summary: 本文整理自AI产品从业者的深度技术访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、提示词编写迭代、企业AI推广策略、项目交付管理等核心议题。
+- Tags: RAG调优, 多Agent, Skill, Harness, 提示词工程
+- Related concepts: dsl, llm-wiki
+
+### AI 安全：企业落地 Agent 的安全风险与合规框架
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-security-enterprise-agent-compliance/
+- Date: 2026-07-06
+- Summary: 一位安全行业老兵（长期从事安全授权与解决方案工作）讲解企业落地 AI 智能体（Agent）的安全风险与合规框架。
+- Tags: AI, 知识沉淀
+- Related concepts: agent-security, agent-harness
+
+### AI技能复用与共享：从手动传包到仓库化
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-skill-reuse-manual-to-repository/
+- Date: 2026-07-06
+- Summary: AI技能的复用与共享正在经历从"手动传包"到"仓库化标准生态"的范式迁移，这不是渐进改良而是结构性跃迁。 谁还在用压缩包传技能文件，谁就还停留在AI工具链的石器时代。
+- Tags: AI, 知识沉淀
+- Related concepts: dsl
+
+### AI小工具赛道定位与企业内部协作模式
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-tool-positioning-enterprise-collaboration/
+- Date: 2026-07-06
+- Summary: AI小工具不是大厂赛道降级的替代品，而是企业内部AI落地投入产出比最高的一条路径。它的竞争力来自三个特征——场景够窄、搭档够紧、工程够轻。桌面智能体解决"通用操作覆盖"问题，常规产研解决"长周期系统迭代"问题，而AI小工具解决的是"特定业务环节的纵深穿透"问题——这个问题，
+- Tags: AI, 知识沉淀
+- Related concepts: newton-vs-morton
+
+### CLI化与AI接口革命：从MCP到Skill的软件基础设施迁移
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/cli-revolution-mcp-to-skill/
+- Date: 2026-07-06
+- Summary: CLI不是AI的工具选项，是AI的母语。MCP的本质是一套治理协议，解决"谁有权做什么"而非"怎么做最快"——大多数人不需要企业级权限管理，却在为它的全部成本买单。Skill用1/50的成本做到了MCP Schema同样的事。
+- Tags: CLI化, MCP, Skill生态, AI接口, 软件革命
+- Related concepts: dsl
+
+### 企业级Agent落地实践：从需求准入到知识治理
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-agent-implementation-governance/
+- Date: 2026-07-06
+- Summary: 企业级Agent落地不是技术问题，是管理问题。需求准入要前置评估频率和满意度，避免上线后无人使用。知识收集要靠管理手段而非技术自动化——梳理清单、下发部门、固定对接人、定期上报、通报推动。Skill Hub的新建标准是主干流程SOP是否变更。
+- Tags: 企业级Agent, 知识问答, Skill Hub, RAG治理, Agent推广
+- Related concepts: dsl, llm-wiki
+
+### 企业级AI产品实践：从RAG调优到Agent架构的系统性方法论
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-ai-product-practice-rag-to-agent/
+- Date: 2026-07-06
+- Summary: 本文整理自多场AI产品从业者的深度访谈，去除了个人身份与企业信息，聚焦于可复用的技术方法论与行业认知。涵盖RAG全链路调优、多Agent架构设计、Skill/Harness工程体系、企业AI推广策略等核心议题。
+- Tags: AI, 知识沉淀
+- Related concepts: dsl, llm-wiki
+
+### 企业AI PM平台架构实践：从需求到自动开发
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-aipm-platform-architecture/
+- Date: 2026-07-06
+- Summary: 企业AI PM（产品管理）平台的核心命题是：用AI重新定义需求→设计→开发的全链路流转，同时守住"关键决策必须人确认"的底线。 一套经过29个项目迭代验证的企业级AI PM平台，沉淀出固定交付SOP，验证了这条路径的工程可行性。
+- Tags: AI, 知识沉淀
+- Related concepts: dsl, llm-wiki
+
+### 企业级多Agent架构落地：意图识别与专家分发
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/enterprise-multi-agent-intent-routing/
+- Date: 2026-07-06
+- Summary: 当AI Agent从单点实验走向企业级生产系统时，"一个模型解决一切"的幻想迅速被现实击碎。以校园智能助手为例——这类系统覆盖老师、学生、教工、家长多类用户、横跨就业与学术等多场景，传统RAG问答在意图模糊、场景交叉的复杂需求面前力不从心。
+- Tags: AI, 知识沉淀
+- Related concepts: llm-wiki
+
+### Agent时代的发电机悖论：从节点替换到治理重构
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/generator-paradox-agent-governance/
+- Date: 2026-07-06
+- Summary: 电动机刚进入工厂时，如果只是把蒸汽机换成电机却保留旧有联动轴，生产率并不会跃升——真正的飞跃发生在围绕新动力重新设计整个工厂之后。AI时代正在重演这一历史。单纯把Agent嵌进旧工作流，只是"换动力源不改工厂结构"。
+- Tags: Agent, Harness, 发电机悖论, 分级治理, Multi-Agent
+- Related concepts: harness-engineer
+
+### GUI Agent：CLI化终局之前的桥梁，中心化的入口
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/gui-agent-single-step-vs-multi-step/
+- Date: 2026-07-06
+- Summary: 所有软件最终都会CLI化吗？
+- Tags: GUI Agent, Computer Use, ReAct, 多步可靠性, 训练数据飞轮
+- Related concepts: dsl
+
+### Harness Engineer：结构化的尽头是替代
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/harness-engineer-structural-replacement/
+- Date: 2026-07-06
+- Summary: 编程是人类觉得难但AI最先攻克的事，因为编程的对错标准唯一，数据天然结构化。Prompt Engineer、Context Engineer、Harness Engineer表面是三个技能的演进，本质是同一套机制——把人的表达、数据、决策一层层结构化。
+- Tags: Harness Engineer, 结构化, 数据壁垒, Anthropic, AI范式迁移
+- Related concepts: harness-engineer, prompt-engineer
+
+### 知产AI能力中台设计：引擎化编排与引导式交付方法论
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ip-ai-platform-engine-orchestration/
+- Date: 2026-07-06
+- Summary: 知识产权行业的AI产品设计，核心不是"做一个知产聊天机器人"，而是构建一套"能力中台"——把商标、专利、版权全链条中的专业环节封装成可调用、可组合、可编排的"引擎"。
+- Tags: AI产品架构, 知识产权, 能力中台, Agent编排, 引导式交付
+- Related concepts: dsl
+
+### 本体论离你有多远：LLM时代的知识结构升级
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/link-graph-to-knowledge-graph-ontology/
+- Date: 2026-07-06
+- Summary: 先说一个你可能听过的词：知识图谱。再说一个你可能没听过的词：本体论。
+- Tags: AI, 知识沉淀
+- Related concepts: llm-wiki
+
+### Loop Engineering：设计模式、工具链与实践案例
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-design-patterns/
+- Date: 2026-07-06
+- Summary: 本文是Loop Engineering系列的第三篇，聚焦已有两篇文章未覆盖的内容：认知循环的内部结构、六大设计模式、工具链生态全景、以及真实系统的实践案例。范式演进、五要素、三个工程层级等内容请参见系列前两篇。
+- Tags: Loop Engineering, Agent Loop, 设计模式, 工具链, 框架选型
+- Related concepts: loop-engineering
+
+### Loop Engineering——AI工程范式迁移
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-paradigm-shift/
+- Date: 2026-07-06
+- Summary: 软件工程六十年，工程师的定义一直是"写代码的人"。不管你用什么语言、什么框架、什么架构，最终产出物是代码。Loop Engineering标志着这个定义第一次被动摇：工程师不再直接产出代码，而是设计让AI产出代码的循环系统。 循环，而非提示词，成为AI工程的基本单位。
+- Tags: Loop Engineering, AI开发范式, Agent Loop, 循环工程
+- Related concepts: loop-engineering, harness-engineer, prompt-engineer
+
+### 模型即产品，Loop即未来：软件3.0的第一性原理
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/model-as-product-loop-as-future/
+- Date: 2026-07-06
+- Summary: 软件的历史是一部不断"去代码化"的历史。Vibe Coding出现后，程序员从规则编写者变成幽灵的召唤师——定义目标、描述意图、校准方向。中间件、API、UI框架这些补偿机制变成了"熵"。软件3.0的最整洁架构是：输入→神经网络→输出。
+- Tags: 软件3.0, 模型即产品, Loop, AGI, 弗兰肯斯坦时刻
+- Related concepts: dsl
+
+### Modify Everything：一种新的运行时交互范式
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/modify-everything-new-runtime-interaction/
+- Date: 2026-07-06
+- Summary: Modify Everything 不是游戏专属的概念。它的本质是一种新的交互范式——用户对当前使用的软件或应用有任何不满，可以随时修改，不用等官方更新。
+- Tags: AI, 知识沉淀
+- Related concepts: modify-everything, vibe-coding
+
+### 多模型协作全景图：六大平台技术架构与最优组合
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/multi-model-collaboration-landscape/
+- Date: 2026-07-06
+- Summary: 本文是技术地图，回答"多模型协作有哪些做法、各自怎么实现、效果如何"。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答"为什么编排能力是护城河"。两文互补：一文是地图，一文是论点。
+- Tags: 多模型协作, MoA, Agent编排, 技术全景
+- Related concepts: multi-model-collaboration, orchestration-moat
+
+### 智能的本质：从牛顿思路到莫顿思路
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/nature-of-intelligence-newton-vs-morton/
+- Date: 2026-07-06
+- Summary: 我们一直以为智能是"大道至简"——找到终极公式一统天下。但真正的智能恰恰相反：它是无数个有条件成立的小规律叠加成的网络，以及在它们之间灵活导航的能力。用牛顿定律的框架去构建AI，方向从一开始就错了。
+- Tags: 智能本质, 牛顿思路, 莫顿思路, 因果推断, 具身性
+- Related concepts: newton-vs-morton
+
+### 本体论（Ontology）适配性评估与落地方案
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ontology-adaptability-assessment/
+- Date: 2026-07-06
+- Summary: 评估日期：2026-07-05
+- Tags: AI, 知识沉淀
+- Related concepts: loop-engineering
+
+### 编排能力是新护城河——多模型协作的竞争逻辑
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/orchestration-as-moat/
+- Date: 2026-07-06
+- Summary: 2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从"谁的模型更强"迁移到"谁的编排更会组合"。
+- Tags: 多模型协作, Agent编排, 护城河, MoA
+- Related concepts: orchestration-moat, multi-model-collaboration
+
+### 基于PDF内容的智能RAG助手：多关键词并行检索方法论
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/pdf-smart-rag-multi-keyword-retrieval/
+- Date: 2026-07-06
+- Summary: 传统RAG直接用用户原始query检索，口语化表达和术语不规范导致召回率低。解法是让LLM先从问题中提取6-8个精准关键词，并行检索知识库后整合结果生成回答。核心设计：关键词扩展解决表达问题，并行检索扩大召回范围，来源追溯保证可信度，空值保护防止幻觉。
+- Tags: RAG, 多关键词检索, 知识库, Dify, 检索优化
+- Related concepts: llm-wiki
+
+### 产品深度报告Agent：主从架构与上下文摘要传递
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/product-report-agent-master-slave-architecture/
+- Date: 2026-07-06
+- Summary: 搭一个能独立生成行业深度报告的Agent，踩了6个坑后摸索出一套方法论——主Agent做总指挥（调度、统筹、汇总），分Agent做领域专家（各自模块专业分析）。关键突破：按依赖关系排序而非章节顺序，执行摘要必须最后生成；
+- Tags: Agent架构, 主从Agent, 上下文管理, 依赖排序, 报告生成
+- Related concepts: agent-orchestration, loop-engineering
+
+### 生产级Agent技术分享：GUI Agent失败模式与需求分析Engine架构
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/production-agent-gui-failure-modes/
+- Date: 2026-07-06
+- Summary: GUI Agent的三种常见失败模式——不看图失败、COT漂移、不可信历史——都可以通过SFT数据清洗和大规模rollout+在线RL解决。需求分析Engine采用准备层→编排层→能力层→数据层四层架构，主进程+子Agent分层解决上下文爆炸。
+- Tags: GUI Agent, 需求分析Engine, Agent失败模式, 模型选型, Loop Engineering
+- Related concepts: loop-engineering, dsl, llm-wiki
+
+### Prompt工程 / 多Agent / RAG 三类技术基础认知
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/prompt-engineering-multi-agent-rag/
+- Date: 2026-07-06
+- Summary: Prompt工程、多Agent架构、RAG（检索增强生成）是当前Agent工程化的三类基础设施技术。行业公开调研显示，这三类技术已成为企业级AI应用的标配组件。三者并非互斥关系，而是在不同环节各自发挥作用的互补技术栈：Prompt工程解决"如何与LLM高效沟通"，
+- Tags: AI, 知识沉淀
+- Related concepts: dsl, llm-wiki
+
+### 提示词、Harness与RAG：AI工具链的系统拼图
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/prompt-harness-rag-toolchain-puzzle/
+- Date: 2026-07-06
+- Summary: 提示词不是一段文字，是三层拼图——内置系统指令、企业云端策略、用户Skill。Skill是提示词的"稳定器"，目的是别让系统提示词乱动。Harness的核是"问→做→问"的无限循环。RAG让模型读到它不知道的东西。
+- Tags: 提示词工程, Harness, RAG, Skill, Agent架构
+- Related concepts: dsl, llm-wiki
+
+### 从RAG到Harness：AI助手实战升级与数据库原生架构
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/rag-to-harness-ai-assistant-upgrade/
+- Date: 2026-07-06
+- Summary: 一个跑了大半年的AI校园助手，RAG问答效果不错（Top3准确率92%+），但一个点踩案例暴露了根本问题——只知道答错了，不知道为什么答错。升级为数据库原生Harness后，每次Agent执行生成唯一run_id，全链路（意图→分发→检索→重排→工具→生成→反馈）结构化记录。
+- Tags: RAG, Agent Harness, 数据库原生, 可观测性, 多Agent
+- Related concepts: harness-engineer, prompt-engineer, llm-wiki
+
+### 需求分析Engine：把需求工程变成Agent循环
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/requirement-analysis-engine-agent-loop/
+- Date: 2026-07-06
+- Summary: 需求分析这件事，在软件开发流程里一直是个尴尬的角色。
+- Tags: 需求分析Engine, Agent架构, MCP, LLM-as-Judge, 可观测性
+- Related concepts: loop-engineering, spec-driven-development
+
+### SaaS正在被AI-Agent肢解：从软件即服务到能力即服务
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/saas-disrupted-by-ai-agent/
+- Date: 2026-07-06
+- Summary: AI Agent出现后，SaaS作为"翻译层"的存在感归零——用户不再跟界面交互，而是跟AI对话，AI直接调用底层能力。SaaS的价值重心从界面迁移到能力，定价模式从按席位转向按调用，竞争回归到数据壁垒、网络效应和能力深度。这不是某个SaaS的问题，是整个行业的生存危机。
+- Tags: SaaS, AI Agent, 能力即服务, CLI化, 定价模式
+- Related concepts: dsl
+
+### 自研Agent中枢系统架构：多工具管控、上下文桥接与B端商业化判断
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/self-built-agent-hub-architecture/
+- Date: 2026-07-06
+- Summary: 当企业内部AI工具从"一个人用一套工作流"扩展到"几百人各用多个AI工具"时，单点工作流不够了——需要一个Agent中枢系统做统一管控。核心模块包括：SSO身份识别、Agent注册中心、多工具API Key统管、本地客户端与服务端的上下文桥接、Tool Hub底层集成。
+- Tags: Agent中枢系统, 多工具管控, 上下文桥接, Tool Hub, B端商业化
+- Related concepts: dsl, llm-wiki
+
+### Spec驱动开发：AI时代产品研发协作的范式迁移
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/spec-driven-development/
+- Date: 2026-07-06
+- Summary: AI介入产品研发后，PRD停在业务描述层的局限性被放大——AI Agent最怕上下文模糊，而传统PRD恰恰把二次翻译留给了人。Spec不是更长的PRD，而是把业务需求转成研发和AI工具都能执行的结构化工程上下文。
+- Tags: Spec驱动开发, 产品研发协作, AI Coding, 上下文工程, SDD
+- Related concepts: spec-driven-development
+
+### 统一化vs个性化技术哲学：牛顿思路与莫顿思路
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/unification-vs-personalization-newton-morton/
+- Date: 2026-07-06
+- Summary: 在技术架构与AI发展路径的选择上，存在两种根本性的哲学分野：牛顿思路追求用少数统一规律解决所有问题；莫顿思路主张针对具体场景积累"小定律"，一个小规律只解决对应小场景的问题。
+- Tags: AI, 知识沉淀
+- Related concepts: newton-vs-morton
+
+### Vibe Coding与AI平权：从技能垄断到能力民主化
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/vibe-coding-ai-democratization/
+- Date: 2026-07-06
+- Summary: 程序员是最先被AI淘汰的职业，不是因为AI讨厌程序员，而是因为程序员是离AI最近的人。Vibe Coding的本质不是"AI帮你写代码"，是编程能力从少数人身上被拆解下来，平分给每一个人。
+- Tags: Vibe Coding, AI平权, Skill原子化, 数据采集器, AGI临界质量
+- Related concepts: dsl
+
+### Vibe Coding上下文管理：三层文档系统与Prompt Caching优化
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/vibe-coding-context-management/
+- Date: 2026-07-06
+- Summary: Claude Code的"失忆"问题本质是长对话贵、短对话忘的矛盾。解法是用三层文件系统——README.md（项目级）、TODO.md（任务级）、CLAUDE.md（对话级）——让AI每次开新对话自动恢复到最佳工作状态。
+- Tags: Vibe Coding, 上下文管理, CLAUDE.md, Prompt Caching, 三层文档
+- Related concepts: vibe-coding, context-engineering
+
+### AI 从业者如何搭建自己的公开知识库
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/ai-public-knowledge-system/
+- Date: 2026-07-05
+- Summary: 这篇文章讨论 AI 从业者如何把文章、项目和知识库组织成一个可阅读、可检索、可引用的公开系统，并兼顾 SEO 与 GEO。
+- Tags: AI, 知识库, GEO, 个人网站
+- Related concepts: llm-wiki, prompt-engineer, harness-engineer, geo
+
+### AI Agent 的反馈循环：Loop Engineering 入门
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/articles/loop-engineering-ai-agent-feedback-loops/
+- Date: 2026-07-05
+- Summary: Loop Engineering 是一种设计 AI Agent 反馈循环的方法，本文介绍其核心概念、构件和实际应用。
+- Tags: AI 工程化, Agent, 反馈循环, 工作流
+- Related concepts: loop-engineering, prompt-engineer, harness-engineer, dsl, geo, llm-wiki
+
+
+## Projects
+
+### 精选 GitHub 项目占位
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/projects/
+- Summary: 用于展示最能代表你判断力和执行力的 GitHub 项目。待补充仓库链接、项目背景、核心能力、技术栈和你的贡献。
+- Related concepts: harness-engineer, llm-wiki
+
+### AI 工具项目占位
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/projects/
+- Summary: 适合展示知识库处理、Agent 工具链、评估系统、自动化流程等方向的项目。
+- Related concepts: prompt-engineer, harness-engineer
+
+### 实验项目占位
+
+- URL: https://pengcong2020520.github.io/chongliang-ai-site/projects/
+- Summary: 适合放还在探索中的原型和实验，保留问题意识、实验结论和下一步。
+- Related concepts: dsl
+
