@@ -55,25 +55,11 @@
       <description>这是「我」作为听众参加 AI 开发者社区日峰会、对嘉宾分享的转述与加工。上午场覆盖三位嘉宾（认知革命 / NVIDIA 全栈 / 数据层），下午补录两场深度技术内容（Apache 开源治理 + AIDLC、对象存储友好的云原生数据库）。</description>
     </item>
     <item>
-      <title>AI 掼蛋比赛平台架构与赛前准备说明</title>
-      <link>https://chongliang.ai/articles/ai-guandan-platform-architecture/</link>
-      <guid>https://chongliang.ai/articles/ai-guandan-platform-architecture/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>以下为活动现场讲解内容的知识化重构。每个知识点独立成节，补充背景、原理与延展，使读者能系统掌握「AI 掼蛋平台」这一话题。金句归讲解者。</description>
-    </item>
-    <item>
       <title>AI行业分层与数据壁垒：为什么结构化数据是护城河</title>
       <link>https://chongliang.ai/articles/ai-industry-layering-data-moat/</link>
       <guid>https://chongliang.ai/articles/ai-industry-layering-data-moat/</guid>
       <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
       <description>AI行业从下到上可分为四层：Infra基础设施层 → MaaS模型即服务层 → PaaS Agent基础服务层 → SaaS应用层。越往下层门槛越高、拓展性越强；SaaS层门槛低，容易被复制。</description>
-    </item>
-    <item>
-      <title>AI内容多语言生产管线：从字幕到配音的全流程</title>
-      <link>https://chongliang.ai/articles/ai-multilingual-pipeline-subtitle-to-dubbing/</link>
-      <guid>https://chongliang.ai/articles/ai-multilingual-pipeline-subtitle-to-dubbing/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>AI短剧出海的核心挑战不在于&quot;拍出来&quot;，而在于&quot;译出去&quot;。一部英语原声短剧要进入西语、葡语、印尼语等市场，需要经过音轨提取 → 台词识别 → 角色拆分 → 字幕翻译 → 时间轴对齐 → AI配音匹配的完整管线。</description>
     </item>
     <item>
       <title>AI不是效率工具：从个人到企业都需要重构</title>
@@ -97,13 +83,6 @@
       <description>一位安全行业老兵（长期从事安全授权与解决方案工作）讲解企业落地 AI 智能体（Agent）的安全风险与合规框架。</description>
     </item>
     <item>
-      <title>AI短剧出海业务架构：从内容引入到变现分账的全链路</title>
-      <link>https://chongliang.ai/articles/ai-short-drama-overseas-business-architecture/</link>
-      <guid>https://chongliang.ai/articles/ai-short-drama-overseas-business-architecture/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>AI短剧出海的核心链路是：内容引入（创作者平台/版权方）→ AI多语言译制生产 → APP出海分发 → C端变现（会员/虚拟货币/广告）→ 数据结算与分成。核心判断：做产品功能是&quot;术&quot;，理解用户在看什么内容才是&quot;道&quot;。业务的关键不在技术能力，而在内容获取能力和分账机制的信任建立。</description>
-    </item>
-    <item>
       <title>AI技能复用与共享：从手动传包到仓库化</title>
       <link>https://chongliang.ai/articles/ai-skill-reuse-manual-to-repository/</link>
       <guid>https://chongliang.ai/articles/ai-skill-reuse-manual-to-repository/</guid>
@@ -123,13 +102,6 @@
       <guid>https://chongliang.ai/articles/cli-revolution-mcp-to-skill/</guid>
       <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
       <description>CLI不是AI的工具选项，是AI的母语。MCP的本质是一套治理协议，解决&quot;谁有权做什么&quot;而非&quot;怎么做最快&quot;——大多数人不需要企业级权限管理，却在为它的全部成本买单。Skill用1/50的成本做到了MCP Schema同样的事。</description>
-    </item>
-    <item>
-      <title>闭环即护城河——短剧投放自动迭代的竞争逻辑</title>
-      <link>https://chongliang.ai/articles/closed-loop-as-moat-short-drama-ad-iteration/</link>
-      <guid>https://chongliang.ai/articles/closed-loop-as-moat-short-drama-ad-iteration/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>短剧行业有一个反常识的现象：所有人都知道素材生命周期极短，迭代速度决定生死，但大多数团队的素材生产、投放、变现三个环节依然各自为政。</description>
     </item>
     <item>
       <title>企业级Agent落地实践：从需求准入到知识治理</title>
@@ -230,13 +202,6 @@
       <description>本文是技术地图，回答&quot;多模型协作有哪些做法、各自怎么实现、效果如何&quot;。与之配套的[[编排能力是新护城河-多模型协作的竞争逻辑]]回答&quot;为什么编排能力是护城河&quot;。两文互补：一文是地图，一文是论点。</description>
     </item>
     <item>
-      <title>多语种外挂字幕与配音方案：视频/字幕/音频解耦架构</title>
-      <link>https://chongliang.ai/articles/multilingual-subtitle-dubbing-decoupled-architecture/</link>
-      <guid>https://chongliang.ai/articles/multilingual-subtitle-dubbing-decoupled-architecture/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>传统字幕压制在视频中，用户无法自主切换语种。解法是采用&quot;一个视频+多个独立字幕文件+多个独立音频文件&quot;的解耦方案，兼容压制成片、仅外挂字幕、字幕音频全外挂三种场景。核心技术难点是播放器SDK对外挂音轨的支持，以及离线下载时的本地组装能力。</description>
-    </item>
-    <item>
       <title>智能的本质：从牛顿思路到莫顿思路</title>
       <link>https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/</link>
       <guid>https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/</guid>
@@ -256,20 +221,6 @@
       <guid>https://chongliang.ai/articles/orchestration-as-moat/</guid>
       <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
       <description>2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从&quot;谁的模型更强&quot;迁移到&quot;谁的编排更会组合&quot;。</description>
-    </item>
-    <item>
-      <title>海外AI短剧小语种配音需求分析</title>
-      <link>https://chongliang.ai/articles/overseas-short-drama-dubbing-analysis/</link>
-      <guid>https://chongliang.ai/articles/overseas-short-drama-dubbing-analysis/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>海外短剧出海的小语种AI配音是核心成本和技术难点。现状痛点包括：小语种配音自然度差、成本高、效率低。需求分析覆盖现状调研、技术方案选型、投放测试设计三个层面。核心判断：AI配音的优先级不是&quot;所有语种都做&quot;，而是&quot;先做高ROI语种，用投放数据验证后再扩展&quot;。</description>
-    </item>
-    <item>
-      <title>海外AI短剧用户分层与转化模型</title>
-      <link>https://chongliang.ai/articles/overseas-short-drama-user-segmentation/</link>
-      <guid>https://chongliang.ai/articles/overseas-short-drama-user-segmentation/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>海外AI短剧的转化本质是冲动消费+内容饥渴——染色当天（首次接触平台当天）决定一半付费决策，纯新用户当天买会员比例达七成。这不是&quot;更快的传统视频转化&quot;，而是一种完全不同的消费物种。</description>
     </item>
     <item>
       <title>基于PDF内容的智能RAG助手：多关键词并行检索方法论</title>
@@ -335,13 +286,6 @@
       <description>当企业内部AI工具从&quot;一个人用一套工作流&quot;扩展到&quot;几百人各用多个AI工具&quot;时，单点工作流不够了——需要一个Agent中枢系统做统一管控。核心模块包括：SSO身份识别、Agent注册中心、多工具API Key统管、本地客户端与服务端的上下文桥接、Tool Hub底层集成。</description>
     </item>
     <item>
-      <title>短剧投放自动迭代方案：Agent驱动的素材闭环</title>
-      <link>https://chongliang.ai/articles/short-drama-ad-auto-iteration/</link>
-      <guid>https://chongliang.ai/articles/short-drama-ad-auto-iteration/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>短剧素材生产、投放、变现三个环节相互割裂，验证周期太长。解法是用Agent搭建自动循环——素材生成→投放测试→数据采集→智能评级→自动放量/关停→二创衍生→循环迭代。核心判断：从&quot;工具化&quot;到&quot;Agent化&quot;，投放优化从&quot;人用AI工具&quot;进化为&quot;AI Agent自主决策执行&quot;。</description>
-    </item>
-    <item>
       <title>Spec驱动开发：AI时代产品研发协作的范式迁移</title>
       <link>https://chongliang.ai/articles/spec-driven-development/</link>
       <guid>https://chongliang.ai/articles/spec-driven-development/</guid>
@@ -368,20 +312,6 @@
       <guid>https://chongliang.ai/articles/vibe-coding-context-management/</guid>
       <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
       <description>Claude Code的&quot;失忆&quot;问题本质是长对话贵、短对话忘的矛盾。解法是用三层文件系统——README.md（项目级）、TODO.md（任务级）、CLAUDE.md（对话级）——让AI每次开新对话自动恢复到最佳工作状态。</description>
-    </item>
-    <item>
-      <title>爆款复刻飞轮：从素材归因到创意基因的闭环方法论</title>
-      <link>https://chongliang.ai/articles/viral-replication-flywheel-creative-gene/</link>
-      <guid>https://chongliang.ai/articles/viral-replication-flywheel-creative-gene/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>内容投放领域有一个普遍误区：把&quot;复刻爆款&quot;等同于&quot;搬运竞品&quot;。这个理解不仅错，而且危险——平台违规、版权风险、判重拒审、受众广告疲劳，四条红线同时踩上去，投入越多亏得越多。</description>
-    </item>
-    <item>
-      <title>边际成本归零：内容出海本地化的基础设施</title>
-      <link>https://chongliang.ai/articles/zero-marginal-cost-content-localization/</link>
-      <guid>https://chongliang.ai/articles/zero-marginal-cost-content-localization/</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
-      <description>内容出海这件事，大部分团队的做法是「压一遍，算一遍」——每多一个语种，就把原片重新压制一遍，字幕烧进视频、配音混进音轨，产出一个全新的视频文件。一个 10 集剧要上 5 个语种？那就是 50 次完整压制、50 份独立存储、50 个上架流程节点。</description>
     </item>
     <item>
       <title>AI 从业者如何搭建自己的公开知识库</title>

@@ -157,7 +157,7 @@ def main():
             'tags': tags,
             'concepts': concepts,
             'featured': featured,
-            'url': '/articles/{}/'.format(slug),
+            'url': 'https://chongliang.ai/articles/{}/'.format(slug),
         })
 
     # Stats

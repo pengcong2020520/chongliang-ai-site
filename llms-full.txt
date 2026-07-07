@@ -191,14 +191,6 @@
 - Tags: AI, 知识沉淀
 - Related concepts: 
 
-### AI 掼蛋比赛平台架构与赛前准备说明
-
-- URL: https://chongliang.ai/articles/ai-guandan-platform-architecture/
-- Date: 2026-07-06
-- Summary: 以下为活动现场讲解内容的知识化重构。每个知识点独立成节，补充背景、原理与延展，使读者能系统掌握「AI 掼蛋平台」这一话题。金句归讲解者。
-- Tags: AI, 知识沉淀
-- Related concepts: 
-
 ### AI行业分层与数据壁垒：为什么结构化数据是护城河
 
 - URL: https://chongliang.ai/articles/ai-industry-layering-data-moat/
@@ -206,14 +198,6 @@
 - Summary: AI行业从下到上可分为四层：Infra基础设施层 → MaaS模型即服务层 → PaaS Agent基础服务层 → SaaS应用层。越往下层门槛越高、拓展性越强；SaaS层门槛低，容易被复制。
 - Tags: AI, 知识沉淀
 - Related concepts: dsl
-
-### AI内容多语言生产管线：从字幕到配音的全流程
-
-- URL: https://chongliang.ai/articles/ai-multilingual-pipeline-subtitle-to-dubbing/
-- Date: 2026-07-06
-- Summary: AI短剧出海的核心挑战不在于"拍出来"，而在于"译出去"。一部英语原声短剧要进入西语、葡语、印尼语等市场，需要经过音轨提取 → 台词识别 → 角色拆分 → 字幕翻译 → 时间轴对齐 → AI配音匹配的完整管线。
-- Tags: AI, 知识沉淀
-- Related concepts: 
 
 ### AI不是效率工具：从个人到企业都需要重构
 
@@ -239,14 +223,6 @@
 - Tags: AI, 知识沉淀
 - Related concepts: 
 
-### AI短剧出海业务架构：从内容引入到变现分账的全链路
-
-- URL: https://chongliang.ai/articles/ai-short-drama-overseas-business-architecture/
-- Date: 2026-07-06
-- Summary: AI短剧出海的核心链路是：内容引入（创作者平台/版权方）→ AI多语言译制生产 → APP出海分发 → C端变现（会员/虚拟货币/广告）→ 数据结算与分成。核心判断：做产品功能是"术"，理解用户在看什么内容才是"道"。业务的关键不在技术能力，而在内容获取能力和分账机制的信任建立。
-- Tags: AI短剧, 内容出海, 创作者平台, 多语言译制, 版权分账
-- Related concepts: 
-
 ### AI技能复用与共享：从手动传包到仓库化
 
 - URL: https://chongliang.ai/articles/ai-skill-reuse-manual-to-repository/
@@ -270,14 +246,6 @@
 - Summary: CLI不是AI的工具选项，是AI的母语。MCP的本质是一套治理协议，解决"谁有权做什么"而非"怎么做最快"——大多数人不需要企业级权限管理，却在为它的全部成本买单。Skill用1/50的成本做到了MCP Schema同样的事。
 - Tags: CLI化, MCP, Skill生态, AI接口, 软件革命
 - Related concepts: dsl
-
-### 闭环即护城河——短剧投放自动迭代的竞争逻辑
-
-- URL: https://chongliang.ai/articles/closed-loop-as-moat-short-drama-ad-iteration/
-- Date: 2026-07-06
-- Summary: 短剧行业有一个反常识的现象：所有人都知道素材生命周期极短，迭代速度决定生死，但大多数团队的素材生产、投放、变现三个环节依然各自为政。
-- Tags: 短剧投放, 自动迭代, 闭环, 护城河, Agent
-- Related concepts: 
 
 ### 企业级Agent落地实践：从需求准入到知识治理
 
@@ -391,14 +359,6 @@
 - Tags: 多模型协作, MoA, Agent编排, 技术全景
 - Related concepts: 
 
-### 多语种外挂字幕与配音方案：视频/字幕/音频解耦架构
-
-- URL: https://chongliang.ai/articles/multilingual-subtitle-dubbing-decoupled-architecture/
-- Date: 2026-07-06
-- Summary: 传统字幕压制在视频中，用户无法自主切换语种。解法是采用"一个视频+多个独立字幕文件+多个独立音频文件"的解耦方案，兼容压制成片、仅外挂字幕、字幕音频全外挂三种场景。核心技术难点是播放器SDK对外挂音轨的支持，以及离线下载时的本地组装能力。
-- Tags: 多语种, 外挂字幕, 外挂音轨, 视频解耦, 内容出海
-- Related concepts: 
-
 ### 智能的本质：从牛顿思路到莫顿思路
 
 - URL: https://chongliang.ai/articles/nature-of-intelligence-newton-vs-morton/
@@ -422,22 +382,6 @@
 - Summary: 2026年，一个反直觉的事实正在成为行业共识：模型越来越像，但用好模型的方式越来越不一样。单模型能力差距缩小到个位数百分点，但编排系统能撬动的提升空间正在拉大。护城河正从"谁的模型更强"迁移到"谁的编排更会组合"。
 - Tags: 多模型协作, Agent编排, 护城河, MoA
 - Related concepts: 
-
-### 海外AI短剧小语种配音需求分析
-
-- URL: https://chongliang.ai/articles/overseas-short-drama-dubbing-analysis/
-- Date: 2026-07-06
-- Summary: 海外短剧出海的小语种AI配音是核心成本和技术难点。现状痛点包括：小语种配音自然度差、成本高、效率低。需求分析覆盖现状调研、技术方案选型、投放测试设计三个层面。核心判断：AI配音的优先级不是"所有语种都做"，而是"先做高ROI语种，用投放数据验证后再扩展"。
-- Tags: AI配音, 小语种, 短剧出海, 配音译制, 需求分析
-- Related concepts: 
-
-### 海外AI短剧用户分层与转化模型
-
-- URL: https://chongliang.ai/articles/overseas-short-drama-user-segmentation/
-- Date: 2026-07-06
-- Summary: 海外AI短剧的转化本质是冲动消费+内容饥渴——染色当天（首次接触平台当天）决定一半付费决策，纯新用户当天买会员比例达七成。这不是"更快的传统视频转化"，而是一种完全不同的消费物种。
-- Tags: AI, 知识沉淀
-- Related concepts: dsl
 
 ### 基于PDF内容的智能RAG助手：多关键词并行检索方法论
 
@@ -511,14 +455,6 @@
 - Tags: Agent中枢系统, 多工具管控, 上下文桥接, Tool Hub, B端商业化
 - Related concepts: dsl, llm-wiki
 
-### 短剧投放自动迭代方案：Agent驱动的素材闭环
-
-- URL: https://chongliang.ai/articles/short-drama-ad-auto-iteration/
-- Date: 2026-07-06
-- Summary: 短剧素材生产、投放、变现三个环节相互割裂，验证周期太长。解法是用Agent搭建自动循环——素材生成→投放测试→数据采集→智能评级→自动放量/关停→二创衍生→循环迭代。核心判断：从"工具化"到"Agent化"，投放优化从"人用AI工具"进化为"AI Agent自主决策执行"。
-- Tags: 短剧投放, 自动迭代, Agent, ROI优化, 素材测试
-- Related concepts: 
-
 ### Spec驱动开发：AI时代产品研发协作的范式迁移
 
 - URL: https://chongliang.ai/articles/spec-driven-development/
@@ -549,22 +485,6 @@
 - Date: 2026-07-06
 - Summary: Claude Code的"失忆"问题本质是长对话贵、短对话忘的矛盾。解法是用三层文件系统——README.md（项目级）、TODO.md（任务级）、CLAUDE.md（对话级）——让AI每次开新对话自动恢复到最佳工作状态。
 - Tags: Vibe Coding, 上下文管理, CLAUDE.md, Prompt Caching, 三层文档
-- Related concepts: 
-
-### 爆款复刻飞轮：从素材归因到创意基因的闭环方法论
-
-- URL: https://chongliang.ai/articles/viral-replication-flywheel-creative-gene/
-- Date: 2026-07-06
-- Summary: 内容投放领域有一个普遍误区：把"复刻爆款"等同于"搬运竞品"。这个理解不仅错，而且危险——平台违规、版权风险、判重拒审、受众广告疲劳，四条红线同时踩上去，投入越多亏得越多。
-- Tags: AI, 知识沉淀
-- Related concepts: 
-
-### 边际成本归零：内容出海本地化的基础设施
-
-- URL: https://chongliang.ai/articles/zero-marginal-cost-content-localization/
-- Date: 2026-07-06
-- Summary: 内容出海这件事，大部分团队的做法是「压一遍，算一遍」——每多一个语种，就把原片重新压制一遍，字幕烧进视频、配音混进音轨，产出一个全新的视频文件。一个 10 集剧要上 5 个语种？那就是 50 次完整压制、50 份独立存储、50 个上架流程节点。
-- Tags: 内容出海, 本地化, 边际成本, 字幕配音, 基础设施
 - Related concepts: 
 
 ### AI 从业者如何搭建自己的公开知识库
